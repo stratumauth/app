@@ -1,4 +1,4 @@
-Stratum is an open-source two factor authentication app for Android. Obsahuje šifrované zálohy, ikony, kategorie a velkou možnost přizpůsobení. Také má doprovodnou aplikaci pro Wear OS.
+Stratum je svobodná aplikace dvoufaktorového ověřování s otevřeným kódem pro Android. Obsahuje šifrované zálohy, ikony, kategorie a velkou možnost přizpůsobení. Také má doprovodnou aplikaci pro Wear OS.
 
 Podporuje TOTP (časově založené) a HOTP (čítačově založené) autentifikátory používající algoritmy SHA1, SHA256 nebo SHA512. Mobile-Otp (mOTP), Steam a Yandex jsou též podporovány.
 
@@ -22,7 +22,7 @@ Kromě vašeho uživatelského jména a hesla budete potřebovat kód poskytnut�
 
 (¹) *Pro čtení QR kódů aplikace vyžaduje oprávnění kamery*
 
-<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> Nejčastější dotazy</b></a>
 
 <hr>
 
