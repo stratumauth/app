@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noAuthenticators">인증기 없음</string>
+    <string name="noAuthenticatorsMessage">아무것도 없습니다. 휴대전화에서 인증기를 추가하세요.</string>
+    <string name="hotpNotSupported">HOTP 미지원</string>
+    <string name="categoryAll">모두</string>
+    <string name="offline">오프라인</string>
+    <string name="syncFailed">동기화 실패</string>
+    <string name="noFavourite">즐겨찾기 없음</string>
+    <string name="noFavouriteMessage">설정하려면 앱에서 인증기를 길게 누르세요.</string>
+    <string name="open">열기</string>
+</resources>

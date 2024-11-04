@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noAuthenticators">Nessun Autenticatore</string>
+    <string name="noAuthenticatorsMessage">Niente qui. Aggiungi alcuni autenticatori dall\'app del telefono.</string>
+    <string name="hotpNotSupported">HOTP non supportato</string>
+    <string name="categoryAll">Tutti</string>
+    <string name="offline">Non in linea</string>
+    <string name="syncFailed">Sincronizzazione non riuscita</string>
+    <string name="noFavourite">Nessun preferito</string>
+    <string name="noFavouriteMessage">Premi a lungo un autenticatore nell\'app per impostare</string>
+    <string name="open">Apri</string>
+</resources>
