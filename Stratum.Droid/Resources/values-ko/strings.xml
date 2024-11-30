@@ -91,7 +91,7 @@
     <string name="iconPacks">아이콘 팩</string>
     <string name="downloadPacks">아이콘 팩 다운로드</string>
     <string name="importIconPackSuccess">팩에서 아이콘 {0} 개를 가져왔습니다.</string>
-    <string name="invalidIconPackError">The selected file is not an Stratum icon pack</string>
+    <string name="invalidIconPackError">The selected file is not a Stratum icon pack</string>
     <string name="confirmIconPackDelete">이 아이콘 팩을 삭제하시겠습니까? 사용된 아이콘은 삭제되지 않습니다.</string>
     <!-- View the source (website) of the icon pack -->
     <string name="viewSource">View source</string>

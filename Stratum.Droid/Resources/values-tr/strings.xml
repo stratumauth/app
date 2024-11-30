@@ -45,7 +45,7 @@
     <string name="supportDevelopment">Geliştirmeyi destekle</string>
     <string name="supportDevelopmentSummary">Bana bir Kahve al ile sürekli geliştirmeyi ve güncellemeleri destekleyin</string>
     <string name="rate">Değerlendir</string>
-    <string name="rateSummary">Google Play mağazasında Stratum\'yu değerlendirin.</string>
+    <string name="rateSummary">Google Play mağazasında Stratum\'yu değerlendirin</string>
     <string name="viewGitHub">GitHub\'da görüntüle</string>
     <string name="viewGitHubSummary">Stratum deposunu GitHub\'da görüntüleyin. Bir sorunu bildirebilir, daha fazla simge ve özellik talep edebilirsiniz.</string>
     <!--
@@ -68,7 +68,7 @@
     <string name="digitsHint">Basamak</string>
     <string name="periodHint">Süre (Saniye)</string>
     <string name="counterHint">Sayaç</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Yenile</string>
     <string name="noIssuer">Bir kuruluş gerekli.</string>
     <string name="noSecret">Gizli anahtar gerekli.</string>
     <string name="noPin">Bir pin gereklidir.</string>
@@ -80,7 +80,7 @@
     <string name="periodInvalid">Geçersiz süre</string>
     <string name="counterInvalid">Sayaç geçersiz</string>
     <string name="qrCodeFormatError">Karekodu doğru biçimde değil veya okunamıyor.</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Bu QR kodu özellikle Microsoft Authenticator\'a yöneliktir ve uyumlu değildir.\n\nUyumlu bir QR kodu edinmek için \"Farklı bir Authenticator uygulaması kurun\" veya \"Uygulamayı bildirimler olmadan yapılandır\" seçeneğini seçin.</string>
     <string name="duplicateAuthenticator">Bu gizli anahtara sahip bir kimlik doğrulayıcı zaten var.</string>
     <string name="scanSuccessful">Karekod taraması başarılı</string>
     <string name="pinMessage">Bu QR koduyla ilişkili pini girin</string>
@@ -148,7 +148,7 @@
     -->
     <string name="backupNow">Şimdi Yedekle</string>
     <string name="restoreNow">Şimdi geri yükle</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
+    <string name="backupReminder">Son yedeklemenizden bu yana değişiklikler oldu</string>
     <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
     <string name="password">Parola</string>
     <string name="passwordConfirm">Parolayı Onayla</string>
@@ -164,7 +164,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">Yedekleme geri yüklenemedi</string>
     <string name="cameraPermissionError">Bir karekodunu taramak için kamera izni verilmelidir.</string>
     <string name="googlePlayNotInstalledError">Google Play cihazınızda yüklü değil.</string>
     <string name="filePickerMissing">Dosya seçici açılamıyor. Bir dosya yöneticisi kurulmalıdır.</string>
@@ -284,8 +284,8 @@
     <string name="prefTapToCopySummary">Dokunulduğunda kodu panoya kopyalayın</string>
     <string name="prefResetCopyCountTitle">Kopya Sayısını Sıfırla</string>
     <string name="prefResetCopyCountSummary">Her kimlik doğrulayıcının kopyalanma sayısını temizle</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">Sonrakine atla</string>
+    <string name="prefSkipToNextSummary">Süresi dolmaya yaklaştığında bir sonraki koda atlamaya izin ver</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
@@ -319,16 +319,16 @@
     <string name="prefAccentColourSummary">Uygulama genelinde kullanmak için bir ara renk seçin</string>
     <string name="prefTransparentStatusBarTitle">Şeffaf Durum Çubuğu</string>
     <string name="prefTransparentStatusBarSummary">Listeyi kaydırırken durum çubuğunun arkasında görünür yapın</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">Sistem Yazı Tipi</string>
+    <string name="prefSystemFontSummary">Özel bir yazı tipi yerine sistemin varsayılan yazı tipini kullan</string>
     <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Kopya sayısını sıfırlama</string>
     <!--
         About
     -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Günlüğü Görüntüle</string>
+    <string name="noLogFile">Günlük dosyası yok</string>
+    <string name="debugLog">Hata ayıklama günlüğü</string>
     <!--
         Arrays
     -->
@@ -354,7 +354,7 @@
     <string name="compactViewMode">Sıkıştırılmış</string>
     <string name="tileViewMode">Yan yana</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">None</string>
+    <string name="none">Hiçbiri</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>

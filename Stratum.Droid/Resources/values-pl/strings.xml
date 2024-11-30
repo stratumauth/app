@@ -56,7 +56,7 @@
     <string name="secretKey">Sekret</string>
     <string name="pin">Pin</string>
     <string name="showAdvancedOptions">Pokaż opcje zaawansowane</string>
-    <string name="advancedOptionsWarning">Zmieniaj te opcje tylko wtedy, gdy wiesz, co robisz, ponieważ możesz zostać zablokowany na swoim koncie.\n\nKontynuować?</string>
+    <string name="advancedOptionsWarning">Zmieniaj te opcje tylko wtedy, gdy wiesz, co robisz. W przeciwnym razie możesz stracić dostęp do swojego konta.\n\nKontynuować?</string>
     <string name="confirmAuthenticatorDelete">Usunięcie tego wpisu uniemożliwi generowanie kodów dla tego konta. Nie oznacza to, że uwierzytelnianie dwuskładnikowe jest wyłączone.\n\nUsunięcie tego wpisu może uniemożliwić dostęp do konta.\nUpewnij się, że uwierzytelnianie dwuskładnikowe jest wyłączone lub że masz kody odzyskiwania.\n\nKontynuować?</string>
     <string name="useCustomIcon">Użyj niestandardowej ikony</string>
     <string name="copiedToClipboard">Kod został skopiowany do schowka</string>
@@ -68,7 +68,7 @@
     <string name="digitsHint">Cyfr</string>
     <string name="periodHint">Okres (sekundy)</string>
     <string name="counterHint">Licznik</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Odśwież</string>
     <string name="noIssuer">Wystawca jest wymagany</string>
     <string name="noSecret">Sekret jest wymagany</string>
     <string name="noPin">Pin jest wymagany</string>

@@ -45,7 +45,7 @@
     <string name="supportDevelopment">Apoyar el desarrollo</string>
     <string name="supportDevelopmentSummary">Apoya el desarrollo continuo y las actualizaciones comprándome una taza de café</string>
     <string name="rate">Valorar</string>
-    <string name="rateSummary">Valora Stratum en la tienda Google Play.</string>
+    <string name="rateSummary">Valora Stratum en la tienda Google Play</string>
     <string name="viewGitHub">Ver en GitHub</string>
     <string name="viewGitHubSummary">Ver el repositorio Stratum en GitHub. Puede reportar un problema, solicitar más iconos y características.</string>
     <!--
@@ -68,7 +68,7 @@
     <string name="digitsHint">Dígitos</string>
     <string name="periodHint">Período (segundos)</string>
     <string name="counterHint">Contador</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Actualizar</string>
     <string name="noIssuer">Un Emisor es requerido.</string>
     <string name="noSecret">Una Clave secreta es requerida.</string>
     <string name="noPin">Un pin es requerido</string>
