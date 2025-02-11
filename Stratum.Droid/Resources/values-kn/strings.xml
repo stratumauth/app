@@ -110,7 +110,7 @@
     <string name="backupToFile">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾದ ಫೈಲ್‌ಗೆ ಬ್ಯಾಕ್ ಅಪ್ ಮಾಡಿ (ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ)</string>
     <string name="backupToFileMessage">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾದ ಬ್ಯಾಕ್‌ಅಪ್ ಫೈಲ್‌ಗೆ ನಿಮ್ಮ ಎಲ್ಲಾ ದೃಢೀಕರಣಗಳು, ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಿ. ಈ ಫೈಲ್ ಅನ್ನು ಆ್ಯಪ್‌ನಲ್ಲಿ ಮರುಸ್ಥಾಪಿಸಬಹುದು.</string>
     <string name="backupHtml">HTML ಫೈಲ್‌ಗೆ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
-    <string name="backupHtmlMessage">ಕ್ಯೂಆರ್ ಕೋಡ್‌ಗಳೊಂದಿಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡದ HTML ಡಾಕ್ಯುಮೆಂಟ್‌ಗೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಉಳಿಸಿ. ಮರುಸ್ಥಾಪಿಸಲು, ಈ ಕೋಡ್‌ಗಳನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ಸ್ಕ್ಯಾನ್ ಮಾಡಬೇಕು. ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
+    <string name="backupHtmlMessage">ಕ್ಯೂಆರ್ ಕೋಡ್‌ಗಳೊಂದಿಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡದ HTML ಡಾಕ್ಯುಮೆಂಟ್‌ಗೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಉಳಿಸಿ. ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
     <string name="backupHtmlWarning">HTML ಫೈಲ್‌ಗಳಿಗೆ ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ರಹಸ್ಯ ಕೀಗಳನ್ನು ದುರ್ಬಲಗೊಳಿಸಬಹುದು.\n\nಈ ಫೈಲ್ ಅನ್ನು ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಮತ್ತು ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಒಳಗೊಂಡಿಲ್ಲ. ಖಚಿತವಿಲ್ಲದಿದ್ದರೆ, ಬದಲಿಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಫೈಲ್ ಬ್ಯಾಕಪ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
     <string name="backupUriList">URI ಪಟ್ಟಿ ಫೈಲ್‌ಗೆ ಬ್ಯಾಕ್ ಅಪ್ ಮಾಡಿ</string>
     <string name="backupUriListMessage">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡದ ಸರಳ-ಪಠ್ಯ URI ಪಟ್ಟಿಯ ಫೈಲ್‌ಗೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಉಳಿಸಿ. ಈ ಫೈಲ್ ಹಲವಾರು ಪರ್ಯಾಯ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳೊಂದಿಗೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ. ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">ente-auth-codes.txt ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="winAuthImportHint">winauth.txt ಅಥವಾ winauth.zip ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="twoFasImportHint">2fas-backup.2fas ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="uriList">URI ಪಟ್ಟಿ</string>

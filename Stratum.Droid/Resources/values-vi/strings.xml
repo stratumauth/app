@@ -111,7 +111,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="backupToFile">Sao lưu vào tệp được mã hóa (được khuyến nghị)</string>
     <string name="backupToFileMessage">Lưu tất cả các trình xác thực, danh mục và biểu tượng của bạn vào một tệp sao lưu được mã hóa. Tệp này có thể được khôi phục trong ứng dụng.</string>
     <string name="backupHtml">Sao lưu vào tệp HTML</string>
-    <string name="backupHtmlMessage">Lưu trữ các trình xác thực của bạn vào một tài liệu HTML không được mã hóa với mã QR. Để khôi phục, các mã này phải được quét một cách riêng lẻ. Các danh mục và biểu tượng không được lưu trữ.</string>
+    <string name="backupHtmlMessage">Lưu trữ các trình xác thực của bạn vào một tài liệu HTML không được mã hóa với mã QR. Các danh mục và biểu tượng không được lưu trữ.</string>
     <string name="backupHtmlWarning">Các tệp sao lưu dưới dạng tệp HTML không được mã hóa và có thể làm cho các khóa bí mật của bạn trở nên dễ bị tấn công.\n\nTệp này không thể được khôi phục trong ứng dụng và không chứa danh mục và biểu tượng. Nếu không chắc chắn, hãy chọn tệp sao lưu được mã hóa thay thế.\n\nTiếp tục?</string>
     <string name="backupUriList">Sao lưu vào tệp danh sách URI</string>
     <string name="backupUriListMessage">Lưu trữ các trình xác thực của bạn vào một tệp danh sách URI văn bản không được mã hóa. Tệp này tương thích với nhiều ứng dụng và dịch vụ thay thế. Các danh mục và biểu tượng không được lưu trữ.</string>
@@ -242,6 +242,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="enteAuthImportHint">Nhập tệp ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Nhập tệp winauth.txt hoặc winauth.zip</string>
     <string name="twoFasImportHint">Nhập tệp 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Nhập tệp LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Nhập tệp TOTP_Backup.encrypt</string>
     <string name="uriList">Danh sách URL</string>

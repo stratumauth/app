@@ -110,7 +110,7 @@
     <string name="backupToFile">Резервное копирование в зашифрованный файл (рекомендуется)</string>
     <string name="backupToFileMessage">Сохраните все ваши аутентификаторы, категории и иконки в зашифрованном файле резервной копии. Этот файл можно восстановить в приложении.</string>
     <string name="backupHtml">Резервное копирование в HTML файл</string>
-    <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Чтобы восстановить эти коды, они должны быть отсканированы индивидуально. Категории и иконки не сохраняются.</string>
+    <string name="backupHtmlMessage">Сохраните ваши аутентификаторы в незашифрованном HTML документе с QR-кодами. Категории и иконки не сохраняются.</string>
     <string name="backupHtmlWarning">Резервные копии в HTML файлы не зашифрованы и могут оставить ваши секретные ключи уязвимыми.\n\nЭтот файл не может быть восстановлен в приложении и не содержит категорий и значков. Если не уверены, что вместо этого выберите зашифрованную резервную копию файла.\n\nПродолжить?</string>
     <string name="backupUriList">Резервное копирование в файл списка URI</string>
     <string name="backupUriListMessage">Сохраните ваши аутентификаторы в незашифрованном текстовом файле списке URI. Этот файл совместим со многими альтернативными приложениями и услугами. Категории и иконки не сохраняются.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Импорт файла ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Импортировать файл winauth.txt или winauth.zip</string>
     <string name="twoFasImportHint">Импортировать файл 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Импортировать файл LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Импортировать файл TOTP_Backup.encrypt</string>
     <string name="uriList">Список URl</string>

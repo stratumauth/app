@@ -110,7 +110,7 @@
     <string name="backupToFile">암호화된 파일로 백업 (권장)</string>
     <string name="backupToFileMessage">모든 인증기, 분류, 아이콘 암호화된 백업 파일 하나에 저장합니다. 백업 파일은 앱을 통해 복원할 수 있습니다.</string>
     <string name="backupHtml">HTML 파일로 백업</string>
-    <string name="backupHtmlMessage">암호화되지 않은 HTML 파일의 QR코드에 인증기를 저장합니다. 복원하려면 코드를 개별적으로 스캔해야 합니다. 분류와 아이콘은 저장되지 않습니다.</string>
+    <string name="backupHtmlMessage">암호화되지 않은 HTML 파일의 QR코드에 인증기를 저장합니다. 분류와 아이콘은 저장되지 않습니다.</string>
     <string name="backupHtmlWarning">HTML 파일로 백업하면 데이터가 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n이 파일을 통해서는 앱 내에서 복원을 진행할 수 없으며 파일에는 분류 및 아이콘이 포함되지 않습니다. 잘 모르겠다면 대신 암호화된 파일로 백업하세요.\n\n계속 진행하시겠습니까?</string>
     <string name="backupUriList">URL 목록 파일로 백업</string>
     <string name="backupUriListMessage">인증기를 암호화되지 않은 평문 URL 목록 파일에 저장합니다. 이 파일은 대부분의 다른 인증기 앱이나 서비스와 호환됩니다. 분류와 아이콘은 저장되지 않습니다.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">ente-auth-codes.txt 파일 가져오기</string>
     <string name="winAuthImportHint">winauth.txt 또는 winauth.zip 파일 가져오기</string>
     <string name="twoFasImportHint">2fas-backup.2fas 파일 가져오기</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json 파일 가져오기</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt 파일 가져오기</string>
     <string name="uriList">URL 목록</string>

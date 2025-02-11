@@ -68,7 +68,7 @@
     <string name="digitsHint">Cifre</string>
     <string name="periodHint">Perioada (secunde)</string>
     <string name="counterHint">Contor</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Reîmprospătare</string>
     <string name="noIssuer">Un emitent este necesar</string>
     <string name="noSecret">Este necesară o cheie secretă</string>
     <string name="noPin">Este necesar un cod PIN</string>
@@ -110,7 +110,7 @@
     <string name="backupToFile">Creează o copie de rezervă a fișierului criptat (recomandat)</string>
     <string name="backupToFileMessage">Salvează toți autentificatorii, categoriile și pictogramele într-un fișier de backup criptat. Acest fișier poate fi restaurat în aplicație.</string>
     <string name="backupHtml">Creează o copie de rezervă într-un fișier HTML</string>
-    <string name="backupHtmlMessage">Salvează autentificatoarele într-un document HTML necriptat cu coduri QR. Pentru restaurare, aceste coduri trebuie scanate individual. Categoriile și pictogramele nu sunt salvate.</string>
+    <string name="backupHtmlMessage">Salvează autentificatoarele într-un document HTML necriptat cu coduri QR. Categoriile și pictogramele nu sunt salvate.</string>
     <string name="backupHtmlWarning">Copiile de rezervă ale fișierelor HTML sunt necriptate și pot lăsa cheile secrete vulnerabile.\n\nAcest fișier nu poate fi restaurat în aplicație și nu conține categorii și pictograme. Dacă nu ești sigur, optează pentru o copie de rezervă a fișierelor criptate.\n\nContinui?</string>
     <string name="backupUriList">Creează o copie de rezervă într-un fișier URI</string>
     <string name="backupUriListMessage">Salvează autentificatoarele într-un fișier necriptat cu listă URI de text simplu. Acest fișier este compatibil cu multe aplicații și servicii alternative. Categoriile și pictogramele nu sunt salvate.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importați fișierul ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importă fișierul winauth.txt sau winauth.zip</string>
     <string name="twoFasImportHint">Importă fișierul 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Importă fișierul LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importă fișierul TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de adrese URI</string>

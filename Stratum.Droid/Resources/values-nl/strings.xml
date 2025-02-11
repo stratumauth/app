@@ -110,7 +110,7 @@
     <string name="backupToFile">Back-up naar versleuteld bestand (aanbevolen)</string>
     <string name="backupToFileMessage">Sla al uw authenticators, categorieën en iconen op in een versleuteld back-upbestand. Dit bestand kan worden hersteld in de app.</string>
     <string name="backupHtml">Back-up maken naar HTML bestand</string>
-    <string name="backupHtmlMessage">Sla uw authenticators op in een niet versleuteld HTML-document met QR-codes. Om deze te herstellen, moeten de codes individueel gescand worden. Categorieën en pictogrammen worden niet opgeslagen.</string>
+    <string name="backupHtmlMessage">Sla uw authenticators op in een niet versleuteld HTML-document met QR-codes. Categorieën en pictogrammen worden niet opgeslagen.</string>
     <string name="backupHtmlWarning">Back-ups naar HTML-bestanden zijn niet versleuteld en kunnen uw geheime sleutels kwetsbaar maken.\n\nDeze back-up kan niet hersteld worden in de app en bevat geen categorieën en pictogrammen. Indien onzeker, kies dan voor versleutelde bestandsreservekopie.\n\nDoorgaan?</string>
     <string name="backupUriList">Back-up maken naar URI lijstbestand</string>
     <string name="backupUriListMessage">Sla uw authenticatoren op in een niet versleutelde platte-tekst URI lijstbestand. Dit bestand is compatibel met veel andere applicaties en diensten. Categorieën en iconen worden niet opgeslagen.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">ente-auth-codes.txt bestand importeren</string>
     <string name="winAuthImportHint">winauth.txt of winauth.zip bestand importeren</string>
     <string name="twoFasImportHint">2fas-backup.2fas bestand importeren</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json bestand importeren</string>
     <string name="totpAuthenticatorImportHint">Importeer TOTP_Backup.encrypt bestand</string>
     <string name="uriList">URI lijst</string>

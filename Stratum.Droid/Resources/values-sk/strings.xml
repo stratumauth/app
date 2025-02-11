@@ -68,7 +68,7 @@
     <string name="digitsHint">Číslice</string>
     <string name="periodHint">Perióda (v sekundách)</string>
     <string name="counterHint">Počítadlo</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Obnoviť</string>
     <string name="noIssuer">Vydavateľ je povinný</string>
     <string name="noSecret">Tajný kľúč je povinný</string>
     <string name="noPin">Pin je povinný</string>
@@ -80,7 +80,7 @@
     <string name="periodInvalid">Perióda je neplatná</string>
     <string name="counterInvalid">Počítadlo je neplatné</string>
     <string name="qrCodeFormatError">QR kód nie je v správnom formáte alebo nemôže byť prečítaný</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Tento QR kód je určený pre Microsoft Authenticator a nie je kompatibilný.\n\nPre získanie kompatibilného QR kódu vyberte možnosť „Nastaviť inú overovaciu aplikáciu“ alebo „Nastaviť aplikáciu bez oznámení“.</string>
     <string name="duplicateAuthenticator">Autentifikátor s týmto tajným kľúčom už existuje</string>
     <string name="scanSuccessful">QR kód úspešne naskenovaný</string>
     <string name="pinMessage">Zadajte PIN priradený k tomuto QR kódu</string>
@@ -94,7 +94,7 @@
     <string name="invalidIconPackError">Vybraný súbor nie je z balíčka ikon Stratum</string>
     <string name="confirmIconPackDelete">Naozaj chceš odstrániť tento balík ikon? Všetky použité ikony nebudú odstránené.</string>
     <!-- View the source (website) of the icon pack -->
-    <string name="viewSource">View source</string>
+    <string name="viewSource">Zobraziť zdroj</string>
     <!--
         QR code dialog
     -->
@@ -110,7 +110,7 @@
     <string name="backupToFile">Zálohovať do zašifrovaného súboru (odporúčané)</string>
     <string name="backupToFileMessage">Uložiť všetky vaše autentifikátory, kategórie a ikony do zašifrovaného súboru. Tento súbor môže byť obnovený v rámci aplikácie.</string>
     <string name="backupHtml">Zálohovať do HTML súboru</string>
-    <string name="backupHtmlMessage">Uložiť vaše autentifikátory do nezašifrovaného HTML dokumentu s QR kódmi. Pre obnovenie musia byť tieto kódy naskenované individuálne.</string>
+    <string name="backupHtmlMessage">Uložiť vaše autentifikátory do nezašifrovaného HTML dokumentu s QR kódmi. Kategórie a ikony sa neuložia.</string>
     <string name="backupHtmlWarning">Zálohy do HTML súborov sú nezašifrované a môžu viesť k zneužitiu vašich tajných kľúčov.\n\nTento súbor nemôže byť obnovený v rámci aplikácie a neobsahuje kategórie a ikony. Ak si nie ste istí, rozhodnite sa radšej pre zálohu do šifrovaného súboru.\n\nPokračovať?</string>
     <string name="backupUriList">Zálohovanie do súboru zoznamu URI</string>
     <string name="backupUriListMessage">Uložte svoje autentifikátory do nešifrovaného textového súboru zoznamu URI. Tento súbor je kompatibilný s mnohými alternatívnymi aplikáciami a službami. Kategórie a ikony sa neukladajú.</string>
@@ -164,7 +164,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">Zálohu sa nepodarilo obnoviť</string>
     <string name="cameraPermissionError">Pre naskenovanie QR kódu je potrebné udeliť oprávnenie pre prístup k fotoaparátu</string>
     <string name="googlePlayNotInstalledError">Google Play nie je nainštalovaný na vašom zariadení</string>
     <string name="filePickerMissing">Nepodarilo sa otvoriť výber súborov. Musí byť nainštalovaný správca súborov.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importovať súbor ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Import winauth.txt alebo winauth.zip súboru</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas súboru</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json súboru</string>
     <string name="totpAuthenticatorImportHint">Importovať súbor TOTP_Backup.encrypt</string>
     <string name="uriList">Zoznam URI</string>
@@ -282,8 +283,8 @@
     <string name="prefTapToCopySummary">Skopíruje kód do schránky ťuknutím</string>
     <string name="prefResetCopyCountTitle">Obnovenie počítadla kopírovania</string>
     <string name="prefResetCopyCountSummary">Vymazať počet skopírovaní každého autentifikátora</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">Preskočiť na ďalšie</string>
+    <string name="prefSkipToNextSummary">Preskočiť na ďalší kód, keď sa blíži jeho expirácia</string>
     <string name="prefSecurity">Bezpečnosť</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou vášho hesla.</string>
@@ -314,16 +315,16 @@
     <string name="prefAccentColourSummary">Vyberte si farbu akcentu, ktorú chcete použiť v celej aplikácii</string>
     <string name="prefTransparentStatusBarTitle">Priesvitný stavový riadok</string>
     <string name="prefTransparentStatusBarSummary">Zviditeľnenie zoznamu za stavovým riadkom pri posúvaní</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">Písmo systému</string>
+    <string name="prefSystemFontSummary">Použiť predvolené systémové písmo namiesto vlastného písma</string>
     <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Obnovenie počtu kopírovaní</string>
     <!--
         About
     -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Zobraziť log</string>
+    <string name="noLogFile">Žiadny log súbor neexistuje</string>
+    <string name="debugLog">Log ladenia</string>
     <!--
         Arrays
     -->
@@ -349,7 +350,7 @@
     <string name="compactViewMode">Kompaktný</string>
     <string name="tileViewMode">Dlaždice</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">None</string>
+    <string name="none">Žiadne</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>

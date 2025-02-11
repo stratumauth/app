@@ -110,7 +110,7 @@
     <string name="backupToFile">Kopia zapasowa do zaszyfrowanego pliku (zalecane)</string>
     <string name="backupToFileMessage">Zapisz wszystkie swoje wpisy, kategorie i ikony w zaszyfrowanym pliku kopii zapasowej. Ten plik można przywrócić w aplikacji.</string>
     <string name="backupHtml">Kopia zapasowa do pliku HTML</string>
-    <string name="backupHtmlMessage">Zapisz swoje wpisy w niezaszyfrowanym dokumencie HTML z kodami QR. Aby przywrócić, kody te należy zeskanować indywidualnie. Kategorie i ikony nie są zapisywane.</string>
+    <string name="backupHtmlMessage">Zapisz swoje wpisy w niezaszyfrowanym dokumencie HTML z kodami QR. Kategorie i ikony nie są zapisywane.</string>
     <string name="backupHtmlWarning">Kopie zapasowe plików HTML są niezaszyfrowane i mogą narażać Twoje tajne klucze.\n\nTego pliku nie można przywrócić w aplikacji i nie zawiera on kategorii ani ikon. Jeśli nie masz pewności, wybierz zamiast tego kopię zapasową do zaszyfrowanego pliku.\n\nKontynuować?</string>
     <string name="backupUriList">Kopia zapasowa do pliku jak lista adresów URL</string>
     <string name="backupUriListMessage">Zapisz swoje wpisy w niezaszyfrowanym pliku tekstowym w postaci listy adresów URL. Ten plik jest kompatybilny z wieloma alternatywnymi aplikacjami i usługami. Kategorie i ikony nie są zapisywane.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importuj plik ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Importuj plik LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importuj plik TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>

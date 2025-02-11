@@ -110,7 +110,7 @@
     <string name="backupToFile">Sauvegarder vers un fichier chiffré (conseillé)</string>
     <string name="backupToFileMessage">Sauvegarder ses authentificateurs, catégories et icônes dans un fichier chiffré. Ce fichier peut être restauré dans l\'application.</string>
     <string name="backupHtml">Sauvegarder vers un fichier HTML</string>
-    <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non chiffré avec des QR codes. Pour restaurer, les codes doivent être scannés individuellement. Les catégories et icônes ne seront pas sauvegardées.</string>
+    <string name="backupHtmlMessage">Sauvegarder ses authentificateurs dans un document HTML non chiffré avec des QR codes. Les catégories et icônes ne seront pas sauvegardées.</string>
     <string name="backupHtmlWarning">Les sauvegardes HTML ne sont pas chiffrées et pourront rendre vos clés secrètes vulnérables.\n\nCe fichier ne peut pas être restauré dans l\'application et ne contient pas de catégories ni d\'icônes. En cas de doute, optez pour un fichier de sauvegarde chiffré.\n\nContinuer ?</string>
     <string name="backupUriList">Sauvegarder vers un fichier de liste URI</string>
     <string name="backupUriListMessage">Sauvegarder ses authentificateurs dans un fichier texte non chiffré contenant une liste d\'URI. Ce fichier est compatible avec de nombreuses applications et services alternatifs. Les catégories et icônes ne sont pas sauvegardées.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importer un fichier ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importer un fichier winauth.txt ou winauth.zip</string>
     <string name="twoFasImportHint">Importer un fichier 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Importer un fichier keepass.kdbx (KDBX 4.)</string>
     <string name="lastPassAuthenticatorImportHint">Importer un fichier LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importer un fichier TOTP_Backup.encrypt</string>
     <string name="uriList">Liste d\'URI</string>

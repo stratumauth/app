@@ -110,7 +110,7 @@
     <string name="backupToFile">Als verschlüsselte Datei sichern (empfohlen)</string>
     <string name="backupToFileMessage">Speichere alle deine Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
     <string name="backupHtml">Als HTML-Datei sichern</string>
-    <string name="backupHtmlMessage">Speichere deine Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Um sie wiederherzustellen, müssen diese Codes einzeln gescannt werden. Kategorien und Symbole werden nicht gespeichert.</string>
+    <string name="backupHtmlMessage">Speichere deine Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Kategorien und Symbole werden nicht gespeichert.</string>
     <string name="backupHtmlWarning">Sicherungen in HTML-Dokumente sind unverschlüsselt.\n\nDie Datei ist eine reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir nicht sicher bist, was du tust, verwende eine verschlüsselte Sicherung.\n\nFortfahren?</string>
     <string name="backupUriList">Sicherung als URI-Listen-Datei</string>
     <string name="backupUriListMessage">Speichere deine Authentifikatoren in einer unverschlüsselten Klartext-URI-Listendatei. Diese Datei ist mit vielen alternativen Anwendungen und Diensten kompatibel. Kategorien und Symbole werden nicht gespeichert.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importieren einer ente-auth-codes.txt Datei</string>
     <string name="winAuthImportHint">winauth.txt oder winauth.zip Datei importieren</string>
     <string name="twoFasImportHint">2fas-backup.2fas-Datei importieren</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json Datei importieren</string>
     <string name="totpAuthenticatorImportHint">Importieren einer TOTP_Backup.encrypt Datei</string>
     <string name="uriList">URI-Liste</string>

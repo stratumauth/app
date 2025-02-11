@@ -110,7 +110,7 @@
     <string name="backupToFile">Backup in file cifrato (raccomandato)</string>
     <string name="backupToFileMessage">Salva tutti gli autenticatori, le categorie e le icone in un file di backup crittografato. Questo file può essere ripristinato all\'interno dell\'app.</string>
     <string name="backupHtml">Backup in file HTML</string>
-    <string name="backupHtmlMessage">Salva i tuoi autenticatori in un documento HTML non cifrato con codici QR. Per effettuare il ripristino questi codici devono essere scansionati singolarmente. Categorie e icone non vengono salvate.</string>
+    <string name="backupHtmlMessage">Salva i tuoi autenticatori in un documento HTML non cifrato con codici QR. Categorie e icone non vengono salvate.</string>
     <string name="backupHtmlWarning">I backup in file HTML non sono crittografati e possono lasciare le chiavi segrete vulnerabili.\n\nQuesto file non può essere ripristinato all\'interno dell\'app e non contiene categorie e icone. Se non sei sicuro, scegli invece il backup in file crittografato.\n\nContinuare?</string>
     <string name="backupUriList">Backup in file di lista URI</string>
     <string name="backupUriListMessage">Salva i tuoi autenticatori in un file non cifrato in testo semplice contenente la lista degli URI. Questo file è compatibile con molte applicazioni e servizi alternativi. Le categorie e le icone non vengono salvate.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importa file ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importa file winauth.txt o winauth.zip</string>
     <string name="twoFasImportHint">Importa file 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Importa file LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importa file TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>

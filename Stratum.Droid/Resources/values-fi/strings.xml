@@ -110,7 +110,7 @@
     <string name="backupToFile">Varmuuskopioi salattuun tiedostoon (suositeltu)</string>
     <string name="backupToFileMessage">Tallenna kaikki todentajasi, kategoriasi ja kuvakkeesi salattuun varmuuskopiotiedostoon. Tämä tiedosto voidaan palauttaa sovellukseen.</string>
     <string name="backupHtml">Varmuuskopioi HTML-tiedostoon</string>
-    <string name="backupHtmlMessage">Tallenna todentajasi salaamattomaan HTML-asiakirjaan QR-koodeilla. Voit palauttaa koodit skannaamalla ne yksitellen. Kategorioita ja kuvakkeita ei tallenneta.</string>
+    <string name="backupHtmlMessage">Tallenna todentajasi salaamattomaan HTML-asiakirjaan QR-koodeilla. Kategorioita ja kuvakkeita ei tallenneta.</string>
     <string name="backupHtmlWarning">HTML-tiedostoja käyttävät varmuuskopiot ovat salaamattomia ja saattavat jättää salatut avaimesi haavoittuviksi.\n\nTätä tiedostoa ei voi palauttaa sovellukseen, eikä se sisällä kategorioita tai kuvakkeita. Jos olet epävarma, käytä sen sijaan salattua varmuuskopiointia.\n\nJatketaanko?</string>
     <string name="backupUriList">Varmuuskopioi URI-listatiedostoon</string>
     <string name="backupUriListMessage">Tallenna todentajasi salaamattomaan raakatekstiseen URI-luettelotiedostoon. Tämä tiedosto on yhteensopiva monien vaihtoehtoisten sovellusten ja palveluiden kanssa. Kategorioita ja kuvakkeita ei tallenneta.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Tuo ente-auth-codes.txt-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Tuo LastPassAuthenticator.json-tiedosto</string>
     <string name="totpAuthenticatorImportHint">Tuo TOTP_Backup.encrypt-tiedosto</string>
     <string name="uriList">URI-lista</string>

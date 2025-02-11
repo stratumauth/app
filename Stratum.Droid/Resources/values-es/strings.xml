@@ -110,7 +110,7 @@
     <string name="backupToFile">Respaldar en un archivo encriptado (Recomendado)</string>
     <string name="backupToFileMessage">Respaldar todas sus autentificadores e iconos en un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
     <string name="backupHtml">Respaldar en un archivo local HTML</string>
-    <string name="backupHtmlMessage">Respaldar sus autentificadores en un documento HTML sin encriptar con códigos QR. Para restaurar, estos códigos deben ser escaneados individualmente. Las categorías e iconos no serán respaldados.</string>
+    <string name="backupHtmlMessage">Respaldar sus autentificadores en un documento HTML sin encriptar con códigos QR. Las categorías e iconos no serán respaldados.</string>
     <string name="backupHtmlWarning">Las copias de seguridad de los archivos HTML no están cifradas y pueden dejar sus claves secretas vulnerables.\n\nEste archivo no puede ser restaurado dentro de la aplicación y no contiene categorías ni iconos. Si no está seguro, opte por una copia de seguridad de archivo cifrada en su lugar.\n\n¿Continuar?</string>
     <string name="backupUriList">Hacer copia de seguridad al archivo de la lista URI</string>
     <string name="backupUriListMessage">Guardar sus autentificadores en un archivo de lista de URI de texto plano sin encriptar. Este archivo es compatible con muchas aplicaciones y servicios alternativos. Las categorías y los iconos no se guardan.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importar archivo ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importar archivo winauth.txt o winauth.zip</string>
     <string name="twoFasImportHint">Importar archivo 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Importar archivo LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importar archivo TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de URIs</string>

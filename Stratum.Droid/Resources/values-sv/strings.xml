@@ -68,7 +68,7 @@
     <string name="digitsHint">Siffror</string>
     <string name="periodHint">Tidsperiod (sekunder)</string>
     <string name="counterHint">Räknare</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Uppdatera</string>
     <string name="noIssuer">Utfärdare måste anges</string>
     <string name="noSecret">Hemlig nyckel måste anges</string>
     <string name="noPin">PIN-kod måste anges</string>
@@ -110,7 +110,7 @@
     <string name="backupToFile">Säkerhetskopiera till krypterad fil (rekommenderas)</string>
     <string name="backupToFileMessage">Säkerhetskopiera alla dina konton, kategorier och ikoner i en krypterad fil. Filen kan återställas i appen.</string>
     <string name="backupHtml">Säkerhetskopiera till HTML-fil</string>
-    <string name="backupHtmlMessage">Spara dina konton som QR-koder i ett okrypterat HTML-dokument. För att återställa behöver du skanna QR-koderna individuellt. Kategorier och ikoner sparas inte.</string>
+    <string name="backupHtmlMessage">Spara dina konton som QR-koder i ett okrypterat HTML-dokument. Kategorier och ikoner sparas inte.</string>
     <string name="backupHtmlWarning">Säkerhetskopior till HTML-filer är okrypterade och kan göra dina hemliga nycklar sårbara.\n\nEn sådan fil kan inte återställas i appen och innehåller inte kategorier och ikoner. Om du är osäker, välj krypterad säkerhetskopia istället.\n\nVill du fortsätta?</string>
     <string name="backupUriList">Säkerhetskopiera till fil som URI-lista</string>
     <string name="backupUriListMessage">Spara dina konton som en URI-lista i en okrypterad, oformaterad textfil. En sådan fil är kompatibel med många andra appar och tjänster. Kategorier och ikoner sparas inte.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importera \"ente-auth-codes.txt\"-fil</string>
     <string name="winAuthImportHint">Importera \"winauth.txt\"- eller \"winauth.zip\"-fil</string>
     <string name="twoFasImportHint">Importera \"2fas-backup.2fas\"-fil</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Importera \"LastPassAuthenticator.json\"-fil</string>
     <string name="totpAuthenticatorImportHint">Importera \"TOTP_Backup.encrypt\"-fil</string>
     <string name="uriList">URI-lista</string>

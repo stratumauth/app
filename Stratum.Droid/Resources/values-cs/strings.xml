@@ -111,7 +111,7 @@
     <string name="backupToFile">Zálohovat do šifrovaného souboru (doporučeno)</string>
     <string name="backupToFileMessage">Uložte všechny vaše autentifikátory, kategorie a ikony do zašifrovaného záložního souboru. Tento soubor lze obnovit v aplikaci.</string>
     <string name="backupHtml">Zálohovat do HTML souboru</string>
-    <string name="backupHtmlMessage">Uložte své autentifikátory do nešifrovaného HTML dokumentu s QR kódem. Pro obnovení musí být tyto kódy individuálně naskenovány. Kategorie a ikony nejsou uloženy.</string>
+    <string name="backupHtmlMessage">Uložte své autentifikátory do nešifrovaného HTML dokumentu s QR kódem. Kategorie a ikony nejsou uloženy.</string>
     <string name="backupHtmlWarning">Zálohy do HTML souborů jsou nešifrované a mohou způsobit zranitelnost vašich tajných klíčů.\n\nTento soubor nemůže být obnoven v rámci aplikace a neobsahuje kategorie a ikony. Pokud si nejste jisti, zvolte místo toho šifrovanou zálohu.\n\nPokračovat?</string>
     <string name="backupUriList">Zálohovat do souboru seznamu URI</string>
     <string name="backupUriListMessage">Uložte své autentifikátory do nešifrovaného souboru s prostým textem URI seznamu. Tento soubor je kompatibilní s mnoha alternativními aplikacemi a službami. Kategorie a ikony nejsou uloženy.</string>
@@ -242,6 +242,7 @@
     <string name="enteAuthImportHint">Importovat soubor ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
     <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Importovat soubor LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importovat soubor TOTP_backup.encrypt</string>
     <string name="uriList">URI list</string>

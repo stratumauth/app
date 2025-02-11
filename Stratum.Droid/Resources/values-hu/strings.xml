@@ -110,7 +110,7 @@
     <string name="backupToFile">Biztonsági mentés titkosított fájlba (ajánlott)</string>
     <string name="backupToFileMessage">Mentse el az összes hitelesítőt, kategóriát és ikont egy titkosított biztonsági mentési fájlba. Ez a fájl visszaállítható az alkalmazáson belül.</string>
     <string name="backupHtml">Biztonsági mentés HTML fájlba</string>
-    <string name="backupHtmlMessage">Mentse el hitelesítőit egy titkosítatlan HTML-dokumentumba QR-kóddal. A visszaállításhoz ezeket a kódokat egyenként kell beolvasni. A kategóriák és az ikonok nem kerülnek mentésre.</string>
+    <string name="backupHtmlMessage">Mentse el hitelesítőit egy titkosítatlan HTML-dokumentumba QR-kóddal. A kategóriák és az ikonok nem kerülnek mentésre.</string>
     <string name="backupHtmlWarning">A HTML-fájlok biztonsági másolatai nem titkosítottak, és sebezhetővé tehetik titkos kulcsait.\n\nEz a fájl nem állítható vissza az alkalmazáson belül, és nem tartalmaz kategóriákat és ikonokat. Ha nem biztos benne, válassza inkább a titkosított fájlmentést.\n\nFolytatja?</string>
     <string name="backupUriList">Biztonsági mentés az URI listafájlba</string>
     <string name="backupUriListMessage">Mentse a hitelesítőket egy titkosítatlan egyszerű szöveges URI-listafájlba. Ez a fájl számos alternatív alkalmazással és szolgáltatással kompatibilis. A kategóriák és az ikonok nem kerülnek mentésre.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
     <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
     <string name="uriList">URI lista</string>

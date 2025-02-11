@@ -110,7 +110,7 @@
     <string name="backupToFile">Sikkerhedskopiér til krypteret fil (anbefalet)</string>
     <string name="backupToFileMessage">Gem alle dine godkendere, kategorier og ikoner til en krypteret sikkerhedskopifil. Denne fil kan gendannes i appen.</string>
     <string name="backupHtml">Sikkerhedskopiér til HTML-fil</string>
-    <string name="backupHtmlMessage">Gem dine godkendere i et ukrypteret HTML-dokument med QR-koder. For at gendanne skal disse koder scannes individuelt. Kategorier og ikoner gemmes ikke.</string>
+    <string name="backupHtmlMessage">Gem dine godkendere i et ukrypteret HTML-dokument med QR-koder. Kategorier og ikoner gemmes ikke.</string>
     <string name="backupHtmlWarning">Sikkerhedskopier til HTML-filer er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil kan ikke gendannes i appen og indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg en krypteret sikkerhedskopi i stedet.\n\nFortsæt?</string>
     <string name="backupUriList">Sikkerhedskopiér til URI-listefil</string>
     <string name="backupUriListMessage">Gem dine godkendere i en ukrypteret URI-listefil i almindelig tekst. Denne fil er kompatibel med mange alternative programmer og tjenester. Kategorier og ikoner gemmes ikke.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">Importér ente-auth-codes.txt-fil</string>
     <string name="winAuthImportHint">Importér winauth.txt eller winauth.zip-fil</string>
     <string name="twoFasImportHint">Importér 2fas-backup.2fas-fil</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">Importér LastPassAuthenticator.json-fil</string>
     <string name="totpAuthenticatorImportHint">Importér TOTP_Backup.encrypt-fil</string>
     <string name="uriList">URI-liste</string>

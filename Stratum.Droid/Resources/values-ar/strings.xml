@@ -110,7 +110,7 @@
     <string name="backupToFile">النسخ الاحتياطي إلى ملف المشفر (موصى به)</string>
     <string name="backupToFileMessage">حفظ جميع المصادقات والفئات والرموز الخاصة بك في ملف النسخ الاحتياطي المشفر. يمكن استعادة هذا الملف داخل التطبيق.</string>
     <string name="backupHtml">نسخ احتياطي إلى ملف HTML</string>
-    <string name="backupHtmlMessage">حفظ المصادقة الخاصة بك إلى مستند HTML غير مشفر مع رموز QR. للاستعادة يجب مسح هذه الرموز بشكل فردي. لا يتم حفظ الفئات والرموز بشكل فردي.</string>
+    <string name="backupHtmlMessage">حفظ المصادقة الخاصة بك إلى مستند HTML غير مشفر مع رموز QR. لا يتم حفظ الفئات والرموز بشكل فردي.</string>
     <string name="backupHtmlWarning">النسخ الاحتياطية إلى ملفات HTML غير مشفرة وقد تترك مفاتيحك السرية ضعيفة.\n\nلا يمكن استعادة هذا الملف داخل التطبيق ولا يحتوي على فئات أو أيقونات إذا لم تكن متأكدة، اختر النسخ الاحتياطي للملف المشفر بدلاً من ذلك.\n\nالمتابعة؟</string>
     <string name="backupUriList">النسخ الاحتياطي إلى ملف قائمة URI</string>
     <string name="backupUriListMessage">حفظ المصادقات الخاص بك إلى ملف قائمة URI للنص غير مشفر. هذا الملف متوافق مع العديد من التطبيقات والخدمات البديلة. الفئات والرموز غير محفوظة.</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">استيراد ملف ente-auth-codes.txt</string>
     <string name="winAuthImportHint">استيراد ملف winauth.txt أو winauth.zip</string>
     <string name="twoFasImportHint">استيراد ملف 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">استيراد ملف LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">استيراد ملف TOTP_Backup.encrypt</string>
     <string name="uriList">قائمة URl</string>

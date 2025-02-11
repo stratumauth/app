@@ -110,7 +110,7 @@
     <string name="backupToFile">Şifrelenmiş dosyaya yedekle (önerilir)</string>
     <string name="backupToFileMessage">Tüm kimlik doğrulama kodlarınızı, kategorilerinizi ve simgelerinizi şifrelenmiş bir yedekleme dosyasına kaydedin. Bu dosya uygulama içinde geri yüklenebilir.</string>
     <string name="backupHtml">HTML dosyasına yedekle</string>
-    <string name="backupHtmlMessage">Kimlik doğrulama kodlarınızı karekodlu şifrelenmemiş bir HTML belgesine kaydedin. Geri yüklemek için bu kodların ayrı ayrı taranması gerekir. Kategoriler ve simgeler kaydedilmez.</string>
+    <string name="backupHtmlMessage">Kimlik doğrulama kodlarınızı karekodlu şifrelenmemiş bir HTML belgesine kaydedin. Kategoriler ve simgeler kaydedilmez.</string>
     <string name="backupHtmlWarning">HTML dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya uygulama içinde geri yüklenemez ve kategoriler ve simgeler içermez. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
     <string name="backupUriList">URI liste dosyasına yedekle</string>
     <string name="backupUriListMessage">Kimlik doğrulama kodlarınızı şifrelenmemiş düz metin URI listesi dosyasına kaydedin. Bu dosya çoğu alternatif uygulama ve hizmetle uyumludur. Kategoriler ve simgeler kaydedilmez.</string>
@@ -243,6 +243,7 @@
     <string name="enteAuthImportHint">ente-auth-codes.txt dosyasını içe aktarın</string>
     <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json dosyasını içe aktarın</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>

@@ -110,7 +110,7 @@
     <string name="backupToFile">備份至加密檔案（推薦）</string>
     <string name="backupToFileMessage">這將會把所有的驗證器、分類及圖示保存至一個加密的備份檔案中。你可以通過該文件恢復備份。</string>
     <string name="backupHtml">備份至 HTML 檔案</string>
-    <string name="backupHtmlMessage">這將會把所有的驗證器以二維碼的形式保存至一個未加密的 HTML 檔案中。你必須逐一掃描所有的二維碼以恢復備份。分類和圖示并不包括在内。</string>
+    <string name="backupHtmlMessage">這將會把所有的驗證器以二維碼的形式保存至一個未加密的 HTML 檔案中。分類和圖示并不包括在内。</string>
     <string name="backupHtmlWarning">保存爲 HTML 檔案時將不會進行加密，這表示你的密鑰將會被明文暴露。\n\n你也無法直接透過本應用恢復備份，且分類和圖示并不包含在内。除非你確定要這麽做，否則請使用加密檔案備份。\n\n確認繼續嗎？</string>
     <string name="backupUriList">備份至 URI 列表檔案</string>
     <string name="backupUriListMessage">這將會把所有的驗證器保存至一個未加密的 URI 列表純文字檔案。此檔案與許多其他應用和服務兼容。分類和圖示并不包括在内。</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">匯入 ente-auth-codes.txt 檔案</string>
     <string name="winAuthImportHint">匯入 winauth.txt 或 winauth.zip 檔案</string>
     <string name="twoFasImportHint">匯入 2fas-backup.2fas 檔案</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">匯入 LastPassAuthenticator.json 檔案</string>
     <string name="totpAuthenticatorImportHint">匯入 TOTP_Backup.encrypt 檔案</string>
     <string name="uriList">URI 列表</string>

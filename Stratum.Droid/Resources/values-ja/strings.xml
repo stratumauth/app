@@ -110,7 +110,7 @@
     <string name="backupToFile">暗号化されたファイルへバックアップ（推奨）</string>
     <string name="backupToFileMessage">すべての認証コード、カテゴリ、アイコンを暗号化されたバックアップファイルに保存します。このファイルはアプリ内で復元できます。</string>
     <string name="backupHtml">HTMLファイルでバックアップ</string>
-    <string name="backupHtmlMessage">暗号化されていないHTMLファイルにQRコードで認証コードを保存します。復元するには、これらのコードを個別にスキャンする必要があります。カテゴリとアイコンは保存されません。</string>
+    <string name="backupHtmlMessage">暗号化されていないHTMLファイルにQRコードで認証コードを保存します。カテゴリとアイコンは保存されません。</string>
     <string name="backupHtmlWarning">HTMLファイルへのバックアップはあなたの秘密鍵を危険にさらします。\n\nこのファイルはアプリでは復元できず、カテゴリやアイコンは保存されません。不安でしたら、暗号化されたファイルにバックアップすることができます。\n\n続行しますか？</string>
     <string name="backupUriList">URI リスト形式でバックアップ</string>
     <string name="backupUriListMessage">暗号化されていないテキストファイルに URI リストとして認証コードを保存します。 このファイルは、多くの代替アプリケーションやサービスと互換性があります。カテゴリとアイコンは保存されません。</string>
@@ -241,6 +241,7 @@
     <string name="enteAuthImportHint">ente-auth-codes.txt ファイルをインポート</string>
     <string name="winAuthImportHint">winauth.txtまたはwinauth.zipファイルをインポート</string>
     <string name="twoFasImportHint">2fas-backup.2fasファイルをインポート</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json ファイルをインポート</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt ファイルをインポート</string>
     <string name="uriList">URI リスト</string>

@@ -1,1 +1,1 @@
-Open-source 2FA app with encrypted backups
+2FA-app med krypterade säkerhetskopior och öppen källkod
