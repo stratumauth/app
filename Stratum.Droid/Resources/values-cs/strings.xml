@@ -242,7 +242,7 @@
     <string name="enteAuthImportHint">Importovat soubor ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
     <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Importovat soubor keepass.kdbx (KDBX 4.)</string>
     <string name="lastPassAuthenticatorImportHint">Importovat soubor LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importovat soubor TOTP_backup.encrypt</string>
     <string name="uriList">URI list</string>
