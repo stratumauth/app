@@ -1,4 +1,4 @@
-Stratum is an open-source two factor authentication app for Android. È dotato di backup crittografati, icone, categorie e un elevato livello di personalizzazione. Ha anche un Wear OS compagno app.
+Stratum è un'applicazione di autenticazione a due fattori open-source per Android. È dotato di backup crittografati, icone, categorie e un elevato livello di personalizzazione. Dispone anche di un'app complementare per Wear OS.
 
 Supporta gli autenticatori TOTP (Time Based) e HOTP (Counter Based) utilizzando algoritmi di hashing SHA1, SHA256 o SHA512. Sono supportati anche Mobile-Otp (mOTP), Steam e Yandex.
 
@@ -9,20 +9,20 @@ Oltre al nome utente e alla password, avrai bisogno di un codice fornito da Stra
 
 <b>Caratteristiche</b>
 
-- ⚙️ <b>Compatibility</b>: Stratum is compatible with most providers and accounts.
-- 📲 <b>Import</b>: Easily migrate your accounts to Stratum from supported alternative apps.
+- ⚙️ <b>Compatibilità</b>: Stratum è compatibile con la maggior parte dei provider e degli account.
+- 📲 <b>Importa</b>: Migra facilmente i tuoi account su Stratum dalle app alternative supportate.
 - 💾 <b>Backup / Ripristino</b>: Esegui il backup degli autenticatori con una forte crittografia. Nel caso in cui si perda o cambi telefono, è sempre possibile ottenere l'accesso ai tuoi account. È possibile salvare i backup su cloud storage o sul dispositivo.
-- 🌙 <b>Dark Mode</b>: Stratum has a beautiful material design inspired look in either light or dark themes.
+- 🌙 <b>Modalità Scura</b>: Stratum ha un design curato ispirato al Material Design, disponibile in tema chiaro o scuro.
 - ⏺️ <b>Icone</b>: Trova facilmente i tuoi autenticatori con loghi di marca riconoscibili e icone accanto a ogni codice.
 - 📂 <b>Categorie</b>: Organizza i tuoi autenticatori in categorie.
-- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
+- 🔒 <b>Offline con poche autorizzazioni</b>: Stratum richiede solo un'unica autorizzazione¹ e non necessita di accesso a Internet per funzionare.
 - 🔑 <b>Sicurezza</b>: imposta una password e utilizza l'autenticazione biometrica per proteggere i tuoi codici.
 - 🎨 <b>Personalizzazione</b>: imposta le icone e rinomina. Puoi anche organizzare i tuoi autenticatori in qualsiasi ordine ti piaccia, in modo da poterli trovare facilmente.
 - ⌚ <b>Wear OS</b>: Visualizza rapidamente i tuoi autenticatori direttamente dal tuo orologio. You can even set a favourite and place it in a tile. Si prega di notare che è richiesta una connessione al dispositivo Android. Inoltre, le distribuzioni F-Droid dell'app non sono compatibili con Wear OS, poiché sono richieste dipendenze non libere.
 
 (1) *Per scansionare i codici QR, l'app richiede l'autorizzazione della fotocamera.*
 
-<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> Domande frequenti</b></a>
 
 <hr>
 

@@ -28,7 +28,7 @@
     <string name="showQrCode">Mostra codice QR</string>
     <string name="editDetails">Modifica dettagli</string>
     <string name="scanQrCodeFromCamera">Scansiona dalla fotocamera</string>
-    <string name="scanQrCodeFromGallery">Scansione dalla galleria</string>
+    <string name="scanQrCodeFromGallery">Scansiona dalla galleria</string>
     <string name="rename">Rinomina</string>
     <string name="changeIcon">Cambia Icona</string>
     <string name="search">Cerca</string>
@@ -68,7 +68,7 @@
     <string name="digitsHint">Cifre</string>
     <string name="periodHint">Periodo (secondi)</string>
     <string name="counterHint">Contatore</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Aggiorna</string>
     <string name="noIssuer">Un emittente è obbligatorio</string>
     <string name="noSecret">Una chiave segreta è obbligatoria</string>
     <string name="noPin">Un pin è obbligatorio</string>
@@ -80,7 +80,7 @@
     <string name="periodInvalid">Il periodo non è valido</string>
     <string name="counterInvalid">Il contatore non è valido</string>
     <string name="qrCodeFormatError">Il codice QR non è nel formato corretto oppure non può essere letto</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Questo codice QR è specifico per Microsoft Authenticator e non è compatibile.\n\nSeleziona \"Imposta un\'altra app Autenticatore\" o \"Configura app senza notifiche\" per ottenere un codice QR compatibile.</string>
     <string name="duplicateAuthenticator">Esiste già un autenticatore con questa chiave segreta</string>
     <string name="scanSuccessful">Codice QR scansionato con successo</string>
     <string name="pinMessage">Inserisci il pin associato a questo codice QR</string>
@@ -164,7 +164,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">Il backup non può essere ripristinato</string>
     <string name="cameraPermissionError">Per scansionare un codice QR è necessario concedere l\'accesso alla fotocamera</string>
     <string name="googlePlayNotInstalledError">Google Play non è installato sul tuo dispositivo</string>
     <string name="filePickerMissing">Impossibile aprire il selettore di file. Un file manager deve essere installato.</string>
@@ -241,7 +241,7 @@
     <string name="enteAuthImportHint">Importa file ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importa file winauth.txt o winauth.zip</string>
     <string name="twoFasImportHint">Importa file 2fas-backup.2fas</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Importa file keepass.kdbx (KDBX 4.)</string>
     <string name="lastPassAuthenticatorImportHint">Importa file LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importa file TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>
@@ -283,7 +283,7 @@
     <string name="prefResetCopyCountTitle">Resetta Contatore Copia</string>
     <string name="prefResetCopyCountSummary">Cancella il numero di volte in cui ogni autenticatore è stato copiato</string>
     <string name="prefSkipToNextTitle">Salta al successivo</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextSummary">Permetti di passare al codice successivo quando è vicino alla scadenza</string>
     <string name="prefSecurity">Sicurezza</string>
     <string name="prefPasswordTitle">Password</string>
     <string name="prefPasswordSummary">Richiede una password per accedere agli autenticatori. Il database verrà crittografato con la tua password.</string>

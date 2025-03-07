@@ -68,6 +68,7 @@
     <string name="digitsHint">位数</string>
     <string name="periodHint">时间间隔（秒）</string>
     <string name="counterHint">计数器</string>
+    <string name="refresh">刷新</string>
     <string name="noIssuer">请输入发行方。</string>
     <string name="noSecret">请输入密钥。</string>
     <string name="noPin">需要设置一个PIN码</string>
@@ -109,7 +110,7 @@
     <string name="backupToFile">保存为加密文件（推荐）</string>
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
     <string name="backupHtml">保存为 HTML 文件</string>
-    <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。恢复备份时，您必须逐一扫描所有的二维码。分类和图标设置不会包含在备份中。</string>
+    <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。分类和图标设置不会包含在备份中。</string>
     <string name="backupHtmlWarning">保存为 HTML 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
     <string name="backupUriList">备份至 URI 列表文件</string>
     <string name="backupUriListMessage">将您的身份验证器保存到一个未加密纯文本的 URI 列表文件。此文件与许多其他应用程序和服务兼容。分类和图标将不会被保存.</string>
@@ -168,7 +169,7 @@
     <string name="googlePlayNotInstalledError">您的设备上未安装 Google Play。</string>
     <string name="filePickerMissing">无法显示文件选择界面。请安装文件管理器。</string>
     <string name="filePickError">选择文件时出错。</string>
-    <string name="invalidFileError">选择的文件不是 Authenticatior Pro 备份文件。</string>
+    <string name="invalidFileError">选择的文件不是 Stratum 备份文件。</string>
     <string name="webBrowserMissing">没有检测到已安装的浏览器。</string>
     <string name="emailClientMissing">未安装电子邮件客户端</string>
     <string name="genericError">出现错误。</string>
@@ -240,6 +241,7 @@
     <string name="enteAuthImportHint">导入 ente-auth-codes.txt 文件</string>
     <string name="winAuthImportHint">导入 winauth.txt 或 winauth.zip 文件</string>
     <string name="twoFasImportHint">导入 2fas-backup.2fas 文件</string>
+    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
     <string name="lastPassAuthenticatorImportHint">导入 LastPassAuthenticator.json 文件</string>
     <string name="totpAuthenticatorImportHint">导入 TOTP_Backup.encrypt 文件</string>
     <string name="uriList">URI 列表</string>

@@ -1,1 +1,1 @@
-Open-source 2FA app with encrypted backups
+暗号化バックアップを利用できる、オープンソースの2FAアプリ
