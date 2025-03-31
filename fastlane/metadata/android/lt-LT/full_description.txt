@@ -7,7 +7,7 @@ In addition to your username and password, you will need a code provided by Stra
 
 <hr>
 
-<b>Features</b>
+<b>Funkcijos</b>
 
 - ⚙️ <b>Compatibility</b>: Stratum is compatible with most providers and accounts.
 - 📲 <b>Import</b>: Easily migrate your accounts to Stratum from supported alternative apps.
@@ -22,7 +22,7 @@ In addition to your username and password, you will need a code provided by Stra
 
 (¹) *To scan QR-Codes, the app requires the camera permission.*
 
-<a href="https://stratumauth.com/wiki/faq"><b>-> FAQ</b></a>
+<a href="https://stratumauth.com/wiki/faq"><b>-> DUK</b></a>
 
 <hr>
 

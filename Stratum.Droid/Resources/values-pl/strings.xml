@@ -241,7 +241,7 @@
     <string name="enteAuthImportHint">Importuj plik ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Importuj plik keepass.kdbx (KDBX 4.)</string>
     <string name="lastPassAuthenticatorImportHint">Importuj plik LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importuj plik TOTP_Backup.encrypt</string>
     <string name="uriList">Lista URI</string>
