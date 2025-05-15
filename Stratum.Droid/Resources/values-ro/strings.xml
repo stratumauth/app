@@ -241,7 +241,7 @@
     <string name="enteAuthImportHint">Importați fișierul ente-auth-codes.txt</string>
     <string name="winAuthImportHint">Importă fișierul winauth.txt sau winauth.zip</string>
     <string name="twoFasImportHint">Importă fișierul 2fas-backup.2fas</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Importați fișierul keepass.kdbx (KDBX 4.)</string>
     <string name="lastPassAuthenticatorImportHint">Importă fișierul LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importă fișierul TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de adrese URI</string>
