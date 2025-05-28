@@ -16,7 +16,7 @@
     <string name="retry">Retry</string>
     <string name="ignore">Ignore</string>
     <string name="disable">Išjungti/Išgalinti</string>
-    <string name="name">Name</string>
+    <string name="name">Pavadinimas</string>
     <!-- 
         Menu items
     -->
@@ -25,27 +25,27 @@
     <string name="backup">Back up</string>
     <string name="about">Apie</string>
     <string name="scanQrCode">Scan a QR code</string>
-    <string name="showQrCode">Show QR code</string>
+    <string name="showQrCode">Rodyti „QR“ kodą</string>
     <string name="editDetails">Redaguoti išsamumą</string>
     <string name="scanQrCodeFromCamera">Scan from camera</string>
     <string name="scanQrCodeFromGallery">Scan from gallery</string>
     <string name="rename">Rename</string>
     <string name="changeIcon">Pakeisti piktogramą</string>
-    <string name="search">Search</string>
+    <string name="search">Ieška/-oti</string>
     <string name="mainMenu">Pagrindinis meniu</string>
-    <string name="enterKey">Enter a provided key</string>
+    <string name="enterKey">Įveskite pateiktą raktą</string>
     <string name="restoreBackup">Restore a backup</string>
     <string name="sort">Sort</string>
     <string name="sortAZ">Alphabetical (a to z)</string>
     <string name="sortZA">Alphabetical (z to a)</string>
-    <string name="sortMostCopied">Most copied</string>
-    <string name="sortLeastCopied">Least copied</string>
+    <string name="sortMostCopied">Daugiausiai nukopijuoti</string>
+    <string name="sortLeastCopied">Mažiausiai nukopijuoti</string>
     <string name="sortCustom">Custom</string>
-    <string name="aboutSummary">View about and license information</string>
+    <string name="aboutSummary">Peržiūrėti programėlės ir licencijos informaciją</string>
     <string name="supportDevelopment">Support development</string>
     <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
     <string name="rate">Rate</string>
-    <string name="rateSummary">Rate Stratum on the Google Play Store</string>
+    <string name="rateSummary">Įvertinkite „Stratum“ „Google Play“ parduotuvėje</string>
     <string name="viewGitHub">Žiūrėti per „GitHub“</string>
     <string name="viewGitHubSummary">Žiūrėti „Stratum“ saugyklą „GitHub\'e“. Jūs galite pranešti apie problemas, užklausti, kad būtų pridėtos papildomos piktogramos ir funkcijas.</string>
     <!--
@@ -79,7 +79,7 @@
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
     <string name="counterInvalid">The counter is invalid</string>
-    <string name="qrCodeFormatError">The QR code is not in the correct format or cannot be read</string>
+    <string name="qrCodeFormatError">„QR“ kodas yra neteisingo formato arba negali būti nuskaitytas</string>
     <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
     <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">QR code scanned successfully</string>
@@ -134,7 +134,7 @@
     <string name="assignCategories">Priskirti kategorijas</string>
     <string name="assignEntries">Assign entries</string>
     <string name="more">Daugiau</string>
-    <string name="categoryAll">All</string>
+    <string name="categoryAll">Visi/-os</string>
     <string name="editCategories">Redaguoti kategorijas</string>
     <string name="noCategoryName">Reikalingas kategorijos pavadinimas</string>
     <string name="duplicateCategory">Kategorija su šiuo/tokiu pavadinimu jau egzistuoja</string>
@@ -210,7 +210,7 @@
         Password setup
     -->
     <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="passwordSetupWarning">Naudokite slaptažodį, kurį Jūs atsiminsite, nes duomenų bazė bus neatkuriame be jo!</string>
     <string name="clearPassword">Išvalyti/-kite slaptažodį</string>
     <string name="confirmPassword">Patvirtinti/-kite slaptažodį</string>
     <string name="setupBiometricUnlock">Setup biometric unlock</string>
@@ -250,7 +250,7 @@
     <!--
         Getting Started Guide
     -->
-    <string name="guideScanQRCodeTitle">Scan a QR code</string>
+    <string name="guideScanQRCodeTitle">Skenuokite „QR“ kodą</string>
     <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
     <string name="guideUseCodeTitle">Use the code when logging in</string>
     <string name="guideUseCodeSummary">When logging in, use the unique code provided by Stratum. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
@@ -282,8 +282,8 @@
     <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
     <string name="prefResetCopyCountTitle">Reset Copy Count</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">Praleisti/Peršokti ir eiti į kitą</string>
+    <string name="prefSkipToNextSummary">Leidžia praleisti/peršokti į kitą esamąjį kodą, kai jo galiojimo laikotarpis yra arti link pabaigos</string>
     <string name="prefSecurity">Saugumas</string>
     <string name="prefPasswordTitle">Slaptažodis</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
@@ -300,10 +300,10 @@
     <string name="prefAllowScreenshotsTitle">Leisti ekrano nuotraukų ar iškarpų fiksavimą</string>
     <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Išvaizda</string>
-    <string name="prefThemeTitle">Theme</string>
-    <string name="prefThemeSummary">Choose an application theme</string>
-    <string name="prefViewModeTitle">View Mode</string>
-    <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
+    <string name="prefThemeTitle">Apipavidalinimas</string>
+    <string name="prefThemeSummary">Pasirinkite programėlės apipavidalinimą</string>
+    <string name="prefViewModeTitle">Rodinys</string>
+    <string name="prefViewModeSummary">Pasirinkite rodinio stilių, atpažintuvų sąraše</string>
     <string name="prefCodeGroupSizeTitle">Code Group Size</string>
     <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefShowUsernamesTitle">Show Usernames</string>
@@ -345,9 +345,9 @@
     <string name="lightTheme">Light theme</string>
     <string name="darkTheme">Dark theme</string>
     <string name="blackTheme">Black theme</string>
-    <string name="defaultViewMode">Default</string>
-    <string name="compactViewMode">Compact</string>
-    <string name="tileViewMode">Tile</string>
+    <string name="defaultViewMode">Numatytasis</string>
+    <string name="compactViewMode">Glaudus</string>
+    <string name="tileViewMode">Išklotinė</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
     <string name="none">None</string>
     <string name="two">2</string>
@@ -382,10 +382,10 @@
     <string name="introCompatibilityTitle">Dviejų veiksnių tapatybės nustatymas</string>
     <string name="introBackupTitle">Backup and Restore</string>
     <string name="introCategoriesTitle">Kategorijos</string>
-    <string name="introThemesTitle">Dark theme</string>
+    <string name="introThemesTitle">Tamsus apipavidalinimas</string>
     <string name="introWelcomeSummary">Ačiū, kad atsisiuntėte „Stratum“.\nLaikykite savo internetines paskyras saugias ir apsaugotas su geriausia atviro kodo tapatybės nustatymo programėle.</string>
     <string name="introCompatibilitySummary">„Stratum“ yra palaikomas su daugiausiai teikėjų ir paskyrų registravimų sistemų. Jis yra 100% proc. palaikomas su „Google Authenticator“ įgalintomis tarnybomis.</string>
     <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
-    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
+    <string name="introThemesSummary">Jeigu Jūs to pageidaujate, galite įjungti/įgalinti tamsųjį apipavidalinimą nustatymuose. Visos piktogramos prisitaikys prie naujojo, tamsesnio fono.</string>
 </resources>

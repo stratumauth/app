@@ -68,7 +68,7 @@
     <string name="digitsHint">Dígitos</string>
     <string name="periodHint">Período (segundos)</string>
     <string name="counterHint">Contador</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Atualizar</string>
     <string name="noIssuer">Um emissor é obrigatório</string>
     <string name="noSecret">Uma chave secreta é necessária</string>
     <string name="noPin">Um pin é obrigatório</string>
@@ -164,7 +164,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">Não foi possível restaurar o backup</string>
     <string name="cameraPermissionError">A permissão de câmera deve ser concedida para digitalizar um código QR</string>
     <string name="googlePlayNotInstalledError">O Google Play não está instalado no seu dispositivo</string>
     <string name="filePickerMissing">Não é possível abrir o selecionador de arquivos. Um gerenciador de arquivos deve ser instalado.</string>
