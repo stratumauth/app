@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Sikkerhedskopiér nu</string>
-    <string name="restoreNow">Gendan nu</string>
     <string name="backupReminder">Der er foretaget ændringer siden din sidste sikkerhedskopi</string>
     <string name="backupPasswordMessage">Indtast en adgangskode for at kryptere din sikkerhedskopifil sikkert. Ønsker du ikke at beskytte filen med en adgangskode, skal du lade den være tom.</string>
     <string name="password">Adgangskode</string>
