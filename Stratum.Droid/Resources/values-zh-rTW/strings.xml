@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">立即備份</string>
-    <string name="restoreNow">立即還原</string>
     <string name="backupReminder">自上次備份後出現了新的變更。</string>
     <string name="backupPasswordMessage">請輸入用於安全加密備份檔案的密碼。如果您不需要使用密碼保護備份檔案，請將密碼欄留空。</string>
     <string name="password">密碼</string>

@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">今すぐバックアップ</string>
-    <string name="restoreNow">今すぐ復元</string>
     <string name="backupReminder">前回のバックアップから変更がありました</string>
     <string name="backupPasswordMessage">バックアップファイルを暗号化するためにパスワードを入力してください。パスワードを設定しない場合は、パスワードを空白のままにしてください。</string>
     <string name="password">パスワード</string>
