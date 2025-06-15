@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Esegui backup ora</string>
-    <string name="restoreNow">Ripristina ora</string>
     <string name="backupReminder">Sono state apportate modifiche dall\'ultimo backup</string>
     <string name="backupPasswordMessage">Inserisci una password per cifrare in modo sicuro il file di backup. Se non si desideri proteggere il file con la password, lasciare vuoto il campo.</string>
     <string name="password">Password</string>
