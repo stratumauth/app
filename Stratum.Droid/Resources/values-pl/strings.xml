@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Wykonaj kopię</string>
-    <string name="restoreNow">Przywróć kopię</string>
     <string name="backupReminder">Od ostatniej kopii zapasowej dokonano zmian</string>
     <string name="backupPasswordMessage">Wprowadź hasło, aby bezpiecznie zaszyfrować plik kopii zapasowej. Jeśli nie chcesz, aby plik był chroniony hasłem, pozostaw je puste.</string>
     <string name="password">Hasło</string>
