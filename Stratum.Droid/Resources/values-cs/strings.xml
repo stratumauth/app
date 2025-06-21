@@ -148,7 +148,6 @@
         Backups
     -->
     <string name="backupNow">Zálohovat nyní</string>
-    <string name="restoreNow">Obnovit nyní</string>
     <string name="backupReminder">Od vaší poslední zálohy došlo ke změnám</string>
     <string name="backupPasswordMessage">Zadejte heslo pro bezpečné zašifrování záložního souboru. Pokud nechcete soubor chránit heslem, nechte pole prázdné.</string>
     <string name="password">Heslo</string>
