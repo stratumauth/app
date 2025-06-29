@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Зробити резервну копію</string>
-    <string name="restoreNow">Відновити</string>
     <string name="backupReminder">Після останньої резервної копії відбулись зміни</string>
     <string name="backupPasswordMessage">Введіть пароль для безпечного шифрування файлу резервної копії. Якщо ви не хочете захистити файл, залиште поле порожнім.</string>
     <string name="password">Пароль</string>
