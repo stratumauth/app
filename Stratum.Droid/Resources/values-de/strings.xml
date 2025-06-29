@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Jetzt sichern</string>
-    <string name="restoreNow">Jetzt wiederherstellen</string>
     <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen</string>
     <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
     <string name="password">Passwort</string>
