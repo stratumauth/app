@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Şimdi Yedekle</string>
-    <string name="restoreNow">Şimdi geri yükle</string>
     <string name="backupReminder">Son yedeklemenizden bu yana değişiklikler oldu</string>
     <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
     <string name="password">Parola</string>

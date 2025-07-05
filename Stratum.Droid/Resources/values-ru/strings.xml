@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Создать резервную копию</string>
-    <string name="restoreNow">Восстановить</string>
     <string name="backupReminder">С момента последнего резервного копирования были внесены изменения</string>
     <string name="backupPasswordMessage">Введите пароль, чтобы безопасно зашифровать файл резервной копии. Если вы не хотите защитить файл паролем, оставьте поле с паролем пустым.</string>
     <string name="password">Пароль</string>
