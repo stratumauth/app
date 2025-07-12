@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Respaldar ahora</string>
-    <string name="restoreNow">Restaurar ahora</string>
     <string name="backupReminder">Se han hecho cambios desde su último respaldo</string>
     <string name="backupPasswordMessage">Introduzca una contraseña para encriptar de forma segura su archivo de respaldo. Si no desea proteger el archivo, deje la contraseña vacía.</string>
     <string name="password">Contraseña</string>

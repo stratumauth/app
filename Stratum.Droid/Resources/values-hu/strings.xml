@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Mentés most</string>
-    <string name="restoreNow">Visszaállítás most</string>
     <string name="backupReminder">A legutóbbi biztonsági mentés óta változások történtek</string>
     <string name="backupPasswordMessage">Adjon meg egy jelszót a biztonsági mentési fájl biztonságos titkosításához. Ha nem szeretné jelszóval védeni a fájlt, hagyja üresen a jelszót.</string>
     <string name="password">Jelszó</string>
