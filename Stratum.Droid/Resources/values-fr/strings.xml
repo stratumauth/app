@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Sauvegarder maintenant</string>
-    <string name="restoreNow">Restaurer maintenant</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne souhaitez pas mettre de mot de passe, laissez le champ vide.</string>
     <string name="password">Mot de passe</string>
