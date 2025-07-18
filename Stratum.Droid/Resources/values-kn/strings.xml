@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">ಈಗಲೇ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
-    <string name="restoreNow">ಈಗಲೇ ಮರುಸ್ಥಾಪಿಸಿ</string>
     <string name="backupReminder">ನೀವು ಕಳೆದ ಬಾರಿ ಬ್ಯಾಕಪ್ ಮಾಡಿದಾಗಿನಿಂದ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಲಾಗಿದೆ</string>
     <string name="backupPasswordMessage">ನಿಮ್ಮ ಬ್ಯಾಕಪ್ ಫೈಲ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ. ಪಾಸ್ವರ್ಡ್ನೊಂದಿಗೆ ಫೈಲ್ ಅನ್ನು ರಕ್ಷಿಸಲು ನೀವು ಬಯಸದಿದ್ದರೆ, ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಖಾಲಿ ಬಿಡಿ.</string>
     <string name="password">ಪಾಸ್ವರ್ಡ್</string>
