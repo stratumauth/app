@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Nu een back-up maken</string>
-    <string name="restoreNow">Nu herstellen</string>
     <string name="backupReminder">Er zijn wijzigingen aangebracht sinds je laatste back-up</string>
     <string name="backupPasswordMessage">Voer een wachtwoord in om uw back-upbestand veilig te versleutelen. Laat het wachtwoord leeg als u het bestand niet wilt beveiligen.</string>
     <string name="password">Wachtwoord</string>
