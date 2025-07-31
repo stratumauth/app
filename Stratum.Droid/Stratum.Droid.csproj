@@ -45,13 +45,13 @@
         <PackageReference Include="Xamarin.AndroidX.Camera.View" Version="1.4.2.2" />
         <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.2.1.2" />
         <PackageReference Include="Xamarin.AndroidX.DocumentFile" Version="1.1.0" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.9.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.8.7.4" />
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.Extensions" Version="2.2.0.33" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.9.2" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.9.2" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.8.7.4" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.8.7.4" />
         <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.14" />
         <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.1.0.7" />
-        <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.10.2" />
+        <PackageReference Include="Xamarin.AndroidX.Work.Runtime" Version="2.10.0.5" />
         <PackageReference Include="Xamarin.Google.Android.Material" Version="1.12.0.4" />
         <PackageReference Include="StratumAuth.ZXing" Version="1.2.1" />
     </ItemGroup>
