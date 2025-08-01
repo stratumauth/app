@@ -17,6 +17,7 @@
         <PackageReference Include="QRCoder" Version="1.6.0" />
         <PackageReference Include="SharpZipLib" Version="1.4.2"/>
         <PackageReference Include="SimpleBase" Version="5.4.1" />
-        <PackageReference Include="sqlite-net-sqlcipher" Version="1.9.172" />
+        <PackageReference Include="sqlite-net-base" Version="1.9.172" />
+        <PackageReference Include="StratumAuth.SQLCipher" Version="1.1.0" />
     </ItemGroup>
 </Project>
