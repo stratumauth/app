@@ -25,7 +25,6 @@ PROJECT_NAMES = {
 RUNTIME_IDENTIFIERS = {
     "android-arm": "armeabi-v7a",
     "android-arm64": "arm64-v8a",
-    "android-x86": "x86",
     "android-x64": "x86_64",
 }
 
