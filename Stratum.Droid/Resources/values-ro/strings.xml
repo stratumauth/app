@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Creează o copie de rezervă acum</string>
-    <string name="restoreNow">Restaurează acum</string>
     <string name="backupReminder">Au fost făcute modificări de la ultima copie de rezervă</string>
     <string name="backupPasswordMessage">Introdu o parolă pentru a cripta în siguranță fișierul de rezervă. Dacă nu dorești să protejezi fișierul cu parolă, lasă câmpul necompletat.</string>
     <string name="password">Parolă</string>

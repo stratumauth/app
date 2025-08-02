@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">지금 백업</string>
-    <string name="restoreNow">지금 복원</string>
     <string name="backupReminder">마지막 백업 이후 변경 사항이 있습니다</string>
     <string name="backupPasswordMessage">백업 파일을 안전하게 암호화할 비밀번호를 입력하세요. 비밀번호를 설정하고 싶지 않으면 칸을 비워두세요.</string>
     <string name="password">비밀번호</string>
