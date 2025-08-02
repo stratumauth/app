@@ -16,6 +16,7 @@ namespace Stratum.Droid.Interface.ViewHolder
             Issuer = view.FindViewById<MaterialTextView>(Resource.Id.textIssuer);
             Username = view.FindViewById<MaterialTextView>(Resource.Id.textUsername);
             Code = view.FindViewById<MaterialTextView>(Resource.Id.textCode);
+            UpcomingCode = view.FindViewById<MaterialTextView>(Resource.Id.textUpcomingCode);
             ProgressIndicator = view.FindViewById<LinearProgressIndicator>(Resource.Id.progressIndicator);
             MenuButton = view.FindViewById<ImageButton>(Resource.Id.buttonMenu);
             RefreshButton = view.FindViewById<ImageButton>(Resource.Id.buttonRefresh);
@@ -25,6 +26,7 @@ namespace Stratum.Droid.Interface.ViewHolder
         public MaterialTextView Issuer { get; }
         public MaterialTextView Username { get; }
         public MaterialTextView Code { get; }
+        public MaterialTextView UpcomingCode { get; }
         public LinearProgressIndicator ProgressIndicator { get; }
         public ImageButton MenuButton { get; }
         public ImageButton RefreshButton { get; }

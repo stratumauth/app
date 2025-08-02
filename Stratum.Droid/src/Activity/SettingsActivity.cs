@@ -60,6 +60,7 @@ namespace Stratum.Droid.Activity
                 case "pref_codeGroupSize":
                 case "pref_showUsernames":
                 case "pref_transparentStatusBar":
+                case "pref_showUpcomingOtp":
                     _shouldRecreateMain = true;
                     break;
 

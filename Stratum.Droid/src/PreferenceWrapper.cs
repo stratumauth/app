@@ -188,6 +188,15 @@ namespace Stratum.Droid
             set => SetPreference(SystemFontKey, value);
         }
 
+        private const string ShowUpcomingOtpKey = "pref_showUpcomingOtp";
+        private const bool ShowUpcomingOtpDefault = false;
+
+        public bool ShowUpcomingOtp
+        {
+            get => Preferences.GetBoolean(ShowUpcomingOtpKey, ShowUpcomingOtpDefault);
+            set => SetPreference(ShowUpcomingOtpKey, value);
+        }
+
         private const string AutoBackupEnabledKey = "pref_autoBackupEnabled";
         private const bool AutoBackupEnabledDefault = false;
 
