@@ -148,7 +148,6 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
         Backups
     -->
     <string name="backupNow">Sao lưu ngay</string>
-    <string name="restoreNow">Khôi phục ngay</string>
     <string name="backupReminder">Đã có những thay đổi được thực hiện kể từ lần sao lưu cuối cùng của bạn</string>
     <string name="backupPasswordMessage">Nhập mật khẩu để mã hóa tệp sao lưu của bạn một cách an toàn. Nếu bạn không muốn bảo vệ tệp bằng mật khẩu, hãy để trống mật khẩu.</string>
     <string name="password">Mật khẩu</string>

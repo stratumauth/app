@@ -147,7 +147,6 @@
         Backups
     -->
     <string name="backupNow">Varmuuskopioi nyt</string>
-    <string name="restoreNow">Palauta nyt</string>
     <string name="backupReminder">Viimeisimmän varmuuskopion jälkeen on tehty muutoksia</string>
     <string name="backupPasswordMessage">Anna salasana, jolla varmuuskopiotiedostosi salataan turvallisesti. Jos et halua suojata tiedostoa, jätä salasana tyhjäksi.</string>
     <string name="password">Salasana</string>
