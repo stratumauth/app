@@ -755,6 +755,7 @@ namespace Stratum.Droid.Activity
                 };
 
             _authenticatorListAdapter.CodeCopied += OnAuthenticatorCopied;
+            _authenticatorListAdapter.UpcomingCodeCopied += OnUpcomingAuthenticatorCopied;
             _authenticatorListAdapter.MenuClicked += OnAuthenticatorMenuClicked;
             _authenticatorListAdapter.IncrementCounterClicked += OnAuthenticatorIncrementCounterClicked;
             _authenticatorListAdapter.MovementStarted += OnAuthenticatorListMovementStarted;
@@ -987,6 +988,28 @@ namespace Stratum.Droid.Activity
 
             var clipboard = (ClipboardManager) GetSystemService(ClipboardService);
             var clip = ClipData.NewPlainText("code", auth.GetCode());
+            clipboard.PrimaryClip = clip;
+
+            ShowSnackbar(Resource.String.copiedToClipboard, Snackbar.LengthShort);
+            await _authenticatorService.IncrementCopyCountAsync(auth);
+        }
+
+        private async void OnUpcomingAuthenticatorCopied(object sender, string secret)
+        {
+            var auth = _authenticatorView.FirstOrDefault(a => a.Secret == secret);
+
+            if (auth == null)
+            {
+                return;
+            }
+
+            // Calculate the upcoming code
+            var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            var nextOffset = offset + auth.Period;
+            var upcomingCode = auth.GetCode(nextOffset);
+
+            var clipboard = (ClipboardManager) GetSystemService(ClipboardService);
+            var clip = ClipData.NewPlainText("code", upcomingCode);
             clipboard.PrimaryClip = clip;
 
             ShowSnackbar(Resource.String.copiedToClipboard, Snackbar.LengthShort);

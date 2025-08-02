@@ -38,6 +38,7 @@ namespace Stratum.Droid.Interface.Adapter
         private readonly int _codeGroupSize;
         private readonly bool _showUsernames;
         private readonly bool _skipToNext;
+        private readonly bool _showUpcomingOtp;
 
         private readonly IAuthenticatorView _authenticatorView;
         private readonly ICustomIconView _customIconView;
@@ -61,6 +62,7 @@ namespace Stratum.Droid.Interface.Adapter
             _codeGroupSize = preferences.CodeGroupSize;
             _showUsernames = preferences.ShowUsernames;
             _skipToNext = preferences.SkipToNext;
+            _showUpcomingOtp = preferences.ShowUpcomingOtp;
             _isDark = isDark;
 
             _generationOffsets = new Dictionary<int, long>();
@@ -94,7 +96,7 @@ namespace Stratum.Droid.Interface.Adapter
                 {
                     dictionary[oldPosition] = newValue;
                 }
-                
+
                 dictionary[newPosition] = oldValue;
             }
             else if (dictionary.TryGetValue(newPosition, out var newValue))
@@ -114,6 +116,7 @@ namespace Stratum.Droid.Interface.Adapter
         }
 
         public event EventHandler<string> CodeCopied;
+        public event EventHandler<string> UpcomingCodeCopied;
         public event EventHandler<string> MenuClicked;
         public event EventHandler<string> IncrementCounterClicked;
 
@@ -187,7 +190,7 @@ namespace Stratum.Droid.Interface.Adapter
 
                     var now = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                     var offset = GetGenerationOffset(holder.BindingAdapterPosition, auth.Period);
-                    
+
                     UpdateTimeGeneratorCodeText(auth, holder, offset);
                     UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
                     break;
@@ -201,6 +204,12 @@ namespace Stratum.Droid.Interface.Adapter
                     holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
                     holder.RefreshButton.Visibility = inCooldown ? ViewStates.Invisible : ViewStates.Visible;
                     holder.ProgressIndicator.Visibility = ViewStates.Invisible;
+
+                    // Hide upcoming code for counter-based authenticators
+                    if (holder.UpcomingCode != null)
+                    {
+                        holder.UpcomingCode.Visibility = ViewStates.Gone;
+                    }
                     break;
                 }
             }
@@ -239,13 +248,13 @@ namespace Stratum.Droid.Interface.Adapter
             {
                 UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, payload.CurrentOffset);
             }
-            
+
             switch (payload.ShowRefresh)
             {
                 case true when holder.RefreshButton.Visibility != ViewStates.Visible:
                     AnimUtil.FadeInView(holder.RefreshButton, AnimUtil.LengthShort, true);
                     break;
-                
+
                 case false when holder.RefreshButton.Visibility == ViewStates.Visible:
                     AnimUtil.FadeOutView(holder.RefreshButton, AnimUtil.LengthShort, true);
                     break;
@@ -278,7 +287,7 @@ namespace Stratum.Droid.Interface.Adapter
             {
                 showRefreshButton = ShouldAllowSkip(offset, auth.Period, now, holder.BindingAdapterPosition);
             }
-            
+
             holder.RefreshButton.Visibility = showRefreshButton ? ViewStates.Visible : ViewStates.Gone;
             UpdateProgressIndicator(holder.ProgressIndicator, auth.Period, offset, now);
             UpdateTimeGeneratorCodeText(auth, holder, offset);
@@ -335,7 +344,7 @@ namespace Stratum.Droid.Interface.Adapter
                         RequiresGeneration = isExpired,
                         ShowRefresh = showRefresh
                     };
-                    
+
                     NotifyItemChanged(i, update);
                 }
             }
@@ -394,6 +403,22 @@ namespace Stratum.Droid.Interface.Adapter
                              (_tapToReveal && _cooldownOffsets.ContainsKey(holder.BindingAdapterPosition));
             var code = isRevealed ? auth.GetCode(offset) : null;
             holder.Code.Text = CodeUtil.PadCode(code, auth.Digits, _codeGroupSize);
+
+            // Handle upcoming OTP display
+            if (holder.UpcomingCode != null)
+            {
+                if (_showUpcomingOtp && _viewMode == ViewMode.Compact && isRevealed)
+                {
+                    var nextOffset = offset + auth.Period;
+                    var upcomingCode = auth.GetCode(nextOffset);
+                    holder.UpcomingCode.Text = CodeUtil.PadCode(upcomingCode, auth.Digits, _codeGroupSize);
+                    holder.UpcomingCode.Visibility = ViewStates.Visible;
+                }
+                else
+                {
+                    holder.UpcomingCode.Visibility = ViewStates.Gone;
+                }
+            }
         }
 
         private bool ShouldAllowSkip(long offset, int period, long now, int position)
@@ -423,6 +448,12 @@ namespace Stratum.Droid.Interface.Adapter
             };
             holder.RefreshButton.Click += delegate { OnRefreshClick(holder.BindingAdapterPosition); };
 
+            // Add click handler for upcoming OTP if it exists
+            if (holder.UpcomingCode != null)
+            {
+                holder.UpcomingCode.Click += delegate { OnUpcomingCodeClick(holder); };
+            }
+
             return holder;
         }
 
@@ -434,14 +465,14 @@ namespace Stratum.Droid.Interface.Adapter
             }
 
             var auth = _authenticatorView[holder.BindingAdapterPosition];
-            
+
             if (!_tapToReveal)
             {
                 if (_tapToCopy)
                 {
                     CodeCopied?.Invoke(this, auth.Secret);
                 }
-                
+
                 return;
             }
 
@@ -451,12 +482,18 @@ namespace Stratum.Droid.Interface.Adapter
             {
                 if (_tapToCopy)
                 {
-                    CodeCopied?.Invoke(this, auth.Secret);    
+                    CodeCopied?.Invoke(this, auth.Secret);
                 }
                 else
                 {
                     _cooldownOffsets.Remove(holder.BindingAdapterPosition);
                     holder.Code.Text = CodeUtil.PadCode(null, auth.Digits, _codeGroupSize);
+
+                    // Also hide upcoming code when hiding main code
+                    if (holder.UpcomingCode != null)
+                    {
+                        holder.UpcomingCode.Visibility = ViewStates.Gone;
+                    }
 
                     if (_skipToNext)
                     {
@@ -468,7 +505,31 @@ namespace Stratum.Droid.Interface.Adapter
             {
                 var offset = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
                 _cooldownOffsets[holder.BindingAdapterPosition] = offset + _tapToRevealDuration;
-                holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+
+                if (auth.Type.GetGenerationMethod() == GenerationMethod.Time)
+                {
+                    UpdateTimeGeneratorCodeText(auth, holder, offset);
+                }
+                else
+                {
+                    holder.Code.Text = CodeUtil.PadCode(auth.GetCode(offset), auth.Digits, _codeGroupSize);
+                }
+            }
+        }
+
+        private void OnUpcomingCodeClick(AuthenticatorListHolder holder)
+        {
+            if (!ValidatePosition(holder.BindingAdapterPosition))
+            {
+                return;
+            }
+
+            var auth = _authenticatorView[holder.BindingAdapterPosition];
+
+            // Only allow copying upcoming code if tap to copy is enabled
+            if (_tapToCopy && auth.Type.GetGenerationMethod() == GenerationMethod.Time)
+            {
+                UpcomingCodeCopied?.Invoke(this, auth.Secret);
             }
         }
 
@@ -489,7 +550,7 @@ namespace Stratum.Droid.Interface.Adapter
                     {
                         _cooldownOffsets[position] = now + _tapToRevealDuration;
                     }
-                    
+
                     SkipToNextOffset(position, auth.Period);
                     NotifyItemChanged(position);
                     break;
@@ -507,7 +568,7 @@ namespace Stratum.Droid.Interface.Adapter
         {
             _generationOffsets.Clear();
             _cooldownOffsets.Clear();
-            base.NotifyDataSetChanged(); 
+            base.NotifyDataSetChanged();
         }
 
         private class PartialUpdate : Object

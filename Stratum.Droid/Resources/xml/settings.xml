@@ -117,6 +117,12 @@
             android:entries="@array/viewModeNames"
             android:entryValues="@array/viewModeValues"
             android:defaultValue="default"/>
+        <stratum.droid.interface.preference.MaterialSwitchPreference
+            android:key="pref_showUpcomingOtp"
+            android:summary="@string/prefShowUpcomingOtpSummary"
+            android:title="@string/prefShowUpcomingOtpTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"/>
         <androidx.preference.ListPreference
             android:key="pref_codeGroupSize"
             android:summary="@string/prefCodeGroupSizeSummary"

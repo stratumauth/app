@@ -69,12 +69,33 @@
             android:textAppearance="?attr/textAppearanceTitleLarge"
             android:textColor="?attr/colorOnSurface"
             app:layout_constraintBottom_toTopOf="@id/progressIndicator"
-            app:layout_constraintEnd_toStartOf="@id/layoutControl"
+            app:layout_constraintEnd_toStartOf="@id/textUpcomingCode"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layoutIcon"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintVertical_bias="1"/>
- 
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textUpcomingCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:padding="4dp"
+            android:alpha="0.6"
+            android:text="000 000"
+            android:textDirection="ltr"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textColor="?attr/colorOnSurface"
+            android:visibility="gone"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintBottom_toBottomOf="@id/textCode"
+            app:layout_constraintEnd_toStartOf="@id/layoutControl"
+            app:layout_constraintStart_toEndOf="@id/textCode"
+            app:layout_constraintTop_toTopOf="@id/textCode"
+            app:layout_constraintHorizontal_bias="0"/>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutControl"
             android:layout_width="wrap_content"

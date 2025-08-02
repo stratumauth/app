@@ -393,6 +393,8 @@
     <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <string name="prefSystemFontTitle">System Font</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefShowUpcomingOtpTitle">Show Upcoming OTP</string>
+    <string name="prefShowUpcomingOtpSummary">Display the next OTP code alongside the current one (compact mode only)</string>
 
     <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">Copy count reset</string>
