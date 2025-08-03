@@ -32,6 +32,7 @@ namespace Stratum.Droid
         private readonly PreferenceWrapper _preferences;
         private readonly SecureStorageWrapper _secureStorageWrapper;
         private readonly Database _database = new();
+        private readonly IContainer _container;
         private readonly IBackupService _backupService;
 
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
@@ -40,8 +41,8 @@ namespace Stratum.Droid
             _preferences = new PreferenceWrapper(context);
             _secureStorageWrapper = new SecureStorageWrapper(context);
 
-            using var container = Dependencies.CreateContainer(context, _database);
-            _backupService = container.Resolve<IBackupService>();
+            _container = Dependencies.CreateContainer(context, _database);
+            _backupService = _container.Resolve<IBackupService>();
         }
 
         private Task OpenDatabase()
@@ -229,6 +230,16 @@ namespace Stratum.Droid
         {
             BackupFailure,
             BackupSuccess
+        }
+        
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _container?.Dispose();
+            }
+            
+            base.Dispose(disposing);
         }
     }
 }

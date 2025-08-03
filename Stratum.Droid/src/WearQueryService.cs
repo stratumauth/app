@@ -35,6 +35,7 @@ namespace Stratum.Droid
         private readonly Database _database;
         private readonly SemaphoreSlim _lock;
 
+        private readonly IContainer _container;
         private readonly IAuthenticatorView _authenticatorView;
         private readonly ICategoryService _categoryService;
         private readonly ICustomIconService _customIconService;
@@ -45,11 +46,10 @@ namespace Stratum.Droid
             _database = new Database();
             _lock = new SemaphoreSlim(1, 1);
             
-            using var container = Dependencies.CreateContainer(this, _database);
-            
-            _authenticatorView = container.Resolve<IAuthenticatorView>();
-            _categoryService = container.Resolve<ICategoryService>();
-            _customIconService = container.Resolve<ICustomIconService>();
+            _container = Dependencies.CreateContainer(this, _database);
+            _authenticatorView = _container.Resolve<IAuthenticatorView>();
+            _categoryService = _container.Resolve<ICategoryService>();
+            _customIconService = _container.Resolve<ICustomIconService>();
         }
 
         public override void OnCreate()
@@ -185,6 +185,16 @@ namespace Stratum.Droid
             {
                 _log.Error(e, "Error sending sync bundle");
             }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _container?.Dispose();
+            }
+            
+            base.Dispose(disposing);
         }
     }
 }
