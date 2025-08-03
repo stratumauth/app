@@ -2,31 +2,34 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using Android.Content;
+using Autofac;
 using Stratum.WearOS.Cache;
 using Stratum.WearOS.Cache.View;
-using TinyIoC;
 
 namespace Stratum.WearOS
 {
     internal static class Dependencies
     {
-        private static readonly TinyIoCContainer Container = TinyIoCContainer.Current;
+        private static IContainer _container;
         
-        public static void Register(Context context)
+        public static void Init(Context context)
         {
-            Container.Register(context);
+            var builder = new ContainerBuilder();
+            builder.RegisterInstance(context).SingleInstance().ExternallyOwned();
             
-            Container.Register<AuthenticatorCache>().AsSingleton();
-            Container.Register<CategoryCache>().AsSingleton();
-            Container.Register<CustomIconCache>().AsSingleton();
+            builder.RegisterType<AuthenticatorCache>().SingleInstance();
+            builder.RegisterType<CategoryCache>().SingleInstance();
+            builder.RegisterType<CustomIconCache>().SingleInstance();
 
-            Container.Register<AuthenticatorView>().AsSingleton();
-            Container.Register<CategoryView>().AsSingleton();
+            builder.RegisterType<AuthenticatorView>().SingleInstance();
+            builder.RegisterType<CategoryView>().SingleInstance();
+
+            _container = builder.Build();
         }
 
         public static T Resolve<T>() where T : class
         {
-            return Container.Resolve<T>();
+            return _container.Resolve<T>();
         }
     }
 }

@@ -3,6 +3,7 @@
 
 using System.Collections.Generic;
 using Android.Content;
+using Autofac;
 using Stratum.Core;
 using Stratum.Core.Backup.Encryption;
 using Stratum.Core.Comparer;
@@ -15,84 +16,86 @@ using Stratum.Droid.Interface;
 using Stratum.Droid.Persistence;
 using Stratum.Droid.Persistence.View;
 using Stratum.Droid.Persistence.View.Impl;
-using TinyIoC;
 
 namespace Stratum.Droid
 {
     internal static class Dependencies
     {
-        private static readonly TinyIoCContainer Container = TinyIoCContainer.Current;
+        private static IContainer _container;
 
-        public static void Register(Database database)
+        public static void Init(Context context, Database database)
         {
-            Container.Register(database);
-            Container.RegisterMultiple<IBackupEncryption>(new[]
-            {
-                typeof(StrongBackupEncryption), typeof(LegacyBackupEncryption), typeof(NoBackupEncryption)
-            });
-
-            Container.Register<IAssetProvider, AssetProvider>();
-            Container.Register<ICustomIconDecoder, CustomIconDecoder>();
-            Container.Register<IIconResolver, IconResolver>();
-
-            RegisterRepositories(Container);
-            RegisterServices(Container);
-            RegisterViews(Container);
+            _container = CreateContainer(context, database);
         }
 
-        public static void RegisterApplicationContext(Context context)
+        public static IContainer CreateContainer(Context context, Database database)
         {
-            Container.Register(context);
+            var builder = new ContainerBuilder();
+            RegisterAll(builder, context, database);
+            return builder.Build();
         }
 
-        public static TinyIoCContainer GetChildContainer()
+        private static void RegisterAll(ContainerBuilder builder, Context context, Database database)
         {
-            return Container.GetChildContainer();
+            builder.RegisterInstance(database).SingleInstance().ExternallyOwned();
+            builder.RegisterInstance(context).SingleInstance().ExternallyOwned();
+            
+            builder.RegisterType<StrongBackupEncryption>().As<IBackupEncryption>().SingleInstance();
+            builder.RegisterType<LegacyBackupEncryption>().As<IBackupEncryption>().SingleInstance();
+            builder.RegisterType<NoBackupEncryption>().As<IBackupEncryption>().SingleInstance();
+
+            builder.RegisterType<AssetProvider>().As<IAssetProvider>().SingleInstance();
+            builder.RegisterType<CustomIconDecoder>().As<ICustomIconDecoder>().SingleInstance();
+            builder.RegisterType<IconResolver>().As<IIconResolver>().SingleInstance();
+
+            RegisterRepositories(builder);
+            RegisterServices(builder);
+            RegisterViews(builder);
         }
 
-        public static void RegisterRepositories(TinyIoCContainer container)
+        private static void RegisterRepositories(ContainerBuilder builder)
         {
-            container.Register<IAuthenticatorRepository, AuthenticatorRepository>();
-            container.Register<ICategoryRepository, CategoryRepository>();
-            container.Register<IAuthenticatorCategoryRepository, AuthenticatorCategoryRepository>();
-            container.Register<ICustomIconRepository, CustomIconRepository>();
-            container.Register<IIconPackRepository, IconPackRepository>();
-            container.Register<IIconPackEntryRepository, IconPackEntryRepository>();
+            builder.RegisterType<AuthenticatorRepository>().As<IAuthenticatorRepository>().SingleInstance();
+            builder.RegisterType<CategoryRepository>().As<ICategoryRepository>().SingleInstance();
+            builder.RegisterType<AuthenticatorCategoryRepository>().As<IAuthenticatorCategoryRepository>().SingleInstance();
+            builder.RegisterType<CustomIconRepository>().As<ICustomIconRepository>().SingleInstance();
+            builder.RegisterType<IconPackRepository>().As<IIconPackRepository>().SingleInstance();
+            builder.RegisterType<IconPackEntryRepository>().As<IIconPackEntryRepository>().SingleInstance();
         }
 
-        public static void RegisterServices(TinyIoCContainer container)
+        private static void RegisterServices(ContainerBuilder builder)
         {
-            container.Register<IEqualityComparer<Authenticator>, AuthenticatorComparer>();
-            container.Register<IEqualityComparer<Category>, CategoryComparer>();
-            container.Register<IEqualityComparer<AuthenticatorCategory>, AuthenticatorCategoryComparer>();
+            builder.RegisterType<AuthenticatorComparer>().As<IEqualityComparer<Authenticator>>().SingleInstance();
+            builder.RegisterType<CategoryComparer>().As<IEqualityComparer<Category>>().SingleInstance();
+            builder.RegisterType<AuthenticatorCategoryComparer>().As<IEqualityComparer<AuthenticatorCategory>>().SingleInstance();
 
-            container.Register<IAuthenticatorService, AuthenticatorService>();
-            container.Register<IBackupService, BackupService>();
-            container.Register<ICategoryService, CategoryService>();
-            container.Register<ICustomIconService, CustomIconService>();
-            container.Register<IIconPackService, IconPackService>();
-            container.Register<IImportService, ImportService>();
-            container.Register<IRestoreService, RestoreService>();
+            builder.RegisterType<AuthenticatorService>().As<IAuthenticatorService>().SingleInstance();
+            builder.RegisterType<BackupService>().As<IBackupService>().SingleInstance();
+            builder.RegisterType<CategoryService>().As<ICategoryService>().SingleInstance();
+            builder.RegisterType<CustomIconService>().As<ICustomIconService>().SingleInstance();
+            builder.RegisterType<IconPackService>().As<IIconPackService>().SingleInstance();
+            builder.RegisterType<ImportService>().As<IImportService>().SingleInstance();
+            builder.RegisterType<RestoreService>().As<IRestoreService>().SingleInstance();
         }
 
-        public static void RegisterViews(TinyIoCContainer container)
+        private static void RegisterViews(ContainerBuilder builder)
         {
-            container.Register<IAuthenticatorView, AuthenticatorView>().AsMultiInstance();
-            container.Register<ICategoryView, CategoryView>().AsMultiInstance();
-            container.Register<ICustomIconView, CustomIconView>().AsMultiInstance();
-            container.Register<IDefaultIconView, DefaultIconView>().AsMultiInstance();
-            container.Register<IIconPackEntryView, IconPackEntryView>().AsMultiInstance();
-            container.Register<IIconPackView, IconPackView>().AsMultiInstance();
+            builder.RegisterType<AuthenticatorView>().As<IAuthenticatorView>();
+            builder.RegisterType<CategoryView>().As<ICategoryView>();
+            builder.RegisterType<CustomIconView>().As<ICustomIconView>();
+            builder.RegisterType<DefaultIconView>().As<IDefaultIconView>();
+            builder.RegisterType<IconPackEntryView>().As<IIconPackEntryView>();
+            builder.RegisterType<IconPackView>().As<IIconPackView>();
         }
 
         public static T Resolve<T>() where T : class
         {
-            return Container.Resolve<T>();
+            return _container.Resolve<T>();
         }
 
         public static IEnumerable<T> ResolveAll<T>() where T : class
         {
-            return Container.ResolveAll<T>();
+            return _container.Resolve<IEnumerable<T>>();
         }
     }
 }

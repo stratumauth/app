@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Autofac;
 using Stratum.Droid.Persistence.View;
 
 namespace Stratum.Droid
@@ -44,12 +45,8 @@ namespace Stratum.Droid
             _database = new Database();
             _lock = new SemaphoreSlim(1, 1);
             
-            using var container = Dependencies.GetChildContainer();
-            container.Register(_database);
-            Dependencies.RegisterRepositories(container);
-            Dependencies.RegisterServices(container);
-            Dependencies.RegisterViews(container);
-
+            using var container = Dependencies.CreateContainer(this, _database);
+            
             _authenticatorView = container.Resolve<IAuthenticatorView>();
             _categoryService = container.Resolve<ICategoryService>();
             _customIconService = container.Resolve<ICustomIconService>();

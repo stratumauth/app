@@ -11,6 +11,7 @@ using AndroidX.Core.App;
 using AndroidX.Core.Content;
 using AndroidX.DocumentFile.Provider;
 using AndroidX.Work;
+using Autofac;
 using Stratum.Core.Backup;
 using Stratum.Core.Backup.Encryption;
 using Stratum.Core.Service;
@@ -39,11 +40,7 @@ namespace Stratum.Droid
             _preferences = new PreferenceWrapper(context);
             _secureStorageWrapper = new SecureStorageWrapper(context);
 
-            using var container = Dependencies.GetChildContainer();
-            container.Register(_database);
-            Dependencies.RegisterRepositories(container);
-            Dependencies.RegisterServices(container);
-
+            using var container = Dependencies.CreateContainer(context, _database);
             _backupService = container.Resolve<IBackupService>();
         }
 

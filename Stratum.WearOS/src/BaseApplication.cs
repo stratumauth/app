@@ -21,7 +21,7 @@ namespace Stratum.WearOS
         public override void OnCreate()
         {
             base.OnCreate();
-            Dependencies.Register(this);
+            Dependencies.Init(this);
         }
     }
 }

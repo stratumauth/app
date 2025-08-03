@@ -38,10 +38,9 @@ namespace Stratum.Droid
             InitLogger();
 
             Provider.Init();
-            _database = new Database();
             
-            Dependencies.Register(_database);
-            Dependencies.RegisterApplicationContext(this);
+            _database = new Database();
+            Dependencies.Init(this, _database);
 
             AutoLockEnabled = false;
             PreventNextAutoLock = false;
