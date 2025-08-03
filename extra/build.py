@@ -14,8 +14,9 @@ from typing import Generator
 PACKAGE_NAME = "com.stratumauth.app"
 REPO = "https://github.com/stratumauth/app.git"
 
-FRAMEWORK = "net9.0-android"
 CONFIGURATION = "Release"
+
+PROJECT_FRAMEWORKS = {"android": "net9.0-android36.0", "wearos": "net9.0-android"}
 
 PROJECT_NAMES = {
     "android": "Stratum.Droid",
@@ -73,8 +74,10 @@ def adjust_csproj(build_dir: str, args: argparse.Namespace):
 
 
 def build_project(build_dir: str, args: argparse.Namespace):
+    framework = PROJECT_FRAMEWORKS[args.project]
+
     os.makedirs(args.output, exist_ok=True)
-    build_args = [f"-f:{FRAMEWORK}", f"-c:{CONFIGURATION}"]
+    build_args = [f"-f:{framework}", f"-c:{CONFIGURATION}"]
 
     if args.runtime is not None:
         build_args.append(f"-r:{args.runtime}")
@@ -95,13 +98,14 @@ def build_project(build_dir: str, args: argparse.Namespace):
 
 def move_build_artifacts(args: argparse.Namespace, build_dir: str, output_dir: str):
     publish_dir = "publish" if args.runtime is None else args.runtime
+    framework = PROJECT_FRAMEWORKS[args.project]
 
     artifact_dir = os.path.join(
         build_dir,
         PROJECT_NAMES[args.project],
         "bin",
         CONFIGURATION,
-        FRAMEWORK,
+        framework,
         publish_dir,
     )
 

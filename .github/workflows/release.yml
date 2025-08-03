@@ -6,7 +6,6 @@ on:
       - "v*"
 
 env:
-  FRAMEWORK: net9.0-android
   CONFIGURATION: Release
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 

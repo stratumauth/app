@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  FRAMEWORK: net9.0-android
+  ANDROID_FRAMEWORK: net9.0-android36.0
+  WEAROS_FRAMEWORK: net9.0-android
   CONFIGURATION: Release
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 
@@ -45,8 +46,8 @@ jobs:
           sed -i "s|package=\"com.stratumauth.app\"|package=\"com.stratumauth.app.$REF\"|g" Stratum.Droid/Properties/AndroidManifest.xml
           sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" Stratum.Droid/Resources/values/strings.xml
 
-          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore Stratum.Droid/Stratum.Droid.csproj
-          APK=$(find Stratum.Droid/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
+          dotnet publish -f:$ANDROID_FRAMEWORK -c:$CONFIGURATION --no-restore Stratum.Droid/Stratum.Droid.csproj
+          APK=$(find Stratum.Droid/bin/$CONFIGURATION/$ANDROID_FRAMEWORK/publish -name '*-Signed.apk')
           mv $APK "com.stratumauth.app.$REF.apk"
 
       - name: Publish Wear OS
@@ -55,8 +56,8 @@ jobs:
           sed -i "s|package=\"com.stratumauth.app\"|package=\"com.stratumauth.app.$REF\"|g" Stratum.WearOS/Properties/AndroidManifest.xml
           sed -i "s|<string name=\"displayName\" translatable=\"false\">Authenticator</string>|<string name=\"displayName\" translatable=\"false\">Authenticator ($REF)</string>|g" Stratum.WearOS/Resources/values/strings.xml
 
-          dotnet publish -f:$FRAMEWORK -c:$CONFIGURATION --no-restore Stratum.WearOS/Stratum.WearOS.csproj
-          APK=$(find Stratum.WearOS/bin/$CONFIGURATION/$FRAMEWORK/publish -name '*-Signed.apk')
+          dotnet publish -f:$WEAROS_FRAMEWORK -c:$CONFIGURATION --no-restore Stratum.WearOS/Stratum.WearOS.csproj
+          APK=$(find Stratum.WearOS/bin/$CONFIGURATION/$WEAROS_FRAMEWORK/publish -name '*-Signed.apk')
           mv $APK "com.stratumauth.app.wearos.$REF.apk"
 
       - name: Generate coverage report
