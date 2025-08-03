@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net9.0-android</TargetFramework>
+        <TargetFramework>net9.0-android36.0</TargetFramework>
         <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
         <OutputType>Exe</OutputType>
         <Nullable>disable</Nullable>
