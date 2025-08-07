@@ -53,6 +53,15 @@ namespace Stratum.Droid
             set => SetPreference(SkipToNextKey, value);
         }
         
+        private const string ShowUncategorisedKey = "pref_showUncategorised";
+        private const bool ShowUncategorisedDefault = false;
+
+        public bool ShowUncategorised
+        {
+            get => Preferences.GetBoolean(ShowUncategorisedKey, ShowUncategorisedDefault);
+            set => SetPreference(ShowUncategorisedKey, value);
+        }
+        
         private const string PasswordProtectedKey = "pref_passwordProtected";
         private const bool PasswordProtectedDefault = false;
 

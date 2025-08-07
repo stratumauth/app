@@ -17,6 +17,7 @@ namespace Stratum.Droid.Interface.Fragment
         private RecyclerView _categoryList;
 
         private string _currentCategoryId;
+        private bool _showUncategorisedCategory;
 
         public MainMenuBottomSheet() : base(Resource.Layout.sheetMainMenu, Resource.String.mainMenu)
         {
@@ -34,8 +35,13 @@ namespace Stratum.Droid.Interface.Fragment
         {
             base.OnCreate(savedInstanceState);
 
-            _categoryMenuListAdapter =
-                new CategoryMenuListAdapter(Activity, _categoryView) { HasStableIds = true };
+            var preferences = new PreferenceWrapper(RequireContext());
+            _showUncategorisedCategory = preferences.ShowUncategorised;
+
+            _categoryMenuListAdapter = new CategoryMenuListAdapter(Activity, _categoryView, _showUncategorisedCategory)
+            {
+                HasStableIds = true
+            };
 
             _currentCategoryId = Arguments.GetString("currentCategoryId");
         }
@@ -72,9 +78,13 @@ namespace Stratum.Droid.Interface.Fragment
             base.OnViewCreated(view, savedInstanceState);
             await _categoryView.LoadFromPersistenceAsync();
             _categoryMenuListAdapter.NotifyDataSetChanged();
-
-            var selectedCategoryPosition =
-                _currentCategoryId == null ? 0 : _categoryView.IndexOf(_currentCategoryId) + 1;
+            
+            var selectedCategoryPosition = _currentCategoryId switch
+            {
+                MetaCategory.All => 0,
+                MetaCategory.Uncategorised when _categoryMenuListAdapter.MetaCategoryCount > 1 => 1,
+                _ => _categoryView.IndexOf(_currentCategoryId) + _categoryMenuListAdapter.MetaCategoryCount
+            };
 
             _categoryMenuListAdapter.SelectedPosition = selectedCategoryPosition;
             _categoryMenuListAdapter.NotifyItemChanged(selectedCategoryPosition);

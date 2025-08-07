@@ -45,6 +45,12 @@
             android:title="@string/prefSkipToNextTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="false"/>
+        <stratum.droid.interface.preference.MaterialSwitchPreference
+            android:key="pref_showUncategorised"
+            android:summary="@string/prefShowUncategorisedSummary"
+            android:title="@string/prefShowUncategorisedTitle"
+            app:iconSpaceReserved="false"
+            android:defaultValue="false"/>
     </androidx.preference.PreferenceCategory>
 
     <androidx.preference.PreferenceCategory

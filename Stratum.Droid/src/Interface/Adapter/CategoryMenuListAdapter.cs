@@ -14,34 +14,42 @@ namespace Stratum.Droid.Interface.Adapter
     {
         private readonly Context _context;
         private readonly ICategoryView _categoryView;
+        private readonly bool _showUncategorisedCategory;
 
-        public CategoryMenuListAdapter(Context context, ICategoryView categoryView)
+        public CategoryMenuListAdapter(Context context, ICategoryView categoryView, bool showUncategorisedCategory)
         {
             _context = context;
             _categoryView = categoryView;
+            _showUncategorisedCategory = showUncategorisedCategory;
             SelectedPosition = 0;
         }
 
         public int SelectedPosition { get; set; }
 
-        public override int ItemCount => _categoryView.Count + 1;
+        public int MetaCategoryCount => _showUncategorisedCategory ? 2 : 1;
+        public override int ItemCount => _categoryView.Count + MetaCategoryCount;
+        
         public event EventHandler<string> CategorySelected;
 
         public override long GetItemId(int position)
         {
-            return position == 0
-                ? -1
-                : -_categoryView[position - 1].GetHashCode();
+            return position < MetaCategoryCount
+                ? -MetaCategoryCount
+                : _categoryView[position - MetaCategoryCount].GetHashCode();
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder viewHolder, int position)
         {
             var holder = (CategoriesListHolder) viewHolder;
 
-            holder.Name.Text = position == 0
-                ? _context.Resources.GetString(Resource.String.categoryAll)
-                : _categoryView[position - 1].Name;
+            var name = position switch
+            {
+                0 => _context.Resources.GetString(Resource.String.categoryAll),
+                1 when MetaCategoryCount > 1 => _context.Resources.GetString(Resource.String.categoryUncategorised),
+                _ => _categoryView[position - MetaCategoryCount].Name
+            };
 
+            holder.Name.Text = name;
             holder.ItemView.Selected = position == SelectedPosition;
         }
 
@@ -55,8 +63,14 @@ namespace Stratum.Droid.Interface.Adapter
                 NotifyItemChanged(SelectedPosition);
                 SelectedPosition = position;
                 NotifyItemChanged(position);
+                
+                var categoryId = position switch
+                {
+                    0 => MetaCategory.All,
+                    1 when MetaCategoryCount > 1 => MetaCategory.Uncategorised,
+                    _ => _categoryView[position - MetaCategoryCount].Id
+                };
 
-                var categoryId = position == 0 ? null : _categoryView[position - 1].Id;
                 CategorySelected?.Invoke(this, categoryId);
             };
 

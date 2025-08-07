@@ -28,6 +28,7 @@ namespace Stratum.Droid.Persistence.View.Impl
         public AuthenticatorView(IAuthenticatorRepository authenticatorRepository,
             IAuthenticatorCategoryRepository authenticatorCategoryRepository)
         {
+            _categoryId = MetaCategory.All;
             _authenticatorRepository = authenticatorRepository;
             _authenticatorCategoryRepository = authenticatorCategoryRepository;
             _view = new List<Authenticator>();
@@ -77,17 +78,31 @@ namespace Stratum.Droid.Persistence.View.Impl
             {
                 return;
             }
-
-            var view = _all.AsEnumerable();
-
-            if (CategoryId != null)
+            
+            if (_categoryId == null)
             {
-                var bindingForCategory = _authenticatorCategories.Where(b => b.CategoryId == CategoryId);
-                view = view.Where(a => bindingForCategory.Any(c => c.AuthenticatorSecret == a.Secret));
+                throw new InvalidOperationException("No category selected");
+            }
 
-                if (SortMode == SortMode.Custom)
+            IEnumerable<Authenticator> view;
+
+            switch (CategoryId)
+            {
+                case MetaCategory.All:
+                    view = _all.AsEnumerable();
+                    break;
+                
+                case MetaCategory.Uncategorised:
                 {
-                    view = view.OrderBy(a => bindingForCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking);
+                    view = _all.Where(a => _authenticatorCategories.All(c => c.AuthenticatorSecret != a.Secret));
+                    break;
+                }
+                
+                default:
+                {
+                    var bindingForCategory = _authenticatorCategories.Where(b => b.CategoryId == CategoryId);
+                    view = _all.Where(a => bindingForCategory.Any(c => c.AuthenticatorSecret == a.Secret));
+                    break;
                 }
             }
 
@@ -98,16 +113,29 @@ namespace Stratum.Droid.Persistence.View.Impl
                     (i.Username != null && i.Username.Contains(Search, StringComparison.OrdinalIgnoreCase)));
             }
 
-            view = SortMode switch
+            if (SortMode == SortMode.Custom)
             {
-                SortMode.AlphabeticalAscending => view.OrderBy(a => a.Issuer).ThenBy(a => a.Username),
-                SortMode.AlphabeticalDescending => view.OrderByDescending(a => a.Issuer)
-                    .ThenByDescending(a => a.Username),
-                SortMode.CopyCountAscending => view.OrderBy(a => a.CopyCount).ThenBy(a => a.Issuer),
-                SortMode.CopyCountDescending => view.OrderByDescending(a => a.CopyCount).ThenBy(a => a.Issuer),
-                SortMode.Custom when CategoryId == null => view.OrderBy(a => a.Ranking),
-                _ => view
-            };
+                if (MetaCategory.Is(_categoryId))
+                {
+                    view = view.OrderBy(a => a.Ranking);
+                }
+                else
+                {
+                    var bindingForCategory = _authenticatorCategories.Where(b => b.CategoryId == CategoryId);
+                    view = view.OrderBy(a => bindingForCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking);
+                }
+            }
+            else
+            {
+                view = SortMode switch
+                {
+                    SortMode.AlphabeticalAscending => view.OrderBy(a => a.Issuer).ThenBy(a => a.Username),
+                    SortMode.AlphabeticalDescending => view.OrderByDescending(a => a.Issuer).ThenByDescending(a => a.Username),
+                    SortMode.CopyCountAscending => view.OrderBy(a => a.CopyCount).ThenBy(a => a.Issuer),
+                    SortMode.CopyCountDescending => view.OrderByDescending(a => a.CopyCount).ThenBy(a => a.Issuer),
+                    _ => view
+                };
+            }
 
             _view = view.ToList();
         }
@@ -158,21 +186,32 @@ namespace Stratum.Droid.Persistence.View.Impl
 
         public void CommitRanking()
         {
-            if (_categoryId == null)
+            switch (_categoryId)
             {
-                for (var i = 0; i < _view.Count; ++i)
+                case MetaCategory.All:
                 {
-                    _view[i].Ranking = i;
+                    for (var i = 0; i < _view.Count; ++i)
+                    {
+                        _view[i].Ranking = i;
+                    }
+
+                    break;
                 }
-            }
-            else
-            {
-                for (var i = 0; i < _view.Count; ++i)
+                
+                case MetaCategory.Uncategorised:
+                    throw new InvalidOperationException("Cannot reorder uncategorised authenticators");
+                
+                default:
                 {
-                    var auth = _view[i];
-                    var binding = _authenticatorCategories.First(
-                        ac => ac.AuthenticatorSecret == auth.Secret && ac.CategoryId == _categoryId);
-                    binding.Ranking = i;
+                    for (var i = 0; i < _view.Count; ++i)
+                    {
+                        var auth = _view[i];
+                        var binding = _authenticatorCategories.First(
+                            ac => ac.AuthenticatorSecret == auth.Secret && ac.CategoryId == _categoryId);
+                        binding.Ranking = i;
+                    }
+
+                    break;
                 }
             }
         }
