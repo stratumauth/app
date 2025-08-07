@@ -414,7 +414,8 @@ namespace Stratum.Droid.Activity
             {
                 _authenticatorView.Search = e.NewText;
                 _authenticatorListAdapter.NotifyDataSetChanged();
-                _authenticatorTouchHelperCallback.IsLocked = e.NewText != "";
+                _authenticatorTouchHelperCallback.IsLocked = e.NewText != "" || 
+                                                             _authenticatorView.CategoryId == MetaCategory.Uncategorised;
             };
 
             return base.OnCreateOptionsMenu(menu);
@@ -955,8 +956,11 @@ namespace Stratum.Droid.Activity
             RunOnUiThread(delegate
             {
                 SupportActionBar.Title = categoryName;
+                
                 _authenticatorListAdapter.NotifyDataSetChanged();
                 _authenticatorList.ScheduleLayoutAnimation();
+                _authenticatorTouchHelperCallback.IsLocked = _authenticatorView.CategoryId == MetaCategory.Uncategorised;
+                
                 ScrollToPosition(0, false);
                 _bottomAppBar.PerformShow();
             });
