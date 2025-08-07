@@ -272,6 +272,15 @@ namespace Stratum.Droid
             get => Preferences.GetString(DefaultCategoryKey, DefaultCategoryDefault);
             set => SetPreference(DefaultCategoryKey, value);
         }
+        
+        private const string LockOrderingKey = "lockOrdering";
+        private const bool LockOrderingDefault = false;
+
+        public bool LockOrdering
+        {
+            get => Preferences.GetBoolean(LockOrderingKey, LockOrderingDefault);
+            set => SetPreference(LockOrderingKey, value);
+        }
 
         private const string PasswordChangedKey = "passwordChanged";
         private const bool PasswordChangedDefault = false;

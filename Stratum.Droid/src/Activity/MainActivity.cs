@@ -21,6 +21,7 @@ using Android.Views.Animations;
 using Android.Widget;
 using AndroidX.Core.App;
 using AndroidX.Core.Content;
+using AndroidX.Core.View;
 using AndroidX.RecyclerView.Widget;
 using AndroidX.Work;
 using Stratum.Core;
@@ -414,9 +415,20 @@ namespace Stratum.Droid.Activity
             {
                 _authenticatorView.Search = e.NewText;
                 _authenticatorListAdapter.NotifyDataSetChanged();
-                _authenticatorTouchHelperCallback.IsLocked = e.NewText != "" || 
-                                                             _authenticatorView.CategoryId == MetaCategory.Uncategorised;
             };
+
+            searchView.ViewAttachedToWindow += delegate
+            {
+                _authenticatorTouchHelperCallback.IsLocked = true;
+            };
+
+            searchView.ViewDetachedFromWindow += delegate
+            {
+                _authenticatorTouchHelperCallback.IsLocked = ShouldLockReordering();
+            };
+
+            var sortItem = menu.FindItem(Resource.Id.actionSort);
+            MenuCompat.SetGroupDividerEnabled(sortItem.SubMenu, true);
 
             return base.OnCreateOptionsMenu(menu);
         }
@@ -433,11 +445,25 @@ namespace Stratum.Droid.Activity
             };
 
             menu.FindItem(sortItemId)?.SetChecked(true);
+
+            var sortLockUnlockItem = menu.FindItem(Resource.Id.actionSortLockUnlock);
+            
+            sortLockUnlockItem?.SetTitle(GetString(Preferences.LockOrdering
+                ? Resource.String.sortUnlock
+                : Resource.String.sortLock));
+            
             return base.OnMenuOpened(featureId, menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
+            if (item.ItemId == Resource.Id.actionSortLockUnlock)
+            {
+                Preferences.LockOrdering = !Preferences.LockOrdering;
+                _authenticatorTouchHelperCallback.IsLocked = Preferences.LockOrdering;
+                return base.OnOptionsItemSelected(item);
+            }
+            
             SortMode sortMode;
 
             switch (item.ItemId)
@@ -466,17 +492,16 @@ namespace Stratum.Droid.Activity
                     return base.OnOptionsItemSelected(item);
             }
 
-            if (_authenticatorView.SortMode == sortMode)
+            if (_authenticatorView.SortMode != sortMode)
             {
-                return false;
+                _authenticatorView.SortMode = sortMode;
+                Preferences.SortMode = sortMode;
+                _authenticatorListAdapter.NotifyDataSetChanged();
+                item.SetChecked(true);
+                return true;
             }
 
-            _authenticatorView.SortMode = sortMode;
-            Preferences.SortMode = sortMode;
-            _authenticatorListAdapter.NotifyDataSetChanged();
-            item.SetChecked(true);
-
-            return true;
+            return base.OnOptionsItemSelected(item);
         }
 
         private void OnBottomAppBarNavigationClick(object sender, Toolbar.NavigationClickEventArgs e)
@@ -773,6 +798,8 @@ namespace Stratum.Droid.Activity
 
             _authenticatorTouchHelperCallback =
                 new ReorderableListTouchHelperCallback(this, _authenticatorListAdapter, _authenticatorLayout);
+            _authenticatorTouchHelperCallback.IsLocked = ShouldLockReordering();
+            
             var touchHelper = new ItemTouchHelper(_authenticatorTouchHelperCallback);
             touchHelper.AttachToRecyclerView(_authenticatorList);
         }
@@ -959,7 +986,7 @@ namespace Stratum.Droid.Activity
                 
                 _authenticatorListAdapter.NotifyDataSetChanged();
                 _authenticatorList.ScheduleLayoutAnimation();
-                _authenticatorTouchHelperCallback.IsLocked = _authenticatorView.CategoryId == MetaCategory.Uncategorised;
+                _authenticatorTouchHelperCallback.IsLocked = ShouldLockReordering();
                 
                 ScrollToPosition(0, false);
                 _bottomAppBar.PerformShow();
@@ -1134,6 +1161,11 @@ namespace Stratum.Droid.Activity
             fragment.ImportClicked += delegate { OpenImportMenu(); };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
+        }
+
+        private bool ShouldLockReordering()
+        {
+            return _authenticatorView.CategoryId == MetaCategory.Uncategorised || Preferences.LockOrdering;
         }
 
         #endregion

@@ -17,7 +17,7 @@
         android:title="@string/sort">
 
         <menu>
-            <group android:checkableBehavior="single">
+            <group android:checkableBehavior="single" android:id="@+id/actionSortChoices">
                 <item android:id="@+id/actionSortAZ"
                       android:title="@string/sortAZ"/>
 
@@ -32,6 +32,11 @@
 
                 <item android:id="@+id/actionSortCustom"
                       android:title="@string/sortCustom"/>
+            </group>
+
+            <group android:id="@+id/actionSortOptions">
+                <item android:id="@+id/actionSortLockUnlock"
+                      android:title="@string/sortLock"/>
             </group>
         </menu>
 
