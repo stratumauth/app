@@ -8,26 +8,51 @@ namespace Stratum.Droid
 {
     public class CategorySelector : IEquatable<CategorySelector>
     {
-        public string CategoryId { get; }
-        public MetaCategory MetaCategory { get; }
+        [JsonProperty]
+        private readonly string _categoryId;
+        
+        [JsonProperty]
+        private readonly MetaCategory _metaCategory;
       
         [JsonConstructor]
         private CategorySelector(string categoryId, MetaCategory metaCategory)
         {
-            CategoryId = categoryId;
-            MetaCategory = metaCategory;
+            _categoryId = categoryId;
+            _metaCategory = metaCategory;
         }
         
         private CategorySelector(string id)
         {
-            CategoryId = id;
-            MetaCategory = MetaCategory.None;
+            _categoryId = id;
+            _metaCategory = MetaCategory.None;
         }
 
         private CategorySelector(MetaCategory metaCategory)
         {
-            CategoryId = null;
-            MetaCategory = metaCategory;
+            _categoryId = null;
+            _metaCategory = metaCategory;
+        }
+
+        public bool Is(MetaCategory metaCategory)
+        {
+            return _categoryId == null && _metaCategory == metaCategory;
+        }
+
+        public bool Is(string id)
+        {
+            return _categoryId == id && _metaCategory == MetaCategory.None;
+        }
+
+        public bool IsCategory(out string id)
+        {
+            id = _categoryId;
+            return _categoryId != null && _metaCategory == MetaCategory.None;
+        }
+
+        public bool IsMetaCategory(out MetaCategory metaCategory)
+        {
+            metaCategory = _metaCategory;
+            return _categoryId == null && _metaCategory != MetaCategory.None;
         }
 
         public static CategorySelector Of(MetaCategory metaCategory)
@@ -43,12 +68,12 @@ namespace Stratum.Droid
         
         public bool Equals(CategorySelector other)
         {
-            return other != null && CategoryId == other.CategoryId && MetaCategory == other.MetaCategory;
+            return other != null && _categoryId == other._categoryId && _metaCategory == other._metaCategory;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(CategoryId, (int)MetaCategory);
+            return HashCode.Combine(_categoryId, (int)_metaCategory);
         }
     }
 }

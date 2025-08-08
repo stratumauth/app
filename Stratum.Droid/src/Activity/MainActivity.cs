@@ -532,9 +532,9 @@ namespace Stratum.Droid.Activity
             bundle.PutString("currentCategorySelector", JsonConvert.SerializeObject(_authenticatorView.CategorySelector));
 
             var fragment = new MainMenuBottomSheet { Arguments = bundle };
-            fragment.CategoryClicked += async (_, id) =>
+            fragment.CategoryClicked += async (_, selector) =>
             {
-                await SwitchCategory(id);
+                await SwitchCategory(selector);
                 RunOnUiThread(fragment.Dismiss);
             };
 
@@ -610,7 +610,7 @@ namespace Stratum.Droid.Activity
             }
             else
             {
-                if (_authenticatorView.CategorySelector.CategoryId != defaultCategoryId)
+                if (!_authenticatorView.CategorySelector.Is(defaultCategoryId))
                 {
                     await SwitchCategory(CategorySelector.Of(defaultCategoryId));
                 }
@@ -685,7 +685,7 @@ namespace Stratum.Droid.Activity
                     _authenticatorList.ScheduleLayoutAnimation();
                 });
 
-                await CheckCategoryState();
+                await CheckIfActiveCategoryDeletedAsync();
             }
             else
             {
@@ -703,7 +703,7 @@ namespace Stratum.Droid.Activity
             
             var defaultCategoryId = Preferences.DefaultCategory;
 
-            if (defaultCategoryId != null && _authenticatorView.CategorySelector.CategoryId != defaultCategoryId)
+            if (defaultCategoryId != null)
             {
                 await SwitchCategory(CategorySelector.Of(defaultCategoryId));
             }
@@ -841,7 +841,7 @@ namespace Stratum.Droid.Activity
 
             _authenticatorView.CommitRanking();
 
-            if (_authenticatorView.CategorySelector.MetaCategory == MetaCategory.All)
+            if (_authenticatorView.CategorySelector.Is(MetaCategory.All))
             {
                 await _authenticatorService.UpdateManyAsync(_authenticatorView);
             }
@@ -860,27 +860,17 @@ namespace Stratum.Droid.Activity
             RunOnUiThread(_bottomAppBar.PerformShow);
         }
 
-        private async Task CheckCategoryState()
+        private async Task CheckIfActiveCategoryDeletedAsync()
         {
-            if (_authenticatorView.CategorySelector.MetaCategory != MetaCategory.None)
+            if (_authenticatorView.CategorySelector.IsCategory(out var id))
             {
-                return;
+                var category = await _categoryService.GetCategoryByIdAsync(id);
+
+                if (category == null)
+                {
+                    await SwitchCategory(CategorySelector.Of(MetaCategory.All));
+                }
             }
-
-            var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategorySelector.CategoryId);
-
-            if (category == null)
-            {
-                // Currently visible category has been deleted
-                await SwitchCategory(CategorySelector.Of(MetaCategory.All));
-                return;
-            }
-
-            RunOnUiThread(delegate
-            {
-                SupportActionBar.SetDisplayShowTitleEnabled(true);
-                SupportActionBar.Title = category.Name;
-            });
         }
 
         private void CheckEmptyState()
@@ -899,7 +889,7 @@ namespace Stratum.Droid.Activity
                         AnimUtil.FadeOutView(_authenticatorList, AnimUtil.LengthShort);
                     }
 
-                    if (_authenticatorView.CategorySelector.MetaCategory == MetaCategory.All)
+                    if (_authenticatorView.CategorySelector.Is(MetaCategory.All))
                     {
                         _emptyMessageText.SetText(Resource.String.noAuthenticatorsHelp);
                         _startLayout.Visibility = ViewStates.Visible;
@@ -958,11 +948,11 @@ namespace Stratum.Droid.Activity
 
                 if (defaultCategoryId == null)
                 {
-                    shouldInterceptBackpress = _authenticatorView.CategorySelector.MetaCategory != MetaCategory.All;
+                    shouldInterceptBackpress = !_authenticatorView.CategorySelector.Is(MetaCategory.All);
                 }
                 else
                 {
-                    shouldInterceptBackpress = _authenticatorView.CategorySelector.CategoryId != defaultCategoryId;
+                    shouldInterceptBackpress = !_authenticatorView.CategorySelector.Is(defaultCategoryId);
                 }
             }
 
@@ -971,34 +961,23 @@ namespace Stratum.Droid.Activity
 
         private async Task SwitchCategory(CategorySelector selector)
         {
-            if (selector == _authenticatorView.CategorySelector)
+            string categoryName = null;
+
+            if (selector.IsMetaCategory(out var metaCategory))
             {
-                CheckEmptyState();
-                return;
+                categoryName = metaCategory switch
+                {
+                    MetaCategory.All => GetString(Resource.String.categoryAll),
+                    MetaCategory.Uncategorised => GetString(Resource.String.categoryUncategorised)
+                };
+            }
+            else if (selector.IsCategory(out var categoryId))
+            {
+                var category = await _categoryService.GetCategoryByIdAsync(categoryId);
+                categoryName = category.Name;
             }
             
             _authenticatorView.CategorySelector = selector;
-
-            string categoryName;
-
-            switch (selector.MetaCategory)
-            {
-                case MetaCategory.All:
-                    categoryName = GetString(Resource.String.categoryAll);
-                    break;
-                
-                case MetaCategory.Uncategorised:
-                    categoryName = GetString(Resource.String.categoryUncategorised);
-                    break;
-                
-                default:
-                case MetaCategory.None:
-                {
-                    var category = await _categoryService.GetCategoryByIdAsync(selector.CategoryId);
-                    categoryName = category.Name;
-                    break;
-                }
-            }
 
             UpdateBackpressIntercept();
             CheckEmptyState();
@@ -1006,6 +985,7 @@ namespace Stratum.Droid.Activity
             RunOnUiThread(delegate
             {
                 SupportActionBar.Title = categoryName;
+                SupportActionBar.SetDisplayShowTitleEnabled(true);
                 
                 _authenticatorListAdapter.NotifyDataSetChanged();
                 _authenticatorList.ScheduleLayoutAnimation();
@@ -1188,7 +1168,7 @@ namespace Stratum.Droid.Activity
 
         private bool ShouldLockReordering()
         {
-            return _authenticatorView.CategorySelector.MetaCategory == MetaCategory.Uncategorised || Preferences.LockOrdering;
+            return _authenticatorView.CategorySelector.Is(MetaCategory.Uncategorised) || Preferences.LockOrdering;
         }
 
         #endregion
@@ -1287,9 +1267,9 @@ namespace Stratum.Droid.Activity
                     return;
                 }
 
-                if (_authenticatorView.CategorySelector.MetaCategory == MetaCategory.None)
+                if (_authenticatorView.CategorySelector.IsCategory(out var categoryId))
                 {
-                    var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategorySelector.CategoryId);
+                    var category = await _categoryService.GetCategoryByIdAsync(categoryId);
                     await _categoryService.AddBindingAsync(result.Authenticator, category);
                 }
 
@@ -1663,7 +1643,7 @@ namespace Stratum.Droid.Activity
             await _authenticatorView.LoadFromPersistenceAsync();
             await _customIconView.LoadFromPersistenceAsync();
 
-            await SwitchCategory(null);
+            await SwitchCategory(CategorySelector.Of(MetaCategory.All));
             ShowAutoTimeWarning();
 
             RunOnUiThread(delegate
@@ -1854,11 +1834,11 @@ namespace Stratum.Droid.Activity
 
             try
             {
-                if (_authenticatorView.CategorySelector.MetaCategory == MetaCategory.None)
+                if (_authenticatorView.CategorySelector.IsCategory(out var categoryId))
                 {
                     await _authenticatorService.AddAsync(args.Authenticator);
 
-                    var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategorySelector.CategoryId);
+                    var category = await _categoryService.GetCategoryByIdAsync(categoryId);
                     await _categoryService.AddBindingAsync(args.Authenticator, category);
                 }
                 else
@@ -2144,12 +2124,8 @@ namespace Stratum.Droid.Activity
         private async void OnCategoriesDialogClosed(object sender, EventArgs e)
         {
             await _authenticatorView.LoadFromPersistenceAsync();
-
-            if (_authenticatorView.CategorySelector.MetaCategory != MetaCategory.None)
-            {
-                RunOnUiThread(delegate { _authenticatorListAdapter.NotifyDataSetChanged(); });
-                CheckEmptyState();
-            }
+            RunOnUiThread(delegate { _authenticatorListAdapter.NotifyDataSetChanged(); });
+            CheckEmptyState();
         }
 
         private async void OnCategoriesDialogCategoryClicked(object sender,
