@@ -86,13 +86,14 @@ namespace Stratum.Droid.Activity
         private const int RequestImportAegis = 11;
         private const int RequestImportBitwarden = 12;
         private const int RequestImportEnteAuth = 13;
-        private const int RequestImportTwoFas = 14;
-        private const int RequestImportKeePass = 15;
-        private const int RequestImportLastPass = 16;
-        private const int RequestImportWinAuth = 17;
-        private const int RequestImportTotpAuthenticator = 18;
-        private const int RequestImportAuthenticatorPlus = 19;
-        private const int RequestImportUriList = 20;
+        private const int RequestImportProtonAuthenticator = 14;
+        private const int RequestImportTwoFas = 15;
+        private const int RequestImportKeePass = 16;
+        private const int RequestImportLastPass = 17;
+        private const int RequestImportWinAuth = 18;
+        private const int RequestImportTotpAuthenticator = 19;
+        private const int RequestImportAuthenticatorPlus = 20;
+        private const int RequestImportUriList = 21;
 
         // Data
         private readonly ILogger _log = Log.ForContext<MainActivity>();
@@ -369,6 +370,10 @@ namespace Stratum.Droid.Activity
                 
                 case RequestImportEnteAuth:
                     await ImportFromUri(new EnteAuthBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportProtonAuthenticator:
+                    await ImportFromUri(new ProtonAuthenticatorBackupConverter(_iconResolver), intent.Data);
                     break;
 
                 case RequestImportTwoFas:
@@ -1374,6 +1379,8 @@ namespace Stratum.Droid.Activity
             fragment.BitwardenClicked += delegate { StartFilePickActivity("*/*", RequestImportBitwarden); };
             
             fragment.EnteAuthClicked += delegate { StartFilePickActivity("*/*", RequestImportEnteAuth); };
+            
+            fragment.ProtonAuthenticatorClicked += delegate { StartFilePickActivity("*/*", RequestImportProtonAuthenticator); };
 
             fragment.WinAuthClicked += delegate { StartFilePickActivity("*/*", RequestImportWinAuth); };
 

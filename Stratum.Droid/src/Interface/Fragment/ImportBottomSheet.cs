@@ -21,6 +21,7 @@ namespace Stratum.Droid.Interface.Fragment
         public event EventHandler AegisClicked;
         public event EventHandler BitwardenClicked;
         public event EventHandler EnteAuthClicked;
+        public event EventHandler ProtonAuthenticatorClicked;
         public event EventHandler WinAuthClicked;
         public event EventHandler TwoFasClicked;
         public event EventHandler KeePassClicked; 
@@ -53,6 +54,8 @@ namespace Stratum.Droid.Interface.Fragment
                     BitwardenClicked, Resource.String.bitwardenImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_enteauth, Resource.String.enteAuth,
                     EnteAuthClicked, Resource.String.enteAuthImportHint),
+                new SheetMenuItem(Resource.Drawable.ic_protonauthenticator, Resource.String.protonAuthenticator,
+                    ProtonAuthenticatorClicked, Resource.String.protonAuthenticatorImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_winauth, Resource.String.winAuth, WinAuthClicked,
                     Resource.String.winAuthImportHint),
                 new SheetMenuItem(Resource.Drawable.ic_twofas, Resource.String.twoFas, TwoFasClicked,
