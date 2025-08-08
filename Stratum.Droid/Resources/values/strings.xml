@@ -341,7 +341,7 @@
         QR code scanner
     -->
     
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Toggle flash</string>
 
@@ -371,7 +371,7 @@
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
-    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Timeout</string>
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
@@ -513,7 +513,7 @@
     <string name="introCategoriesTitle">Categories</string>
     <string name="introThemesTitle">Dark theme</string>
 
-    <string name="introWelcomeSummary">Thanks for downloading Stratum.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
     <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
