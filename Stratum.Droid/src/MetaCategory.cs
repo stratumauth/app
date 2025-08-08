@@ -3,15 +3,8 @@
 
 namespace Stratum.Droid
 {
-    public static class MetaCategory
+    public enum MetaCategory
     {
-        public const string All = "ALL";
-
-        public const string Uncategorised = "UNCATEGORISED";
-
-        public static bool Is(string id)
-        {
-            return id is All or Uncategorised;
-        }
+        None, All, Uncategorised 
     }
 }

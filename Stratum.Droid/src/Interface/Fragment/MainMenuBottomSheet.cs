@@ -5,6 +5,7 @@ using System;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
+using Newtonsoft.Json;
 using Stratum.Droid.Interface.Adapter;
 using Stratum.Droid.Persistence.View;
 
@@ -16,7 +17,7 @@ namespace Stratum.Droid.Interface.Fragment
         private CategoryMenuListAdapter _categoryMenuListAdapter;
         private RecyclerView _categoryList;
 
-        private string _currentCategoryId;
+        private CategorySelector _currentCategory;
         private bool _showUncategorisedCategory;
 
         public MainMenuBottomSheet() : base(Resource.Layout.sheetMainMenu, Resource.String.mainMenu)
@@ -24,7 +25,7 @@ namespace Stratum.Droid.Interface.Fragment
             _categoryView = Dependencies.Resolve<ICategoryView>();
         }
 
-        public event EventHandler<string> CategoryClicked;
+        public event EventHandler<CategorySelector> CategoryClicked;
         public event EventHandler BackupClicked;
         public event EventHandler CategoriesClicked;
         public event EventHandler IconPacksClicked;
@@ -43,7 +44,7 @@ namespace Stratum.Droid.Interface.Fragment
                 HasStableIds = true
             };
 
-            _currentCategoryId = Arguments.GetString("currentCategoryId");
+            _currentCategory = JsonConvert.DeserializeObject<CategorySelector>(Arguments.GetString("currentCategorySelector"));
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -79,11 +80,11 @@ namespace Stratum.Droid.Interface.Fragment
             await _categoryView.LoadFromPersistenceAsync();
             _categoryMenuListAdapter.NotifyDataSetChanged();
             
-            var selectedCategoryPosition = _currentCategoryId switch
+            var selectedCategoryPosition = _currentCategory.MetaCategory switch
             {
                 MetaCategory.All => 0,
                 MetaCategory.Uncategorised when _categoryMenuListAdapter.MetaCategoryCount > 1 => 1,
-                _ => _categoryView.IndexOf(_currentCategoryId) + _categoryMenuListAdapter.MetaCategoryCount
+                _ => _categoryView.IndexOf(_currentCategory.CategoryId) + _categoryMenuListAdapter.MetaCategoryCount
             };
 
             _categoryMenuListAdapter.SelectedPosition = selectedCategoryPosition;

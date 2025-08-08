@@ -18,7 +18,8 @@ namespace Stratum.Droid.Persistence.View.Impl
         private readonly IAuthenticatorCategoryRepository _authenticatorCategoryRepository;
 
         private string _search;
-        private string _categoryId;
+        private CategorySelector _categorySelector;
+        
         private SortMode _sortMode;
 
         private IEnumerable<Authenticator> _all;
@@ -28,7 +29,6 @@ namespace Stratum.Droid.Persistence.View.Impl
         public AuthenticatorView(IAuthenticatorRepository authenticatorRepository,
             IAuthenticatorCategoryRepository authenticatorCategoryRepository)
         {
-            _categoryId = MetaCategory.All;
             _authenticatorRepository = authenticatorRepository;
             _authenticatorCategoryRepository = authenticatorCategoryRepository;
             _view = new List<Authenticator>();
@@ -44,12 +44,12 @@ namespace Stratum.Droid.Persistence.View.Impl
             }
         }
 
-        public string CategoryId
+        public CategorySelector CategorySelector
         {
-            get => _categoryId;
+            get => _categorySelector;
             set
             {
-                _categoryId = value;
+                _categorySelector = value;
                 Update();
             }
         }
@@ -74,19 +74,14 @@ namespace Stratum.Droid.Persistence.View.Impl
 
         public void Update()
         {
-            if (_all == null)
+            if (_all == null || _categorySelector == null)
             {
                 return;
             }
             
-            if (_categoryId == null)
-            {
-                throw new InvalidOperationException("No category selected");
-            }
-
             IEnumerable<Authenticator> view;
 
-            switch (CategoryId)
+            switch (_categorySelector.MetaCategory)
             {
                 case MetaCategory.All:
                     view = _all.AsEnumerable();
@@ -97,10 +92,11 @@ namespace Stratum.Droid.Persistence.View.Impl
                     view = _all.Where(a => _authenticatorCategories.All(c => c.AuthenticatorSecret != a.Secret));
                     break;
                 }
-                
+               
                 default:
+                case MetaCategory.None:
                 {
-                    var bindingForCategory = _authenticatorCategories.Where(b => b.CategoryId == CategoryId);
+                    var bindingForCategory = _authenticatorCategories.Where(b => b.CategoryId == CategorySelector.CategoryId);
                     view = _all.Where(a => bindingForCategory.Any(c => c.AuthenticatorSecret == a.Secret));
                     break;
                 }
@@ -115,13 +111,13 @@ namespace Stratum.Droid.Persistence.View.Impl
 
             if (SortMode == SortMode.Custom)
             {
-                if (MetaCategory.Is(_categoryId))
+                if (_categorySelector.MetaCategory != MetaCategory.None)
                 {
                     view = view.OrderBy(a => a.Ranking);
                 }
                 else
                 {
-                    var bindingForCategory = _authenticatorCategories.Where(b => b.CategoryId == CategoryId);
+                    var bindingForCategory = _authenticatorCategories.Where(b => b.CategoryId == CategorySelector.CategoryId);
                     view = view.OrderBy(a => bindingForCategory.First(c => c.AuthenticatorSecret == a.Secret).Ranking);
                 }
             }
@@ -186,7 +182,7 @@ namespace Stratum.Droid.Persistence.View.Impl
 
         public void CommitRanking()
         {
-            switch (_categoryId)
+            switch (_categorySelector.MetaCategory)
             {
                 case MetaCategory.All:
                 {
@@ -202,12 +198,13 @@ namespace Stratum.Droid.Persistence.View.Impl
                     throw new InvalidOperationException("Cannot reorder uncategorised authenticators");
                 
                 default:
+                case MetaCategory.None:
                 {
                     for (var i = 0; i < _view.Count; ++i)
                     {
                         var auth = _view[i];
                         var binding = _authenticatorCategories.First(
-                            ac => ac.AuthenticatorSecret == auth.Secret && ac.CategoryId == _categoryId);
+                            ac => ac.AuthenticatorSecret == auth.Secret && ac.CategoryId == _categorySelector.CategoryId);
                         binding.Ranking = i;
                     }
 
@@ -218,12 +215,12 @@ namespace Stratum.Droid.Persistence.View.Impl
 
         public IEnumerable<AuthenticatorCategory> GetCurrentBindings()
         {
-            if (_categoryId == null)
+            if (_categorySelector.CategoryId == null)
             {
                 throw new InvalidOperationException("No category selected");
             }
 
-            return _authenticatorCategories.Where(ac => ac.CategoryId == _categoryId);
+            return _authenticatorCategories.Where(ac => ac.CategoryId == _categorySelector.CategoryId);
         }
     }
 }
