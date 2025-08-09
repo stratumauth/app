@@ -41,6 +41,8 @@
     <string name="sortMostCopied">コピー回数 (降順)</string>
     <string name="sortLeastCopied">コピー回数 (昇順)</string>
     <string name="sortCustom">カスタム</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">詳細とライセンス情報を表示する</string>
     <string name="supportDevelopment">開発を支援する</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffeeで継続的な開発と更新をサポートする</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">すべての認証コード、カテゴリ、アイコンを暗号化されたバックアップファイルに保存します。このファイルはアプリ内で復元できます。</string>
     <string name="backupHtml">HTMLファイルでバックアップ</string>
     <string name="backupHtmlMessage">暗号化されていないHTMLファイルにQRコードで認証コードを保存します。カテゴリとアイコンは保存されません。</string>
-    <string name="backupHtmlWarning">HTMLファイルへのバックアップはあなたの秘密鍵を危険にさらします。\n\nこのファイルはアプリでは復元できず、カテゴリやアイコンは保存されません。不安でしたら、暗号化されたファイルにバックアップすることができます。\n\n続行しますか？</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">URI リスト形式でバックアップ</string>
     <string name="backupUriListMessage">暗号化されていないテキストファイルに URI リストとして認証コードを保存します。 このファイルは、多くの代替アプリケーションやサービスと互換性があります。カテゴリとアイコンは保存されません。</string>
-    <string name="backupUriListWarning">テキスト形式のバックアップは暗号化されておらず、はあなたの秘密鍵を危険にさらします。\n\nこのファイルはアプリでは復元できず、カテゴリやアイコンは保存されません。不安でしたら、暗号化されたファイルにバックアップすることができます。\n\n続行しますか？</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">項目を割り当てる</string>
     <string name="more">さらに表示</string>
     <string name="categoryAll">すべて</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">カテゴリを編集</string>
     <string name="noCategoryName">カテゴリ名が必要です</string>
     <string name="duplicateCategory">この名前のカテゴリはすでに存在します</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">今すぐバックアップ</string>
-    <string name="restoreNow">今すぐ復元</string>
     <string name="backupReminder">前回のバックアップから変更がありました</string>
     <string name="backupPasswordMessage">バックアップファイルを暗号化するためにパスワードを入力してください。パスワードを設定しない場合は、パスワードを空白のままにしてください。</string>
     <string name="password">パスワード</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">自動バックアップの場所とパスワードを選択します。変更が行われるとバックアップがスケジュールされます。クラウドストレージはサポートされていないため、代わりにバックアップメニューを使用してください。</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">場所を選択</string>
     <string name="noLocationSelected">場所が選択されていません</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">aegis-export.json ファイルをインポートします</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
     <string name="enteAuthImportHint">ente-auth-codes.txt ファイルをインポート</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">winauth.txtまたはwinauth.zipファイルをインポート</string>
     <string name="twoFasImportHint">2fas-backup.2fasファイルをインポート</string>
     <string name="keePassImportHint">keepass.kdbx (KDBX 4.) ファイルをインポート</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">ファインダーにQRコードを入れてスキャンします。タップしてフォーカスします。</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">各認証システムがコピーされた回数をクリアする</string>
     <string name="prefSkipToNextTitle">次へ進む</string>
     <string name="prefSkipToNextSummary">期限が近いときに次のコードにスキップすることを許可する</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">セキュリティ</string>
     <string name="prefPasswordTitle">パスワード</string>
     <string name="prefPasswordSummary">認証コードへのアクセスにはパスワードが必要です。データベースはパスワードで暗号化されます。</string>
     <string name="prefDatabasePasswordBackupTitle">データベースのパスワードでバックアップ</string>
     <string name="prefDatabasePasswordBackupSummary">データベースのパスワードを使用してすべてのバックアップを暗号化するので、パスワードを毎回入力する必要はありません</string>
     <string name="prefAllowBiometricsTitle">生体認証によるロック解除</string>
-    <string name="prefAllowBiometricsSummary">生体認証によるデータベースのロック解除を許可する</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">タイムアウト</string>
     <string name="prefTimeoutSummary">アプリが画面から離れてからデータベースがロックされるまでの時間を設定</string>
     <string name="prefTapToRevealTitle">タップして表示</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Stratumへようこそ</string>
     <string name="introCompatibilityTitle">二要素認証</string>
-    <string name="introBackupTitle">バックアップと復元</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">カテゴリ</string>
     <string name="introThemesTitle">ダークテーマ</string>
-    <string name="introWelcomeSummary">Stratumをダウンロードしていただきありがとうございます。\nオンラインアカウントを、最高のオープンソースの認証アプリで保護しましょう。</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratumはほとんどの発行元のアカウントと互換性があります。Google Authenticator対応サービスと100%互換性があります。</string>
-    <string name="introBackupSummary">強力な暗号化で認証コードをバックアップします。 端末を紛失した場合でも、アカウントにアクセスできます。クラウドストレージまたは端末に保存してください。</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">認証コードをカテゴリ別に整理したり、順序を変更することもできます。</string>
     <string name="introThemesSummary">必要に応じて、ダークを有効にすることができます。すべてのアイコンは背景に合わせて調整されます。</string>
 </resources>

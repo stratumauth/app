@@ -16,7 +16,7 @@ Además de su nombre de usuario y contraseña, necesitará un código proporcion
 - ⏺️ <b>Iconos</b>: Encuentra tus autentificadores fácilmente con iconos y logos de marcas reconocibles al lado de cada código.
 - 📂 <b>Categorías</b>: Organiza tus autentificadores en categorías.
 - 🔒 <b>Offline con pocos permisos</b>: Stratum únicamente requiere un solo permiso y no necesita la función de acceso a internet.
-- 🔑 <b>Seguridad</b>: Establece una contraseña y usa la autenticación biométrica para proteger tus códigos.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Personalización</b>: Cambia los Íconos y renombra. También puedes organizar tus autentificadores en el orden que quieras para encontrarlos fácilmente.
 - ⌚ <b>Wear OS</b>: Revisa rápidamente tus autentificadores directamente desde tu reloj. Incluso puedes establecer un favorito y colocarlo en un mosaico. Por favor nota que una conexión a tu dispositivo Android es requerida. Las distribuciones de F-Droid de la aplicación no son compatibles con Wear OS, ya que se requieren dependencias no libres.
 

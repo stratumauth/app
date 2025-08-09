@@ -41,6 +41,8 @@
     <string name="sortMostCopied">가장 많이 복사됨</string>
     <string name="sortLeastCopied">최소 복사</string>
     <string name="sortCustom">사용자 지정</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">앱 및 라이선스 정보 보기</string>
     <string name="supportDevelopment">개발 지원</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffee로 지속적인 개발과 업데이트를 지원해주세요</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">모든 인증기, 분류, 아이콘 암호화된 백업 파일 하나에 저장합니다. 백업 파일은 앱을 통해 복원할 수 있습니다.</string>
     <string name="backupHtml">HTML 파일로 백업</string>
     <string name="backupHtmlMessage">암호화되지 않은 HTML 파일의 QR코드에 인증기를 저장합니다. 분류와 아이콘은 저장되지 않습니다.</string>
-    <string name="backupHtmlWarning">HTML 파일로 백업하면 데이터가 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n이 파일을 통해서는 앱 내에서 복원을 진행할 수 없으며 파일에는 분류 및 아이콘이 포함되지 않습니다. 잘 모르겠다면 대신 암호화된 파일로 백업하세요.\n\n계속 진행하시겠습니까?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">URL 목록 파일로 백업</string>
     <string name="backupUriListMessage">인증기를 암호화되지 않은 평문 URL 목록 파일에 저장합니다. 이 파일은 대부분의 다른 인증기 앱이나 서비스와 호환됩니다. 분류와 아이콘은 저장되지 않습니다.</string>
-    <string name="backupUriListWarning">평문 파일로 백업하면 데이터가 암호화되지 않으며 암호 키가 유출 위험에 놓이게 됩니다.\n\n파일에는 분류 및 아이콘이 포함되지 않습니다. 잘 모르겠다면 대신 암호화된 파일로 백업하세요.\n\n계속 진행하시겠습니까?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">항목 할당</string>
     <string name="more">더보기</string>
     <string name="categoryAll">모두</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">분류 수정</string>
     <string name="noCategoryName">분류 이름을 입력해야 합니다</string>
     <string name="duplicateCategory">이름이 같은 분류가 이미 있습니다</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">지금 백업</string>
-    <string name="restoreNow">지금 복원</string>
     <string name="backupReminder">마지막 백업 이후 변경 사항이 있습니다</string>
     <string name="backupPasswordMessage">백업 파일을 안전하게 암호화할 비밀번호를 입력하세요. 비밀번호를 설정하고 싶지 않으면 칸을 비워두세요.</string>
     <string name="password">비밀번호</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">자동 백업을 진행할 경로와 비밀번호를 선택하세요. 백업은 변경 사항이 생길 때 진행됩니다. 클라우드 저장소는 지원하지 않습니다. 대신 백업 메뉴를 이용해보세요.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">위치 선택</string>
     <string name="noLocationSelected">위치를 선택하지 않았습니다</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
     <string name="enteAuthImportHint">ente-auth-codes.txt 파일 가져오기</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">winauth.txt 또는 winauth.zip 파일 가져오기</string>
     <string name="twoFasImportHint">2fas-backup.2fas 파일 가져오기</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">QR 코드를 뷰파인더에 대고 스캔하세요. 집중하려면 탭하세요.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">각 인증자가 복사된 횟수를 지웁니다.</string>
     <string name="prefSkipToNextTitle">Skip to Next</string>
     <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">보안</string>
     <string name="prefPasswordTitle">비밀번호</string>
     <string name="prefPasswordSummary">인증기에 접근할 때 비밀번호를 요구합니다. 데이터베이스가 비밀번호로 암호화됩니다.</string>
     <string name="prefDatabasePasswordBackupTitle">데이터베이스 비밀번호로 백업</string>
     <string name="prefDatabasePasswordBackupSummary">모든 백업을 데이터베이스 비밀번호로 암호화하여 매번 입력하지 않아도 되도록 합니다</string>
     <string name="prefAllowBiometricsTitle">생체 인식 잠금 해제</string>
-    <string name="prefAllowBiometricsSummary">생체 인식으로 데이터베이스에 접근할 수 있도록 합니다</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">유효 기간</string>
     <string name="prefTimeoutSummary">앱 화면에서 이탈했을 때 데이터베이스가 잠기기까지의 시간을 설정합니다</string>
     <string name="prefTapToRevealTitle">눌러서 확인</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Stratum 사용을 환영합니다</string>
     <string name="introCompatibilityTitle">2단계 인증</string>
-    <string name="introBackupTitle">백업 및 복원</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">분류</string>
     <string name="introThemesTitle">어두운 테마</string>
-    <string name="introWelcomeSummary">Stratum를 다운로드해주셔서 감사드립니다.\n최고의 오픈 소스 인증 앱으로 온라인 계정을 보호하세요.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum는 가장 많은 공급처 및 계정과 호환됩니다. Google 인증기를 쓸 수 있는 서비스와는 100% 호환됩니다.</string>
-    <string name="introBackupSummary">강력한 암호화를 통해 인증기를 백업하세요. 기기를 분실한 경우에도 계정에 접근할 수 있습니다. 클라우드 저장소나 기기에 저장해두세요.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">인증기를 분류로 묶어 체계화하고 꾹 눌러 드래그해 순서를 간단히 바꾸세요.</string>
     <string name="introThemesSummary">원한다면 설정에서 어두운 테마를 켤 수 있습니다. 모든 아이콘이 새 배경색에 맞추어 바뀝니다.</string>
 </resources>

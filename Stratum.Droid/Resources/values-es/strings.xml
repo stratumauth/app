@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Más copiados</string>
     <string name="sortLeastCopied">Menos copiados</string>
     <string name="sortCustom">Personalizado</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Ver información de Aplicación y Licencias</string>
     <string name="supportDevelopment">Apoyar el desarrollo</string>
     <string name="supportDevelopmentSummary">Apoya el desarrollo continuo y las actualizaciones comprándome una taza de café</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Respaldar todas sus autentificadores e iconos en un archivo de respaldo encriptado. Este archivo puede ser restaurado con la aplicación.</string>
     <string name="backupHtml">Respaldar en un archivo local HTML</string>
     <string name="backupHtmlMessage">Respaldar sus autentificadores en un documento HTML sin encriptar con códigos QR. Las categorías e iconos no serán respaldados.</string>
-    <string name="backupHtmlWarning">Las copias de seguridad de los archivos HTML no están cifradas y pueden dejar sus claves secretas vulnerables.\n\nEste archivo no puede ser restaurado dentro de la aplicación y no contiene categorías ni iconos. Si no está seguro, opte por una copia de seguridad de archivo cifrada en su lugar.\n\n¿Continuar?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Hacer copia de seguridad al archivo de la lista URI</string>
     <string name="backupUriListMessage">Guardar sus autentificadores en un archivo de lista de URI de texto plano sin encriptar. Este archivo es compatible con muchas aplicaciones y servicios alternativos. Las categorías y los iconos no se guardan.</string>
-    <string name="backupUriListWarning">Las copias de seguridad de archivos de texto plano no están cifradas y pueden dejar tus claves secretas vulnerables.\n\nEste archivo no contiene categorías ni iconos. Si no estás seguro, opta por una copia de seguridad de archivo cifrado en su lugar.\n\n¿Deseas continuar?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Asignar entradas</string>
     <string name="more">Más</string>
     <string name="categoryAll">Todo</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Editar categorías</string>
     <string name="noCategoryName">Un nombre de Categoría es requerido</string>
     <string name="duplicateCategory">Una Categoría con este nombre ya existe</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Respaldar ahora</string>
-    <string name="restoreNow">Restaurar ahora</string>
     <string name="backupReminder">Se han hecho cambios desde su último respaldo</string>
     <string name="backupPasswordMessage">Introduzca una contraseña para encriptar de forma segura su archivo de respaldo. Si no desea proteger el archivo, deje la contraseña vacía.</string>
     <string name="password">Contraseña</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Selecciona una ubicación y contraseña para la copia de seguridad automática. Las copias de seguridad son programadas cuando se realicen cambios. El almacenamiento en la nube no está soportado, usa el menú de copia de seguridad en su lugar.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Selecciona la ubicación</string>
     <string name="noLocationSelected">Sin ubicación seleccionada</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importar archivo aegis-export.json</string>
     <string name="bitwardenImportHint">Importar archivo bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importar archivo ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Importar archivo winauth.txt o winauth.zip</string>
     <string name="twoFasImportHint">Importar archivo 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importar archivo keepass.kdbx (KDBX 4.)</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Coloca el código QR en el visor para escanearlo. Toca para enfocar.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Intente evitar las sombras y los reflejos. Sostenga el dispositivo a unos 15 cm del código.</string>
     <string name="toggleFlash">Activar/desactivar flash</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Borra el número de veces que cada contador ha sido copiado</string>
     <string name="prefSkipToNextTitle">Saltar al siguiente</string>
     <string name="prefSkipToNextSummary">Permite saltar al siguiente código cuando está cerca de expirar</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Seguridad</string>
     <string name="prefPasswordTitle">Contraseña</string>
     <string name="prefPasswordSummary">Requiere contraseña para acceder a los autentificadores. La base de datos será cifrada con su contraseña.</string>
     <string name="prefDatabasePasswordBackupTitle">Copia de seguridad con contraseña de la base de datos</string>
     <string name="prefDatabasePasswordBackupSummary">Cifrar todas las copias de seguridad utilizando la contraseña de la base de datos para no tener que introducirla cada vez</string>
     <string name="prefAllowBiometricsTitle">Desbloqueo con biometría</string>
-    <string name="prefAllowBiometricsSummary">Permitir el desbloqueo de la base de datos con autentificación biométrica</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Tiempo agotado</string>
     <string name="prefTimeoutSummary">Establezca el tiempo después del cual la base de datos se bloqueará una vez que la aplicación salga de la pantalla</string>
     <string name="prefTapToRevealTitle">Pulsar para revelar</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Bienvenido a Stratum!</string>
     <string name="introCompatibilityTitle">Autenticación de dos factores</string>
-    <string name="introBackupTitle">Respaldo y Restauración</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Categorías</string>
     <string name="introThemesTitle">Tema Oscuro</string>
-    <string name="introWelcomeSummary">Gracias por descargar Stratum.\nMantenga sus cuentas en línea seguras y protegidas con la mejor aplicación de autenticación de código abierto.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum es compatible con la mayoría de proveedores y cuentas. Es 100% compatible con los servicios habilitados por Google Authenticator.</string>
-    <string name="introBackupSummary">Respalde sus autenticadores con un cifrado fuerte. En caso de que pierda su dispositivo, siempre podrá acceder a sus cuentas. Guarde en la nube o en su dispositivo.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organice sus autentificadores en categorías e incluso cambie el orden con un simple movimiento de arrastre.</string>
     <string name="introThemesSummary">Si lo prefiere, puede habilitar un tema oscuro en los ajustes. Todos los iconos se adaptarán para que coincidan con su nuevo fondo.</string>
 </resources>

@@ -16,7 +16,7 @@ Pe lângă numele de utilizator și parola, veți avea nevoie de un cod furnizat
 - ⏺️ <b>Pictograme</b>: Găsiți-vă cu ușurință autentificatorii cu logo-uri și pictograme de marcă recunoscute lângă fiecare cod.
 - 📂 <b>Categorii</b>: Organizați-vă autentificatoarele în categorii.
 - 🔒 <b>Offline cu puține permisiuni</b>: Stratum necesită doar o singură permisiune¹ și nu necesită acces la Internet pentru a funcționa.
-- 🔑 <b>Securitate</b>: Setați o parolă și utilizați autentificarea biometrică pentru a vă proteja codurile.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Personalizare</b>: setați pictograme și redenumiți. De asemenea, vă puteți aranja autentificatoarele în orice ordine doriți, astfel încât să le puteți găsi cu ușurință.
 - ⌚ <b>Wear OS</b>: Vizualizați rapid autentificatoarele direct de pe ceas. Puteți chiar să setați un favorit și să îl plasați într-o căsuță. Vă rugăm să rețineți că este necesară o conexiune la dispozitivul dvs. Android. În plus, distribuțiile F-Droid ale aplicației nu sunt compatibile cu Wear OS, deoarece sunt necesare dependențe care nu sunt gratuite.
 

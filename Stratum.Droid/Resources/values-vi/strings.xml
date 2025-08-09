@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Sao chép nhiều nhất</string>
     <string name="sortLeastCopied">Sao chép ít nhất</string>
     <string name="sortCustom">Tùy chỉnh</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Xem thông tin giới thiệu và giấy phép</string>
     <string name="supportDevelopment">Ủng hộ nhà phát triển</string>
     <string name="supportDevelopmentSummary">Hỗ trợ tiếp tục phát triển và cập nhật ứng dụng bằng Buy Me a Coffee</string>
@@ -112,10 +114,10 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="backupToFileMessage">Lưu tất cả các trình xác thực, danh mục và biểu tượng của bạn vào một tệp sao lưu được mã hóa. Tệp này có thể được khôi phục trong ứng dụng.</string>
     <string name="backupHtml">Sao lưu vào tệp HTML</string>
     <string name="backupHtmlMessage">Lưu trữ các trình xác thực của bạn vào một tài liệu HTML không được mã hóa với mã QR. Các danh mục và biểu tượng không được lưu trữ.</string>
-    <string name="backupHtmlWarning">Các tệp sao lưu dưới dạng tệp HTML không được mã hóa và có thể làm cho các khóa bí mật của bạn trở nên dễ bị tấn công.\n\nTệp này không thể được khôi phục trong ứng dụng và không chứa danh mục và biểu tượng. Nếu không chắc chắn, hãy chọn tệp sao lưu được mã hóa thay thế.\n\nTiếp tục?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Sao lưu vào tệp danh sách URI</string>
     <string name="backupUriListMessage">Lưu trữ các trình xác thực của bạn vào một tệp danh sách URI văn bản không được mã hóa. Tệp này tương thích với nhiều ứng dụng và dịch vụ thay thế. Các danh mục và biểu tượng không được lưu trữ.</string>
-    <string name="backupUriListWarning">Các tệp sao lưu dưới dạng văn bản không được mã hóa và có thể làm cho các khóa bí mật của bạn trở nên dễ bị tấn công.\n\nTệp này không chứa danh mục và biểu tượng. Nếu không chắc chắn, hãy chọn tệp sao lưu được mã hóa thay thế.\n\nTiếp tục?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -136,6 +138,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="assignEntries">Gán các mục</string>
     <string name="more">Khác</string>
     <string name="categoryAll">Tất cả</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Chỉnh sửa danh mục</string>
     <string name="noCategoryName">Tên danh mục là bắt buộc</string>
     <string name="duplicateCategory">Tên danh mục đã tồn tại</string>
@@ -148,7 +151,6 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
         Backups
     -->
     <string name="backupNow">Sao lưu ngay</string>
-    <string name="restoreNow">Khôi phục ngay</string>
     <string name="backupReminder">Đã có những thay đổi được thực hiện kể từ lần sao lưu cuối cùng của bạn</string>
     <string name="backupPasswordMessage">Nhập mật khẩu để mã hóa tệp sao lưu của bạn một cách an toàn. Nếu bạn không muốn bảo vệ tệp bằng mật khẩu, hãy để trống mật khẩu.</string>
     <string name="password">Mật khẩu</string>
@@ -189,7 +191,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Chọn một vị trí và mật khẩu cho sao lưu tự động. Các sao lưu được lên lịch khi có thay đổi được thực hiện. Lưu trữ đám mây không được hỗ trợ, vui lòng sử dụng menu sao lưu thay thế.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Chọn vị trí</string>
     <string name="noLocationSelected">Không có vị trí nào được chọn</string>
     <!-- Shown when auto backup location has been selected -->
@@ -240,6 +242,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="aegisImportHint">Nhập tệp aegis-export.json</string>
     <string name="bitwardenImportHint">Nhập tệp aegis-export.json</string>
     <string name="enteAuthImportHint">Nhập tệp ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Nhập tệp winauth.txt hoặc winauth.zip</string>
     <string name="twoFasImportHint">Nhập tệp 2fas-backup.2fas</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -266,7 +269,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Đặt mã QR vào khung ngắm để quét. Nhấn để lấy nét.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Cố gắng tránh bóng và chói. Giữ thiết bị cách mã khoảng 6 inch (15 cm).</string>
     <string name="toggleFlash">Bật đèn Flash</string>
     <!--
@@ -285,13 +288,15 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="prefResetCopyCountSummary">Xóa số lần trình xác thực đã được sao chép</string>
     <string name="prefSkipToNextTitle">Chuyển tới mục tiếp theo</string>
     <string name="prefSkipToNextSummary">Cho phép bỏ qua sang mã tiếp theo khi nó gần hết hạn</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Bảo mật</string>
     <string name="prefPasswordTitle">Mật khẩu</string>
     <string name="prefPasswordSummary">Yêu cầu mật khẩu để truy cập vào các trình xác thực. Cơ sở dữ liệu sẽ được mã hóa bằng mật khẩu của bạn.</string>
     <string name="prefDatabasePasswordBackupTitle">Sao lưu với Mật khẩu Cơ sở dữ liệu</string>
     <string name="prefDatabasePasswordBackupSummary">Mã hóa tất cả các bản sao lưu bằng mật khẩu cơ sở dữ liệu để bạn không cần phải nhập nó mỗi lần</string>
     <string name="prefAllowBiometricsTitle">Mở khóa Sinh trắc học</string>
-    <string name="prefAllowBiometricsSummary">Cho phép mở khóa cơ sở dữ liệu bằng xác thực sinh học</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Thời gian chờ</string>
     <string name="prefTimeoutSummary">Thiết lập thời gian cơ sở dữ liệu sẽ bị khóa sau khi ứng dụng rời</string>
     <string name="prefTapToRevealTitle">Nhấn để xem</string>
@@ -381,12 +386,12 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     -->
     <string name="introWelcomeTitle">Chào mừng bạn đến với Stratum</string>
     <string name="introCompatibilityTitle">Xác thực 2 bước</string>
-    <string name="introBackupTitle">Sao lưu và Khôi phục</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Danh mục</string>
     <string name="introThemesTitle">Chủ đề tối</string>
-    <string name="introWelcomeSummary">Cảm ơn bạn đã tải xuống Stratum.\nGiữ an toàn và bảo vệ các tài khoản trực tuyến của bạn với ứng dụng xác thực mã nguồn mở tốt nhất.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum tương thích với hầu hết các nhà cung cấp và tài khoản. Nó hoàn toàn tương thích với các dịch vụ được kích hoạt bởi Google Authenticator.</string>
-    <string name="introBackupSummary">Sao lưu các trình xác thực của bạn với mã hóa mạnh mẽ. Trong trường hợp bạn mất thiết bị, bạn luôn có thể truy cập vào tài khoản của mình. Lưu vào lưu trữ đám mây hoặc vào thiết bị của bạn.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Tổ chức các trình xác thực của bạn thành các danh mục và thậm chí thay đổi thứ tự với cách giữ và kéo đơn giản.</string>
     <string name="introThemesSummary">Nếu bạn muốn, bạn có thể kích hoạt chủ đề tối trong cài đặt. Tất cả biểu tượng sẽ tự động phù hợp với nền mới.</string>
 </resources>

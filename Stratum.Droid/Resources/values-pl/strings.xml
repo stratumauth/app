@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Najczęściej kopiowane</string>
     <string name="sortLeastCopied">Najrzadziej kopiowane</string>
     <string name="sortCustom">Niestandardowo</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Wyświetl informacje o aplikacji i licencjach</string>
     <string name="supportDevelopment">Wesprzyj rozwój aplikacji</string>
     <string name="supportDevelopmentSummary">Wesprzyj dalszy rozwój i aktualizacje dzięki Buy Me a Coffee</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Zapisz wszystkie swoje wpisy, kategorie i ikony w zaszyfrowanym pliku kopii zapasowej. Ten plik można przywrócić w aplikacji.</string>
     <string name="backupHtml">Kopia zapasowa do pliku HTML</string>
     <string name="backupHtmlMessage">Zapisz swoje wpisy w niezaszyfrowanym dokumencie HTML z kodami QR. Kategorie i ikony nie są zapisywane.</string>
-    <string name="backupHtmlWarning">Kopie zapasowe plików HTML są niezaszyfrowane i mogą narażać Twoje tajne klucze.\n\nTego pliku nie można przywrócić w aplikacji i nie zawiera on kategorii ani ikon. Jeśli nie masz pewności, wybierz zamiast tego kopię zapasową do zaszyfrowanego pliku.\n\nKontynuować?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Kopia zapasowa do pliku jak lista adresów URL</string>
     <string name="backupUriListMessage">Zapisz swoje wpisy w niezaszyfrowanym pliku tekstowym w postaci listy adresów URL. Ten plik jest kompatybilny z wieloma alternatywnymi aplikacjami i usługami. Kategorie i ikony nie są zapisywane.</string>
-    <string name="backupUriListWarning">Kopie zapasowe do plików tekstowych nie są szyfrowane i mogą narazić twoje tajne klucze na ujawnienie.\n\nTen plik nie zawiera kategorii i ikon. Jeśli nie jesteś pewien, wybierz zaszyfrowaną kopię zapasową.\n\nKontynuować?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Przypisz wpisy</string>
     <string name="more">Więcej</string>
     <string name="categoryAll">Wszystkie</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Edytuj kategorie</string>
     <string name="noCategoryName">Nazwa kategorii jest wymagana</string>
     <string name="duplicateCategory">Kategoria już istnieje</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Wykonaj kopię</string>
-    <string name="restoreNow">Przywróć kopię</string>
     <string name="backupReminder">Od ostatniej kopii zapasowej dokonano zmian</string>
     <string name="backupPasswordMessage">Wprowadź hasło, aby bezpiecznie zaszyfrować plik kopii zapasowej. Jeśli nie chcesz, aby plik był chroniony hasłem, pozostaw je puste.</string>
     <string name="password">Hasło</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Wybierz lokalizację i hasło dla automatycznej kopii zapasowej. Kopie zapasowe są zaplanowane po dokonaniu zmian. Zapis w chmurze nie jest obsługiwany, zamiast tego użyj opcji kopii zapasowej w menu.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Wybierz lokalizację</string>
     <string name="noLocationSelected">Nie wybrano lokalizacji</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importuj plik aegis-export.json</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importuj plik ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importuj plik keepass.kdbx (KDBX 4.)</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Umieść kod QR w okienku aby go zeskanować. Dotknij, aby wyostrzyć.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Staraj się unikać cieni i odblasków. Trzymaj urządzenie około 15 cm od kodu.</string>
     <string name="toggleFlash">Przełącz lampę błyskową</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Zresetuj licznik ile razy każdy wpis był kopiowany</string>
     <string name="prefSkipToNextTitle">Przejdź do następnego</string>
     <string name="prefSkipToNextSummary">Zezwalaj na pominięcie do następnego kodu, kiedy jest bliski wygaśnięcia</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>
     <string name="prefDatabasePasswordBackupTitle">Kopia zapasowa z hasłem bazy danych</string>
     <string name="prefDatabasePasswordBackupSummary">Szyfruj wszystkie kopie zapasowe przy użyciu hasła bazy danych, aby nie trzeba było go wprowadzać za każdym razem</string>
     <string name="prefAllowBiometricsTitle">Odblokowanie biometryczne</string>
-    <string name="prefAllowBiometricsSummary">Pozwól na odblokowanie bazy danych za pomocą uwierzytelniania biometrycznego</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Limit czasu</string>
     <string name="prefTimeoutSummary">Ustaw czas, po którym baza danych zostanie zablokowana, gdy aplikacja opuści ekran</string>
     <string name="prefTapToRevealTitle">Dotknij, aby odkryć</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Witaj w Stratum</string>
     <string name="introCompatibilityTitle">Uwierzytelnianie dwuskładnikowe</string>
-    <string name="introBackupTitle">Kopia zapasowa i przywracanie</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Kategorie</string>
     <string name="introThemesTitle">Ciemny motyw</string>
-    <string name="introWelcomeSummary">Dziękujemy za pobranie Stratum.\n\nDbaj o bezpieczeństwo swoich kont online dzięki najlepszej aplikacji do uwierzytelniania typu open source.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum jest kompatybilny z większością dostawców i kont. Jest w 100% kompatybilny z usługami obsługującymi Google Authenticator.</string>
-    <string name="introBackupSummary">Twórz kopie za pomocą silnego szyfrowania. W przypadku utraty urządzenia zawsze możesz uzyskać dostęp do swoich kont. Zapisz w chmurze lub na swoim urządzeniu.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organizuj wpisy w kategorie, a nawet zmieniaj ich kolejność za pomocą prostego przytrzymania i przeciągnięcia.</string>
     <string name="introThemesSummary">Jeśli wolisz, możesz włączyć ciemny motyw w ustawieniach. Wszystkie ikony dostosują się do nowego tła.</string>
 </resources>

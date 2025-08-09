@@ -16,7 +16,7 @@ Udover dit brugernavn og din adgangskode, skal du bruge en kode fra Stratum. Så
 - ⏺️ <b>Ikoner</b>: Find nemt dine godkendere med genkendelige brandlogoer og ikoner ved siden af hver kode.
 - 📂 <b>Kategorier</b>: Organiser dine godkendere i kategorier.
 - 🔒 <b>Offline med få tilladelser</b>: Stratum kræver kun en enkelt tilladelse¹ og kræver ikke internetadgang for at fungere.
-- 🔑 <b>Sikkerhed</b>: Indstil en adgangskode og brug biometrisk godkendelse til at beskytte dine koder.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Tilpasning</b>: Indstil ikoner og omdøb. Du kan også arrangere dine godkendere i den rækkefølge, du ønsker, så du nemt kan finde dem.
 - ⌚ <b>Wear OS</b>: Se hurtigt dine godkendere direkte fra dit ur. Du kan endda angive en favorit og placere den i en flise. Bemærk venligst, at det kræver en forbindelse til din Android-enhed. Desuden er F-Droid-distributioner af appen ikke kompatible med Wear OS, da det kræver ikke-frie afhængigheder.
 

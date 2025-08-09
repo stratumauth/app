@@ -16,7 +16,7 @@ Oprócz nazwy użytkownika i hasła, będziesz potrzebował kodu dostarczonego p
 - ⏺️ <b>Ikony</b>: Znajdź wpisy dzięki loginom marek i ikonkom obok każdego kodu.
 - 📂 <b>Kategorie</b>: Zorganizuj swoje tokeny uwierzytelniające w kategorie.
 - 🔒 <b>Offline z kilkoma uprawnieniami</b>: Stratum wymaga tylko jednego uprawnienia¹ i nie wymaga internetu żeby działać.
-- 🔑 <b>Bezpieczeństwo</b>: Ustaw hasło i użyj uwierzytelniania biometrycznego, aby chronić swoje kody.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Personalizacja</b>: Ustaw ikony i zmień nazwę. Możesz również zorganizować swoje usługi w dowolnej kolejności, dzięki czemu możesz je łatwo znaleźć.
 - ⌚ <b>Wear OS</b>: Szybko pokaż kody bezpośrednio na zegarku. Możesz nawet wybrać ulubiony i umieścić go jako kafelek. Pamiętaj, że wymagane jest połączenie z Twoim urządzeniem z systemem Android. Ponadto dystrybucje aplikacji przez F-Droid nie jest kompatybilna z Wear OS, ponieważ wymagane są zamkniętoźrodłowe zależności.
 

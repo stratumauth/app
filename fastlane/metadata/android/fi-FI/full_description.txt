@@ -16,7 +16,7 @@ Käyttäjätunnuksesi ja salasanasi lisäksi tarvitset Stratumn antamaa koodia. 
 - ⏺️ <b>Kuvakkeet</b>: Löydä todentajasi helposti tunnistettavien merkkilogojen ja kuvakkeiden avulla kunkin koodin vieressä.
 - 📂 <b>Kategoriat</b>: Järjestä todentajasi kategorioihin.
 - 🔒 <b>Offline-tila ja vain muutamalla luvalla</b>: Stratum vaatii vain yhden luvan¹, eikä se vaadi Internet-yhteyttä toimiakseen.
-- 🔑 <b>Turvallisuus</b>: Aseta salasana ja käytä biometristä todennusta koodiesi suojaukseen.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Mukautus</b>: Aseta kuvakkeita ja nimeä uudelleen. Voit myös järjestää todentajasi haluamallasi tavalla, jotta voit löytää ne helposti.
 - ⌚ <b>Wear OS</b>: Näet todentajasi suoraan kellostasi. Voit jopa valita suosikkisi ja sijoittaa sen laattaan. Huomaa, että yhteys Android-laitteeseesi on pakollinen. Lisäksi sovelluksen F-Droid-versiot eivät ole yhteensopivia Wear OS:n kanssa, koska ne vaativat ei-ilmaisia riippuvuuksia.
 

@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Mest kopierad</string>
     <string name="sortLeastCopied">Minst kopierad</string>
     <string name="sortCustom">Anpassad</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Visa information om appen och licenser</string>
     <string name="supportDevelopment">Stöd utvecklingen</string>
     <string name="supportDevelopmentSummary">Stöd fortsatt utveckling och uppdateringar med Buy Me a Coffee</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Säkerhetskopiera alla dina konton, kategorier och ikoner i en krypterad fil. Filen kan återställas i appen.</string>
     <string name="backupHtml">Säkerhetskopiera till HTML-fil</string>
     <string name="backupHtmlMessage">Spara dina konton som QR-koder i ett okrypterat HTML-dokument. Kategorier och ikoner sparas inte.</string>
-    <string name="backupHtmlWarning">Säkerhetskopior till HTML-filer är okrypterade och kan göra dina hemliga nycklar sårbara.\n\nEn sådan fil kan inte återställas i appen och innehåller inte kategorier och ikoner. Om du är osäker, välj krypterad säkerhetskopia istället.\n\nVill du fortsätta?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Säkerhetskopiera till fil som URI-lista</string>
     <string name="backupUriListMessage">Spara dina konton som en URI-lista i en okrypterad, oformaterad textfil. En sådan fil är kompatibel med många andra appar och tjänster. Kategorier och ikoner sparas inte.</string>
-    <string name="backupUriListWarning">Säkerhetskopior till oformaterade textfiler är okrypterade och kan göra dina hemliga nycklar sårbara.\n\nEn sådan fil innehåller inte kategorier och ikoner. Om du är osäker, välj krypterad säkerhetskopia istället.\n\nVill du fortsätta?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Välj konton</string>
     <string name="more">Mer</string>
     <string name="categoryAll">Alla</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Redigera kategorier</string>
     <string name="noCategoryName">Kategorinamn måste anges</string>
     <string name="duplicateCategory">Det finns redan en kategori med detta namn</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Säkerhetshopiera nu</string>
-    <string name="restoreNow">Återställ nu</string>
     <string name="backupReminder">Det har gjorts ändringar sedan din senaste säkerhetskopia</string>
     <string name="backupPasswordMessage">Ange ett lösenord för att kryptera din säkerhetskopia. Om du inte vill lösenordsskydda filen, lämna lösenordet tomt.</string>
     <string name="password">Lösenord</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Välj plats och lösenord för automatisk säkerhetskopiering. Säkerhetskopior schemaläggs när ändringar görs. Molnlagring stöds inte – använd säkerhetskopieringsmenyn istället.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Välj plats</string>
     <string name="noLocationSelected">Ingen plats vald</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importera \"aegis-export.json\"-fil</string>
     <string name="bitwardenImportHint">Importera \"bitwarden_export.json\"-fil</string>
     <string name="enteAuthImportHint">Importera \"ente-auth-codes.txt\"-fil</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Importera \"winauth.txt\"- eller \"winauth.zip\"-fil</string>
     <string name="twoFasImportHint">Importera \"2fas-backup.2fas\"-fil</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Placera QR-koden framför kameran för att skanna den. Tryck för att fokusera.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Försök att undvika skuggor och blänk. Håll enheten ungefär 15 cm från koden.</string>
     <string name="toggleFlash">Ficklampa på/av</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Glöm hur många gånger du kopierat koden för varje konto</string>
     <string name="prefSkipToNextTitle">Hoppa till nästa</string>
     <string name="prefSkipToNextSummary">Tillåt att hoppa till nästa kod när nuvarande är på väg att gå ut</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Säkerhet</string>
     <string name="prefPasswordTitle">Lösenord</string>
     <string name="prefPasswordSummary">Kräv lösenord för att komma åt dina koder. Databasen krypteras med ditt lösenord.</string>
     <string name="prefDatabasePasswordBackupTitle">Säkerhetskopiera med databasens lösenord</string>
     <string name="prefDatabasePasswordBackupSummary">Kryptera alla säkerhetskopior med databasens lösenord så att du inte behöver ange det varje gång</string>
     <string name="prefAllowBiometricsTitle">Biometrisk upplåsning</string>
-    <string name="prefAllowBiometricsSummary">Tillåt att databasen låses upp med biometri, såsom fingeravtryck</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Tidsgräns</string>
     <string name="prefTimeoutSummary">Välj hur lång tid det ska ta innan databasen låses när du lämnar appen</string>
     <string name="prefTapToRevealTitle">Tryck för att visa</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Välkommen till Stratum</string>
     <string name="introCompatibilityTitle">Tvåfaktorsautentisering</string>
-    <string name="introBackupTitle">Säkerhetskopiera och återställ</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Kategorier</string>
     <string name="introThemesTitle">Mörkt tema</string>
-    <string name="introWelcomeSummary">Tack för att du laddade ner Stratum.\nSkydda dina onlinekonton med den bästa autentiseringsappen med öppen källkod.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum är kompatibel med de flesta hemsidor och konton. Den fungerar till 100 % med tjänster som stödjer Google Authenticator.</string>
-    <string name="introBackupSummary">Säkerhetskopiera dina konton med stark kryptering så att du kan få tillgång till dina koder om du skulle förlora din enhet. Spara kopian i molnlagring eller på din enhet.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Kategorisera och ordna om dina konton genom att trycka och dra.</string>
     <string name="introThemesSummary">Om du föredrar kan du välja mörkt tema i inställningarna. Alla ikoner kommer att anpassa sig för att matcha den mörka bakgrunden.</string>
 </resources>

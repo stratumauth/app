@@ -16,7 +16,7 @@ Ngoài tên người dùng và mật khẩu của bạn, bạn sẽ cần một 
 - ⏺️ <b>Biểu tượng</b>: Tìm các trình xác thực của bạn dễ dàng với các biểu tượng và biểu tượng nhận diện thương hiệu rõ ràng bên cạnh mỗi mã.
 - 📂 <b>Danh mục</b>: Tổ chức các trình xác thực của bạn vào các danh mục.
 - 🔒 <b>Ngoại tuyến với ít quyền hạn</b>: Stratum chỉ yêu cầu một quyền hạn¹ và không cần truy cập Internet để hoạt động.
-- 🔑 <b>Bảo mật</b>: Đặt mật khẩu và sử dụng xác thực sinh học để bảo vệ mã của bạn.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Tùy chỉnh</b>: Đặt biểu tượng và đổi tên. Bạn cũng có thể sắp xếp các trình xác thực của mình theo bất kỳ thứ tự nào bạn muốn để bạn có thể tìm thấy chúng một cách dễ dàng.
 - ⌚ <b>Wear OS</b>: Xem nhanh các trình xác thực từ đồng hồ của bạn. Bạn cũng có thể đặt một mục yêu thích và đặt nó vào một ô. Vui lòng lưu ý rằng cần có kết nối với thiết bị Android của bạn. Hơn nữa, các bản phân phối của ứng dụng trên F-Droid không tương thích với Wear OS, vì cần có các phụ thuộc.
 

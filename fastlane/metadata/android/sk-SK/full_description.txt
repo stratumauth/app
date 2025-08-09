@@ -16,7 +16,7 @@ Okrem používateľského mena a hesla budete potrebovať kód poskytnutý aplik
 - ⏺️ <b>Ikony</b>: Autentifikátory ľahko nájdete vďaka rozpoznateľným logám a ikonám vedľa každého kódu.
 - 📂 <b>Kategórie</b>: Usporiadajte si svoje autentifikátory do kategórií.
 - 🔒 <b>Offline s minimálnymi oprávneniami</b>: Stratum vyžaduje len jedno povolenie¹ a na svoju činnosť nevyžaduje prístup na internet.
-- 🔑 <b>Zabezpečenie</b>: Nastavte heslo a použite biometrické overovanie na ochranu svojich kódov.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Prispôsobenie</b>: Nastavte ikony a premenujte ich. Svoje autentifikátory si tiež môžete usporiadať v ľubovoľnom poradí, aby ste ich mohli ľahko nájsť.
 - ⌚ <b>Wear OS</b>: Rýchle zobrazenie autentifikátorov priamo z Vašich hodiniek. You can even set a favourite and place it in a tile. Upozorňujeme, že je potrebné pripojenie k vášmu zariadeniu Android. Ďalej platí, že F-Droid distribúcie nie sú kompatibilné so systémom Wear OS, pretože sa vyžadujú neslobodné závislosti.
 
