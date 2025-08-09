@@ -26,7 +26,7 @@ namespace Stratum.Droid.Interface.Adapter
 
         public int SelectedPosition { get; set; }
 
-        public int MetaCategoryCount => _showUncategorisedCategory ? 2 : 1;
+        private int MetaCategoryCount => _showUncategorisedCategory ? 2 : 1;
         public override int ItemCount => _categoryView.Count + MetaCategoryCount;
         
         public event EventHandler<CategorySelector> CategorySelected;
@@ -75,6 +75,25 @@ namespace Stratum.Droid.Interface.Adapter
             };
 
             return holder;
+        }
+
+        public int PositionOf(CategorySelector selector)
+        {
+            if (selector.IsMetaCategory(out var metaCategory))
+            {
+                return metaCategory switch
+                {
+                    MetaCategory.All => 0,
+                    MetaCategory.Uncategorised => 1
+                };
+            }
+
+            if (selector.IsCategory(out var categoryId))
+            {
+                return _categoryView.IndexOf(categoryId) + MetaCategoryCount;
+            }
+
+            return -1;
         }
     }
 }

@@ -80,22 +80,7 @@ namespace Stratum.Droid.Interface.Fragment
             await _categoryView.LoadFromPersistenceAsync();
             _categoryMenuListAdapter.NotifyDataSetChanged();
 
-            var selectedCategoryPosition = -1;
-
-            if (_currentCategory.IsMetaCategory(out var metaCategory))
-            {
-                selectedCategoryPosition = metaCategory switch
-                {
-                    MetaCategory.All => 0,
-                    MetaCategory.Uncategorised => 1
-                };
-            } 
-            else if (_currentCategory.IsCategory(out var categoryId))
-            {
-                selectedCategoryPosition =
-                    _categoryView.IndexOf(categoryId) + _categoryMenuListAdapter.MetaCategoryCount;
-            }
-            
+            var selectedCategoryPosition = _categoryMenuListAdapter.PositionOf(_currentCategory);
             _categoryMenuListAdapter.SelectedPosition = selectedCategoryPosition;
             _categoryMenuListAdapter.NotifyItemChanged(selectedCategoryPosition);
         }
