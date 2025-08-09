@@ -18,8 +18,8 @@ files:
         pt-BR: pt-rBR
         en-US: en-rUS
 
-  - source: /fastlane/metadata/android/en-US/short_description.txt
+  - source: /fastlane/metadata/android/en-GB/short_description.txt
     translation: /fastlane/metadata/android/%locale%/short_description.txt
 
-  - source: /fastlane/metadata/android/en-US/full_description.txt
+  - source: /fastlane/metadata/android/en-GB/full_description.txt
     translation: /fastlane/metadata/android/%locale%/full_description.txt
