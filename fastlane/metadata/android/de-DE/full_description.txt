@@ -16,7 +16,7 @@ Zusätzlich zu deinem Benutzernamen und Passwort benötigst du einen Code von de
 - ⏺️ <b>Icons</b>: Finde deine Authentifikatoren ganz einfach mit erkennbaren Markenlogos und Symbolen neben jedem Code.
 - 📂 <b>Kategorien</b>: Organisiere deine Authentifikatoren in Kategorien.
 - 🔒 <b>Offline mit wenigen Berechtigungen</b>: Stratum benötigt nur eine einzige Berechtigung¹ und keinen Internet-Zugriff um zu funktionieren.
-- 🔑 <b>Sicherheit</b>: Lege ein Passwort fest und verwende biometrische Authentifizierung, um deine Codes zu schützen.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Personalisierung</b>: Lege Icons fest und benenne um. Du kannst deine Authentifikatoren auch in beliebiger Reihenfolge sortieren, sodass du sie leicht finden kannst.
 - ⌚ <b>Wear OS</b>: Sehe dir deine Authentifikatoren direkt auf deiner Uhr an. Du kannst sogar einen Favoriten setzen und diesen in eine Kachel setzen. Bitte beachte, dass eine Verbindung zu Deinem Android-Gerät erforderlich ist. Darüber hinaus sind F-Droid-Distributionen der App nicht mit Wear OS kompatibel, da nicht-freie Abhängigkeiten erforderlich sind.
 

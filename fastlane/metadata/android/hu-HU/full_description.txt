@@ -16,7 +16,7 @@ A felhasználónéven és a jelszón kívül szüksége lesz az Stratum által b
 - ⏺️ <b>Ikonok</b>: Könnyen megtalálja a hitelesítőket a felismerhető márkalogókkal és ikonokkal az egyes kódok mellett.
 - 📂 <b>Kategóriák</b>: A hitelesítők kategóriákba rendezése.
 - 🔒 <b>Offline működés kevés jogosultsággal</b>: A Stratum csak egyetlen engedélyt igényel¹, és működéséhez nincs szükség internet-hozzáférésre.
-- 🔑 <b>Biztonság</b>: Állítson be jelszót és használjon biometrikus hitelesítést a kódok védelmére.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Szabályozás</b>: ikonok beállítása és átnevezése. A hitelesítőket tetszőleges sorrendbe is rendezheti, így könnyen megtalálhatja őket.
 - ⌚ <b>Wear OS</b>: Gyorsan megtekintheti hitelesítőit közvetlenül az órájáról. Még egy kedvencet is beállíthat, és elhelyezheti egy csempén. Felhívjuk figyelmét, hogy az Android készülékkel való kapcsolatra van szükség. Továbbá az alkalmazás F-Droid disztribúciói nem kompatibilisek a Wear OS-sel, mivel nem szabad függőségek szükségesek.
 

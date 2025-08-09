@@ -16,7 +16,7 @@ SHA1, SHA256, SHA512 해시 알고리즘을 활용한 TOTP (시간 기반), HOTP
 - ⏺️ <b>아이콘</b>: 각 코드 옆에 인식 가능한 브랜드 로고와 아이콘이 있어 인증자를 쉽게 찾을 수 있습니다.
 - 📂 <b>카테고리</b>: 인증자를 카테고리로 구성합니다.
 - 🔒 <b>오프라인, 적은 권한 요구</b>: Stratum는 권한 단 하나(*)만을 요구하고 작동할 때 인터넷 연결을 필요로 하지 않습니다.
-- 🔑 <b>보안</b>: 비밀번호를 설정하고 생체 인식 인증을 사용하여 코드를 보호하세요.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>사용자 정의</b>: 아이콘을 설정하고 이름을 바꿉니다. 인증기를 쉽게 찾을 수 있도록 순서를 마음대로 재배열할 수 있습니다.
 - ⌚ <b>Wear OS</b>: 시계에서 직접 인증자를 빠르게 확인하세요. You can even set a favourite and place it in a tile. Android 기기와 연결이 필요하다는 점 유의하시기 바랍니다. 또한 앱의 F-Droid 배포판은 비자유 종속성이 필요하므로 Wear OS와 호환되지 않습니다.
 

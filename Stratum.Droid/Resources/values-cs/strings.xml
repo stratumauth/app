@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Nejvíce kopírované</string>
     <string name="sortLeastCopied">Nejméně kopírované</string>
     <string name="sortCustom">Vlastní</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Zobrazit informace o licenci</string>
     <string name="supportDevelopment">Podpořte vývoj</string>
     <string name="supportDevelopmentSummary">Podpořte další vývoj a aktualizace nákupem pomocí Buy Me a Coffee</string>
@@ -112,10 +114,10 @@
     <string name="backupToFileMessage">Uložte všechny vaše autentifikátory, kategorie a ikony do zašifrovaného záložního souboru. Tento soubor lze obnovit v aplikaci.</string>
     <string name="backupHtml">Zálohovat do HTML souboru</string>
     <string name="backupHtmlMessage">Uložte své autentifikátory do nešifrovaného HTML dokumentu s QR kódem. Kategorie a ikony nejsou uloženy.</string>
-    <string name="backupHtmlWarning">Zálohy do HTML souborů jsou nešifrované a mohou způsobit zranitelnost vašich tajných klíčů.\n\nTento soubor nemůže být obnoven v rámci aplikace a neobsahuje kategorie a ikony. Pokud si nejste jisti, zvolte místo toho šifrovanou zálohu.\n\nPokračovat?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Zálohovat do souboru seznamu URI</string>
     <string name="backupUriListMessage">Uložte své autentifikátory do nešifrovaného souboru s prostým textem URI seznamu. Tento soubor je kompatibilní s mnoha alternativními aplikacemi a službami. Kategorie a ikony nejsou uloženy.</string>
-    <string name="backupUriListWarning">Zálohy do nešifrovaných souborů s prostým textem jsou nešifrované a mohou způsobit zranitelnost vašich tajných klíčů.\n\nTento soubor nemůže být obnoven v rámci aplikace a neobsahuje kategorie a ikony. Pokud si nejste jisti, zvolte místo toho šifrovanou zálohu.\n\nPokračovat?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -136,6 +138,7 @@
     <string name="assignEntries">Přiřadit položky</string>
     <string name="more">Více</string>
     <string name="categoryAll">Vše</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Upravit kategorie</string>
     <string name="noCategoryName">Název kategorie je povinný</string>
     <string name="duplicateCategory">Kategorie s tímto názvem již existuje</string>
@@ -148,7 +151,6 @@
         Backups
     -->
     <string name="backupNow">Zálohovat nyní</string>
-    <string name="restoreNow">Obnovit nyní</string>
     <string name="backupReminder">Od vaší poslední zálohy došlo ke změnám</string>
     <string name="backupPasswordMessage">Zadejte heslo pro bezpečné zašifrování záložního souboru. Pokud nechcete soubor chránit heslem, nechte pole prázdné.</string>
     <string name="password">Heslo</string>
@@ -189,7 +191,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Vyberte umístění a heslo pro automatické zálohy. Zálohy jsou naplánovány po provedení změn. Zálohování do Cloudu není podporováno, použijte místo toho menu se zálohován.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Zvolte umístění</string>
     <string name="noLocationSelected">Nebyla zvolena žádná poloha</string>
     <!-- Shown when auto backup location has been selected -->
@@ -240,6 +242,7 @@
     <string name="aegisImportHint">Importovat soubor aegis-export.json</string>
     <string name="bitwardenImportHint">Importovat soubor bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importovat soubor ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
     <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importovat soubor keepass.kdbx (KDBX 4.)</string>
@@ -266,7 +269,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Umístěte QR kód do hledáčku pro nasnímání. Klepněte pro zaostření.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Pokuste se vyhnout stínům a odleskům. Držte zařízení přibližně 6 palců (15 cm) od kódu.</string>
     <string name="toggleFlash">Přepnout blesk</string>
     <!--
@@ -285,13 +288,15 @@
     <string name="prefResetCopyCountSummary">Vynulovat počet kopírování všech autentifikátorů</string>
     <string name="prefSkipToNextTitle">Přeskočit na další</string>
     <string name="prefSkipToNextSummary">Povolit přeskočení na další kód, když je blízko vypršení</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Zabezpečení</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovat heslo pro přístup k autentifikátorům. Databáze bude šifrována s vaším heslem.</string>
     <string name="prefDatabasePasswordBackupTitle">Zálohování pomocí hesla k databázi</string>
     <string name="prefDatabasePasswordBackupSummary">Šifrování všech záloh pomocí hesla k databázi, abyste ho nemuseli pokaždé zadávat</string>
     <string name="prefAllowBiometricsTitle">Odemknutí pomocí Biometriky</string>
-    <string name="prefAllowBiometricsSummary">Povolit odemknutí databáze s biometrickým ověřením</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Časový limit</string>
     <string name="prefTimeoutSummary">Nastavte dobu, po které se databáze uzamkne, jakmile aplikace opustí obrazovku</string>
     <string name="prefTapToRevealTitle">Zobrazit klepnutím</string>
@@ -381,12 +386,12 @@
     -->
     <string name="introWelcomeTitle">Vítejte v Stratum</string>
     <string name="introCompatibilityTitle">Dvoufaktorové Ověřování</string>
-    <string name="introBackupTitle">Zálohování a Obnovení</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Kategorie</string>
     <string name="introThemesTitle">Tmavý motiv</string>
-    <string name="introWelcomeSummary">Děkujeme, že jste si stáhli Stratum.\nUchovávejte své účty v bezpečí a chráněte je pomocí nejlepší open-source ověřovací aplikace.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum je kompatibilní s většinou poskytovatelů a účtů. Je 100% kompatibilní se službami povolenými Google Authenticator.</string>
-    <string name="introBackupSummary">Zálohujte své autentifikátory pomocí silného šifrování. V případě, že ztratíte své zařízení, můžete vždy získat přístup ke svým účtům. Uložte do cloudového úložiště nebo do vašeho zařízení.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Uspořádejte své ověřovače do kategorií a dokonce změňte pořadí jednoduchým podržením a přetažením.</string>
     <string name="introThemesSummary">Pokud chcete, můžete povolit tmavý motiv v nastavení. Všechny ikony se novému motivu přizpůsobí.</string>
 </resources>

@@ -16,7 +16,7 @@ Kullanıcı adınız ve parolanız yanında Stratum tarafından sağlanan bir ko
 - ⏺️ <b>Simgeler</b>: Her kodun yanındaki tanınabilir marka logoları ve simgelerle kimlik doğrulayıcılarınızı kolayca bulun.
 - 📂 <b>Kategoriler</b>: Kimlik doğrulayıcılarınızı kategoriler halinde düzenleyin.
 - 🔒 <b>Çok az izinle çevrimdışı</b>: Stratum yalnızca tek bir izin gerektirir ve çalışması için internet erişimi gerektirmez.
-- 🔑 <b>Güvenlik</b>: Kodlarınızı korumak için bir şifre belirleyin ve biyometrik kimlik doğrulamayı kullanın.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Özelleştirme</b>: Simgeleri ayarlayın ve yeniden adlandırın. Ayrıca kimlik doğrulama kodlarınızı istediğiniz sırayla düzenleyerek kolayca bulabilirsiniz.
 - ⌚ <b>Wear OS</b>: Kimlik doğrulayıcılarınızı doğrudan saatinizden hızlıca görüntüleyin. Hatta bir favori ayarlayabilir ve onu bir döşemeye yerleştirebilirsiniz. Android cihazınızla bağlantı kurulması gerektiğini lütfen unutmayın. Ayrıca, uygulamanın F-Droid dağıtımları Wear OS ile uyumlu değildir, çünkü özgür olmayan bağımlılıklar gereklidir.
 

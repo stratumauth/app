@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Eniten kopioitu</string>
     <string name="sortLeastCopied">Eniten kopioitu</string>
     <string name="sortCustom">Mukautettu</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Näytä sovellus- ja lisenssitiedot</string>
     <string name="supportDevelopment">Tue kehitystä</string>
     <string name="supportDevelopmentSummary">Tue jatkuvaa kehitystä ja päivityksiä \"Buy Me a Coffee\" -palvelulla</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Tallenna kaikki todentajasi, kategoriasi ja kuvakkeesi salattuun varmuuskopiotiedostoon. Tämä tiedosto voidaan palauttaa sovellukseen.</string>
     <string name="backupHtml">Varmuuskopioi HTML-tiedostoon</string>
     <string name="backupHtmlMessage">Tallenna todentajasi salaamattomaan HTML-asiakirjaan QR-koodeilla. Kategorioita ja kuvakkeita ei tallenneta.</string>
-    <string name="backupHtmlWarning">HTML-tiedostoja käyttävät varmuuskopiot ovat salaamattomia ja saattavat jättää salatut avaimesi haavoittuviksi.\n\nTätä tiedostoa ei voi palauttaa sovellukseen, eikä se sisällä kategorioita tai kuvakkeita. Jos olet epävarma, käytä sen sijaan salattua varmuuskopiointia.\n\nJatketaanko?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Varmuuskopioi URI-listatiedostoon</string>
     <string name="backupUriListMessage">Tallenna todentajasi salaamattomaan raakatekstiseen URI-luettelotiedostoon. Tämä tiedosto on yhteensopiva monien vaihtoehtoisten sovellusten ja palveluiden kanssa. Kategorioita ja kuvakkeita ei tallenneta.</string>
-    <string name="backupUriListWarning">Raakatekstitiedostoja käyttävät varmuuskopiot ovat salaamattomia ja saattavat jättää salatut avaimesi haavoittuviksi.\n\nTämä tiedosto ei sisällä kategorioita tai kuvakkeita. Jos olet epävarma, käytä sen sijaan salattua varmuuskopiointia.\n\nJatketaanko?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Määritä kohteet</string>
     <string name="more">Lisää</string>
     <string name="categoryAll">Kaikki</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Muokkaa kategorioita</string>
     <string name="noCategoryName">Kategorian nimi vaaditaan</string>
     <string name="duplicateCategory">Samanniminen kategoria on jo olemassa</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Varmuuskopioi nyt</string>
-    <string name="restoreNow">Palauta nyt</string>
     <string name="backupReminder">Viimeisimmän varmuuskopion jälkeen on tehty muutoksia</string>
     <string name="backupPasswordMessage">Anna salasana, jolla varmuuskopiotiedostosi salataan turvallisesti. Jos et halua suojata tiedostoa, jätä salasana tyhjäksi.</string>
     <string name="password">Salasana</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Valitse automaattisten varmuuskopioiden sijainti ja salasana. Varmuuskopiot ajoitetaan muutoksia tehdessä. Pilvipalveluita ei tueta, käytä varmuuskopiointivalikkoa sen sijaan.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Valitse sijainti</string>
     <string name="noLocationSelected">Sijaintia ei ole valittu</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Tuo aegis-export.json -tiedosto</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="enteAuthImportHint">Tuo ente-auth-codes.txt-tiedosto</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Aseta QR-koodi etsimeen skannataksesi sen. Paina kohdistaaksesi sen.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Yritä välttää varjoja ja häikäisyä. Pidä laitetta noin 15 cm päässä koodista.</string>
     <string name="toggleFlash">Kytke salama</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Tyhjennä kunkin todentajan kopiointikerrat</string>
     <string name="prefSkipToNextTitle">Siirry seuraavaan</string>
     <string name="prefSkipToNextSummary">Salli siirtyimen seuraavaan koodiin, kun se on päättymässä</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Turvallisuus</string>
     <string name="prefPasswordTitle">Salasana</string>
     <string name="prefPasswordSummary">Vaadi salasanaa todentajien käyttämiseksi. Tietokanta salataan salasanallasi.</string>
     <string name="prefDatabasePasswordBackupTitle">Varmuuskopioi tietokannan salasanalla</string>
     <string name="prefDatabasePasswordBackupSummary">Salaa kaikki varmuuskopiot tietokannan salasanalla, jottei sinun tarvitse syöttää sitä joka kerta</string>
     <string name="prefAllowBiometricsTitle">Biometrinen avaus</string>
-    <string name="prefAllowBiometricsSummary">Salli tietokannan avaaminen biometrialla</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Aikakatkaisu</string>
     <string name="prefTimeoutSummary">Aseta aika, jonka jälkeen tietokanta lukittuu, kun sovellus poistuu ruudulta</string>
     <string name="prefTapToRevealTitle">Paljasta napauttamalla</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Tervetuloa Stratum:hon</string>
     <string name="introCompatibilityTitle">Kaksivaiheinen Todennus</string>
-    <string name="introBackupTitle">Varmuuskopiointi ja palautus</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Kategoriat</string>
     <string name="introThemesTitle">Tumma teema</string>
-    <string name="introWelcomeSummary">Kiitos kun latasit Stratumn.\nPidä online-tilisi turvassa ja suojattuna parhaalla avoimen lähdekoodin todennussovelluksella.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum on yhteensopiva useimpien palveluntarjoajien ja tilien kanssa. Se on 100% yhteensopiva Google Authenticatoria käyttävien palveluiden kanssa.</string>
-    <string name="introBackupSummary">Varmuuskopioi todentajat vahvalla salauksella. Voit aina päästä käsiksi tileihisi, vaikka kadottaisit laitteesi. Tallenna ne pilvitallennustilaan tai laitteeseesi.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Järjestä todentajasi kategorioihin ja muuta niiden järjestystä painamalla ja vetämällä.</string>
     <string name="introThemesSummary">Jos haluat, voit ottaa käyttöön tumman teeman asetuksista. Kaikki kuvakkeet mukautuvat vastaamaan niiden uutta taustaa.</string>
 </resources>

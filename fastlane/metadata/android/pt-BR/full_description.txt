@@ -16,7 +16,7 @@ Em adição ao nome de usuário e senha, você vai precisar de um código fornec
 - ⏺️ <b>Ícones</b>: Encontre seus autenticadores facilmente com logotipos e ícones de marcas reconhecíveis ao lado de cada código.
 - 📂 <b>Categorias</b>: Organize seus autenticadores em categorias.
 - 🔒 <b>Offline com poucas permissões</b>: Stratum requer apenas uma única permissão¹ e não requer acesso à Internet para funcionar.
-- 🔑 <b>Segurança</b>: Defina uma senha e use autenticação biométrica para proteger seus códigos.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Personalização</b>: Defina ícones e renomeie. Você também pode ordenar suas autenticações na ordem que preferir, assim fica fácil achá-las facilmente.
 - ⌚ <b>Wear OS</b>: Veja rapidamente seus autenticadores diretamente do seu relógio. Você pode até definir um favorito e colocá-lo em um bloco. Por favor, note que é necessária uma conexão com seu dispositivo Android. Além disso, as distribuições do F-Droid do aplicativo não são compatíveis com o Wear OS, pois são necessárias dependências não livres.
 

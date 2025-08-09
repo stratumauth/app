@@ -16,7 +16,7 @@ Naast uw gebruikersnaam en wachtwoord heeft u een door Stratum opgegeven code no
 - ⏺️ <b>iconen</b>: Vind uw authenticators gemakkelijk met herkenbare merklogo's en pictogrammen naast elke code.
 - 📂 <b>Categorieën</b>: Organiseer uw authenticatoren in categorieën.
 - 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>Beveiliging</b>: Stel een wachtwoord in en gebruik biometrische authentificatie om uw codes te beschermen.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>Aanpassing</b>: Stel pictogrammen in en hernoemen. Je kunt je authenticatoren ordenen in elke gewenste volgorde, zodat je ze gemakkelijk kunt vinden.
 - ⌚ <b>Wear OS</b>: Bekijk snel uw authenticatie direct vanaf uw horloge. You can even set a favourite and place it in a tile. Houd er rekening mee dat een verbinding met uw Android-apparaat vereist is. Bovendien zijn de F-Droid verdelingen van de app niet compatibel met Wear OS, omdat er niet-gratis afhankelijkheden nodig zijn.
 

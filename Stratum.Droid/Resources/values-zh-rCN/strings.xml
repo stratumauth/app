@@ -41,6 +41,8 @@
     <string name="sortMostCopied">复制次数（递减）</string>
     <string name="sortLeastCopied">复制次数（递增）</string>
     <string name="sortCustom">自定义</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
     <string name="supportDevelopment">支持开发</string>
     <string name="supportDevelopmentSummary">觉得这个应用很不错？给我买杯咖啡吧！</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
     <string name="backupHtml">保存为 HTML 文件</string>
     <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。分类和图标设置不会包含在备份中。</string>
-    <string name="backupHtmlWarning">保存为 HTML 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">备份至 URI 列表文件</string>
     <string name="backupUriListMessage">将您的身份验证器保存到一个未加密纯文本的 URI 列表文件。此文件与许多其他应用程序和服务兼容。分类和图标将不会被保存.</string>
-    <string name="backupUriListWarning">保存为纯文本文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">指定条目</string>
     <string name="more">更多</string>
     <string name="categoryAll">全部</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">编辑分类</string>
     <string name="noCategoryName">请输入分类名。</string>
     <string name="duplicateCategory">已存在同名分类。</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">立即备份</string>
-    <string name="restoreNow">立即恢复</string>
     <string name="backupReminder">自上次备份后已出现新的更改</string>
     <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
     <string name="password">密码</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">选择自动备份的位置和密码。当发生更改时将自动进行备份。不支持云存储，请使用备份菜单。</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">选择位置</string>
     <string name="noLocationSelected">未选择位置</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">导入 aegis-export.json 文件</string>
     <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
     <string name="enteAuthImportHint">导入 ente-auth-codes.txt 文件</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">导入 winauth.txt 或 winauth.zip 文件</string>
     <string name="twoFasImportHint">导入 2fas-backup.2fas 文件</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">将二维码置于画面中央以进行扫描。点击以对焦。</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">尽量避免阴影和眩光。将设备保持在二维码附近约15厘米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切换闪光灯</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">重置每个验证器的复制次数</string>
     <string name="prefSkipToNextTitle">跳到下一个</string>
     <string name="prefSkipToNextSummary">当前验证码将要过期时允许跳到下一个验证码</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>
     <string name="prefDatabasePasswordBackupTitle">以数据库密码备份</string>
     <string name="prefDatabasePasswordBackupSummary">使用数据库密码加密所有备份这样您就不需要每次输入密码</string>
     <string name="prefAllowBiometricsTitle">使用生物识别解锁</string>
-    <string name="prefAllowBiometricsSummary">允许以生物鉴别身份解锁数据库</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">超时时间</string>
     <string name="prefTimeoutSummary">设置在应用切换至后台运行后自动锁定数据库前的时间间隔</string>
     <string name="prefTapToRevealTitle">点击以显示</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">欢迎使用 Stratum</string>
     <string name="introCompatibilityTitle">双因素认证</string>
-    <string name="introBackupTitle">备份与还原</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">分类</string>
     <string name="introThemesTitle">深色主题</string>
-    <string name="introWelcomeSummary">感谢您下载 Stratum。\n作为最好的开源身份验证器应用，我们将为您的在线账户保驾护航。</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum 支持绝大多数服务提供方和帐户，并 100% 兼容支持 Google 身份验证器的服务。</string>
-    <string name="introBackupSummary">备份您的验证器并对其进行强加密。即便您的设备丢失了，您也能恢复对您帐号的访问。您可以将备份保存在云端存储或设备上。</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">将您的验证器归入到多个分类中，并通过长按和拖拽轻松改变排序。</string>
     <string name="introThemesSummary">如有需要，您可以在设置中启用深色主题。所有的图标会配合背景调整显示。</string>
 </resources>
