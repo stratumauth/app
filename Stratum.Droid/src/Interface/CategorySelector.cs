@@ -71,6 +71,11 @@ namespace Stratum.Droid.Interface
             return other != null && _categoryId == other._categoryId && _metaCategory == other._metaCategory;
         }
 
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as CategorySelector);
+        }
+
         public override int GetHashCode()
         {
             return HashCode.Combine(_categoryId, (int)_metaCategory);
