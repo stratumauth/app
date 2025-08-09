@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Am meisten kopiert</string>
     <string name="sortLeastCopied">Am wenigsten kopiert</string>
     <string name="sortCustom">Benutzerdefiniert</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Infos über die App und Lizenzen anzeigen</string>
     <string name="supportDevelopment">Entwicklung unterstützen</string>
     <string name="supportDevelopmentSummary">Unterstütze die weitere Entwicklung und Updates mit \"Buy Me a Coffee\"</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Speichere alle deine Schlüssel, Kategorien und Symbole in einer verschlüsselten Sicherungsdatei. Diese Datei kann innerhalb der App wiederhergestellt werden.</string>
     <string name="backupHtml">Als HTML-Datei sichern</string>
     <string name="backupHtmlMessage">Speichere deine Schlüssel in einem unverschlüsselten HTML-Dokument mit QR-Codes. Kategorien und Symbole werden nicht gespeichert.</string>
-    <string name="backupHtmlWarning">Sicherungen in HTML-Dokumente sind unverschlüsselt.\n\nDie Datei ist eine reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir nicht sicher bist, was du tust, verwende eine verschlüsselte Sicherung.\n\nFortfahren?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Sicherung als URI-Listen-Datei</string>
     <string name="backupUriListMessage">Speichere deine Authentifikatoren in einer unverschlüsselten Klartext-URI-Listendatei. Diese Datei ist mit vielen alternativen Anwendungen und Diensten kompatibel. Kategorien und Symbole werden nicht gespeichert.</string>
-    <string name="backupUriListWarning">Sicherungen in Klartext-Dateien sind unverschlüsselt.\n\nDie Datei ist eine reine Exportdatei und kann von der App nicht wieder geladen werden. Falls du dir unsicher bist, verwende stattdessen eine verschlüsselte Sicherung.\n\nFortfahren?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Einträgen zuweisen</string>
     <string name="more">Mehr</string>
     <string name="categoryAll">Alle</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Kategorien bearbeiten</string>
     <string name="noCategoryName">Ein Name muss angegeben werden.</string>
     <string name="duplicateCategory">Eine Kategorie mit diesem Namen existiert bereits.</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Jetzt sichern</string>
-    <string name="restoreNow">Jetzt wiederherstellen</string>
     <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen</string>
     <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
     <string name="password">Passwort</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Wähle einen Pfad und ein Passwort für automatische Sicherungen. Sicherungen werden ausgeführt, wenn Änderungen gemacht werden. Cloud Speicherorte sind nicht unterstützt, verwende stattdessen das Sicherungsmenü.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Ort auswählen</string>
     <string name="noLocationSelected">Keinen Ort ausgewählt</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importieren einer aegis-export-plain.json Datei</string>
     <string name="bitwardenImportHint">Importieren einer bitwarden_export.json Datei</string>
     <string name="enteAuthImportHint">Importieren einer ente-auth-codes.txt Datei</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">winauth.txt oder winauth.zip Datei importieren</string>
     <string name="twoFasImportHint">2fas-backup.2fas-Datei importieren</string>
     <string name="keePassImportHint">Importiere keepass.kdbx (KDBX 4.) Datei</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Platziere den QR-Code in den Sucher, um diesen zu scannen. Zum Fokussieren tippen.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Versuche, Schatten und Glanz zu vermeiden. Halte das Gerät etwa 15 cm (6\") vor den Code.</string>
     <string name="toggleFlash">Blitzlicht ein-/ausschalten</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Lösche die Anzahl der Kopien jedes Authentifikators, der kopiert wurde</string>
     <string name="prefSkipToNextTitle">Zum nächsten der Code springen</string>
     <string name="prefSkipToNextSummary">Erlaubt das Springen zum nächsten Code, wenn dieser kurz vor dem Ablauf steht</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefPasswordTitle">Passwort</string>
     <string name="prefPasswordSummary">Ein Passwort verwenden, um auf die Schlüssel zuzugreifen. Die Datenbank wird mit dem Passwort verschlüsselt.</string>
     <string name="prefDatabasePasswordBackupTitle">Mit Datenbank-Passwort sichern</string>
     <string name="prefDatabasePasswordBackupSummary">Verschlüsseln der Sicherungen mit dem Datenbank-Passwort, damit du es nicht jedes Mal eingeben musst.</string>
     <string name="prefAllowBiometricsTitle">Biometrie verwenden</string>
-    <string name="prefAllowBiometricsSummary">Entsperren mittels Biometrie erlauben</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Zeitlimit</string>
     <string name="prefTimeoutSummary">Legen Sie die Zeit fest, nach der die Datenbank nach dem Verlassen der App gesperrt wird.</string>
     <string name="prefTapToRevealTitle">Tippe um aufzudecken</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Willkommen bei Stratum</string>
     <string name="introCompatibilityTitle">Zwei-Faktor-Authentifizierung</string>
-    <string name="introBackupTitle">Sichern und Wiederherstellen</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Kategorien</string>
     <string name="introThemesTitle">Dunkles Thema</string>
-    <string name="introWelcomeSummary">Danke für das Herunterladen von Stratum.\nSchütze deine Onlinekonten mit der besten, quelloffenen 2FA-App.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum ist mit den meisten Anbietern und Konten kompatibel. Er ist zu 100 % kompatibel mit Google Authenticator fähigen Diensten.</string>
-    <string name="introBackupSummary">Sichere deine Schlüssel mit einer starken Verschlüsselung. Solltest du dein Gerät verlieren, kannst du so Zugriff auf deine Konten erhalten. Speichere das Backup in der Cloud oder auf deinem Gerät.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Ordne deine Schlüssel in Kategorien und sortiere sie durch Drücken und Schieben, wie du möchtest.</string>
     <string name="introThemesSummary">Wenn du möchtest, kannst du ein dunkles Thema verwenden. Die Icons der Schlüssel werden sich daran anpassen.</string>
 </resources>

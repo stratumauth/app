@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Cele mai copiate</string>
     <string name="sortLeastCopied">Cele mai puțin copiate</string>
     <string name="sortCustom">Particularizat</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Vizualizare informații despre și licență</string>
     <string name="supportDevelopment">Susține dezvoltarea</string>
     <string name="supportDevelopmentSummary">Susține dezvoltarea continuă și actualizările făcând cinste cu o cafea</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Salvează toți autentificatorii, categoriile și pictogramele într-un fișier de backup criptat. Acest fișier poate fi restaurat în aplicație.</string>
     <string name="backupHtml">Creează o copie de rezervă într-un fișier HTML</string>
     <string name="backupHtmlMessage">Salvează autentificatoarele într-un document HTML necriptat cu coduri QR. Categoriile și pictogramele nu sunt salvate.</string>
-    <string name="backupHtmlWarning">Copiile de rezervă ale fișierelor HTML sunt necriptate și pot lăsa cheile secrete vulnerabile.\n\nAcest fișier nu poate fi restaurat în aplicație și nu conține categorii și pictograme. Dacă nu ești sigur, optează pentru o copie de rezervă a fișierelor criptate.\n\nContinui?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Creează o copie de rezervă într-un fișier URI</string>
     <string name="backupUriListMessage">Salvează autentificatoarele într-un fișier necriptat cu listă URI de text simplu. Acest fișier este compatibil cu multe aplicații și servicii alternative. Categoriile și pictogramele nu sunt salvate.</string>
-    <string name="backupUriListWarning">Copiile de rezervă ale fișierelor cu text simplu sunt necriptate și pot lăsa cheile secrete vulnerabile.\n\nAcest fișier nu conține categorii și pictograme. Dacă nu ești sigur, optează pentru o copie de rezervă a fișierelor criptate.\n\nContinui?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Asignează intrări</string>
     <string name="more">Mai mult</string>
     <string name="categoryAll">Toate</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Editează categoriile</string>
     <string name="noCategoryName">Este necesar un nume de categorie</string>
     <string name="duplicateCategory">O categorie cu acest nume există deja</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Creează o copie de rezervă acum</string>
-    <string name="restoreNow">Restaurează acum</string>
     <string name="backupReminder">Au fost făcute modificări de la ultima copie de rezervă</string>
     <string name="backupPasswordMessage">Introdu o parolă pentru a cripta în siguranță fișierul de rezervă. Dacă nu dorești să protejezi fișierul cu parolă, lasă câmpul necompletat.</string>
     <string name="password">Parolă</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Selectează o locație și o parolă pentru copii de rezervă automate. Copiile de rezervă sunt programate atunci când se fac modificări. Stocarea în cloud nu este acceptată, utilizează meniul de rezervă.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Selectează locația</string>
     <string name="noLocationSelected">Nicio locație selectată</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importă fișierul aegis-export.json</string>
     <string name="bitwardenImportHint">Importă fișierul bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importați fișierul ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Importă fișierul winauth.txt sau winauth.zip</string>
     <string name="twoFasImportHint">Importă fișierul 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importați fișierul keepass.kdbx (KDBX 4.)</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Pune codul QR în vizualizator pentru a-l scana. Atinge pentru a focaliza.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Încearcă să eviți umbrele și strălucirea. Ține dispozitivul la aproximativ 6 inchi (15 cm) depărtare de cod.</string>
     <string name="toggleFlash">Comută blițul</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Șterge de câte ori a fost copiat fiecare autentificator</string>
     <string name="prefSkipToNextTitle">Omite la următorul</string>
     <string name="prefSkipToNextSummary">Permite trecerea la următorul cod când este aproape de expirare</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Securitate</string>
     <string name="prefPasswordTitle">Parolă</string>
     <string name="prefPasswordSummary">Solicită parola pentru a accesa autentificatoarele. Baza de date va fi criptată cu parola.</string>
     <string name="prefDatabasePasswordBackupTitle">Backup cu parola bazei de date</string>
     <string name="prefDatabasePasswordBackupSummary">Criptează toate copiile de rezervă folosind parola bazei de date astfel încât să nu trebuiască să o introduci de fiecare dată</string>
     <string name="prefAllowBiometricsTitle">Deblocare biometrică</string>
-    <string name="prefAllowBiometricsSummary">Permite deblocarea bazei de date cu autentificare biometrică</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Expirare</string>
     <string name="prefTimeoutSummary">Setează timpul după care baza de date se va bloca odată ce aplicația părăsește ecranul</string>
     <string name="prefTapToRevealTitle">Atinge pentru a dezvălui</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Bun venit la Stratum</string>
     <string name="introCompatibilityTitle">Autentificare cu doi factori</string>
-    <string name="introBackupTitle">Copie de rezervă și Restaurare</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Categorii</string>
     <string name="introThemesTitle">Temă întunecată</string>
-    <string name="introWelcomeSummary">Îți mulțumim pentru descărcarea Stratum.\nPăstrează conturile online în siguranță și protejate cu cea mai bună aplicație de autentificare open-source.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum este compatibil cu majoritatea furnizorilor și conturilor. Este 100% compatibil cu serviciile activate Google Authenticator.</string>
-    <string name="introBackupSummary">Creează copii de rezervă pentru autentificatoare cu criptare puternică. În cazul în care vei pierde dispozitivul, poți oricând să obții acces la conturile tale. Salvează în cloud sau pe dispozitiv.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organizează-ți autentificatorii în categorii și chiar schimbă ordinea cu o simplă apăsare și tragere.</string>
     <string name="introThemesSummary">Dacă preferi, poți activa o temă întunecată în setări. Toate pictogramele se vor adapta pentru a se potrivi cu noul lor fundal.</string>
 </resources>

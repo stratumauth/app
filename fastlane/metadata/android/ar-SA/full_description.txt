@@ -16,7 +16,7 @@ In addition to your username and password, you will need a code provided by Stra
 - ⏺️ <b>الأيقونات</b>: يمكنك العثور على المصادقين بسهولة من خلال شعارات العلامات التجارية والأيقونات التي يمكن التعرف عليها بجوار كل رمز.
 - 📂 <b>الفئات</b>: تنظيم المصادقين لديك في فئات.
 - 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
-- 🔑 <b>الأمان</b>: تعيين كلمة مرور واستخدم المصادقة بارومترية لحماية رموزك.
+- 🔑 <b>Security</b>: Set a password and use biometric authentication to protect your codes.
 - 🎨 <b>التخصيص</b>: تعيين الرموز وإعادة التسمية. يمكنك أيضًا ترتيب أدوات التصديق الخاصة بك بأي ترتيب تريده حتى تتمكن من العثور عليها بسهولة.
 - ⌚ <b>Wear OS</b>: يمكنك عرض أدوات المصادقة بسرعة قاصدًا من ساعتك. You can even set a favourite and place it in a tile. يرجى ملاحظة أن الاتصال بجهاز الأندرويد الخاص بك مطلوب. فضلًا على ذلك، فإن توزيعات F-Droid للتطبيق غير متوافقة مع نظام التشغيل Wear OS، نظرًا لأن التبعيات غير الحرة مطلوبة.
 

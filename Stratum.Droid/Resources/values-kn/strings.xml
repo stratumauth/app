@@ -41,6 +41,8 @@
     <string name="sortMostCopied">ಹೆಚ್ಚು ನಕಲಿಸಲಾದ</string>
     <string name="sortLeastCopied">ಕಡಿಮೆ ನಕಲಿಸಲಾದ</string>
     <string name="sortCustom">ವೈಯಕ್ತೀಕರಿಸಿ</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">ಅಪ್ಲಿಕೇಶನ್ ಮತ್ತು ಪರವಾನಗಿ ಮಾಹಿತಿಯ ಬಗ್ಗೆ ವೀಕ್ಷಿಸಿ</string>
     <string name="supportDevelopment">ಅಭಿವೃದ್ದಿಗೆ ಬೆಂಬಲಿಸಿ</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffee ಯೊಂದಿಗೆ ನಿರಂತರ ಅಭಿವೃದ್ಧಿ ಮತ್ತು ನವೀಕರಣಗಳನ್ನು ಬೆಂಬಲಿಸಿ</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾದ ಬ್ಯಾಕ್‌ಅಪ್ ಫೈಲ್‌ಗೆ ನಿಮ್ಮ ಎಲ್ಲಾ ದೃಢೀಕರಣಗಳು, ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಿ. ಈ ಫೈಲ್ ಅನ್ನು ಆ್ಯಪ್‌ನಲ್ಲಿ ಮರುಸ್ಥಾಪಿಸಬಹುದು.</string>
     <string name="backupHtml">HTML ಫೈಲ್‌ಗೆ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
     <string name="backupHtmlMessage">ಕ್ಯೂಆರ್ ಕೋಡ್‌ಗಳೊಂದಿಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡದ HTML ಡಾಕ್ಯುಮೆಂಟ್‌ಗೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಉಳಿಸಿ. ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
-    <string name="backupHtmlWarning">HTML ಫೈಲ್‌ಗಳಿಗೆ ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ರಹಸ್ಯ ಕೀಗಳನ್ನು ದುರ್ಬಲಗೊಳಿಸಬಹುದು.\n\nಈ ಫೈಲ್ ಅನ್ನು ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಮತ್ತು ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಒಳಗೊಂಡಿಲ್ಲ. ಖಚಿತವಿಲ್ಲದಿದ್ದರೆ, ಬದಲಿಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಫೈಲ್ ಬ್ಯಾಕಪ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">URI ಪಟ್ಟಿ ಫೈಲ್‌ಗೆ ಬ್ಯಾಕ್ ಅಪ್ ಮಾಡಿ</string>
     <string name="backupUriListMessage">ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡದ ಸರಳ-ಪಠ್ಯ URI ಪಟ್ಟಿಯ ಫೈಲ್‌ಗೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಉಳಿಸಿ. ಈ ಫೈಲ್ ಹಲವಾರು ಪರ್ಯಾಯ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಸೇವೆಗಳೊಂದಿಗೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ. ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಉಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
-    <string name="backupUriListWarning">ಸರಳ-ಪಠ್ಯ ಫೈಲ್‌ಗಳಿಗೆ ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿಲ್ಲ ಮತ್ತು ನಿಮ್ಮ ರಹಸ್ಯ ಕೀಗಳನ್ನು ದುರ್ಬಲಗೊಳಿಸಬಹುದು.\n\nಈ ಫೈಲ್ ವರ್ಗಗಳು ಮತ್ತು ಐಕಾನ್‌ಗಳನ್ನು ಹೊಂದಿಲ್ಲ. ಖಚಿತವಿಲ್ಲದಿದ್ದರೆ, ಬದಲಿಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿದ ಫೈಲ್ ಬ್ಯಾಕಪ್ ಅನ್ನು ಆಯ್ಕೆಮಾಡಿ.\n\nಮುಂದುವರಿಯುವುದೇ?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">ನಮೂದುಗಳನ್ನು ನಿಯೋಜಿಸಿ</string>
     <string name="more">ಇನ್ನಷ್ಟು</string>
     <string name="categoryAll">ಎಲ್ಲಾ</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">ವರ್ಗಗಳನ್ನು ತಿದ್ದಿ</string>
     <string name="noCategoryName">ವರ್ಗದ ಹೆಸರು ಅಗತ್ಯವಿದೆ</string>
     <string name="duplicateCategory">ಈ ಹೆಸರಿನ ವರ್ಗವು ಈಗಾಗಲೇ ಅಸ್ತಿತ್ವದಲ್ಲಿದೆ</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">ಈಗಲೇ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
-    <string name="restoreNow">ಈಗಲೇ ಮರುಸ್ಥಾಪಿಸಿ</string>
     <string name="backupReminder">ನೀವು ಕಳೆದ ಬಾರಿ ಬ್ಯಾಕಪ್ ಮಾಡಿದಾಗಿನಿಂದ ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಲಾಗಿದೆ</string>
     <string name="backupPasswordMessage">ನಿಮ್ಮ ಬ್ಯಾಕಪ್ ಫೈಲ್ ಅನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲು ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ. ಪಾಸ್ವರ್ಡ್ನೊಂದಿಗೆ ಫೈಲ್ ಅನ್ನು ರಕ್ಷಿಸಲು ನೀವು ಬಯಸದಿದ್ದರೆ, ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ಖಾಲಿ ಬಿಡಿ.</string>
     <string name="password">ಪಾಸ್ವರ್ಡ್</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">ಸ್ವಯಂ ಬ್ಯಾಕಪ್‌ಗಳಿಗಾಗಿ ಸ್ಥಳ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ. ಬದಲಾವಣೆಗಳನ್ನು ಮಾಡಿದಾಗ ಬ್ಯಾಕಪ್‌ಗಳನ್ನು ನಿಗದಿಪಡಿಸಲಾಗಿದೆ. Cloud ಸಂಗ್ರಹಣೆಯು ಬೆಂಬಲಿತವಾಗಿಲ್ಲ, ಬದಲಿಗೆ ಬ್ಯಾಕ್ ಅಪ್ ಮೆನು ಬಳಸಿ.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">ಸ್ಥಳ ಆಯ್ಕೆ ಮಾಡಿ</string>
     <string name="noLocationSelected">ಯಾವುದೇ ಸ್ಥಳವನ್ನು ಆಯ್ಕೆ ಮಾಡಲಾಗಿಲ್ಲ</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">aegis-export.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="bitwardenImportHint">bitwarden_export.json ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="enteAuthImportHint">ente-auth-codes.txt ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">winauth.txt ಅಥವಾ winauth.zip ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="twoFasImportHint">2fas-backup.2fas ಫೈಲ್ ಅನ್ನು ಆಮದು ಮಾಡಿ</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಲು ವ್ಯೂಫೈಂಡರ್‌ನಲ್ಲಿ ಇರಿಸಿ. ಕೇಂದ್ರೀಕರಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">ನೆರಳುಗಳು ಮತ್ತು ಪ್ರಜ್ವಲಿಸುವಿಕೆಯನ್ನು ತಪ್ಪಿಸಲು ಪ್ರಯತ್ನಿಸಿ. ಕೋಡ್‌ನಿಂದ ಸಾಧನವನ್ನು ಸರಿಸುಮಾರು 6 ಇಂಚುಗಳು (15 cm) ಹಿಡಿದುಕೊಳ್ಳಿ.</string>
     <string name="toggleFlash">ಫ್ಲ್ಯಾಶ್ ಅನ್ನು ಟಾಗಲ್ ಮಾಡಿ</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">ಪ್ರತಿ ದೃಢೀಕರಣವನ್ನು ಎಷ್ಟು ಬಾರಿ ನಕಲಿಸಲಾಗಿದೆ ಎಂಬುದನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
     <string name="prefSkipToNextTitle">ಮುಂದಿನಕ್ಕೆ ತೆರಳಿ</string>
     <string name="prefSkipToNextSummary">ಪ್ರಸ್ತುತ ಕೋಡ್ ಮುಕ್ತಾಯಗೊಳ್ಳುವ ಸಮೀಪದಲ್ಲಿದ್ದಾಗ ಮುಂದಿನ ಕೋಡ್‌ಗೆ ಸ್ಕಿಪ್ ಮಾಡಲು ಅನುಮತಿಸಿ</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">ಭದ್ರತೆ</string>
     <string name="prefPasswordTitle">ಪಾಸ್ವರ್ಡ್</string>
     <string name="prefPasswordSummary">ದೃಢೀಕರಣಗಳನ್ನು ಪ್ರವೇಶಿಸಲು ಪಾಸ್‌ವರ್ಡ್ ಅಗತ್ಯವಿದೆ. ಡೇಟಾಬೇಸ್ ಅನ್ನು ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್‌ನೊಂದಿಗೆ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗುತ್ತದೆ.</string>
     <string name="prefDatabasePasswordBackupTitle">ಡೇಟಾಬೇಸ್ ಪಾಸ್‌ವರ್ಡ್‌ನೊಂದಿಗೆ ಬ್ಯಾಕಪ್ ಮಾಡಿ</string>
     <string name="prefDatabasePasswordBackupSummary">ಡೇಟಾಬೇಸ್ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಬಳಸಿಕೊಂಡು ಎಲ್ಲಾ ಬ್ಯಾಕ್‌ಅಪ್‌ಗಳನ್ನು ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿ ಆದ್ದರಿಂದ ನೀವು ಪ್ರತಿ ಬಾರಿಯೂ ಅದನ್ನು ನಮೂದಿಸುವ ಅಗತ್ಯವಿಲ್ಲ</string>
     <string name="prefAllowBiometricsTitle">ಬಯೋಮೆಟ್ರಿಕ್ ಅನ್ಲಾಕ್</string>
-    <string name="prefAllowBiometricsSummary">ಬಯೋಮೆಟ್ರಿಕ್ ದೃಢೀಕರಣದೊಂದಿಗೆ ಡೇಟಾಬೇಸ್ ಅನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಲು ಅನುಮತಿಸಿ</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">ಸಮಯ ಮಿತಿ</string>
     <string name="prefTimeoutSummary">ಅಪ್ಲಿಕೇಶನ್ ಪರದೆಯಿಂದ ಹೊರಬಂದ ನಂತರ ಡೇಟಾಬೇಸ್ ಲಾಕ್ ಆಗುವ ಸಮಯವನ್ನು ಹೊಂದಿಸಿ</string>
     <string name="prefTapToRevealTitle">ಬಹಿರಂಗಪಡಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Stratum ಗೆ ಸ್ವಾಗತ</string>
     <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">ವರ್ಗಗಳು</string>
     <string name="introThemesTitle">ಡಾರ್ಕ್ ಥೀಮ್</string>
-    <string name="introWelcomeSummary">Stratum ಅನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡಿದ್ದಕ್ಕಾಗಿ ಧನ್ಯವಾದಗಳು.\nಉತ್ತಮ ತೆರೆದ ಮೂಲ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್‌ನೊಂದಿಗೆ ನಿಮ್ಮ ಆನ್‌ಲೈನ್ ಖಾತೆಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಮತ್ತು ರಕ್ಷಿಸಿ.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum ಬಹುತೇಕ ಎಲ್ಲಾ ಪೂರೈಕೆದಾರರು ಮತ್ತು ಖಾತೆಗಳೊಂದಿಗೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ. ಇದು Google Authenticator ಸಕ್ರಿಯಗೊಳಿಸಿದ ಸೇವೆಗಳೊಂದಿಗೆ 100% ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ.</string>
-    <string name="introBackupSummary">ಬಲವಾದ ಎನ್‌ಕ್ರಿಪ್ಶನ್‌ನೊಂದಿಗೆ ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ಬ್ಯಾಕಪ್ ಮಾಡಿ. ನಿಮ್ಮ ಸಾಧನವನ್ನು ನೀವು ಕಳೆದುಕೊಂಡರೆ, ನೀವು ಯಾವಾಗಲೂ ನಿಮ್ಮ ಖಾತೆಗಳಿಗೆ ಪ್ರವೇಶವನ್ನು ಪಡೆಯಬಹುದು. ಕ್ಲೌಡ್ ಸ್ಟೋರೇಜ್ ಅಥವಾ ನಿಮ್ಮ ಸಾಧನಕ್ಕೆ ಉಳಿಸಿ.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">ನಿಮ್ಮ ದೃಢೀಕರಣಗಳನ್ನು ವರ್ಗಗಳಾಗಿ ಸಂಘಟಿಸಿ ಮತ್ತು ಸರಳವಾದ ಹೋಲ್ಡ್ ಮತ್ತು ಡ್ರ್ಯಾಗ್ ಕ್ರಿಯೆಯೊಂದಿಗೆ ಕ್ರಮವನ್ನು ಬದಲಾಯಿಸಿ.</string>
     <string name="introThemesSummary">ನೀವು ಬಯಸಿದಲ್ಲಿ, ನೀವು ಸೆಟ್ಟಿಂಗ್‌ಗಳ ವಿಭಾಗದಲ್ಲಿ ಡಾರ್ಕ್ ಥೀಮ್ ಅನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಬಹುದು. ಎಲ್ಲಾ ಐಕಾನ್‌ಗಳು ತಮ್ಮ ಹೊಸ ಹಿನ್ನೆಲೆಗೆ ಹೊಂದಾಣಿಕೆಯಾಗುವಂತೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತವೆ.</string>
 </resources>

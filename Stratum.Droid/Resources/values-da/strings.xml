@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Mest kopieret</string>
     <string name="sortLeastCopied">Mindst kopieret</string>
     <string name="sortCustom">Tilpasset</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Se om og licensoplysninger</string>
     <string name="supportDevelopment">Støt udviklingen</string>
     <string name="supportDevelopmentSummary">Støt op om fortsat udvikling og opdateringer med Buy Me a Coffee</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Gem alle dine godkendere, kategorier og ikoner til en krypteret sikkerhedskopifil. Denne fil kan gendannes i appen.</string>
     <string name="backupHtml">Sikkerhedskopiér til HTML-fil</string>
     <string name="backupHtmlMessage">Gem dine godkendere i et ukrypteret HTML-dokument med QR-koder. Kategorier og ikoner gemmes ikke.</string>
-    <string name="backupHtmlWarning">Sikkerhedskopier til HTML-filer er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil kan ikke gendannes i appen og indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg en krypteret sikkerhedskopi i stedet.\n\nFortsæt?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">Sikkerhedskopiér til URI-listefil</string>
     <string name="backupUriListMessage">Gem dine godkendere i en ukrypteret URI-listefil i almindelig tekst. Denne fil er kompatibel med mange alternative programmer og tjenester. Kategorier og ikoner gemmes ikke.</string>
-    <string name="backupUriListWarning">Sikkerhedskopier til filer med almindelig tekst er ukrypterede og kan gøre dine hemmelige nøgler sårbare.\n\nDenne fil indeholder ikke kategorier og ikoner. Hvis du er usikker, så vælg en krypteret sikkerhedskopi i stedet.\n\nFortsæt?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Tildel poster</string>
     <string name="more">Mere</string>
     <string name="categoryAll">Alle</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Rediger kategorier</string>
     <string name="noCategoryName">Et kategorinavn er påkrævet</string>
     <string name="duplicateCategory">En kategori med dette navn findes allerede</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Sikkerhedskopiér nu</string>
-    <string name="restoreNow">Gendan nu</string>
     <string name="backupReminder">Der er foretaget ændringer siden din sidste sikkerhedskopi</string>
     <string name="backupPasswordMessage">Indtast en adgangskode for at kryptere din sikkerhedskopifil sikkert. Ønsker du ikke at beskytte filen med en adgangskode, skal du lade den være tom.</string>
     <string name="password">Adgangskode</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Vælg en lokation og adgangskode til automatisk sikkerhedskopiering. Sikkerhedskopier planlægges, når ændringer foretages. Cloud-lagring understøttes ikke; brug i stedet sikkerhedskopieringsmenuen.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Vælg lokation</string>
     <string name="noLocationSelected">Ingen lokation valgt</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importér aegis-export.json-fil</string>
     <string name="bitwardenImportHint">Importér bitwarden_export.json-fil</string>
     <string name="enteAuthImportHint">Importér ente-auth-codes.txt-fil</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Importér winauth.txt eller winauth.zip-fil</string>
     <string name="twoFasImportHint">Importér 2fas-backup.2fas-fil</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Placer QR-koden i søgeren for at scanne den. Tryk for at fokusere.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Prøv at undgå skygger og blænding. Hold enheden ca. 15 cm (6 inches) fra koden.</string>
     <string name="toggleFlash">Slå blitz til/fra</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Ryd antallet af gange, hver godkender er blevet kopieret</string>
     <string name="prefSkipToNextTitle">Spring til Næste</string>
     <string name="prefSkipToNextSummary">Tillad at springe til den næste kode, når den er tæt på at udløbe</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Sikkerhed</string>
     <string name="prefPasswordTitle">Adgangskode</string>
     <string name="prefPasswordSummary">Kræv adgangskode for at få adgang til godkendere. Databasen krypteres med din adgangskode.</string>
     <string name="prefDatabasePasswordBackupTitle">Sikkerhedskopiering med Databaseadgangskode</string>
     <string name="prefDatabasePasswordBackupSummary">Kryptér alle sikkerhedskopier med databaseadgangskoden, så du ikke skal indtaste den hver gang</string>
     <string name="prefAllowBiometricsTitle">Biometrisk Oplåsning</string>
-    <string name="prefAllowBiometricsSummary">Tillad oplåsning af databasen med biometrisk godkendelse</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Tidsudløb</string>
     <string name="prefTimeoutSummary">Angiv tidspunktet, hvorefter databasen låser, når appen forlader skærmen</string>
     <string name="prefTapToRevealTitle">Tryk for at Afsløre</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Velkommen til Stratum</string>
     <string name="introCompatibilityTitle">Tofaktorgodkendelse</string>
-    <string name="introBackupTitle">Backup og Gendannelse</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Kategorier</string>
     <string name="introThemesTitle">Mørkt tema</string>
-    <string name="introWelcomeSummary">Tak, fordi du hentede Stratum.\nHold dine onlinekonti sikre og beskyttede med den bedste open-source godkendelsesapp.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum er kompatibel med de fleste udbydere og konti. Den er 100% kompatibel med Google Authenticator-aktiverede enheder.</string>
-    <string name="introBackupSummary">Sikkerhedskopiér dine godkendere med stærk kryptering. Hvis du mister din enhed, kan du altid få adgang til dine konti. Gem på cloud-lagring eller din enhed.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organiser dine godkendere i kategorier, og ændr endda rækkefølgen ved blot at holde og trække.</string>
     <string name="introThemesSummary">Hvis du foretrækker det, kan du aktivere et mørkt tema i indstillingerne. Alle ikoner vil tilpasse sig deres nye baggrund.</string>
 </resources>

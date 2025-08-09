@@ -41,6 +41,8 @@
     <string name="sortMostCopied">الأكثر نسخاً</string>
     <string name="sortLeastCopied">الأقل نسخا</string>
     <string name="sortCustom">مُخصص</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">عرض المعلومات وترخيصها</string>
     <string name="supportDevelopment">دعم التطوير</string>
     <string name="supportDevelopmentSummary">دعم التطوير المستمر والتحديثات الجديدة للتطبيق عن طريق Buy Me a Coffee</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">حفظ جميع المصادقات والفئات والرموز الخاصة بك في ملف النسخ الاحتياطي المشفر. يمكن استعادة هذا الملف داخل التطبيق.</string>
     <string name="backupHtml">نسخ احتياطي إلى ملف HTML</string>
     <string name="backupHtmlMessage">حفظ المصادقة الخاصة بك إلى مستند HTML غير مشفر مع رموز QR. لا يتم حفظ الفئات والرموز بشكل فردي.</string>
-    <string name="backupHtmlWarning">النسخ الاحتياطية إلى ملفات HTML غير مشفرة وقد تترك مفاتيحك السرية ضعيفة.\n\nلا يمكن استعادة هذا الملف داخل التطبيق ولا يحتوي على فئات أو أيقونات إذا لم تكن متأكدة، اختر النسخ الاحتياطي للملف المشفر بدلاً من ذلك.\n\nالمتابعة؟</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">النسخ الاحتياطي إلى ملف قائمة URI</string>
     <string name="backupUriListMessage">حفظ المصادقات الخاص بك إلى ملف قائمة URI للنص غير مشفر. هذا الملف متوافق مع العديد من التطبيقات والخدمات البديلة. الفئات والرموز غير محفوظة.</string>
-    <string name="backupUriListWarning">النسخ الاحتياطي لملفات النص العادي غير مشفرة وقد تترك مفاتيحك السرية ضعيفة.\n\nهذا الملف لا يحتوي على فئات أو أيقونات . إذا كان غير متأكد ، اختر النسخ الاحتياطي للملف المشفر بدلاً من ذلك.\n\nالمتابعة؟</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">تعيين التصنيفات</string>
     <string name="more">المزيد</string>
     <string name="categoryAll">الكل</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">تعديل التصنيفات</string>
     <string name="noCategoryName">اسم الفئة مطلوب</string>
     <string name="duplicateCategory">توجد فئة بهذا الاسم فعلًا</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">عمل نسخة احتياطية الآن</string>
-    <string name="restoreNow">عمل استعادة الآن</string>
     <string name="backupReminder">تم إجراء تغييرات منذ آخر نسخة احتياطية قمت بها</string>
     <string name="backupPasswordMessage">أدخل كلمة مرور لتشفير ملف النسخ الاحتياطي الخاص بك بشكل آمن. إذا كنت لا ترغب في حماية الملف بكلمة المرور، اترك كلمة المرور فارغة.</string>
     <string name="password">كلمة المرور</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">حدد موقعا وكلمة مرور للنسخ الاحتياطي التلقائي. يتم جدولة النسخ الاحتياطي عند إجراء تغييرات. التخزين السحابي غير مدعوم، استخدم قائمة النسخ الاحتياطي بدلا من ذلك.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">حدد موقعًا</string>
     <string name="noLocationSelected">لم يتم تحديد أي موقع</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">استيراد ملف aegis-export.json</string>
     <string name="bitwardenImportHint">استيراد ملف bitwarden_export.json</string>
     <string name="enteAuthImportHint">استيراد ملف ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">استيراد ملف winauth.txt أو winauth.zip</string>
     <string name="twoFasImportHint">استيراد ملف 2fas-backup.2fas</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">ضع رمز QR في الباحث للمسح. انقر للتركيز.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">حاول تجنب الظلال والزجاج. امسك الجهاز على بعد حوالي 6 بوصات (15 سم) من الكود.</string>
     <string name="toggleFlash">تشغيل الفلاش</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">مسح عدد المرات التي نُسخ فيها كل مصادقة</string>
     <string name="prefSkipToNextTitle">التخطي إلى التالي</string>
     <string name="prefSkipToNextSummary">السماح بالتخطي إلى الرمز التالي عندما يكون قريبًا من الانتهاء</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">الحماية</string>
     <string name="prefPasswordTitle">كلمة المرور</string>
     <string name="prefPasswordSummary">يتطلب كلمة مرور للوصول إلى المصادقين. ستشفر قاعدة البيانات باستخدام كلمة مرورك.</string>
     <string name="prefDatabasePasswordBackupTitle">النسخ الاحتياطي بكلمة مرور قاعدة البيانات</string>
     <string name="prefDatabasePasswordBackupSummary">تشفير جميع النسخ الاحتياطية باستخدام كلمة مرور قاعدة البيانات حتى لا تحتج إلى إدخالها في كل مرة</string>
     <string name="prefAllowBiometricsTitle">قفل بيومتري</string>
-    <string name="prefAllowBiometricsSummary">السماح بفتح قاعدة البيانات بمصادقة بيومترية</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">نفذ الوقت</string>
     <string name="prefTimeoutSummary">عين الوقت الذي ستُقفل بعدها قاعدة البيانات بمجرد مغادرة التطبيق الشاشة</string>
     <string name="prefTapToRevealTitle">انقر للكَشف</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">مرحبا بك في Stratum</string>
     <string name="introCompatibilityTitle">عامل التوثيق الثنائي</string>
-    <string name="introBackupTitle">النسخ الإحتياطي والإستعادة</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">التصنيفات</string>
     <string name="introThemesTitle">سمة داكنة</string>
-    <string name="introWelcomeSummary">شكرا لك على تحميل Stratum. \n حافظ على أمان حساباتك وحمايتها على الأنترنيت باستخدام أفضل تطبيق مصادقة مفتوح المصدر.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum متوافق مع معظم مقدمي الخدمات والحسابات. متوافق 100٪ مع خدمات Google Authenticator المفعلة.</string>
-    <string name="introBackupSummary">قم بالنسخ الاحتياطي لمصادقيك بتشفير قوي. في حال فقدت جهازك، يمكنك دائماً الوصول إلى حساباتك. احفظهم في التخزين السحابي أو في جهازك.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">نظم مصادقيك إلى فئات، وغير أيضًا الترتيب بالضغط المستمر والسحب البسيطين.</string>
     <string name="introThemesSummary">يمكنك تمكين السمة الداكنة في الإعدادات إذا كنت تفضل ذلك. ستتكيف جميع الأيقونات لتتوافق مع خلفيتها الجديدة.</string>
 </resources>

@@ -41,6 +41,8 @@
     <string name="sortMostCopied">En çok kopyalanan</string>
     <string name="sortLeastCopied">En az kopyalanan</string>
     <string name="sortCustom">Özel</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Unlock</string>
     <string name="aboutSummary">Hakkında ve lisans bilgilerini görüntüleyin</string>
     <string name="supportDevelopment">Geliştirmeyi destekle</string>
     <string name="supportDevelopmentSummary">Bana bir Kahve al ile sürekli geliştirmeyi ve güncellemeleri destekleyin</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Tüm kimlik doğrulama kodlarınızı, kategorilerinizi ve simgelerinizi şifrelenmiş bir yedekleme dosyasına kaydedin. Bu dosya uygulama içinde geri yüklenebilir.</string>
     <string name="backupHtml">HTML dosyasına yedekle</string>
     <string name="backupHtmlMessage">Kimlik doğrulama kodlarınızı karekodlu şifrelenmemiş bir HTML belgesine kaydedin. Kategoriler ve simgeler kaydedilmez.</string>
-    <string name="backupHtmlWarning">HTML dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya uygulama içinde geri yüklenemez ve kategoriler ve simgeler içermez. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <string name="backupUriList">URI liste dosyasına yedekle</string>
     <string name="backupUriListMessage">Kimlik doğrulama kodlarınızı şifrelenmemiş düz metin URI listesi dosyasına kaydedin. Bu dosya çoğu alternatif uygulama ve hizmetle uyumludur. Kategoriler ve simgeler kaydedilmez.</string>
-    <string name="backupUriListWarning">Düz metin dosyalarına yapılan yedeklemeler şifrelenmemiştir ve gizli anahtarlarınızı savunmasız bırakabilir.\n\nBu dosya kategoriler ve simgeler içermiyor. Emin değilseniz bunun yerine şifrelenmiş dosya yedeklemesini tercih edin.\n\nDevam etmek istiyor musunuz?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Girişleri atayın</string>
     <string name="more">Daha Fazla</string>
     <string name="categoryAll">Tümü</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Kategorileri düzenle</string>
     <string name="noCategoryName">Kategori adı gerekli.</string>
     <string name="duplicateCategory">Bu isimde bir kategori zaten var.</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Şimdi Yedekle</string>
-    <string name="restoreNow">Şimdi geri yükle</string>
     <string name="backupReminder">Son yedeklemenizden bu yana değişiklikler oldu</string>
     <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
     <string name="password">Parola</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Otomatik yedeklemeler için bir konum ve şifre seçin. Değişiklikler yapıldığında yedeklemeler belirlenir. Bulut depolama desteklenmez, bunun yerine yedekleme menüsünü kullanın.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Konum seçin</string>
     <string name="noLocationSelected">Konum seçilmedi</string>
     <!-- Shown when auto backup location has been selected -->
@@ -241,6 +243,7 @@
     <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="enteAuthImportHint">ente-auth-codes.txt dosyasını içe aktarın</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -267,7 +270,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Taramak için QR kodunu vizöre yerleştirin. Odaklanmak için dokunun.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Gölgelerden ve parlamalardan kaçınmaya çalışın. Cihazı koddan yaklaşık 15 cm uzakta tutun.</string>
     <string name="toggleFlash">Flaşı aç/kapat</string>
     <!--
@@ -287,6 +290,8 @@
     <string name="prefResetCopyCountSummary">Her kimlik doğrulayıcının kopyalanma sayısını temizle</string>
     <string name="prefSkipToNextTitle">Sonrakine atla</string>
     <string name="prefSkipToNextSummary">Süresi dolmaya yaklaştığında bir sonraki koda atlamaya izin ver</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
@@ -295,7 +300,7 @@
         böylece her seferinde parola girmenize gerek kalmaz
     </string>
     <string name="prefAllowBiometricsTitle">Kilidi biyometri ile aç</string>
-    <string name="prefAllowBiometricsSummary">Biyometri kimlik doğrulama ile veri tabanının kilidinin açılmasına izin ver</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Zaman aşımı</string>
     <string name="prefTimeoutSummary">Uygulama ekrandan çıktıktan sonra veritabanının kilitleneceği süreyi ayarlayın</string>
     <string name="prefTapToRevealTitle">Görmek için dokunun</string>
@@ -386,12 +391,12 @@
     -->
     <string name="introWelcomeTitle">Stratum\'ya hoş geldiniz</string>
     <string name="introCompatibilityTitle">İki Faktörlü Kimlik Doğrulama</string>
-    <string name="introBackupTitle">Yedekleme ve Geri yükleme</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Kategoriler</string>
     <string name="introThemesTitle">Koyu Tema</string>
-    <string name="introWelcomeSummary">Stratum\'yu indirdiğiniz için teşekkürler.\nEn iyi açık kaynak kimlik doğrulama uygulaması ile çevrimiçi hesaplarınızı güvende tutun ve koruyun.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum çoğu sağlayıcı ve hesapla uyumludur. Google Authenticator özellikli hizmetlerle %100 uyumludur.</string>
-    <string name="introBackupSummary">Kimlik doğrulayıcılarınızı güçlü bir şifreleme ile yedekleyin. Cihazınızı kaybetmeniz durumunda, her zaman hesaplarınıza erişebilirsiniz. Bulut depolamaya veya cihazınıza kaydedin.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Kimlik doğrulama kodlarınızı kategorilere ayırın ve hatta basitçe tutup sürükleyerek sıralamayı değiştirin.</string>
     <string name="introThemesSummary">İsterseniz, ayarlardan karanlık temayı etkinleştirebilirsiniz. Tüm simgeler yeni arka plana eşleşecek şekilde uyarlanacaktır.</string>
 </resources>
