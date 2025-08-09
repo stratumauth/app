@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Stratum.Core;
 using Stratum.Core.Entity;
+using Stratum.Droid.Interface;
 
 namespace Stratum.Droid.Persistence.View
 {

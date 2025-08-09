@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Stratum.Core;
 using Stratum.Core.Entity;
 using Stratum.Core.Persistence;
+using Stratum.Droid.Interface;
 
 namespace Stratum.Droid.Persistence.View.Impl
 {

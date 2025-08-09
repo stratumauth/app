@@ -4,7 +4,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace Stratum.Droid
+namespace Stratum.Droid.Interface
 {
     public class CategorySelector : IEquatable<CategorySelector>
     {
