@@ -133,11 +133,11 @@
 
     <string name="backupHtml">Back up to HTML file</string>
     <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. Categories and icons are not saved.</string>
-    <string name="backupHtmlWarning">Backups to HTML files are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
 
     <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
-    <string name="backupUriListWarning">Backups to plain-text files are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
 
     <!--
         Empty states
@@ -227,7 +227,7 @@
         Auto backup
     -->
     
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the back up menu instead.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
 
     <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">No location selected</string>
@@ -298,6 +298,8 @@
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="enteAuth" translatable="false">Ente Auth</string>
     <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="protonAuthenticator" translatable="false">Proton Authenticator</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuth" translatable="false">WinAuth</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFas" translatable="false">2FAS</string>
@@ -341,7 +343,7 @@
         QR code scanner
     -->
     
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Toggle flash</string>
 
@@ -371,7 +373,7 @@
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
-    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Timeout</string>
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
@@ -509,13 +511,13 @@
     
     <string name="introWelcomeTitle">Welcome to Stratum</string>
     <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Backup and Restore</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Categories</string>
     <string name="introThemesTitle">Dark theme</string>
 
-    <string name="introWelcomeSummary">Thanks for downloading Stratum.\nKeep your online accounts secure and protected with the best open-source authentication app.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Stratum is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
     <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
 </resources>

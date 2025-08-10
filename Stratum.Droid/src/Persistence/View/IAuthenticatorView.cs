@@ -5,13 +5,14 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Stratum.Core;
 using Stratum.Core.Entity;
+using Stratum.Droid.Interface;
 
 namespace Stratum.Droid.Persistence.View
 {
     public interface IAuthenticatorView : IReorderableView<Authenticator>
     {
         public string Search { get; set; }
-        public string CategoryId { get; set; }
+        public CategorySelector CategorySelector { get; set; }
         public SortMode SortMode { get; set; }
         public Task LoadFromPersistenceAsync();
         public bool AnyWithoutFilter();

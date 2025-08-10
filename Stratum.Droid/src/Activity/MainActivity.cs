@@ -40,6 +40,7 @@ using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextView;
+using Newtonsoft.Json;
 using Serilog;
 using Stratum.Droid.Callback;
 using Stratum.Droid.Interface;
@@ -85,13 +86,14 @@ namespace Stratum.Droid.Activity
         private const int RequestImportAegis = 11;
         private const int RequestImportBitwarden = 12;
         private const int RequestImportEnteAuth = 13;
-        private const int RequestImportTwoFas = 14;
-        private const int RequestImportKeePass = 15;
-        private const int RequestImportLastPass = 16;
-        private const int RequestImportWinAuth = 17;
-        private const int RequestImportTotpAuthenticator = 18;
-        private const int RequestImportAuthenticatorPlus = 19;
-        private const int RequestImportUriList = 20;
+        private const int RequestImportProtonAuthenticator = 14;
+        private const int RequestImportTwoFas = 15;
+        private const int RequestImportKeePass = 16;
+        private const int RequestImportLastPass = 17;
+        private const int RequestImportWinAuth = 18;
+        private const int RequestImportTotpAuthenticator = 19;
+        private const int RequestImportAuthenticatorPlus = 20;
+        private const int RequestImportUriList = 21;
 
         // Data
         private readonly ILogger _log = Log.ForContext<MainActivity>();
@@ -171,20 +173,36 @@ namespace Stratum.Droid.Activity
 
             Window.SetFlags(windowFlags, windowFlags);
             RunOnUiThread(InitViews);
+            
+            CategorySelector categorySelector = null;
 
             if (savedInstanceState != null)
             {
                 _pauseTime = new DateTime(savedInstanceState.GetLong("pauseTime"));
                 _lastBackupReminderTime = new DateTime(savedInstanceState.GetLong("lastBackupReminderTime"));
-                _authenticatorView.CategoryId = Preferences.DefaultCategory ?? savedInstanceState.GetString("categoryId") ?? MetaCategory.All;
+                var lastCategorySelector = savedInstanceState.GetString("categorySelect");
+                
+                if (Preferences.DefaultCategory != null)
+                {
+                    categorySelector = CategorySelector.Of(Preferences.DefaultCategory); 
+                }
+                else if (lastCategorySelector != null)
+                {
+                    categorySelector = JsonConvert.DeserializeObject<CategorySelector>(lastCategorySelector);
+                }
             }
             else
             {
                 _pauseTime = DateTime.MinValue;
                 _lastBackupReminderTime = DateTime.MinValue;
-                _authenticatorView.CategoryId = Preferences.DefaultCategory ?? MetaCategory.All;
+
+                if (Preferences.DefaultCategory != null)
+                {
+                    categorySelector = CategorySelector.Of(Preferences.DefaultCategory);
+                }
             }
 
+            _authenticatorView.CategorySelector = categorySelector ?? CategorySelector.Of(MetaCategory.All);
             _authenticatorView.SortMode = Preferences.SortMode;
 
             RunOnUiThread(InitAuthenticatorList);
@@ -257,7 +275,7 @@ namespace Stratum.Droid.Activity
             base.OnSaveInstanceState(outState);
             outState.PutLong("pauseTime", _pauseTime.Ticks);
             outState.PutLong("lastBackupReminderTime", _lastBackupReminderTime.Ticks);
-            outState.PutString("categoryId", _authenticatorView.CategoryId);
+            outState.PutString("categorySelector", JsonConvert.SerializeObject(_authenticatorView.CategorySelector));
         }
 
         protected override void OnPause()
@@ -352,6 +370,10 @@ namespace Stratum.Droid.Activity
                 
                 case RequestImportEnteAuth:
                     await ImportFromUri(new EnteAuthBackupConverter(_iconResolver), intent.Data);
+                    break;
+                
+                case RequestImportProtonAuthenticator:
+                    await ImportFromUri(new ProtonAuthenticatorBackupConverter(_iconResolver), intent.Data);
                     break;
 
                 case RequestImportTwoFas:
@@ -460,7 +482,7 @@ namespace Stratum.Droid.Activity
             if (item.ItemId == Resource.Id.actionSortLockUnlock)
             {
                 Preferences.LockOrdering = !Preferences.LockOrdering;
-                _authenticatorTouchHelperCallback.IsLocked = Preferences.LockOrdering;
+                _authenticatorTouchHelperCallback.IsLocked = ShouldLockReordering();
                 return base.OnOptionsItemSelected(item);
             }
             
@@ -507,12 +529,12 @@ namespace Stratum.Droid.Activity
         private void OnBottomAppBarNavigationClick(object sender, Toolbar.NavigationClickEventArgs e)
         {
             var bundle = new Bundle();
-            bundle.PutString("currentCategoryId", _authenticatorView.CategoryId);
+            bundle.PutString("currentCategorySelector", JsonConvert.SerializeObject(_authenticatorView.CategorySelector));
 
             var fragment = new MainMenuBottomSheet { Arguments = bundle };
-            fragment.CategoryClicked += async (_, id) =>
+            fragment.CategoryClicked += async (_, selector) =>
             {
-                await SwitchCategory(id);
+                await SwitchCategory(selector);
                 RunOnUiThread(fragment.Dismiss);
             };
 
@@ -580,17 +602,17 @@ namespace Stratum.Droid.Activity
                 return;
             }
 
-            var defaultCategory = Preferences.DefaultCategory;
+            var defaultCategoryId = Preferences.DefaultCategory;
             
-            if (defaultCategory == null)
+            if (defaultCategoryId == null)
             {
-                await SwitchCategory(MetaCategory.All);
+                await SwitchCategory(CategorySelector.Of(MetaCategory.All));
             }
             else
             {
-                if (_authenticatorView.CategoryId != defaultCategory)
+                if (!_authenticatorView.CategorySelector.Is(defaultCategoryId))
                 {
-                    await SwitchCategory(defaultCategory);
+                    await SwitchCategory(CategorySelector.Of(defaultCategoryId));
                 }
             }
         }
@@ -663,7 +685,7 @@ namespace Stratum.Droid.Activity
                     _authenticatorList.ScheduleLayoutAnimation();
                 });
 
-                await CheckCategoryState();
+                await CheckIfActiveCategoryDeletedAsync();
             }
             else
             {
@@ -679,11 +701,11 @@ namespace Stratum.Droid.Activity
                 _preventBackupReminder = true;
             }
             
-            var defaultCategory = Preferences.DefaultCategory;
+            var defaultCategoryId = Preferences.DefaultCategory;
 
-            if (defaultCategory != null && _authenticatorView.CategoryId != defaultCategory)
+            if (defaultCategoryId != null)
             {
-                await SwitchCategory(defaultCategory);
+                await SwitchCategory(CategorySelector.Of(defaultCategoryId));
             }
             else
             {
@@ -819,7 +841,7 @@ namespace Stratum.Droid.Activity
 
             _authenticatorView.CommitRanking();
 
-            if (_authenticatorView.CategoryId == MetaCategory.All)
+            if (_authenticatorView.CategorySelector.Is(MetaCategory.All))
             {
                 await _authenticatorService.UpdateManyAsync(_authenticatorView);
             }
@@ -838,27 +860,17 @@ namespace Stratum.Droid.Activity
             RunOnUiThread(_bottomAppBar.PerformShow);
         }
 
-        private async Task CheckCategoryState()
+        private async Task CheckIfActiveCategoryDeletedAsync()
         {
-            if (MetaCategory.Is(_authenticatorView.CategoryId))
+            if (_authenticatorView.CategorySelector.IsCategory(out var id))
             {
-                return;
+                var category = await _categoryService.GetCategoryByIdAsync(id);
+
+                if (category == null)
+                {
+                    await SwitchCategory(CategorySelector.Of(MetaCategory.All));
+                }
             }
-
-            var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategoryId);
-
-            if (category == null)
-            {
-                // Currently visible category has been deleted
-                await SwitchCategory(MetaCategory.All);
-                return;
-            }
-
-            RunOnUiThread(delegate
-            {
-                SupportActionBar.SetDisplayShowTitleEnabled(true);
-                SupportActionBar.Title = category.Name;
-            });
         }
 
         private void CheckEmptyState()
@@ -877,7 +889,7 @@ namespace Stratum.Droid.Activity
                         AnimUtil.FadeOutView(_authenticatorList, AnimUtil.LengthShort);
                     }
 
-                    if (_authenticatorView.CategoryId == MetaCategory.All)
+                    if (_authenticatorView.CategorySelector.Is(MetaCategory.All))
                     {
                         _emptyMessageText.SetText(Resource.String.noAuthenticatorsHelp);
                         _startLayout.Visibility = ViewStates.Visible;
@@ -932,50 +944,41 @@ namespace Stratum.Droid.Activity
             }
             else
             {
-                var defaultCategory = Preferences.DefaultCategory;
+                var defaultCategoryId = Preferences.DefaultCategory;
 
-                if (defaultCategory == null)
+                if (defaultCategoryId == null)
                 {
-                    shouldInterceptBackpress = _authenticatorView.CategoryId != MetaCategory.All;
+                    shouldInterceptBackpress = !_authenticatorView.CategorySelector.Is(MetaCategory.All);
                 }
                 else
                 {
-                    shouldInterceptBackpress = _authenticatorView.CategoryId != defaultCategory;
+                    shouldInterceptBackpress = !_authenticatorView.CategorySelector.Is(defaultCategoryId);
                 }
             }
 
             _backPressCallback.Enabled = shouldInterceptBackpress;
         }
 
-        private async Task SwitchCategory(string id)
+        private async Task SwitchCategory(CategorySelector selector)
         {
-            if (id == _authenticatorView.CategoryId)
-            {
-                CheckEmptyState();
-                return;
-            }
+            string categoryName = null;
 
-            string categoryName;
-
-            switch (id)
+            if (selector.IsMetaCategory(out var metaCategory))
             {
-                case MetaCategory.All:
-                    categoryName = GetString(Resource.String.categoryAll);
-                    break;
-                
-                case MetaCategory.Uncategorised:
-                    categoryName = GetString(Resource.String.categoryUncategorised);
-                    break;
-                
-                default:
+                categoryName = metaCategory switch
                 {
-                    var category = await _categoryService.GetCategoryByIdAsync(id);
-                    categoryName = category.Name;
-                    break;
-                }
+                    MetaCategory.All => GetString(Resource.String.categoryAll),
+                    MetaCategory.Uncategorised => GetString(Resource.String.categoryUncategorised)
+                };
             }
-            
-            _authenticatorView.CategoryId = id;
+            else if (selector.IsCategory(out var categoryId))
+            {
+                var category = await _categoryService.GetCategoryByIdAsync(categoryId);
+                categoryName = category.Name;
+            }
+
+            var isCategorySwitched = !_authenticatorView.CategorySelector.Equals(selector);
+            _authenticatorView.CategorySelector = selector;
 
             UpdateBackpressIntercept();
             CheckEmptyState();
@@ -983,9 +986,14 @@ namespace Stratum.Droid.Activity
             RunOnUiThread(delegate
             {
                 SupportActionBar.Title = categoryName;
+                SupportActionBar.SetDisplayShowTitleEnabled(true);
+
+                if (isCategorySwitched)
+                {
+                    _authenticatorListAdapter.NotifyDataSetChanged();
+                    _authenticatorList.ScheduleLayoutAnimation();
+                }
                 
-                _authenticatorListAdapter.NotifyDataSetChanged();
-                _authenticatorList.ScheduleLayoutAnimation();
                 _authenticatorTouchHelperCallback.IsLocked = ShouldLockReordering();
                 
                 ScrollToPosition(0, false);
@@ -1165,7 +1173,7 @@ namespace Stratum.Droid.Activity
 
         private bool ShouldLockReordering()
         {
-            return _authenticatorView.CategoryId == MetaCategory.Uncategorised || Preferences.LockOrdering;
+            return _authenticatorView.CategorySelector.Is(MetaCategory.Uncategorised) || Preferences.LockOrdering;
         }
 
         #endregion
@@ -1264,9 +1272,9 @@ namespace Stratum.Droid.Activity
                     return;
                 }
 
-                if (!MetaCategory.Is(_authenticatorView.CategoryId))
+                if (_authenticatorView.CategorySelector.IsCategory(out var categoryId))
                 {
-                    var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategoryId);
+                    var category = await _categoryService.GetCategoryByIdAsync(categoryId);
                     await _categoryService.AddBindingAsync(result.Authenticator, category);
                 }
 
@@ -1356,6 +1364,8 @@ namespace Stratum.Droid.Activity
             fragment.BitwardenClicked += delegate { StartFilePickActivity("*/*", RequestImportBitwarden); };
             
             fragment.EnteAuthClicked += delegate { StartFilePickActivity("*/*", RequestImportEnteAuth); };
+            
+            fragment.ProtonAuthenticatorClicked += delegate { StartFilePickActivity("*/*", RequestImportProtonAuthenticator); };
 
             fragment.WinAuthClicked += delegate { StartFilePickActivity("*/*", RequestImportWinAuth); };
 
@@ -1638,7 +1648,7 @@ namespace Stratum.Droid.Activity
             await _authenticatorView.LoadFromPersistenceAsync();
             await _customIconView.LoadFromPersistenceAsync();
 
-            await SwitchCategory(null);
+            await SwitchCategory(CategorySelector.Of(MetaCategory.All));
             ShowAutoTimeWarning();
 
             RunOnUiThread(delegate
@@ -1829,16 +1839,16 @@ namespace Stratum.Droid.Activity
 
             try
             {
-                if (_authenticatorView.CategoryId == null)
+                if (_authenticatorView.CategorySelector.IsCategory(out var categoryId))
                 {
                     await _authenticatorService.AddAsync(args.Authenticator);
+
+                    var category = await _categoryService.GetCategoryByIdAsync(categoryId);
+                    await _categoryService.AddBindingAsync(args.Authenticator, category);
                 }
                 else
                 {
                     await _authenticatorService.AddAsync(args.Authenticator);
-
-                    var category = await _categoryService.GetCategoryByIdAsync(_authenticatorView.CategoryId);
-                    await _categoryService.AddBindingAsync(args.Authenticator, category);
                 }
             }
             catch (EntityDuplicateException)
@@ -2119,14 +2129,7 @@ namespace Stratum.Droid.Activity
         private async void OnCategoriesDialogClosed(object sender, EventArgs e)
         {
             await _authenticatorView.LoadFromPersistenceAsync();
-
-            if (_authenticatorView.CategoryId == null)
-            {
-                return;
-            }
-
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyDataSetChanged(); });
-
             CheckEmptyState();
         }
 

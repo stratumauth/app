@@ -235,6 +235,7 @@ namespace Stratum.Droid.Shared
             { "eclipso", Resource.Drawable.auth_eclipso },
             { "ecobee", Resource.Drawable.auth_ecobee },
             { "elastic", Resource.Drawable.auth_elastic },
+            { "eldoradogg", Resource.Drawable.auth_eldoradogg },
             { "electronicarts", Resource.Drawable.auth_electronicarts },
             { "emclient", Resource.Drawable.auth_emclient },
             { "emplifi", Resource.Drawable.auth_emplifi },

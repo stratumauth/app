@@ -53,6 +53,7 @@ namespace Stratum.Droid.Interface.Fragment
         {
             base.OnViewCreated(view, savedInstanceState);
 
+            _authenticatorView.CategorySelector = CategorySelector.Of(MetaCategory.All);
             await _authenticatorView.LoadFromPersistenceAsync();
             await _customIconview.LoadFromPersistenceAsync();
 
