@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="noAuthenticators">Nav autentificētāju</string>
+    <string name="noAuthenticatorsMessage">Tukšs. Pievienojiet dažus autentificētājus no tālruņa lietotnes.</string>
+    <string name="hotpNotSupported">Neatbalsta HOTP</string>
+    <string name="categoryAll">Visi</string>
+    <string name="offline">Bezsaistē</string>
+    <string name="syncFailed">Sinhronizācija neizdevās</string>
+    <string name="noFavourite">Nav atlasīta neviena izlasē</string>
+    <string name="noFavouriteMessage">Lai iestatītu, lietotnē pieskarieties autentificētājam un turiet to nospiestu.</string>
+    <string name="open">Atvērt</string>
+</resources>

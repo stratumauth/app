@@ -41,6 +41,8 @@
     <string name="sortMostCopied">コピー回数 (降順)</string>
     <string name="sortLeastCopied">コピー回数 (昇順)</string>
     <string name="sortCustom">カスタム</string>
+    <string name="sortLock">ロック</string>
+    <string name="sortUnlock">ロックを解除</string>
     <string name="aboutSummary">詳細とライセンス情報を表示する</string>
     <string name="supportDevelopment">開発を支援する</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffeeで継続的な開発と更新をサポートする</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">項目を割り当てる</string>
     <string name="more">さらに表示</string>
     <string name="categoryAll">すべて</string>
+    <string name="categoryUncategorised">未分類</string>
     <string name="editCategories">カテゴリを編集</string>
     <string name="noCategoryName">カテゴリ名が必要です</string>
     <string name="duplicateCategory">この名前のカテゴリはすでに存在します</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">今すぐバックアップ</string>
-    <string name="restoreNow">今すぐ復元</string>
     <string name="backupReminder">前回のバックアップから変更がありました</string>
     <string name="backupPasswordMessage">バックアップファイルを暗号化するためにパスワードを入力してください。パスワードを設定しない場合は、パスワードを空白のままにしてください。</string>
     <string name="password">パスワード</string>
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">aegis-export.json ファイルをインポートします</string>
     <string name="bitwardenImportHint">bitwarden_export.json ファイルをインポート</string>
     <string name="enteAuthImportHint">ente-auth-codes.txt ファイルをインポート</string>
+    <string name="protonAuthenticatorImportHint">proton_authenticator_backup.json ファイルをインポート</string>
     <string name="winAuthImportHint">winauth.txtまたはwinauth.zipファイルをインポート</string>
     <string name="twoFasImportHint">2fas-backup.2fasファイルをインポート</string>
     <string name="keePassImportHint">keepass.kdbx (KDBX 4.) ファイルをインポート</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">ファインダーにQRコードを入れてスキャンします。タップしてフォーカスします。</string>
+    <string name="scanHelpPrimary">QRコードをスキャナー内に合わせます。画面をタップして焦点を合わせます。</string>
     <string name="scanHelpSecondary">影や照明を避けてください。コードから15 cm程度の距離でデバイスを保持してください。</string>
     <string name="toggleFlash">フラッシュを使用</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">各認証システムがコピーされた回数をクリアする</string>
     <string name="prefSkipToNextTitle">次へ進む</string>
     <string name="prefSkipToNextSummary">期限が近いときに次のコードにスキップすることを許可する</string>
+    <string name="prefShowUncategorisedTitle">未分類を表示</string>
+    <string name="prefShowUncategorisedSummary">カテゴリに割り当てられていない認証ツールのカテゴリを表示する</string>
     <string name="prefSecurity">セキュリティ</string>
     <string name="prefPasswordTitle">パスワード</string>
     <string name="prefPasswordSummary">認証コードへのアクセスにはパスワードが必要です。データベースはパスワードで暗号化されます。</string>

@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Legtöbbször másolt</string>
     <string name="sortLeastCopied">Legkevesebbszer másolt</string>
     <string name="sortCustom">Egyedi</string>
+    <string name="sortLock">Lock</string>
+    <string name="sortUnlock">Feloldás</string>
     <string name="aboutSummary">Információk és licencinformációk megtekintése</string>
     <string name="supportDevelopment">Támogassa a fejlesztést</string>
     <string name="supportDevelopmentSummary">Támogassa a folyamatos fejlesztést és frissítéseket a Buy Me a Coffee szolgáltatással</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Bejegyzések hozzárendelése</string>
     <string name="more">Továbbiak</string>
     <string name="categoryAll">Összes</string>
+    <string name="categoryUncategorised">Uncategorised</string>
     <string name="editCategories">Kategóriák szerkesztése</string>
     <string name="noCategoryName">Kategórianév megadása kötelező</string>
     <string name="duplicateCategory">Már létezik ilyen nevű kategória</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Mentés most</string>
-    <string name="restoreNow">Visszaállítás most</string>
     <string name="backupReminder">A legutóbbi biztonsági mentés óta változások történtek</string>
     <string name="backupPasswordMessage">Adjon meg egy jelszót a biztonsági mentési fájl biztonságos titkosításához. Ha nem szeretné jelszóval védeni a fájlt, hagyja üresen a jelszót.</string>
     <string name="password">Jelszó</string>
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Import aegis-export.json file</string>
     <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
     <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
+    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
     <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
     <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
     <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Place the QR code in the viewfinder to scan it. Tap to focus.</string>
+    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Vaku ki-be</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSkipToNextTitle">Skip to Next</string>
     <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Security</string>
     <string name="prefPasswordTitle">Jelszó</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
     <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
-    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentification</string>
+    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Timeout</string>
     <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
     <string name="prefTapToRevealTitle">Tap to Reveal</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Üdvözli az Stratum</string>
     <string name="introCompatibilityTitle">Kétfaktoros hitelesítés</string>
-    <string name="introBackupTitle">Bizt.mentés és Helyreállítás</string>
+    <string name="introBackupTitle">Back up and Restore</string>
     <string name="introCategoriesTitle">Kategóriák</string>
     <string name="introThemesTitle">Sötét téma</string>
-    <string name="introWelcomeSummary">Köszönjük, hogy letöltötte az Stratum-t.\nTartsa biztonságban online fiókjait a legjobb nyílt forráskódú hitelesítő alkalmazással.</string>
+    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
     <string name="introCompatibilitySummary">Az Stratum a legtöbb szolgáltatóval és fiókkal kompatibilis. 100%-ban kompatibilis a Google Authenticator szolgáltatással.</string>
-    <string name="introBackupSummary">Backup your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
+    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
     <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
 </resources>

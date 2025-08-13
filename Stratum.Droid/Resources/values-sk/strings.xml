@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Najpoužívanejšie</string>
     <string name="sortLeastCopied">Málo používané</string>
     <string name="sortCustom">Vlastné</string>
+    <string name="sortLock">Uzamknúť</string>
+    <string name="sortUnlock">Odomknutie</string>
     <string name="aboutSummary">Zobraziť informácie o aplikácií a informácie o licenciách</string>
     <string name="supportDevelopment">Podporiť vývoj</string>
     <string name="supportDevelopmentSummary">Podporte ďalší vývoj a aktualizácie aplikácií Buy Me a Coffee</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Priraď položky</string>
     <string name="more">Viac</string>
     <string name="categoryAll">Všetko</string>
+    <string name="categoryUncategorised">Nekategorizované</string>
     <string name="editCategories">Upraviť kategórie</string>
     <string name="noCategoryName">Názov kategórie je povinný</string>
     <string name="duplicateCategory">Kategória z takýmto názvom už existuje</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Zálohovať teraz</string>
-    <string name="restoreNow">Obnoviť teraz</string>
     <string name="backupReminder">Od poslednej zálohy sa vykonali zmeny</string>
     <string name="backupPasswordMessage">Zadajte heslo pre bezpečné zašifrovanie vášho súboru zálohy. Nechajte heslo prázdne, ak si neželáte chrániť súbor heslom.</string>
     <string name="password">Heslo</string>
@@ -233,16 +235,17 @@
     <string name="importIncomplete">Import neúplný</string>
     <string name="importConversionError">Položku \"{0}\" sa nepodarilo importovať z dôvodu nasledujúcej chyby: {1}</string>
     <string name="authenticatorPlusImportHint">Importovať súbor authplus.db</string>
-    <string name="andOtpImportHint">Import otp_accounts.json súboru</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml súboru</string>
+    <string name="andOtpImportHint">Importovať súbor otp_accounts.json</string>
+    <string name="freeOtpImportHint">Importovať súbor externalBackup.xml</string>
     <string name="freeOtpPlusImportHint">Importovať súbor freeotp-backup.json</string>
-    <string name="aegisImportHint">Import aegis-export.json súboru</string>
+    <string name="aegisImportHint">Importovať súbor aegis-export.json</string>
     <string name="bitwardenImportHint">Importovať súbor bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importovať súbor ente-auth-codes.txt</string>
-    <string name="winAuthImportHint">Import winauth.txt alebo winauth.zip súboru</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas súboru</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json súboru</string>
+    <string name="protonAuthenticatorImportHint">Importovať súbor proton_authenticator_backup.json</string>
+    <string name="winAuthImportHint">Importovať súbor winauth.txt alebo winauth.zip</string>
+    <string name="twoFasImportHint">Importovať súbor 2fas-backup.2fas</string>
+    <string name="keePassImportHint">Importovať súbor keepass.kdbx (KDBX 4.)</string>
+    <string name="lastPassAuthenticatorImportHint">Importovať súbor LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importovať súbor TOTP_Backup.encrypt</string>
     <string name="uriList">Zoznam URI</string>
     <string name="uriListHint">Zoznam otpauth URI identifikátorov vo formáte čistého textu</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">QR kód umiestni do hľadáčika a naskenuj ho. Ťuknutím na položku ju zaostríš.</string>
+    <string name="scanHelpPrimary">Zarovnajte QR kód v skeneru. Ťuknite na obrazovku, aby sa zaostrilo.</string>
     <string name="scanHelpSecondary">Snažte sa vyhýbať tieňom a odleskom. Držte zariadenie približne 15 cm od kódu.</string>
     <string name="toggleFlash">Prepnúť blesk</string>
     <!--
@@ -285,6 +288,8 @@
     <string name="prefResetCopyCountSummary">Vymazať počet skopírovaní každého autentifikátora</string>
     <string name="prefSkipToNextTitle">Preskočiť na ďalšie</string>
     <string name="prefSkipToNextSummary">Preskočiť na ďalší kód, keď sa blíži jeho expirácia</string>
+    <string name="prefShowUncategorisedTitle">Zobraziť Nezaradené</string>
+    <string name="prefShowUncategorisedSummary">Zobraziť kategóriu pre autentifikátory, ktoré nie sú priradené k žiadnej kategórii</string>
     <string name="prefSecurity">Bezpečnosť</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovať heslo na prístup k autentifikátorom. Databáza bude zašifrovaná pomocou vášho hesla.</string>

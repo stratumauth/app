@@ -41,6 +41,8 @@
     <string name="sortMostCopied">复制次数（递减）</string>
     <string name="sortLeastCopied">复制次数（递增）</string>
     <string name="sortCustom">自定义</string>
+    <string name="sortLock">锁</string>
+    <string name="sortUnlock">解锁</string>
     <string name="aboutSummary">浏览关于和许可证信息。</string>
     <string name="supportDevelopment">支持开发</string>
     <string name="supportDevelopmentSummary">觉得这个应用很不错？给我买杯咖啡吧！</string>
@@ -111,7 +113,8 @@
     <string name="backupToFileMessage">这将会把您所有的验证器、分类和图标设置保存到一个加密的备份文件中。应用可以直接通过这个文件恢复备份。</string>
     <string name="backupHtml">保存为 HTML 文件</string>
     <string name="backupHtmlMessage">这将会把您的验证器以二维码的形式保存到一个未加密的 HTML 文档中。分类和图标设置不会包含在备份中。</string>
-    <string name="backupHtmlWarning">保存为 HTML 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
+    <string name="backupHtmlWarning">保存为 HTML
+ 文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
     <string name="backupUriList">备份至 URI 列表文件</string>
     <string name="backupUriListMessage">将您的身份验证器保存到一个未加密纯文本的 URI 列表文件。此文件与许多其他应用程序和服务兼容。分类和图标将不会被保存.</string>
     <string name="backupUriListWarning">保存为纯文本文件时将不会进行加密，因此您的密钥将会被明文暴露。\n\n应用无法直接通过这个文件恢复备份，且分类和图标设置不会包含在备份中。除非您确定要这么做，否则我们建议您使用加密的备份文件。\n\n您确定要继续吗？</string>
@@ -135,6 +138,7 @@
     <string name="assignEntries">指定条目</string>
     <string name="more">更多</string>
     <string name="categoryAll">全部</string>
+    <string name="categoryUncategorised">未分类</string>
     <string name="editCategories">编辑分类</string>
     <string name="noCategoryName">请输入分类名。</string>
     <string name="duplicateCategory">已存在同名分类。</string>
@@ -147,7 +151,6 @@
         Backups
     -->
     <string name="backupNow">立即备份</string>
-    <string name="restoreNow">立即恢复</string>
     <string name="backupReminder">自上次备份后已出现新的更改</string>
     <string name="backupPasswordMessage">请输入用于安全加密备份文件的密码。如果您不需要使用密码保护备份文件，请将密码栏留空。</string>
     <string name="password">密码</string>
@@ -239,9 +242,10 @@
     <string name="aegisImportHint">导入 aegis-export.json 文件</string>
     <string name="bitwardenImportHint">导入 bitwarden_export.json 文件</string>
     <string name="enteAuthImportHint">导入 ente-auth-codes.txt 文件</string>
+    <string name="protonAuthenticatorImportHint">导入 proton_authenticator_backup.json 文件</string>
     <string name="winAuthImportHint">导入 winauth.txt 或 winauth.zip 文件</string>
     <string name="twoFasImportHint">导入 2fas-backup.2fas 文件</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">导入 keepass.kdbx（KDBX 4.）文件</string>
     <string name="lastPassAuthenticatorImportHint">导入 LastPassAuthenticator.json 文件</string>
     <string name="totpAuthenticatorImportHint">导入 TOTP_Backup.encrypt 文件</string>
     <string name="uriList">URI 列表</string>
@@ -265,7 +269,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">将二维码置于画面中央以进行扫描。点击以对焦。</string>
+    <string name="scanHelpPrimary">将二维码对准扫描器。轻触屏幕以对焦。</string>
     <string name="scanHelpSecondary">尽量避免阴影和眩光。将设备保持在二维码附近约15厘米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切换闪光灯</string>
     <!--
@@ -284,6 +288,8 @@
     <string name="prefResetCopyCountSummary">重置每个验证器的复制次数</string>
     <string name="prefSkipToNextTitle">跳到下一个</string>
     <string name="prefSkipToNextSummary">当前验证码将要过期时允许跳到下一个验证码</string>
+    <string name="prefShowUncategorisedTitle">显示未分类</string>
+    <string name="prefShowUncategorisedSummary">显示未分配到任何类别的身份验证器的类别</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密码</string>
     <string name="prefPasswordSummary">访问验证器前要求验证密码。数据库将会使用这个密码进行加密。</string>

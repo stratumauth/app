@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Mest kopieret</string>
     <string name="sortLeastCopied">Mindst kopieret</string>
     <string name="sortCustom">Tilpasset</string>
+    <string name="sortLock">Lås</string>
+    <string name="sortUnlock">Lås op</string>
     <string name="aboutSummary">Se om og licensoplysninger</string>
     <string name="supportDevelopment">Støt udviklingen</string>
     <string name="supportDevelopmentSummary">Støt op om fortsat udvikling og opdateringer med Buy Me a Coffee</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Tildel poster</string>
     <string name="more">Mere</string>
     <string name="categoryAll">Alle</string>
+    <string name="categoryUncategorised">Ikke kategoriseret</string>
     <string name="editCategories">Rediger kategorier</string>
     <string name="noCategoryName">Et kategorinavn er påkrævet</string>
     <string name="duplicateCategory">En kategori med dette navn findes allerede</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Sikkerhedskopiér nu</string>
-    <string name="restoreNow">Gendan nu</string>
     <string name="backupReminder">Der er foretaget ændringer siden din sidste sikkerhedskopi</string>
     <string name="backupPasswordMessage">Indtast en adgangskode for at kryptere din sikkerhedskopifil sikkert. Ønsker du ikke at beskytte filen med en adgangskode, skal du lade den være tom.</string>
     <string name="password">Adgangskode</string>
@@ -239,9 +241,10 @@
     <string name="aegisImportHint">Importér aegis-export.json-fil</string>
     <string name="bitwardenImportHint">Importér bitwarden_export.json-fil</string>
     <string name="enteAuthImportHint">Importér ente-auth-codes.txt-fil</string>
+    <string name="protonAuthenticatorImportHint">Importér proton_authenticator_backup.json-fil</string>
     <string name="winAuthImportHint">Importér winauth.txt eller winauth.zip-fil</string>
     <string name="twoFasImportHint">Importér 2fas-backup.2fas-fil</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Importér keepass.kdbx (KDBX 4.)-fil</string>
     <string name="lastPassAuthenticatorImportHint">Importér LastPassAuthenticator.json-fil</string>
     <string name="totpAuthenticatorImportHint">Importér TOTP_Backup.encrypt-fil</string>
     <string name="uriList">URI-liste</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Placer QR-koden i søgeren for at scanne den. Tryk for at fokusere.</string>
+    <string name="scanHelpPrimary">Juster QR-koden inden for scanneren. Tryk på skærmen for at fokusere.</string>
     <string name="scanHelpSecondary">Prøv at undgå skygger og blænding. Hold enheden ca. 15 cm (6 inches) fra koden.</string>
     <string name="toggleFlash">Slå blitz til/fra</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Ryd antallet af gange, hver godkender er blevet kopieret</string>
     <string name="prefSkipToNextTitle">Spring til Næste</string>
     <string name="prefSkipToNextSummary">Tillad at springe til den næste kode, når den er tæt på at udløbe</string>
+    <string name="prefShowUncategorisedTitle">Vis ikke kategoriseret</string>
+    <string name="prefShowUncategorisedSummary">Vis en kategori for godkendere, der ikke er tildelt nogen kategori</string>
     <string name="prefSecurity">Sikkerhed</string>
     <string name="prefPasswordTitle">Adgangskode</string>
     <string name="prefPasswordSummary">Kræv adgangskode for at få adgang til godkendere. Databasen krypteres med din adgangskode.</string>

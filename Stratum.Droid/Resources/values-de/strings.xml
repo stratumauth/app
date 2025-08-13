@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Am meisten kopiert</string>
     <string name="sortLeastCopied">Am wenigsten kopiert</string>
     <string name="sortCustom">Benutzerdefiniert</string>
+    <string name="sortLock">Sperren</string>
+    <string name="sortUnlock">Entsperren</string>
     <string name="aboutSummary">Infos über die App und Lizenzen anzeigen</string>
     <string name="supportDevelopment">Entwicklung unterstützen</string>
     <string name="supportDevelopmentSummary">Unterstütze die weitere Entwicklung und Updates mit \"Buy Me a Coffee\"</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Einträgen zuweisen</string>
     <string name="more">Mehr</string>
     <string name="categoryAll">Alle</string>
+    <string name="categoryUncategorised">Nicht kategorisiert</string>
     <string name="editCategories">Kategorien bearbeiten</string>
     <string name="noCategoryName">Ein Name muss angegeben werden.</string>
     <string name="duplicateCategory">Eine Kategorie mit diesem Namen existiert bereits.</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Jetzt sichern</string>
-    <string name="restoreNow">Jetzt wiederherstellen</string>
     <string name="backupReminder">Seit der letzten Sicherung wurden Änderungen vorgenommen</string>
     <string name="backupPasswordMessage">Gib ein Passwort ein, um deine Sicherung zu verschlüsseln. Wenn du die Sicherung nicht verschlüsseln möchtest, lasse das Feld leer.</string>
     <string name="password">Passwort</string>
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importieren einer aegis-export-plain.json Datei</string>
     <string name="bitwardenImportHint">Importieren einer bitwarden_export.json Datei</string>
     <string name="enteAuthImportHint">Importieren einer ente-auth-codes.txt Datei</string>
+    <string name="protonAuthenticatorImportHint">Importieren einer proton_authenticator_backup.json Datei</string>
     <string name="winAuthImportHint">winauth.txt oder winauth.zip Datei importieren</string>
     <string name="twoFasImportHint">2fas-backup.2fas-Datei importieren</string>
     <string name="keePassImportHint">Importiere keepass.kdbx (KDBX 4.) Datei</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Platziere den QR-Code in den Sucher, um diesen zu scannen. Zum Fokussieren tippen.</string>
+    <string name="scanHelpPrimary">Richten Sie den QR-Code im Scanner aus. Tippen Sie auf den Bildschirm, um zu fokussieren.</string>
     <string name="scanHelpSecondary">Versuche, Schatten und Glanz zu vermeiden. Halte das Gerät etwa 15 cm (6\") vor den Code.</string>
     <string name="toggleFlash">Blitzlicht ein-/ausschalten</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Lösche die Anzahl der Kopien jedes Authentifikators, der kopiert wurde</string>
     <string name="prefSkipToNextTitle">Zum nächsten der Code springen</string>
     <string name="prefSkipToNextSummary">Erlaubt das Springen zum nächsten Code, wenn dieser kurz vor dem Ablauf steht</string>
+    <string name="prefShowUncategorisedTitle">Nicht kategorisiert anzeigen</string>
+    <string name="prefShowUncategorisedSummary">Zeige eine Kategorie für Authentifikatoren an, die keiner Kategorie zugeordnet sind.</string>
     <string name="prefSecurity">Sicherheit</string>
     <string name="prefPasswordTitle">Passwort</string>
     <string name="prefPasswordSummary">Ein Passwort verwenden, um auf die Schlüssel zuzugreifen. Die Datenbank wird mit dem Passwort verschlüsselt.</string>

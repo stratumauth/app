@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Sao chép nhiều nhất</string>
     <string name="sortLeastCopied">Sao chép ít nhất</string>
     <string name="sortCustom">Tùy chỉnh</string>
+    <string name="sortLock">Mở khóa</string>
+    <string name="sortUnlock">Mở khóa</string>
     <string name="aboutSummary">Xem thông tin giới thiệu và giấy phép</string>
     <string name="supportDevelopment">Ủng hộ nhà phát triển</string>
     <string name="supportDevelopmentSummary">Hỗ trợ tiếp tục phát triển và cập nhật ứng dụng bằng Buy Me a Coffee</string>
@@ -68,7 +70,7 @@
     <string name="digitsHint">Chữ số</string>
     <string name="periodHint">Khoảng thời gian (giây)</string>
     <string name="counterHint">Bộ Đếm</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Làm mới</string>
     <string name="noIssuer">Yêu cầu một nhà phát hành</string>
     <string name="noSecret">Yêu cầu một khóa bí mật</string>
     <string name="noPin">Yêu cầu một mã pin</string>
@@ -136,6 +138,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="assignEntries">Gán các mục</string>
     <string name="more">Khác</string>
     <string name="categoryAll">Tất cả</string>
+    <string name="categoryUncategorised">Chưa phân loại</string>
     <string name="editCategories">Chỉnh sửa danh mục</string>
     <string name="noCategoryName">Tên danh mục là bắt buộc</string>
     <string name="duplicateCategory">Tên danh mục đã tồn tại</string>
@@ -148,7 +151,6 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
         Backups
     -->
     <string name="backupNow">Sao lưu ngay</string>
-    <string name="restoreNow">Khôi phục ngay</string>
     <string name="backupReminder">Đã có những thay đổi được thực hiện kể từ lần sao lưu cuối cùng của bạn</string>
     <string name="backupPasswordMessage">Nhập mật khẩu để mã hóa tệp sao lưu của bạn một cách an toàn. Nếu bạn không muốn bảo vệ tệp bằng mật khẩu, hãy để trống mật khẩu.</string>
     <string name="password">Mật khẩu</string>
@@ -240,9 +242,10 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="aegisImportHint">Nhập tệp aegis-export.json</string>
     <string name="bitwardenImportHint">Nhập tệp aegis-export.json</string>
     <string name="enteAuthImportHint">Nhập tệp ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Nhập tệp proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">Nhập tệp winauth.txt hoặc winauth.zip</string>
     <string name="twoFasImportHint">Nhập tệp 2fas-backup.2fas</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Nhập tệp keepass.kdbx (KDBX 4.)</string>
     <string name="lastPassAuthenticatorImportHint">Nhập tệp LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Nhập tệp TOTP_Backup.encrypt</string>
     <string name="uriList">Danh sách URL</string>
@@ -266,7 +269,7 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Đặt mã QR vào khung ngắm để quét. Nhấn để lấy nét.</string>
+    <string name="scanHelpPrimary">Đặt mã QR vào khung quét. Nhấn vào màn hình để lấy nét.</string>
     <string name="scanHelpSecondary">Cố gắng tránh bóng và chói. Giữ thiết bị cách mã khoảng 6 inch (15 cm).</string>
     <string name="toggleFlash">Bật đèn Flash</string>
     <!--
@@ -285,6 +288,8 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="prefResetCopyCountSummary">Xóa số lần trình xác thực đã được sao chép</string>
     <string name="prefSkipToNextTitle">Chuyển tới mục tiếp theo</string>
     <string name="prefSkipToNextSummary">Cho phép bỏ qua sang mã tiếp theo khi nó gần hết hạn</string>
+    <string name="prefShowUncategorisedTitle">Hiển thị các mục chưa được phân loại</string>
+    <string name="prefShowUncategorisedSummary">Hiển thị danh mục cho các trình xác thực không được gán vào bất kỳ danh mục nào.</string>
     <string name="prefSecurity">Bảo mật</string>
     <string name="prefPasswordTitle">Mật khẩu</string>
     <string name="prefPasswordSummary">Yêu cầu mật khẩu để truy cập vào các trình xác thực. Cơ sở dữ liệu sẽ được mã hóa bằng mật khẩu của bạn.</string>

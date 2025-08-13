@@ -1,1 +1,1 @@
-Open-source 2FA app with encrypted backups
+具備加密備份功能的開放原始碼 2FA 應用程式

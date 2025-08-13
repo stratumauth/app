@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Nejvíce kopírované</string>
     <string name="sortLeastCopied">Nejméně kopírované</string>
     <string name="sortCustom">Vlastní</string>
+    <string name="sortLock">Zamknout</string>
+    <string name="sortUnlock">Odemknout</string>
     <string name="aboutSummary">Zobrazit informace o licenci</string>
     <string name="supportDevelopment">Podpořte vývoj</string>
     <string name="supportDevelopmentSummary">Podpořte další vývoj a aktualizace nákupem pomocí Buy Me a Coffee</string>
@@ -136,6 +138,7 @@
     <string name="assignEntries">Přiřadit položky</string>
     <string name="more">Více</string>
     <string name="categoryAll">Vše</string>
+    <string name="categoryUncategorised">Nekategorizované</string>
     <string name="editCategories">Upravit kategorie</string>
     <string name="noCategoryName">Název kategorie je povinný</string>
     <string name="duplicateCategory">Kategorie s tímto názvem již existuje</string>
@@ -148,7 +151,6 @@
         Backups
     -->
     <string name="backupNow">Zálohovat nyní</string>
-    <string name="restoreNow">Obnovit nyní</string>
     <string name="backupReminder">Od vaší poslední zálohy došlo ke změnám</string>
     <string name="backupPasswordMessage">Zadejte heslo pro bezpečné zašifrování záložního souboru. Pokud nechcete soubor chránit heslem, nechte pole prázdné.</string>
     <string name="password">Heslo</string>
@@ -240,6 +242,7 @@
     <string name="aegisImportHint">Importovat soubor aegis-export.json</string>
     <string name="bitwardenImportHint">Importovat soubor bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importovat soubor ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Importovat soubor proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">Importovat soubor winauth.txt nebo winauth.zip</string>
     <string name="twoFasImportHint">Importovat soubor 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importovat soubor keepass.kdbx (KDBX 4.)</string>
@@ -266,7 +269,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Umístěte QR kód do hledáčku pro nasnímání. Klepněte pro zaostření.</string>
+    <string name="scanHelpPrimary">Zarovnejte QR kód ve skeneru. Klepnutím na obrazovku zaostřete.</string>
     <string name="scanHelpSecondary">Pokuste se vyhnout stínům a odleskům. Držte zařízení přibližně 6 palců (15 cm) od kódu.</string>
     <string name="toggleFlash">Přepnout blesk</string>
     <!--
@@ -285,6 +288,8 @@
     <string name="prefResetCopyCountSummary">Vynulovat počet kopírování všech autentifikátorů</string>
     <string name="prefSkipToNextTitle">Přeskočit na další</string>
     <string name="prefSkipToNextSummary">Povolit přeskočení na další kód, když je blízko vypršení</string>
+    <string name="prefShowUncategorisedTitle">Zobrazit nezařazené</string>
+    <string name="prefShowUncategorisedSummary">Zobrazit kategorii pro autentifikátory, které nejsou přiřazeny k žádné kategorii</string>
     <string name="prefSecurity">Zabezpečení</string>
     <string name="prefPasswordTitle">Heslo</string>
     <string name="prefPasswordSummary">Vyžadovat heslo pro přístup k autentifikátorům. Databáze bude šifrována s vaším heslem.</string>

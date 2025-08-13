@@ -41,6 +41,8 @@
     <string name="sortMostCopied">الأكثر نسخاً</string>
     <string name="sortLeastCopied">الأقل نسخا</string>
     <string name="sortCustom">مُخصص</string>
+    <string name="sortLock">قفل</string>
+    <string name="sortUnlock">إلغاء القفل</string>
     <string name="aboutSummary">عرض المعلومات وترخيصها</string>
     <string name="supportDevelopment">دعم التطوير</string>
     <string name="supportDevelopmentSummary">دعم التطوير المستمر والتحديثات الجديدة للتطبيق عن طريق Buy Me a Coffee</string>
@@ -68,7 +70,7 @@
     <string name="digitsHint">الأرقام</string>
     <string name="periodHint">الفترة (بالثواني)</string>
     <string name="counterHint">العداد</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">تحديث</string>
     <string name="noIssuer">المُصدر مطلوب</string>
     <string name="noSecret">المفتاح السري مطلوب</string>
     <string name="noPin">الرمز مطلوب</string>
@@ -80,7 +82,7 @@
     <string name="periodInvalid">الفترة غير صالحة</string>
     <string name="counterInvalid">العداد غير صحيح</string>
     <string name="qrCodeFormatError">رمز QR ليس بالتنسيق الصحيح أو غير قابل للقراءة</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">هذا الرمز QR مخصص لـ Microsoft Authenticator ولا يتوافق مع التطبيقات الأخرى.\n\nحدد \"إعداد تطبيق Authenticator مختلف\" أو \"تكوين التطبيق بدون إشعارات\" للحصول على رمز QR متوافق.</string>
     <string name="duplicateAuthenticator">يوجد بالفعل مصادق بهذا المفتاح السري</string>
     <string name="scanSuccessful">تم نسخ رمز QR بنجاح</string>
     <string name="pinMessage">أدخل الرمز المرتبط برمز QR هذا</string>
@@ -114,7 +116,7 @@
     <string name="backupHtmlWarning">النسخ الاحتياطية إلى ملفات HTML غير مشفرة وقد تترك مفاتيحك السرية ضعيفة.\n\nلا يمكن استعادة هذا الملف داخل التطبيق ولا يحتوي على فئات أو أيقونات إذا لم تكن متأكدة، اختر النسخ الاحتياطي للملف المشفر بدلاً من ذلك.\n\nالمتابعة؟</string>
     <string name="backupUriList">النسخ الاحتياطي إلى ملف قائمة URI</string>
     <string name="backupUriListMessage">حفظ المصادقات الخاص بك إلى ملف قائمة URI للنص غير مشفر. هذا الملف متوافق مع العديد من التطبيقات والخدمات البديلة. الفئات والرموز غير محفوظة.</string>
-    <string name="backupUriListWarning">النسخ الاحتياطي لملفات النص العادي غير مشفرة وقد تترك مفاتيحك السرية ضعيفة.\n\nهذا الملف لا يحتوي على فئات أو أيقونات . إذا كان غير متأكد ، اختر النسخ الاحتياطي للملف المشفر بدلاً من ذلك.\n\nالمتابعة؟</string>
+    <string name="backupUriListWarning">النسخ الاحتياطي لملفات النص العادي غير مشفرة وقد تترك مفاتيحك السرية ضعيفة.\n\nهذا الملف لا يحتوي على فئات أو أيقونات. إذا كان غير متأكد ، اختر النسخ الاحتياطي للملف المشفر بدلاً من ذلك.\n\nالمتابعة؟</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">تعيين التصنيفات</string>
     <string name="more">المزيد</string>
     <string name="categoryAll">الكل</string>
+    <string name="categoryUncategorised">غير مصنف</string>
     <string name="editCategories">تعديل التصنيفات</string>
     <string name="noCategoryName">اسم الفئة مطلوب</string>
     <string name="duplicateCategory">توجد فئة بهذا الاسم فعلًا</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">عمل نسخة احتياطية الآن</string>
-    <string name="restoreNow">عمل استعادة الآن</string>
     <string name="backupReminder">تم إجراء تغييرات منذ آخر نسخة احتياطية قمت بها</string>
     <string name="backupPasswordMessage">أدخل كلمة مرور لتشفير ملف النسخ الاحتياطي الخاص بك بشكل آمن. إذا كنت لا ترغب في حماية الملف بكلمة المرور، اترك كلمة المرور فارغة.</string>
     <string name="password">كلمة المرور</string>
@@ -239,9 +241,10 @@
     <string name="aegisImportHint">استيراد ملف aegis-export.json</string>
     <string name="bitwardenImportHint">استيراد ملف bitwarden_export.json</string>
     <string name="enteAuthImportHint">استيراد ملف ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">استيراد ملف proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">استيراد ملف winauth.txt أو winauth.zip</string>
     <string name="twoFasImportHint">استيراد ملف 2fas-backup.2fas</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">استيراد ملف keepass.kdbx (KDBX 4.)</string>
     <string name="lastPassAuthenticatorImportHint">استيراد ملف LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">استيراد ملف TOTP_Backup.encrypt</string>
     <string name="uriList">قائمة URl</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">ضع رمز QR في الباحث للمسح. انقر للتركيز.</string>
+    <string name="scanHelpPrimary">قم بمحاذاة رمز الاستجابة السريعة داخل الماسح الضوئي. اضغط على الشاشة للتركيز.</string>
     <string name="scanHelpSecondary">حاول تجنب الظلال والزجاج. امسك الجهاز على بعد حوالي 6 بوصات (15 سم) من الكود.</string>
     <string name="toggleFlash">تشغيل الفلاش</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">مسح عدد المرات التي نُسخ فيها كل مصادقة</string>
     <string name="prefSkipToNextTitle">التخطي إلى التالي</string>
     <string name="prefSkipToNextSummary">السماح بالتخطي إلى الرمز التالي عندما يكون قريبًا من الانتهاء</string>
+    <string name="prefShowUncategorisedTitle">عرض غير مصنف</string>
+    <string name="prefShowUncategorisedSummary">عرض فئة للمصادقين غير المخصصين لأي فئة</string>
     <string name="prefSecurity">الحماية</string>
     <string name="prefPasswordTitle">كلمة المرور</string>
     <string name="prefPasswordSummary">يتطلب كلمة مرور للوصول إلى المصادقين. ستشفر قاعدة البيانات باستخدام كلمة مرورك.</string>
