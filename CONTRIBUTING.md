@@ -48,3 +48,7 @@ To add an icon to the project the procedure is as follows:
 ## Code / Features ⚙️
 
 Before submitting any code, please open an issue to discuss if the feature is relevant.
+
+### AI pull requests
+
+Any pull requests containing code generated primarily by a LLM will be closed. This applies if the author's contribution can be summed up as merely providing a prompt to a LLM without any real understanding of what they're doing.
