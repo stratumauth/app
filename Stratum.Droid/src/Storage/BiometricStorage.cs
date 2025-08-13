@@ -33,6 +33,12 @@ namespace Stratum.Droid.Storage
 
         private static void GenerateKey()
         {
+            if (Build.VERSION.SdkInt < BuildVersionCodes.M)
+            {
+                // KeyGenParameterSpec.Builder is not available on API < 23
+                throw new NotSupportedException("Biometric authentication is not supported on this API level.");
+            }
+
 #pragma warning disable CA1416
             var specBuilder =
                 new KeyGenParameterSpec.Builder(KeyAlias, KeyStorePurpose.Encrypt | KeyStorePurpose.Decrypt)

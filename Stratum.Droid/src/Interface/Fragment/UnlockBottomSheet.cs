@@ -86,7 +86,8 @@ namespace Stratum.Droid.Interface.Fragment
             
             _useBiometricsButton = view.FindViewById<MaterialButton>(Resource.Id.buttonUseBiometrics);
 
-            if (_preferences.AllowBiometrics)
+            // Biometric support is only available on Android 6.0 (API 23) and above.
+            if (_preferences.AllowBiometrics && Build.VERSION.SdkInt >= BuildVersionCodes.M)
             {
                 var biometricManager = BiometricManager.From(RequireContext());
                 _canUseBiometrics = biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) ==
@@ -152,6 +153,12 @@ namespace Stratum.Droid.Interface.Fragment
 
         private void ShowBiometricPrompt()
         {
+            // Biometric prompt is not supported on versions below Android 6.0 (API 23).
+            if (Build.VERSION.SdkInt < BuildVersionCodes.M)
+            {
+                return;
+            }
+
             var executor = ContextCompat.GetMainExecutor(RequireContext());
             var passwordStorage = new BiometricStorage(Context);
             var callback = new AuthenticationCallback();

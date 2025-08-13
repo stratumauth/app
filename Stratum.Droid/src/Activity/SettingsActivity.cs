@@ -282,6 +282,10 @@ namespace Stratum.Droid.Activity
 
         private bool CanUseBiometrics()
         {
+            if (Build.VERSION.SdkInt < BuildVersionCodes.M)
+            {
+                return false;
+            }
             var biometricManager = BiometricManager.From(this);
             return biometricManager.CanAuthenticate(BiometricManager.Authenticators.BiometricStrong) ==
                    BiometricManager.BiometricSuccess;
@@ -306,6 +310,11 @@ namespace Stratum.Droid.Activity
 
         private void EnableBiometrics(Action<bool> callback)
         {
+            if (Build.VERSION.SdkInt < BuildVersionCodes.M)
+            {
+                callback(false);
+                return;
+            }
             var passwordStorage = new BiometricStorage(this);
             var executor = ContextCompat.GetMainExecutor(this);
             var authCallback = new AuthenticationCallback();

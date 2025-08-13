@@ -33,6 +33,13 @@ namespace Stratum.Droid.Activity
         {
             base.OnCreate(savedInstanceState);
 
+            if (Build.VERSION.SdkInt < BuildVersionCodes.Lollipop)
+            {
+                Toast.MakeText(this, "Camera is not supported on this version of Android.", ToastLength.Long).Show();
+                Finish();
+                return;
+            }
+
             _previewView = FindViewById<PreviewView>(Resource.Id.previewView);
             _previewView.Touch += OnPreviewViewTouch;
 
