@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Najczęściej kopiowane</string>
     <string name="sortLeastCopied">Najrzadziej kopiowane</string>
     <string name="sortCustom">Niestandardowo</string>
+    <string name="sortLock">Zablokuj</string>
+    <string name="sortUnlock">Odblokuj</string>
     <string name="aboutSummary">Wyświetl informacje o aplikacji i licencjach</string>
     <string name="supportDevelopment">Wesprzyj rozwój aplikacji</string>
     <string name="supportDevelopmentSummary">Wesprzyj dalszy rozwój i aktualizacje dzięki Buy Me a Coffee</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Przypisz wpisy</string>
     <string name="more">Więcej</string>
     <string name="categoryAll">Wszystkie</string>
+    <string name="categoryUncategorised">Niesklasyfikowane</string>
     <string name="editCategories">Edytuj kategorie</string>
     <string name="noCategoryName">Nazwa kategorii jest wymagana</string>
     <string name="duplicateCategory">Kategoria już istnieje</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Wykonaj kopię</string>
-    <string name="restoreNow">Przywróć kopię</string>
     <string name="backupReminder">Od ostatniej kopii zapasowej dokonano zmian</string>
     <string name="backupPasswordMessage">Wprowadź hasło, aby bezpiecznie zaszyfrować plik kopii zapasowej. Jeśli nie chcesz, aby plik był chroniony hasłem, pozostaw je puste.</string>
     <string name="password">Hasło</string>
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importuj plik aegis-export.json</string>
     <string name="bitwardenImportHint">Importuj plik bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importuj plik ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Importuj plik proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">Importuj plik winauth.txt lub winauth.zip</string>
     <string name="twoFasImportHint">Importuj plik 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importuj plik keepass.kdbx (KDBX 4.)</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Umieść kod QR w okienku aby go zeskanować. Dotknij, aby wyostrzyć.</string>
+    <string name="scanHelpPrimary">Wyrównaj kod QR w skanerze. Dotknij ekranu, aby ustawić ostrość.</string>
     <string name="scanHelpSecondary">Staraj się unikać cieni i odblasków. Trzymaj urządzenie około 15 cm od kodu.</string>
     <string name="toggleFlash">Przełącz lampę błyskową</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Zresetuj licznik ile razy każdy wpis był kopiowany</string>
     <string name="prefSkipToNextTitle">Przejdź do następnego</string>
     <string name="prefSkipToNextSummary">Zezwalaj na pominięcie do następnego kodu, kiedy jest bliski wygaśnięcia</string>
+    <string name="prefShowUncategorisedTitle">Pokaż niekategoryzowane</string>
+    <string name="prefShowUncategorisedSummary">Pokaż kategorię dla wpisów, które nie są przypisane do żadnej kategorii</string>
     <string name="prefSecurity">Bezpieczeństwo</string>
     <string name="prefPasswordTitle">Hasło</string>
     <string name="prefPasswordSummary">Wymagaj hasła, aby uzyskać dostęp do wpisów. Baza danych zostanie zaszyfrowana Twoim hasłem.</string>

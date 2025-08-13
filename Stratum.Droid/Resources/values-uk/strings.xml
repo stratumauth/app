@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Найчастіше копіюють</string>
     <string name="sortLeastCopied">Найменше копіюють</string>
     <string name="sortCustom">Вручну</string>
+    <string name="sortLock">Заблокувати</string>
+    <string name="sortUnlock">Розблокувати</string>
     <string name="aboutSummary">Інформація про застосунок та ліцензії</string>
     <string name="supportDevelopment">Підтримати розробку</string>
     <string name="supportDevelopmentSummary">Підтримайте сталу розробку та оновлення цього застосунку через Buy Me Coffee</string>
@@ -111,10 +113,10 @@
     <string name="backupToFileMessage">Збережіть всі ваші автентифікатори, категорії та іконки до зашифрованого файлу резервної копії. Цей файл можна буде відновити в додатку.</string>
     <string name="backupHtml">Резервне копіювання до HTML файлу</string>
     <string name="backupHtmlMessage">Зберегти ваші автетифікатори до зашифрованого HTML документу з QR кодами. Категорії та іконки не збережуться.</string>
-    <string name="backupHtmlWarning">Резервні копії в HTML файли зберігаються незашифровані та наражають на небезпеку ваші секретні ключі.\n\nТакий файл неможливо імпортувати до застосунку та він не містить категорій та іконок. Якщо сумніваєтесь, то оберіть зашифровану резервну копію.\n\nПродовжити?</string>
+    <string name="backupHtmlWarning">Резервні копії HTML не шифруються і можуть зробити ваші секретні ключі вразливими.\n\nЦей файл не можна відновити в застосунку, він не містить категорій та значків. Якщо ви не впевнені, виберіть шифроване резервне копіювання файлів.\n\nПродовжити?</string>
     <string name="backupUriList">Резервне копіювання у файл зі списком URI</string>
     <string name="backupUriListMessage">Збережіть ваші автентифікації у вигляді списку URI адрес в незашифрованому текстовому файлі. Цей файл сумісний з багатьма альтернативними застосунками та сервісами. Категорії та іконки не зберігаються.</string>
-    <string name="backupUriListWarning">Резервні копії в HTML файли зберігаються незашифровані та наражають на небезпеку ваші секретні ключі.\n\nТакий файл неможливо імпортувати до застосунку та він не містить категорій та іконок. Якщо сумніваєтесь, то оберіть зашифровану резервну копію.\n\nПродовжити?</string>
+    <string name="backupUriListWarning">Резервні копії у вигляді звичайного тексту не шифруються і можуть зробити ваші секретні ключі вразливими.\n\nЦей файл не містить категорій та значків. Якщо ви не впевнені, виберіть шифровану резервну копію файлу.\n\nПродовжити?</string>
     <!--
         Empty states
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">Призначити записи</string>
     <string name="more">Більше</string>
     <string name="categoryAll">Всі</string>
+    <string name="categoryUncategorised">Без категорії</string>
     <string name="editCategories">Змінити категорії</string>
     <string name="noCategoryName">Потрібна назва категорії</string>
     <string name="duplicateCategory">Категорія з такою назвою вже існує</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Зробити резервну копію</string>
-    <string name="restoreNow">Відновити</string>
     <string name="backupReminder">Після останньої резервної копії відбулись зміни</string>
     <string name="backupPasswordMessage">Введіть пароль для безпечного шифрування файлу резервної копії. Якщо ви не хочете захистити файл, залиште поле порожнім.</string>
     <string name="password">Пароль</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Вкажіть місце та пароль для автоматичного резервного копіювання. Копії створюються при внесенні змін. Хмарні сховища не підтримуються, використовуйте меню резервного копіювання.</string>
+    <string name="autoBackupHelp">Виберіть місце розташування та пароль для автоматичного резервного копіювання. Резервне копіювання планується після внесення змін. Хмарне сховище не підтримується, замість цього використовуйте меню «Резервне копіювання».</string>
     <string name="selectLocation">Оберіть папку</string>
     <string name="noLocationSelected">Папка не вибрана</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Імпортувати файл aegis-export.json</string>
     <string name="bitwardenImportHint">Імпортувати файл bitwarden_export.json</string>
     <string name="enteAuthImportHint">Імпорт файлу ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Імпортування файлу proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">Імпорт файлу winauth.txt або winauth.zip</string>
     <string name="twoFasImportHint">Імпортувати файл 2fas-backup.2fas</string>
     <string name="keePassImportHint">Імпорт файлу keepass.kdbx (KDBX 4.)</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Помістіть QR-код у видошукач, щоб відсканувати його. Торкніться, щоб сфокусуватися.</string>
+    <string name="scanHelpPrimary">Вирівняйте QR-код у сканері. Торкніться екрана, щоби сфокусуватися.</string>
     <string name="scanHelpSecondary">Спробуйте уникнути тіней та відблисків. Тримайте пристрій на відстані близько 15 см (6 дюймів) від коду.</string>
     <string name="toggleFlash">Перемкнути ліхтарик</string>
     <!--
@@ -284,13 +287,15 @@
     <string name="prefResetCopyCountSummary">Очистити кількість разів, коли кожен автентифікатор був скопійований</string>
     <string name="prefSkipToNextTitle">Перейти до наступного</string>
     <string name="prefSkipToNextSummary">Дозволити перехід до наступного коду, коли його термін дії закінчується</string>
+    <string name="prefShowUncategorisedTitle">Показувати «Без категорії»</string>
+    <string name="prefShowUncategorisedSummary">Показати категорію для автентифікаторів, які не приписані до жодної категорії</string>
     <string name="prefSecurity">Безпека</string>
     <string name="prefPasswordTitle">Пароль</string>
     <string name="prefPasswordSummary">Вимагати пароль для доступу до автентифікаторів. База даних буде зашифрована вашим паролем.</string>
     <string name="prefDatabasePasswordBackupTitle">Резервне копіювання із паролем бази даних</string>
     <string name="prefDatabasePasswordBackupSummary">Шифрувати всі резервні копії, використовуючи пароль бази даних, щоб вам не потрібно було їх вводити щоразу</string>
     <string name="prefAllowBiometricsTitle">Біометричне розблокування</string>
-    <string name="prefAllowBiometricsSummary">Дозволити розблокування бази даних біометричною автентифікацією</string>
+    <string name="prefAllowBiometricsSummary">Дозволити розблокування бази даних за допомогою біометрії</string>
     <string name="prefTimeoutTitle">Таймаут</string>
     <string name="prefTimeoutSummary">Вказати час, після якого БД буде заблоковано, як тільки додаток залишить екран</string>
     <string name="prefTapToRevealTitle">Показувати після дотику</string>
@@ -380,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Ласкаво просимо в Stratum</string>
     <string name="introCompatibilityTitle">Двофакторна автентифікація</string>
-    <string name="introBackupTitle">Резервна копія та Відновлення</string>
+    <string name="introBackupTitle">Резервне копіювання і відновлення</string>
     <string name="introCategoriesTitle">Категорії</string>
     <string name="introThemesTitle">Темна тема</string>
-    <string name="introWelcomeSummary">Дякуємо що завантажили аутентифікації Pro.\nТримайте ваші облікові записи в Інтернеті захищеними з найкращим додатком аутентифікації з відкритим вихідним кодом.</string>
+    <string name="introWelcomeSummary">Дякуємо за завантаження Stratum!\nЗахистіть свої мережеві облікові записи за допомогою найкращого застосунку для автентифікації з відкритим кодом.</string>
     <string name="introCompatibilitySummary">Stratum сумісний з більшістю сервісів та облікових записів. Він на 100% сумісний з сервісами, що підтримують Google Authenticator.</string>
-    <string name="introBackupSummary">Резервне копіювання ваших автентифікаторів з міцним шифруванням. У випадку втрати пристрою, ви не втратите доступ до облікових записів. Збережіть на хмарному сховищі або до пристрою.</string>
+    <string name="introBackupSummary">Створити резервну копію своїх автентифікаторів із надійним шифруванням. У разі втрати пристрою ви завжди зможете отримати доступ до своїх облікових записів. Збережіть їх у хмарному сховищі або на своєму пристрої.</string>
     <string name="introCategoriesSummary">Організуйте ваші автентифікатори по категоріях. Змінюйте порядок за допомогою простого утримання і перетягування.</string>
     <string name="introThemesSummary">У разі потреби, ви можете увімкнути темну тему в налаштуваннях. Усі піктограми адаптуються до нового фону.</string>
 </resources>

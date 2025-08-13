@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Eniten kopioitu</string>
     <string name="sortLeastCopied">Eniten kopioitu</string>
     <string name="sortCustom">Mukautettu</string>
+    <string name="sortLock">Lukko</string>
+    <string name="sortUnlock">Avaa</string>
     <string name="aboutSummary">Näytä sovellus- ja lisenssitiedot</string>
     <string name="supportDevelopment">Tue kehitystä</string>
     <string name="supportDevelopmentSummary">Tue jatkuvaa kehitystä ja päivityksiä \"Buy Me a Coffee\" -palvelulla</string>
@@ -68,7 +70,7 @@
     <string name="digitsHint">Numeroiden määrä</string>
     <string name="periodHint">Aikaväli (sekuntia)</string>
     <string name="counterHint">Laskuri</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Päivitä</string>
     <string name="noIssuer">Myöntäjä on pakollinen</string>
     <string name="noSecret">Salainen avain on pakollinen</string>
     <string name="noPin">PIN-koodi on pakollinen</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Määritä kohteet</string>
     <string name="more">Lisää</string>
     <string name="categoryAll">Kaikki</string>
+    <string name="categoryUncategorised">Luokittelematon</string>
     <string name="editCategories">Muokkaa kategorioita</string>
     <string name="noCategoryName">Kategorian nimi vaaditaan</string>
     <string name="duplicateCategory">Samanniminen kategoria on jo olemassa</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Varmuuskopioi nyt</string>
-    <string name="restoreNow">Palauta nyt</string>
     <string name="backupReminder">Viimeisimmän varmuuskopion jälkeen on tehty muutoksia</string>
     <string name="backupPasswordMessage">Anna salasana, jolla varmuuskopiotiedostosi salataan turvallisesti. Jos et halua suojata tiedostoa, jätä salasana tyhjäksi.</string>
     <string name="password">Salasana</string>
@@ -239,9 +241,10 @@
     <string name="aegisImportHint">Tuo aegis-export.json -tiedosto</string>
     <string name="bitwardenImportHint">Tuo bitwarden_export.json-tiedosto</string>
     <string name="enteAuthImportHint">Tuo ente-auth-codes.txt-tiedosto</string>
+    <string name="protonAuthenticatorImportHint">Tuo proton_authenticator_backup.json-tiedosto</string>
     <string name="winAuthImportHint">Tuo winauth.txt- tai winauth.zip-tiedosto</string>
     <string name="twoFasImportHint">Tuo 2fas-backup.2fas -tiedosto</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Tuo keepass.kdbx (KDBX 4.)-tiedosto</string>
     <string name="lastPassAuthenticatorImportHint">Tuo LastPassAuthenticator.json-tiedosto</string>
     <string name="totpAuthenticatorImportHint">Tuo TOTP_Backup.encrypt-tiedosto</string>
     <string name="uriList">URI-lista</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Aseta QR-koodi etsimeen skannataksesi sen. Paina kohdistaaksesi sen.</string>
+    <string name="scanHelpPrimary">Kohdista QR-koodi skanneriin. Napauta näyttöä tarkentaaksesi.</string>
     <string name="scanHelpSecondary">Yritä välttää varjoja ja häikäisyä. Pidä laitetta noin 15 cm päässä koodista.</string>
     <string name="toggleFlash">Kytke salama</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Tyhjennä kunkin todentajan kopiointikerrat</string>
     <string name="prefSkipToNextTitle">Siirry seuraavaan</string>
     <string name="prefSkipToNextSummary">Salli siirtyimen seuraavaan koodiin, kun se on päättymässä</string>
+    <string name="prefShowUncategorisedTitle">Näytä luokittelemattomat</string>
+    <string name="prefShowUncategorisedSummary">Näytä kategoria todentajasi, joita ei ole määritetty mihinkään kategoriaan</string>
     <string name="prefSecurity">Turvallisuus</string>
     <string name="prefPasswordTitle">Salasana</string>
     <string name="prefPasswordSummary">Vaadi salasanaa todentajien käyttämiseksi. Tietokanta salataan salasanallasi.</string>

@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Mest kopierad</string>
     <string name="sortLeastCopied">Minst kopierad</string>
     <string name="sortCustom">Anpassad</string>
+    <string name="sortLock">Låsa upp</string>
+    <string name="sortUnlock">Lås upp</string>
     <string name="aboutSummary">Visa information om appen och licenser</string>
     <string name="supportDevelopment">Stöd utvecklingen</string>
     <string name="supportDevelopmentSummary">Stöd fortsatt utveckling och uppdateringar med Buy Me a Coffee</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Välj konton</string>
     <string name="more">Mer</string>
     <string name="categoryAll">Alla</string>
+    <string name="categoryUncategorised">Okategoriserade</string>
     <string name="editCategories">Redigera kategorier</string>
     <string name="noCategoryName">Kategorinamn måste anges</string>
     <string name="duplicateCategory">Det finns redan en kategori med detta namn</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Säkerhetshopiera nu</string>
-    <string name="restoreNow">Återställ nu</string>
     <string name="backupReminder">Det har gjorts ändringar sedan din senaste säkerhetskopia</string>
     <string name="backupPasswordMessage">Ange ett lösenord för att kryptera din säkerhetskopia. Om du inte vill lösenordsskydda filen, lämna lösenordet tomt.</string>
     <string name="password">Lösenord</string>
@@ -239,9 +241,10 @@
     <string name="aegisImportHint">Importera \"aegis-export.json\"-fil</string>
     <string name="bitwardenImportHint">Importera \"bitwarden_export.json\"-fil</string>
     <string name="enteAuthImportHint">Importera \"ente-auth-codes.txt\"-fil</string>
+    <string name="protonAuthenticatorImportHint">Importera proton_authenticator_backup.json-fil</string>
     <string name="winAuthImportHint">Importera \"winauth.txt\"- eller \"winauth.zip\"-fil</string>
     <string name="twoFasImportHint">Importera \"2fas-backup.2fas\"-fil</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Importera keepass.kdbx (KDBX 4.)-fil</string>
     <string name="lastPassAuthenticatorImportHint">Importera \"LastPassAuthenticator.json\"-fil</string>
     <string name="totpAuthenticatorImportHint">Importera \"TOTP_Backup.encrypt\"-fil</string>
     <string name="uriList">URI-lista</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Placera QR-koden framför kameran för att skanna den. Tryck för att fokusera.</string>
+    <string name="scanHelpPrimary">Rikta in QR-koden i skannern. Tryck på skärmen för att fokusera.</string>
     <string name="scanHelpSecondary">Försök att undvika skuggor och blänk. Håll enheten ungefär 15 cm från koden.</string>
     <string name="toggleFlash">Ficklampa på/av</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Glöm hur många gånger du kopierat koden för varje konto</string>
     <string name="prefSkipToNextTitle">Hoppa till nästa</string>
     <string name="prefSkipToNextSummary">Tillåt att hoppa till nästa kod när nuvarande är på väg att gå ut</string>
+    <string name="prefShowUncategorisedTitle">Visa Okategoriserade</string>
+    <string name="prefShowUncategorisedSummary">Visa en kategori för autentiserare som inte är tilldelade någon kategori</string>
     <string name="prefSecurity">Säkerhet</string>
     <string name="prefPasswordTitle">Lösenord</string>
     <string name="prefPasswordSummary">Kräv lösenord för att komma åt dina koder. Databasen krypteras med ditt lösenord.</string>

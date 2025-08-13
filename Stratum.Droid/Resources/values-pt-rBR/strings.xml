@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Mais copiados</string>
     <string name="sortLeastCopied">Menos copiados</string>
     <string name="sortCustom">Personalizado</string>
+    <string name="sortLock">Bloquear</string>
+    <string name="sortUnlock">Desbloquear</string>
     <string name="aboutSummary">Ver informações sobre e licença</string>
     <string name="supportDevelopment">Ajude no desenvolvimento</string>
     <string name="supportDevelopmentSummary">Apoie o desenvolvimento contínuo e atualizações com Buy Me a Coffee</string>
@@ -68,7 +70,7 @@
     <string name="digitsHint">Dígitos</string>
     <string name="periodHint">Período (segundos)</string>
     <string name="counterHint">Contador</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Atualizar</string>
     <string name="noIssuer">Um emissor é obrigatório</string>
     <string name="noSecret">Uma chave secreta é necessária</string>
     <string name="noPin">Um pin é obrigatório</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Atribuir entradas</string>
     <string name="more">Mais</string>
     <string name="categoryAll">Tudo</string>
+    <string name="categoryUncategorised">Sem categoria</string>
     <string name="editCategories">Editar categorias</string>
     <string name="noCategoryName">É necessário um nome para a categoria</string>
     <string name="duplicateCategory">Uma categoria com esse nome já existe</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Fazer um backup agora</string>
-    <string name="restoreNow">Restaurar agora</string>
     <string name="backupReminder">Houveram mudanças desde o seu último backup</string>
     <string name="backupPasswordMessage">Digite uma senha para criptografar seu arquivo de backup com segurança. Se você não quiser proteger seu backup com uma senha, deixe o campo vazio.</string>
     <string name="password">Senha</string>
@@ -164,7 +166,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">Não foi possível restaurar o backup</string>
     <string name="cameraPermissionError">A permissão de câmera deve ser concedida para digitalizar um código QR</string>
     <string name="googlePlayNotInstalledError">O Google Play não está instalado no seu dispositivo</string>
     <string name="filePickerMissing">Não é possível abrir o selecionador de arquivos. Um gerenciador de arquivos deve ser instalado.</string>
@@ -239,9 +241,10 @@
     <string name="aegisImportHint">Importar arquivo aegis-export.json</string>
     <string name="bitwardenImportHint">Importar arquivo bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importar arquivo ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Importar o arquivo proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">Importar arquivo winauth.txt ou winauth.zip</string>
     <string name="twoFasImportHint">Importar arquivo 2fas-backup.2fas</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Importar o arquivo keepass.kdbx (KDBX 4.)</string>
     <string name="lastPassAuthenticatorImportHint">Importar arquivo LastPassAuthenticator.json</string>
     <string name="totpAuthenticatorImportHint">Importar arquivo TOTP_Backup.encrypt</string>
     <string name="uriList">Lista de URI</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Coloque o código QR no visor para escaneá-lo. Toque para focar.</string>
+    <string name="scanHelpPrimary">Alinhe o código QR dentro do scanner. Toque na tela para focar.</string>
     <string name="scanHelpSecondary">Tente evitar sombras e vidros. Mantenha o dispositivo aproximadamente 6 polegadas (15 cm) de distância do código.</string>
     <string name="toggleFlash">Ligar/desligar o flash</string>
     <!--
@@ -285,6 +288,8 @@
     <string name="prefResetCopyCountSummary">Limpar o número de vezes que cada autenticador foi copiado</string>
     <string name="prefSkipToNextTitle">Pular para o próximo</string>
     <string name="prefSkipToNextSummary">Permite pular para o próximo código quando estiver perto de expirar</string>
+    <string name="prefShowUncategorisedTitle">Mostrar sem categoria</string>
+    <string name="prefShowUncategorisedSummary">Mostrar uma categoria para autenticadores que não estão atribuídos a nenhuma categoria</string>
     <string name="prefSecurity">Segurança</string>
     <string name="prefPasswordTitle">Senha</string>
     <string name="prefPasswordSummary">Uma senha é necessária para acessar os autenticadores. O banco de dados será encriptado com sua senha.</string>

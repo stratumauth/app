@@ -41,6 +41,8 @@
     <string name="sortMostCopied">複製最多次</string>
     <string name="sortLeastCopied">複製最少次</string>
     <string name="sortCustom">自訂</string>
+    <string name="sortLock">鎖</string>
+    <string name="sortUnlock">解鎖</string>
     <string name="aboutSummary">查看關於和許可證信息</string>
     <string name="supportDevelopment">支持開發</string>
     <string name="supportDevelopmentSummary">給我買杯咖啡來支持日後的開發和更新吧！</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">指定條目</string>
     <string name="more">更多</string>
     <string name="categoryAll">全部</string>
+    <string name="categoryUncategorised">未分類</string>
     <string name="editCategories">編輯分類</string>
     <string name="noCategoryName">請輸入分類名稱</string>
     <string name="duplicateCategory">已存在同名分類</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">立即備份</string>
-    <string name="restoreNow">立即還原</string>
     <string name="backupReminder">自上次備份後出現了新的變更。</string>
     <string name="backupPasswordMessage">請輸入用於安全加密備份檔案的密碼。如果您不需要使用密碼保護備份檔案，請將密碼欄留空。</string>
     <string name="password">密碼</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">選擇自動備份的位置和密碼。當發生更改時將自動進行備份。不支援雲端儲存，請使用備份選單。</string>
+    <string name="autoBackupHelp">選擇自動備份的位置和密碼。變更時會排程備份。不支援雲端儲存，請改用「備份」功能表。</string>
     <string name="selectLocation">Select Location</string>
     <string name="noLocationSelected">未選擇位置</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,9 +241,10 @@
     <string name="aegisImportHint">匯入 aegis-export.json 檔案</string>
     <string name="bitwardenImportHint">匯入 bitwarden_export.json 檔案</string>
     <string name="enteAuthImportHint">匯入 ente-auth-codes.txt 檔案</string>
+    <string name="protonAuthenticatorImportHint">匯入 proton_authenticator_backup.json 檔案</string>
     <string name="winAuthImportHint">匯入 winauth.txt 或 winauth.zip 檔案</string>
     <string name="twoFasImportHint">匯入 2fas-backup.2fas 檔案</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">匯入 keepass.kdbx (KDBX 4.) 檔案</string>
     <string name="lastPassAuthenticatorImportHint">匯入 LastPassAuthenticator.json 檔案</string>
     <string name="totpAuthenticatorImportHint">匯入 TOTP_Backup.encrypt 檔案</string>
     <string name="uriList">URI 列表</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">將 QR code 放在畫面中進行掃描，點擊可以對焦。</string>
+    <string name="scanHelpPrimary">將 QR 碼對齊掃瞄器。點選螢幕對焦。</string>
     <string name="scanHelpSecondary">為了避免陰影和玻璃效果。按住裝置將其移到距離程式碼大約15釐米 (6英寸) 的位置。</string>
     <string name="toggleFlash">切換閃光燈</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">清除每個驗證器被複製的次數</string>
     <string name="prefSkipToNextTitle">跳到下一個</string>
     <string name="prefSkipToNextSummary">當前驗證碼將要過期時允許跳到下一個驗證碼</string>
+    <string name="prefShowUncategorisedTitle">顯示未分類</string>
+    <string name="prefShowUncategorisedSummary">顯示未指派給任何類別的驗證器類別</string>
     <string name="prefSecurity">安全</string>
     <string name="prefPasswordTitle">密碼</string>
     <string name="prefPasswordSummary">使用驗證器前要求驗證密碼。資料庫將會使用這個密碼進行加密。</string>

@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Meest gekopieerd</string>
     <string name="sortLeastCopied">Minst gekopieerd</string>
     <string name="sortCustom">Aangepast</string>
+    <string name="sortLock">Vergrendelen</string>
+    <string name="sortUnlock">Ontgrendelen</string>
     <string name="aboutSummary">Bekijk over en licentie informatie</string>
     <string name="supportDevelopment">Ondersteun de ontwikkeling</string>
     <string name="supportDevelopmentSummary">Ondersteun de verdere ontwikkeling en updates met Buy Me a Coffee</string>
@@ -68,7 +70,7 @@
     <string name="digitsHint">Cijfers</string>
     <string name="periodHint">Periode (seconden)</string>
     <string name="counterHint">Teller</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">Vernieuwen</string>
     <string name="noIssuer">Een naam is verplicht</string>
     <string name="noSecret">Een geheime sleutel is verplicht</string>
     <string name="noPin">Een pincode is verplicht</string>
@@ -80,7 +82,7 @@
     <string name="periodInvalid">De tijds-periode is ongeldeig</string>
     <string name="counterInvalid">De teller is ongeldig</string>
     <string name="qrCodeFormatError">De QR code is niet in het juiste formaat of kan niet worden gelezen</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">Deze QR-code is specifiek voor Microsoft Authenticator en is niet compatibel.\n\nSelecteer \'Een andere Authenticator-app instellen\' of \'App zonder meldingen configureren\' om een compatibele QR-code te verkrijgen.</string>
     <string name="duplicateAuthenticator">Er bestaat al een authenticator met deze geheime sleutel</string>
     <string name="scanSuccessful">QR code succesvol gescand</string>
     <string name="pinMessage">Voer de PIN in die bij deze QR-code hoort</string>
@@ -113,7 +115,7 @@
     <string name="backupHtmlMessage">Sla uw authenticators op in een niet versleuteld HTML-document met QR-codes. Categorieën en pictogrammen worden niet opgeslagen.</string>
     <string name="backupHtmlWarning">Back-ups naar HTML-bestanden zijn niet versleuteld en kunnen uw geheime sleutels kwetsbaar maken.\n\nDeze back-up kan niet hersteld worden in de app en bevat geen categorieën en pictogrammen. Indien onzeker, kies dan voor versleutelde bestandsreservekopie.\n\nDoorgaan?</string>
     <string name="backupUriList">Back-up maken naar URI lijstbestand</string>
-    <string name="backupUriListMessage">Sla uw authenticatoren op in een niet versleutelde platte-tekst URI lijstbestand. Dit bestand is compatibel met veel andere applicaties en diensten. Categorieën en iconen worden niet opgeslagen.</string>
+    <string name="backupUriListMessage">Sla uw authenticators op in een niet versleutelde platte-tekst URI lijstbestand. Dit bestand is compatibel met veel andere applicaties en diensten. Categorieën en iconen worden niet opgeslagen.</string>
     <string name="backupUriListWarning">Back-ups naar platte-tekst bestanden zijn niet versleuteld en kunnen uw geheime sleutels kwetsbaar maken.\n\nDeze back-up bevat geen categorieën en pictogrammen. Indien onzeker, kies dan voor versleutelde bestandsreservekopie.\n\nDoorgaan?</string>
     <!--
         Empty states
@@ -135,6 +137,7 @@
     <string name="assignEntries">Items toewijzen</string>
     <string name="more">Meer</string>
     <string name="categoryAll">Alles</string>
+    <string name="categoryUncategorised">Niet gecategoriseerd</string>
     <string name="editCategories">Categorieën bewerken</string>
     <string name="noCategoryName">Categorienaam is vereist</string>
     <string name="duplicateCategory">Er bestaat al een categorie met deze naam</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Nu een back-up maken</string>
-    <string name="restoreNow">Nu herstellen</string>
     <string name="backupReminder">Er zijn wijzigingen aangebracht sinds je laatste back-up</string>
     <string name="backupPasswordMessage">Voer een wachtwoord in om uw back-upbestand veilig te versleutelen. Laat het wachtwoord leeg als u het bestand niet wilt beveiligen.</string>
     <string name="password">Wachtwoord</string>
@@ -164,7 +166,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">De back-up kon niet worden hersteld</string>
     <string name="cameraPermissionError">De camera permissie moet verleend worden om een QR-code te kunnen scannen</string>
     <string name="googlePlayNotInstalledError">Google Play is niet geïnstalleerd op uw apparaat</string>
     <string name="filePickerMissing">Kan de bestandskiezer niet openen. Een bestandsbeheerder moet worden geïnstalleerd.</string>
@@ -239,9 +241,10 @@
     <string name="aegisImportHint">aegis-export.json bestand importeren</string>
     <string name="bitwardenImportHint">Importeer bitwarden_export.json bestand</string>
     <string name="enteAuthImportHint">ente-auth-codes.txt bestand importeren</string>
+    <string name="protonAuthenticatorImportHint">Importeer proton_authenticator_backup.json bestand</string>
     <string name="winAuthImportHint">winauth.txt of winauth.zip bestand importeren</string>
     <string name="twoFasImportHint">2fas-backup.2fas bestand importeren</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">Importeer Keepass.kdbx (KDBX 4.) bestand</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json bestand importeren</string>
     <string name="totpAuthenticatorImportHint">Importeer TOTP_Backup.encrypt bestand</string>
     <string name="uriList">URI lijst</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Plaats de QR-code in de viewfinder om te scannen. Tik voor focus.</string>
+    <string name="scanHelpPrimary">Lijn de QR-code uit met de scanner. Tik op het scherm om scherp te stellen.</string>
     <string name="scanHelpSecondary">Probeer schaduwen en verblindingen te vermijden. Houd het apparaat ongeveer 15 cm van de code af.</string>
     <string name="toggleFlash">Flitslicht aan/uit</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Het aantal keren wissen dat elke authenticator is gekopieerd</string>
     <string name="prefSkipToNextTitle">Ga naar volgende</string>
     <string name="prefSkipToNextSummary">Naar de volgende code springen als deze bijna verlopen is</string>
+    <string name="prefShowUncategorisedTitle">Toon ongecategoriseerd</string>
+    <string name="prefShowUncategorisedSummary">Een categorie weergeven voor authenticators die niet aan een categorie zijn toegewezen</string>
     <string name="prefSecurity">Veiligheid</string>
     <string name="prefPasswordTitle">Wachtwoord</string>
     <string name="prefPasswordSummary">Wachtwoord is vereist om toegang te krijgen tot de authenticators. De database zal versleuteld worden met uw wachtwoord.</string>

@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Cele mai copiate</string>
     <string name="sortLeastCopied">Cele mai puțin copiate</string>
     <string name="sortCustom">Particularizat</string>
+    <string name="sortLock">Blocare</string>
+    <string name="sortUnlock">Deblocare</string>
     <string name="aboutSummary">Vizualizare informații despre și licență</string>
     <string name="supportDevelopment">Susține dezvoltarea</string>
     <string name="supportDevelopmentSummary">Susține dezvoltarea continuă și actualizările făcând cinste cu o cafea</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Asignează intrări</string>
     <string name="more">Mai mult</string>
     <string name="categoryAll">Toate</string>
+    <string name="categoryUncategorised">Necategorizat</string>
     <string name="editCategories">Editează categoriile</string>
     <string name="noCategoryName">Este necesar un nume de categorie</string>
     <string name="duplicateCategory">O categorie cu acest nume există deja</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Creează o copie de rezervă acum</string>
-    <string name="restoreNow">Restaurează acum</string>
     <string name="backupReminder">Au fost făcute modificări de la ultima copie de rezervă</string>
     <string name="backupPasswordMessage">Introdu o parolă pentru a cripta în siguranță fișierul de rezervă. Dacă nu dorești să protejezi fișierul cu parolă, lasă câmpul necompletat.</string>
     <string name="password">Parolă</string>
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importă fișierul aegis-export.json</string>
     <string name="bitwardenImportHint">Importă fișierul bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importați fișierul ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Importă fișierul proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">Importă fișierul winauth.txt sau winauth.zip</string>
     <string name="twoFasImportHint">Importă fișierul 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importați fișierul keepass.kdbx (KDBX 4.)</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Pune codul QR în vizualizator pentru a-l scana. Atinge pentru a focaliza.</string>
+    <string name="scanHelpPrimary">Aliniați codul QR în scaner. Atingeți ecranul pentru a focaliza.</string>
     <string name="scanHelpSecondary">Încearcă să eviți umbrele și strălucirea. Ține dispozitivul la aproximativ 6 inchi (15 cm) depărtare de cod.</string>
     <string name="toggleFlash">Comută blițul</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Șterge de câte ori a fost copiat fiecare autentificator</string>
     <string name="prefSkipToNextTitle">Omite la următorul</string>
     <string name="prefSkipToNextSummary">Permite trecerea la următorul cod când este aproape de expirare</string>
+    <string name="prefShowUncategorisedTitle">Afișează Necategorizate</string>
+    <string name="prefShowUncategorisedSummary">Afișează o categorie pentru autentificatorii care nu sunt alocați niciunei categorii</string>
     <string name="prefSecurity">Securitate</string>
     <string name="prefPasswordTitle">Parolă</string>
     <string name="prefPasswordSummary">Solicită parola pentru a accesa autentificatoarele. Baza de date va fi criptată cu parola.</string>

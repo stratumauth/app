@@ -41,6 +41,8 @@
     <string name="sortMostCopied">가장 많이 복사됨</string>
     <string name="sortLeastCopied">최소 복사</string>
     <string name="sortCustom">사용자 지정</string>
+    <string name="sortLock">잠그기</string>
+    <string name="sortUnlock">잠금 해제</string>
     <string name="aboutSummary">앱 및 라이선스 정보 보기</string>
     <string name="supportDevelopment">개발 지원</string>
     <string name="supportDevelopmentSummary">Buy Me a Coffee로 지속적인 개발과 업데이트를 지원해주세요</string>
@@ -68,7 +70,7 @@
     <string name="digitsHint">자릿수</string>
     <string name="periodHint">유효 기간 (초)</string>
     <string name="counterHint">카운터</string>
-    <string name="refresh">Refresh</string>
+    <string name="refresh">새로 고침</string>
     <string name="noIssuer">발급처를 입력해야 합니다</string>
     <string name="noSecret">암호를 입력해야 합니다</string>
     <string name="noPin">PIN을 입력해야 합니다</string>
@@ -80,7 +82,7 @@
     <string name="periodInvalid">유효 기간이 잘못되었습니다</string>
     <string name="counterInvalid">카운터가 유효하지 않습니다</string>
     <string name="qrCodeFormatError">QR코드의 유형이 올바르지 않거나 읽을 수 없습니다</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
+    <string name="qrCodePhoneFactorError">이 QR 코드는 Microsoft Authenticator 전용이며 호환되지 않습니다.\n\n\"다른 인증 앱 설정\" 또는 \"알림 없이 앱 구성\"을 선택하여 호환되는 QR 코드를 획득하세요.</string>
     <string name="duplicateAuthenticator">이 암호를 가진 인증기가 이미 존재합니다</string>
     <string name="scanSuccessful">QR코드를 성공적으로 스캔했습니다</string>
     <string name="pinMessage">이 QR 코드와 연결된 핀을 입력하세요.</string>
@@ -91,10 +93,10 @@
     <string name="iconPacks">아이콘 팩</string>
     <string name="downloadPacks">아이콘 팩 다운로드</string>
     <string name="importIconPackSuccess">팩에서 아이콘 {0} 개를 가져왔습니다.</string>
-    <string name="invalidIconPackError">The selected file is not a Stratum icon pack</string>
+    <string name="invalidIconPackError">선택한 파일은 Stratum 아이콘 팩 파일이 아닙니다</string>
     <string name="confirmIconPackDelete">이 아이콘 팩을 삭제하시겠습니까? 사용된 아이콘은 삭제되지 않습니다.</string>
     <!-- View the source (website) of the icon pack -->
-    <string name="viewSource">View source</string>
+    <string name="viewSource">소스 보기</string>
     <!--
         QR code dialog
     -->
@@ -135,6 +137,7 @@
     <string name="assignEntries">항목 할당</string>
     <string name="more">더보기</string>
     <string name="categoryAll">모두</string>
+    <string name="categoryUncategorised">분류되지 않음</string>
     <string name="editCategories">분류 수정</string>
     <string name="noCategoryName">분류 이름을 입력해야 합니다</string>
     <string name="duplicateCategory">이름이 같은 분류가 이미 있습니다</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">지금 백업</string>
-    <string name="restoreNow">지금 복원</string>
     <string name="backupReminder">마지막 백업 이후 변경 사항이 있습니다</string>
     <string name="backupPasswordMessage">백업 파일을 안전하게 암호화할 비밀번호를 입력하세요. 비밀번호를 설정하고 싶지 않으면 칸을 비워두세요.</string>
     <string name="password">비밀번호</string>
@@ -164,7 +166,7 @@
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">백업이 복원되지 않았습니다</string>
     <string name="cameraPermissionError">QR코드를 스캔하려면 카메라 권한이 필요합니다</string>
     <string name="googlePlayNotInstalledError">Google Play가 기기에 설치되지 않았습니다</string>
     <string name="filePickerMissing">파일 선택기를 열 수 없습니다. 파일 관리자를 설치해야 합니다.</string>
@@ -239,9 +241,10 @@
     <string name="aegisImportHint">aegis-export.json 파일 가져오기</string>
     <string name="bitwardenImportHint">bitwarden_export.json 파일 가져오기</string>
     <string name="enteAuthImportHint">ente-auth-codes.txt 파일 가져오기</string>
+    <string name="protonAuthenticatorImportHint">proton_authenticator_backup.json 파일 가져오기</string>
     <string name="winAuthImportHint">winauth.txt 또는 winauth.zip 파일 가져오기</string>
     <string name="twoFasImportHint">2fas-backup.2fas 파일 가져오기</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">keepass.kdbx (KDBX 4.) 파일 가져오기</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json 파일 가져오기</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt 파일 가져오기</string>
     <string name="uriList">URL 목록</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">QR 코드를 뷰파인더에 대고 스캔하세요. 집중하려면 탭하세요.</string>
+    <string name="scanHelpPrimary">QR 코드를 스캐너 내에 맞춥니다. 화면을 터치하여 초점을 맞춥니다.</string>
     <string name="scanHelpSecondary">그림자나 빛 반사를 피하려면 코드에서 15cm 정도 떨어진 곳에 기기를 두세요.</string>
     <string name="toggleFlash">플래시 전환</string>
     <!--
@@ -282,8 +285,10 @@
     <string name="prefTapToCopySummary">탭하면 코드를 클립보드에 복사합니다.</string>
     <string name="prefResetCopyCountTitle">복사 카운트 재설정</string>
     <string name="prefResetCopyCountSummary">각 인증자가 복사된 횟수를 지웁니다.</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
+    <string name="prefSkipToNextTitle">다음으로 건너뛰기</string>
+    <string name="prefSkipToNextSummary">만료 시간이 임박했을 때 다음 코드로 건너뛰기 허용</string>
+    <string name="prefShowUncategorisedTitle">미분류 표시</string>
+    <string name="prefShowUncategorisedSummary">카테고리에 할당되지 않은 인증기용 카테고리를 표시합니다</string>
     <string name="prefSecurity">보안</string>
     <string name="prefPasswordTitle">비밀번호</string>
     <string name="prefPasswordSummary">인증기에 접근할 때 비밀번호를 요구합니다. 데이터베이스가 비밀번호로 암호화됩니다.</string>
@@ -314,16 +319,16 @@
     <string name="prefAccentColourSummary">전체적인 앱의 강조 색상을 선택하세요</string>
     <string name="prefTransparentStatusBarTitle">투명 상태표시줄</string>
     <string name="prefTransparentStatusBarSummary">스크롤할 때 상태 표시줄 뒤에 있는 목록을 보이도록 합니다</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontTitle">시스템 폰트</string>
+    <string name="prefSystemFontSummary">사용자 정의 폰트 대신 시스템 기본 폰트를 사용하십시오.</string>
     <!-- Message shown when the copy count has been reset successfully -->
     <string name="copyCountReset">복사 카운트 재설정</string>
     <!--
         About
     -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">로그 보기</string>
+    <string name="noLogFile">로그 파일이 없습니다</string>
+    <string name="debugLog">디버그 로그</string>
     <!--
         Arrays
     -->
@@ -349,7 +354,7 @@
     <string name="compactViewMode">작게</string>
     <string name="tileViewMode">타일</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">None</string>
+    <string name="none">그룹화 없음</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>

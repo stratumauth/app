@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Más copiados</string>
     <string name="sortLeastCopied">Menos copiados</string>
     <string name="sortCustom">Personalizado</string>
+    <string name="sortLock">Bloquear</string>
+    <string name="sortUnlock">Desbloquear</string>
     <string name="aboutSummary">Ver información de Aplicación y Licencias</string>
     <string name="supportDevelopment">Apoyar el desarrollo</string>
     <string name="supportDevelopmentSummary">Apoya el desarrollo continuo y las actualizaciones comprándome una taza de café</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Asignar entradas</string>
     <string name="more">Más</string>
     <string name="categoryAll">Todo</string>
+    <string name="categoryUncategorised">Sin categorizar</string>
     <string name="editCategories">Editar categorías</string>
     <string name="noCategoryName">Un nombre de Categoría es requerido</string>
     <string name="duplicateCategory">Una Categoría con este nombre ya existe</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Respaldar ahora</string>
-    <string name="restoreNow">Restaurar ahora</string>
     <string name="backupReminder">Se han hecho cambios desde su último respaldo</string>
     <string name="backupPasswordMessage">Introduzca una contraseña para encriptar de forma segura su archivo de respaldo. Si no desea proteger el archivo, deje la contraseña vacía.</string>
     <string name="password">Contraseña</string>
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importar archivo aegis-export.json</string>
     <string name="bitwardenImportHint">Importar archivo bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importar archivo ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Importar el archivo proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">Importar archivo winauth.txt o winauth.zip</string>
     <string name="twoFasImportHint">Importar archivo 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importar archivo keepass.kdbx (KDBX 4.)</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Coloca el código QR en el visor para escanearlo. Toca para enfocar.</string>
+    <string name="scanHelpPrimary">Alinea el código QR dentro del escáner. Toca la pantalla para enfocar.</string>
     <string name="scanHelpSecondary">Intente evitar las sombras y los reflejos. Sostenga el dispositivo a unos 15 cm del código.</string>
     <string name="toggleFlash">Activar/desactivar flash</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Borra el número de veces que cada contador ha sido copiado</string>
     <string name="prefSkipToNextTitle">Saltar al siguiente</string>
     <string name="prefSkipToNextSummary">Permite saltar al siguiente código cuando está cerca de expirar</string>
+    <string name="prefShowUncategorisedTitle">Mostrar sin categorizar</string>
+    <string name="prefShowUncategorisedSummary">Mostrar una categoría para los autenticadores que no están asignados a ninguna categoría.</string>
     <string name="prefSecurity">Seguridad</string>
     <string name="prefPasswordTitle">Contraseña</string>
     <string name="prefPasswordSummary">Requiere contraseña para acceder a los autentificadores. La base de datos será cifrada con su contraseña.</string>

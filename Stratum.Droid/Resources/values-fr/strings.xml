@@ -41,6 +41,8 @@
     <string name="sortMostCopied">Plus copié</string>
     <string name="sortLeastCopied">Moins copié</string>
     <string name="sortCustom">Personnalisé</string>
+    <string name="sortLock">Verrouiller</string>
+    <string name="sortUnlock">Déverrouiller</string>
     <string name="aboutSummary">Lire des informations sur l\'application est les licences open-source</string>
     <string name="supportDevelopment">Soutenir le développement</string>
     <string name="supportDevelopmentSummary">Soutenir le développement continu et les mises à jour avec Buy Me a Coffee</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Affecter des éléments</string>
     <string name="more">Plus</string>
     <string name="categoryAll">Tout</string>
+    <string name="categoryUncategorised">Non catégorisé</string>
     <string name="editCategories">Gérer les catégories</string>
     <string name="noCategoryName">Le nom de la catégorie est requis</string>
     <string name="duplicateCategory">Une catégorie avec ce nom existe déjà</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Sauvegarder maintenant</string>
-    <string name="restoreNow">Restaurer maintenant</string>
     <string name="backupReminder">Des modifications ont été apportées depuis votre dernière sauvegarde</string>
     <string name="backupPasswordMessage">Entrer un mot de passe pour chiffrer votre sauvegarde. Si vous ne souhaitez pas mettre de mot de passe, laissez le champ vide.</string>
     <string name="password">Mot de passe</string>
@@ -188,7 +190,7 @@
     <!--
         Auto backup
     -->
-    <string name="autoBackupHelp">Sélectionnez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications sont faites. Les stockages en ligne ne sont pas pris en charge, utilisez le menu de sauvegarde à la place.</string>
+    <string name="autoBackupHelp">Sélectionnez un emplacement et un mot de passe pour les sauvegardes automatiques. Les sauvegardes sont planifiées lorsque des modifications sont faites. Les stockages en ligne ne sont pas pris en charge, utilisez le menu de sauvegarde plutôt.</string>
     <string name="selectLocation">Choisir un emplacement</string>
     <string name="noLocationSelected">Aucun emplacement choisi</string>
     <!-- Shown when auto backup location has been selected -->
@@ -239,6 +241,7 @@
     <string name="aegisImportHint">Importer un fichier aegis-export.json</string>
     <string name="bitwardenImportHint">Importer un fichier bitwarden_export.json</string>
     <string name="enteAuthImportHint">Importer un fichier ente-auth-codes.txt</string>
+    <string name="protonAuthenticatorImportHint">Importer un fichier proton_authenticator_backup.json</string>
     <string name="winAuthImportHint">Importer un fichier winauth.txt ou winauth.zip</string>
     <string name="twoFasImportHint">Importer un fichier 2fas-backup.2fas</string>
     <string name="keePassImportHint">Importer un fichier keepass.kdbx (KDBX 4.)</string>
@@ -265,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Placez le QR code au centre pour le scanner. Tapez pour mettre au point.</string>
+    <string name="scanHelpPrimary">Alignez le QR code dans le scanner. Appuyez sur l\'écran pour focaliser.</string>
     <string name="scanHelpSecondary">Évitez les ombres et les éclats de lumière. Maintenez l\'appareil à environ 15 cm (6 pouces) du code.</string>
     <string name="toggleFlash">Activer/désactiver le flash</string>
     <!--
@@ -284,6 +287,8 @@
     <string name="prefResetCopyCountSummary">Effacer le nombre de fois où chaque authentificateur a été copié</string>
     <string name="prefSkipToNextTitle">Passer au suivant</string>
     <string name="prefSkipToNextSummary">Autoriser le passage au code suivant quand il est proche de l\'expiration</string>
+    <string name="prefShowUncategorisedTitle">Afficher non catégorisés</string>
+    <string name="prefShowUncategorisedSummary">Afficher une catégorie pour les authentificateurs qui ne sont affectés à aucune catégorie</string>
     <string name="prefSecurity">Sécurité</string>
     <string name="prefPasswordTitle">Mot de passe</string>
     <string name="prefPasswordSummary">Exiger un mot de passe pour accéder aux authentificateurs. La base de données sera chiffrée avec votre mot de passe.</string>
@@ -383,7 +388,7 @@
     <string name="introBackupTitle">Sauvegarde et Restauration</string>
     <string name="introCategoriesTitle">Catégories</string>
     <string name="introThemesTitle">Thème Sombre</string>
-    <string name="introWelcomeSummary">Merci d\'avoir téléchargé Stratum.\nGardez vos comptes sécurisés et protégés avec le meilleur authentificateur open-source.</string>
+    <string name="introWelcomeSummary">Merci d\'avoir téléchargé Stratum.\nProtegez vos comptes avec le meilleur authentificateur open-source.</string>
     <string name="introCompatibilitySummary">Stratum est compatible avec la plupart des comptes. C\'est 100 % compatible avec les services fonctionnant avec Google Authenticator.</string>
     <string name="introBackupSummary">Sauvegardez vos authentificateurs avec un chiffrement fort. Au cas où vous perdriez votre appareil, vous avez toujours accès à vos comptes. Il est possible de sauvegarder sur votre appareil ou un stockage cloud.</string>
     <string name="introCategoriesSummary">Organisez vos authentificateurs dans des catégories. Également, vous pouvez changer l\'ordre en maintenant votre doigt et en faisant glisser.</string>

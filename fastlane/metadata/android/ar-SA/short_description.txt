@@ -1,1 +1,1 @@
-Open-source 2FA app with encrypted backups
+تطبيق 2FA مفتوح المصدر مع نسخ احتياطية مشفرة

@@ -41,6 +41,8 @@
     <string name="sortMostCopied">En çok kopyalanan</string>
     <string name="sortLeastCopied">En az kopyalanan</string>
     <string name="sortCustom">Özel</string>
+    <string name="sortLock">Kilidini aç</string>
+    <string name="sortUnlock">Kilidi Aç</string>
     <string name="aboutSummary">Hakkında ve lisans bilgilerini görüntüleyin</string>
     <string name="supportDevelopment">Geliştirmeyi destekle</string>
     <string name="supportDevelopmentSummary">Bana bir Kahve al ile sürekli geliştirmeyi ve güncellemeleri destekleyin</string>
@@ -119,7 +121,7 @@
         Empty states
     -->
     <string name="noAuthenticatorsTitle">Burada bir şey yok!</string>
-    <string name="noAuthenticatorsMessage">You don\'t have any authenticators here.</string>
+    <string name="noAuthenticatorsMessage">Burada herhangi bir doğrulama kodlarınızı yok</string>
     <string name="gettingStartedGuide">Başlangıç Kılavuzu</string>
     <string name="noAuthenticatorsHelp">Stratum\'da yeniyseniz aşağıya tıklayarak başlangıç kılavuzuna göz atın.</string>
     <string name="noCategoriesTitle">Kategori yok</string>
@@ -135,6 +137,7 @@
     <string name="assignEntries">Girişleri atayın</string>
     <string name="more">Daha Fazla</string>
     <string name="categoryAll">Tümü</string>
+    <string name="categoryUncategorised">Kategorize edilmemiş</string>
     <string name="editCategories">Kategorileri düzenle</string>
     <string name="noCategoryName">Kategori adı gerekli.</string>
     <string name="duplicateCategory">Bu isimde bir kategori zaten var.</string>
@@ -147,7 +150,6 @@
         Backups
     -->
     <string name="backupNow">Şimdi Yedekle</string>
-    <string name="restoreNow">Şimdi geri yükle</string>
     <string name="backupReminder">Son yedeklemenizden bu yana değişiklikler oldu</string>
     <string name="backupPasswordMessage">Yedek dosyanızı güvenli bir şekilde şifrelemek için bir parola girin. Dosyayı parolayla korumak istemiyorsanız parolayı boş bırakın.</string>
     <string name="password">Parola</string>
@@ -241,9 +243,10 @@
     <string name="aegisImportHint">aegis-export.json dosyasını içe aktar</string>
     <string name="bitwardenImportHint">bitwarden_export.json dosyasını içe aktar</string>
     <string name="enteAuthImportHint">ente-auth-codes.txt dosyasını içe aktarın</string>
+    <string name="protonAuthenticatorImportHint">proton_authenticator_backup.json dosyasını içe aktarın</string>
     <string name="winAuthImportHint">winauth.txt veya winauth.zip dosyasını içe aktarın</string>
     <string name="twoFasImportHint">2fas-backup.2fas dosyasını içe aktar</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
+    <string name="keePassImportHint">keepass.kdbx (KDBX 4.) dosyasını içe aktarın</string>
     <string name="lastPassAuthenticatorImportHint">LastPassAuthenticator.json dosyasını içe aktarın</string>
     <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt dosyasını içe aktar</string>
     <string name="uriList">URI listesi</string>
@@ -267,7 +270,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Taramak için QR kodunu vizöre yerleştirin. Odaklanmak için dokunun.</string>
+    <string name="scanHelpPrimary">Karekodu tarayıcıya hizalayın. Ekrana dokunarak odaklayın.</string>
     <string name="scanHelpSecondary">Gölgelerden ve parlamalardan kaçınmaya çalışın. Cihazı koddan yaklaşık 15 cm uzakta tutun.</string>
     <string name="toggleFlash">Flaşı aç/kapat</string>
     <!--
@@ -287,6 +290,8 @@
     <string name="prefResetCopyCountSummary">Her kimlik doğrulayıcının kopyalanma sayısını temizle</string>
     <string name="prefSkipToNextTitle">Sonrakine atla</string>
     <string name="prefSkipToNextSummary">Süresi dolmaya yaklaştığında bir sonraki koda atlamaya izin ver</string>
+    <string name="prefShowUncategorisedTitle">Kategorize Edilmemişleri Göster</string>
+    <string name="prefShowUncategorisedSummary">Herhangi bir kategoriye atanmamış doğrulama kodlarınızı için bir kategori göster</string>
     <string name="prefSecurity">Güvenlik</string>
     <string name="prefPasswordTitle">Parola</string>
     <string name="prefPasswordSummary">Kimlik doğrulayıcılara erişmek için parola gereklidir. Veritabanı parolanızla şifrelenecektir.</string>
