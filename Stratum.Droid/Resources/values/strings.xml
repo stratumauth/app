@@ -1,4 +1,6 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+            tools:locale="en-rGB">
+    
     <string name="appName" translatable="false">Stratum</string>
     <string name="displayName" translatable="false">Authenticator</string>
     
