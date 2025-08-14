@@ -6,10 +6,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.Content;
-using Newtonsoft.Json;
 
 namespace Stratum.WearOS.Cache
 {
@@ -82,8 +82,8 @@ namespace Stratum.WearOS.Cache
                 return;
             }
 
-            var json = await File.ReadAllTextAsync(path);
-            _items = JsonConvert.DeserializeObject<List<T>>(json);
+            await using var stream = File.OpenRead(path);
+            _items = await JsonSerializer.DeserializeAsync<List<T>>(stream);
         }
 
         public Task ReplaceAsync(List<T> items)
@@ -101,12 +101,12 @@ namespace Stratum.WearOS.Cache
 
         private async Task FlushAsync()
         {
-            var json = JsonConvert.SerializeObject(_items);
             await _flushLock.WaitAsync();
 
             try
             {
-                await File.WriteAllTextAsync(GetFilePath(), json);
+                await using var stream = File.OpenWrite(GetFilePath());
+                await JsonSerializer.SerializeAsync(stream, _items);
             }
             finally
             {

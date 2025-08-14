@@ -1,7 +1,6 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-using Newtonsoft.Json;
 using SQLite;
 
 namespace Stratum.Core.Entity
@@ -17,7 +16,6 @@ namespace Stratum.Core.Entity
         public string Id { get; set; }
 
         [Column("data")]
-        [JsonConverter(typeof(ByteArrayConverter))]
         public byte[] Data { get; set; }
     }
 }

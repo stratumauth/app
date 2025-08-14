@@ -40,7 +40,6 @@ using Google.Android.Material.Button;
 using Google.Android.Material.Dialog;
 using Google.Android.Material.Snackbar;
 using Google.Android.Material.TextView;
-using Newtonsoft.Json;
 using Serilog;
 using Stratum.Droid.Callback;
 using Stratum.Droid.Interface;
@@ -180,7 +179,7 @@ namespace Stratum.Droid.Activity
             {
                 _pauseTime = new DateTime(savedInstanceState.GetLong("pauseTime"));
                 _lastBackupReminderTime = new DateTime(savedInstanceState.GetLong("lastBackupReminderTime"));
-                var lastCategorySelector = savedInstanceState.GetString("categorySelect");
+                var lastCategorySelector = savedInstanceState.GetObject<CategorySelector>("categorySelect");
                 
                 if (Preferences.DefaultCategory != null)
                 {
@@ -188,7 +187,7 @@ namespace Stratum.Droid.Activity
                 }
                 else if (lastCategorySelector != null)
                 {
-                    categorySelector = JsonConvert.DeserializeObject<CategorySelector>(lastCategorySelector);
+                    categorySelector = lastCategorySelector;
                 }
             }
             else
@@ -275,7 +274,7 @@ namespace Stratum.Droid.Activity
             base.OnSaveInstanceState(outState);
             outState.PutLong("pauseTime", _pauseTime.Ticks);
             outState.PutLong("lastBackupReminderTime", _lastBackupReminderTime.Ticks);
-            outState.PutString("categorySelector", JsonConvert.SerializeObject(_authenticatorView.CategorySelector));
+            outState.PutObject("categorySelector", _authenticatorView.CategorySelector);
         }
 
         protected override void OnPause()
@@ -529,7 +528,7 @@ namespace Stratum.Droid.Activity
         private void OnBottomAppBarNavigationClick(object sender, Toolbar.NavigationClickEventArgs e)
         {
             var bundle = new Bundle();
-            bundle.PutString("currentCategorySelector", JsonConvert.SerializeObject(_authenticatorView.CategorySelector));
+            bundle.PutObject("currentCategorySelector", _authenticatorView.CategorySelector);
 
             var fragment = new MainMenuBottomSheet { Arguments = bundle };
             fragment.CategoryClicked += async (_, selector) =>

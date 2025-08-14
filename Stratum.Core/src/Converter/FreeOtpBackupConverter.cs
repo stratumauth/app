@@ -7,9 +7,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Stratum.Core.Util;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Asn1;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Digests;
@@ -46,7 +47,7 @@ namespace Stratum.Core.Converter
 
         private ConversionResult DecryptAndConvert(Dictionary<string, string> values, string password)
         {
-            var masterKeyInfo = JsonConvert.DeserializeObject<MasterKey>(values["masterKey"]);
+            var masterKeyInfo = JsonSerializer.Deserialize<MasterKey>(values["masterKey"]);
             var masterKey = DecryptMasterKey(masterKeyInfo, password);
 
             var authenticators = new List<Authenticator>();
@@ -59,11 +60,11 @@ namespace Stratum.Core.Converter
                     continue;
                 }
 
-                var info = JsonConvert.DeserializeObject<TokenInfo>(value);
+                var info = JsonSerializer.Deserialize<TokenInfo>(value);
 
                 var keyJson = values[key.Replace("-token", "")];
-                var keyInfo = JsonConvert.DeserializeObject<TokenKeyInfo>(keyJson);
-                var encryptedKey = JsonConvert.DeserializeObject<EncryptedKey>(keyInfo.Key);
+                var keyInfo = JsonSerializer.Deserialize<TokenKeyInfo>(keyJson);
+                var encryptedKey = JsonSerializer.Deserialize<EncryptedKey>(keyInfo.Key);
                 var secret = DecryptEncryptedKey(encryptedKey, masterKey);
 
                 Authenticator auth;
@@ -196,58 +197,58 @@ namespace Stratum.Core.Converter
 
         private sealed class MasterKey
         {
-            [JsonProperty(PropertyName = "mAlgorithm")]
+            [JsonPropertyName("mAlgorithm")]
             public string Algorithm { get; set; }
 
-            [JsonProperty(PropertyName = "mIterations")]
+            [JsonPropertyName("mIterations")]
             public int Iterations { get; set; }
 
-            [JsonProperty(PropertyName = "mSalt")]
+            [JsonPropertyName("mSalt")]
             public sbyte[] Salt { get; set; }
 
-            [JsonProperty(PropertyName = "mEncryptedKey")]
+            [JsonPropertyName("mEncryptedKey")]
             public EncryptedKey EncryptedKey { get; set; }
         }
 
         private sealed class EncryptedKey
         {
-            [JsonProperty(PropertyName = "mCipher")]
+            [JsonPropertyName("mCipher")]
             public string Cipher { get; set; }
 
-            [JsonProperty(PropertyName = "mCipherText")]
+            [JsonPropertyName("mCipherText")]
             public sbyte[] CipherText { get; set; }
 
-            [JsonProperty(PropertyName = "mParameters")]
+            [JsonPropertyName("mParameters")]
             public sbyte[] Parameters { get; set; }
 
-            [JsonProperty(PropertyName = "mToken")]
+            [JsonPropertyName("mToken")]
             public string Token { get; set; }
         }
 
         private sealed class TokenInfo
         {
-            [JsonProperty(PropertyName = "issuerExt")]
+            [JsonPropertyName("issuerExt")]
             public string IssuerExt { get; set; }
 
-            [JsonProperty(PropertyName = "issuerInt")]
+            [JsonPropertyName("issuerInt")]
             public string IssuerInt { get; set; }
 
-            [JsonProperty(PropertyName = "label")]
+            [JsonPropertyName("label")]
             public string Label { get; set; }
 
-            [JsonProperty(PropertyName = "type")]
+            [JsonPropertyName("type")]
             public string Type { get; set; }
 
-            [JsonProperty(PropertyName = "algo")]
+            [JsonPropertyName("algo")]
             public string Algorithm { get; set; }
 
-            [JsonProperty(PropertyName = "counter")]
+            [JsonPropertyName("counter")]
             public int Counter { get; set; }
 
-            [JsonProperty(PropertyName = "digits")]
+            [JsonPropertyName("digits")]
             public int Digits { get; set; } = AuthenticatorType.Totp.GetDefaultDigits();
 
-            [JsonProperty(PropertyName = "period")]
+            [JsonPropertyName("period")]
             public int Period { get; set; } = AuthenticatorType.Totp.GetDefaultPeriod();
 
             public Authenticator Convert(IIconResolver iconResolver, byte[] secret)
@@ -298,7 +299,7 @@ namespace Stratum.Core.Converter
 
         private sealed class TokenKeyInfo
         {
-            [JsonProperty(PropertyName = "key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; }
         }
     }

@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System.IO;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace Stratum.Test.Backup.Fixture
 {
@@ -12,7 +12,7 @@ namespace Stratum.Test.Backup.Fixture
         {
             var unencryptedPath = Path.Join("data", "backup.unencrypted.authpro");
             var contents = File.ReadAllText(unencryptedPath);
-            Backup = JsonConvert.DeserializeObject<Stratum.Core.Backup.Backup>(contents);
+            Backup = JsonSerializer.Deserialize<Stratum.Core.Backup.Backup>(contents);
 
             var legacyPath = Path.Join("data", "backup.legacy.authpro");
             LegacyData = File.ReadAllBytes(legacyPath);

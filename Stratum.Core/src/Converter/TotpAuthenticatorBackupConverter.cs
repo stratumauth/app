@@ -5,8 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
@@ -86,27 +87,27 @@ namespace Stratum.Core.Converter
             json = json[..(json.LastIndexOf(']') + 1)];
             json = json.Replace(@"\""", @"""");
 
-            return JsonConvert.DeserializeObject<List<Account>>(json);
+            return JsonSerializer.Deserialize<List<Account>>(json);
         }
 
         private sealed class Account
         {
-            [JsonProperty(PropertyName = "issuer")]
+            [JsonPropertyName("issuer")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; }
 
-            [JsonProperty(PropertyName = "key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; }
 
-            [JsonProperty(PropertyName = "digits")]
+            [JsonPropertyName("digits")]
             public string Digits { get; set; }
 
-            [JsonProperty(PropertyName = "period")]
+            [JsonPropertyName("period")]
             public string Period { get; set; }
 
-            [JsonProperty(PropertyName = "base")]
+            [JsonPropertyName("base")]
             public int Base { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)

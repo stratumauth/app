@@ -5,8 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Parameters;
@@ -41,16 +42,15 @@ namespace Stratum.Core.Converter
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            var json = Encoding.UTF8.GetString(data);
             AegisBackup<DecryptedDatabase> backup;
 
             if (string.IsNullOrEmpty(password))
             {
-                backup = JsonConvert.DeserializeObject<AegisBackup<DecryptedDatabase>>(json);
+                backup = JsonSerializer.Deserialize<AegisBackup<DecryptedDatabase>>(data);
             }
             else
             {
-                var encryptedBackup = JsonConvert.DeserializeObject<AegisBackup<string>>(json);
+                var encryptedBackup = JsonSerializer.Deserialize<AegisBackup<string>>(data);
                 backup = await Task.Run(() => DecryptBackup(encryptedBackup, password));
             }
 
@@ -89,8 +89,7 @@ namespace Stratum.Core.Converter
             var macBytes = Hex.Decode(backup.Header.Params.Tag);
 
             var decryptedBytes = DecryptAesGcm(masterKey, ivBytes, databaseBytes, macBytes);
-            var json = Encoding.UTF8.GetString(decryptedBytes);
-            var database = JsonConvert.DeserializeObject<DecryptedDatabase>(json);
+            var database = JsonSerializer.Deserialize<DecryptedDatabase>(decryptedBytes);
 
             return new AegisBackup<DecryptedDatabase>
             {
@@ -209,31 +208,31 @@ namespace Stratum.Core.Converter
 
         private sealed class AegisBackup<T>
         {
-            [JsonProperty(PropertyName = "version")]
+            [JsonPropertyName("version")]
             public int Version { get; set; }
 
-            [JsonProperty(PropertyName = "header")]
+            [JsonPropertyName("header")]
             public Header Header { get; set; }
 
-            [JsonProperty(PropertyName = "db")]
+            [JsonPropertyName("db")]
             public T Database { get; set; }
         }
 
         private sealed class KeyParams
         {
-            [JsonProperty(PropertyName = "nonce")]
+            [JsonPropertyName("nonce")]
             public string Nonce { get; set; }
 
-            [JsonProperty(PropertyName = "tag")]
+            [JsonPropertyName("tag")]
             public string Tag { get; set; }
         }
 
         private sealed class Header
         {
-            [JsonProperty(PropertyName = "slots")]
+            [JsonPropertyName("slots")]
             public List<Slot> Slots { get; set; }
 
-            [JsonProperty(PropertyName = "params")]
+            [JsonPropertyName("params")]
             public KeyParams Params { get; set; }
         }
 
@@ -246,53 +245,52 @@ namespace Stratum.Core.Converter
 
         private sealed class Slot
         {
-            [JsonProperty(PropertyName = "type")]
+            [JsonPropertyName("type")]
             public SlotType Type { get; set; }
 
-            [JsonProperty(PropertyName = "key")]
+            [JsonPropertyName("key")]
             public string Key { get; set; }
 
-            [JsonProperty(PropertyName = "key_params")]
+            [JsonPropertyName("key_params")]
             public KeyParams KeyParams { get; set; }
 
-            [JsonProperty(PropertyName = "salt")]
+            [JsonPropertyName("salt")]
             public string Salt { get; set; }
 
-            [JsonProperty(PropertyName = "n")]
+            [JsonPropertyName("n")]
             public int N { get; set; }
 
-            [JsonProperty(PropertyName = "r")]
+            [JsonPropertyName("r")]
             public int R { get; set; }
 
-            [JsonProperty(PropertyName = "p")]
+            [JsonPropertyName("p")]
             public int P { get; set; }
         }
 
         private sealed class DecryptedDatabase
         {
-            [JsonProperty(PropertyName = "entries")]
+            [JsonPropertyName("entries")]
             public List<Entry> Entries { get; set; }
         }
 
         private sealed class Entry
         {
-            [JsonProperty(PropertyName = "type")]
+            [JsonPropertyName("type")]
             public string Type { get; set; }
 
-            [JsonProperty(PropertyName = "name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; }
 
-            [JsonProperty(PropertyName = "issuer")]
+            [JsonPropertyName("issuer")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "group")]
+            [JsonPropertyName("group")]
             public string Group { get; set; }
 
-            [JsonProperty(PropertyName = "icon")]
-            [JsonConverter(typeof(ByteArrayConverter))]
+            [JsonPropertyName("icon")]
             public byte[] Icon { get; set; }
 
-            [JsonProperty(PropertyName = "info")]
+            [JsonPropertyName("info")]
             public EntryInfo Info { get; set; }
 
             private string ConvertSecret(AuthenticatorType type)
@@ -362,22 +360,22 @@ namespace Stratum.Core.Converter
 
         private sealed class EntryInfo
         {
-            [JsonProperty(PropertyName = "secret")]
+            [JsonPropertyName("secret")]
             public string Secret { get; set; }
 
-            [JsonProperty(PropertyName = "algo")]
+            [JsonPropertyName("algo")]
             public string Algorithm { get; set; }
 
-            [JsonProperty(PropertyName = "digits")]
+            [JsonPropertyName("digits")]
             public int Digits { get; set; }
 
-            [JsonProperty(PropertyName = "period")]
+            [JsonPropertyName("period")]
             public int Period { get; set; }
 
-            [JsonProperty(PropertyName = "counter")]
+            [JsonPropertyName("counter")]
             public int Counter { get; set; }
 
-            [JsonProperty(PropertyName = "pin")]
+            [JsonPropertyName("pin")]
             public string Pin { get; set; }
         }
     }

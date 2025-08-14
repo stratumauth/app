@@ -8,12 +8,11 @@ using Android.Gms.Wearable;
 using Stratum.Droid.Shared.Wear;
 using Stratum.Core.Service;
 using Java.IO;
-using Newtonsoft.Json;
 using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
@@ -146,8 +145,7 @@ namespace Stratum.Droid
                 Preferences = preferences
             };
 
-            var json = JsonConvert.SerializeObject(bundle);
-            return Encoding.UTF8.GetBytes(json);
+            return JsonSerializer.SerializeToUtf8Bytes(bundle);
         }
 
         private async Task SendSyncBundleAsync(ChannelClient.IChannel channel)

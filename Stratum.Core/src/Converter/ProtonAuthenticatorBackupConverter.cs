@@ -3,9 +3,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Stratum.Core.Backup;
 using Stratum.Core.Entity;
 using Stratum.Core.Util;
@@ -22,8 +22,7 @@ namespace Stratum.Core.Converter
 
         public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            var json = Encoding.UTF8.GetString(data);
-            var export = JsonConvert.DeserializeObject<ProtonBackup>(json);
+            var export = JsonSerializer.Deserialize<ProtonBackup>(data);
 
             if (export.Version != 1)
             {
@@ -59,28 +58,28 @@ namespace Stratum.Core.Converter
 
         private sealed class ProtonBackup
         {
-            [JsonProperty(PropertyName = "version")]
+            [JsonPropertyName("version")]
             public int Version { get; set; }
 
-            [JsonProperty(PropertyName = "entries")]
+            [JsonPropertyName("entries")]
             public List<Entry> Entries { get; set; }
         }
 
         private sealed class Entry
         {
-            [JsonProperty(PropertyName = "content")]
+            [JsonPropertyName("content")]
             public Content Content { get; set; }
         }
 
         private sealed class Content
         {
-            [JsonProperty(PropertyName = "uri")]
+            [JsonPropertyName("uri")]
             public string Uri { get; set; }
 
-            [JsonProperty(PropertyName = "entry_type")]
+            [JsonPropertyName("entry_type")]
             public string EntryType { get; set; }
 
-            [JsonProperty(PropertyName = "name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)

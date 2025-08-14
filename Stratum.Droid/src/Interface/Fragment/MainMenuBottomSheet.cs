@@ -5,7 +5,6 @@ using System;
 using Android.OS;
 using Android.Views;
 using AndroidX.RecyclerView.Widget;
-using Newtonsoft.Json;
 using Stratum.Droid.Interface.Adapter;
 using Stratum.Droid.Persistence.View;
 
@@ -44,7 +43,7 @@ namespace Stratum.Droid.Interface.Fragment
                 HasStableIds = true
             };
 
-            _currentCategory = JsonConvert.DeserializeObject<CategorySelector>(Arguments.GetString("currentCategorySelector"));
+            _currentCategory = Arguments.GetObject<CategorySelector>("currentCategorySelector");
         }
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

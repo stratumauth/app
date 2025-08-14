@@ -6,9 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Konscious.Security.Cryptography;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
@@ -39,8 +40,7 @@ namespace Stratum.Core.Converter
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            var json = Encoding.UTF8.GetString(data);
-            var export = JsonConvert.DeserializeObject<Export>(json);
+            var export = JsonSerializer.Deserialize<Export>(data);
 
             Vault vault;
 
@@ -56,13 +56,13 @@ namespace Stratum.Core.Converter
                     throw new ArgumentException("Cannot decrypt without a password");
                 }
 
-                var encryption = JsonConvert.DeserializeObject<Encryption>(json);
+                var encryption = JsonSerializer.Deserialize<Encryption>(data);
                 var key = await DeriveKeyAsync(encryption, password);
                 vault = await Task.Run(() => Decrypt(encryption, key));
             }
             else
             {
-                vault = JsonConvert.DeserializeObject<Vault>(json);
+                vault = JsonSerializer.Deserialize<Vault>(data);
             }
 
             return ConvertVault(vault);
@@ -105,8 +105,7 @@ namespace Stratum.Core.Converter
                 throw new BackupPasswordException("The password is incorrect. Bad cipher text.", e);
             }
 
-            var json = Encoding.UTF8.GetString(decryptedBytes);
-            return JsonConvert.DeserializeObject<Vault>(json);
+            return JsonSerializer.Deserialize<Vault>(decryptedBytes);
         }
 
         private static bool VerifyMac(byte[] key, byte[] iv, byte[] payload, byte[] expected)
@@ -232,10 +231,10 @@ namespace Stratum.Core.Converter
 
         private sealed class Export
         {
-            [JsonProperty(PropertyName = "encrypted")]
+            [JsonPropertyName("encrypted")]
             public bool Encrypted { get; set; }
 
-            [JsonProperty(PropertyName = "passwordProtected")]
+            [JsonPropertyName("passwordProtected")]
             public bool PasswordProtected { get; set; }
         }
 
@@ -247,43 +246,43 @@ namespace Stratum.Core.Converter
                 Argon2Id = 1
             }
 
-            [JsonProperty(PropertyName = "salt")]
+            [JsonPropertyName("salt")]
             public string Salt { get; set; }
 
-            [JsonProperty(PropertyName = "kdfType")]
+            [JsonPropertyName("kdfType")]
             public Kdf KdfType { get; set; }
 
-            [JsonProperty(PropertyName = "kdfIterations")]
+            [JsonPropertyName("kdfIterations")]
             public int KdfIterations { get; set; }
 
-            [JsonProperty(PropertyName = "kdfMemory")]
+            [JsonPropertyName("kdfMemory")]
             public int? KdfMemory { get; set; }
 
-            [JsonProperty(PropertyName = "kdfParallelism")]
+            [JsonPropertyName("kdfParallelism")]
             public int? KdfParallelism { get; set; }
 
-            [JsonProperty(PropertyName = "encKeyValidation_DO_NOT_EDIT")]
+            [JsonPropertyName("encKeyValidation_DO_NOT_EDIT")]
             public string EncKeyValidation { get; set; }
 
-            [JsonProperty(PropertyName = "data")]
+            [JsonPropertyName("data")]
             public string Data { get; set; }
         }
 
         private sealed class Vault
         {
-            [JsonProperty(PropertyName = "folders")]
+            [JsonPropertyName("folders")]
             public List<Folder> Folders { get; set; }
 
-            [JsonProperty(PropertyName = "items")]
+            [JsonPropertyName("items")]
             public List<Item> Items { get; set; }
         }
 
         private sealed class Folder
         {
-            [JsonProperty(PropertyName = "id")]
+            [JsonPropertyName("id")]
             public string Id { get; set; }
 
-            [JsonProperty(PropertyName = "name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; }
 
             public Category Convert()
@@ -294,16 +293,16 @@ namespace Stratum.Core.Converter
 
         private sealed class Item
         {
-            [JsonProperty(PropertyName = "name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; }
 
-            [JsonProperty(PropertyName = "folderId")]
+            [JsonPropertyName("folderId")]
             public string FolderId { get; set; }
 
-            [JsonProperty(PropertyName = "type")]
+            [JsonPropertyName("type")]
             public int Type { get; set; }
 
-            [JsonProperty(PropertyName = "login")]
+            [JsonPropertyName("login")]
             public Login Login { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)
@@ -340,10 +339,10 @@ namespace Stratum.Core.Converter
 
         private sealed class Login
         {
-            [JsonProperty(PropertyName = "username")]
+            [JsonPropertyName("username")]
             public string Username { get; set; }
 
-            [JsonProperty(PropertyName = "totp")]
+            [JsonPropertyName("totp")]
             public string Totp { get; set; }
         }
     }

@@ -2,9 +2,8 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
-using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace Stratum.Core.Backup.Encryption
 {
@@ -12,14 +11,12 @@ namespace Stratum.Core.Backup.Encryption
     {
         public Task<byte[]> EncryptAsync(Backup backup, string password)
         {
-            var json = JsonConvert.SerializeObject(backup);
-            return Task.FromResult(Encoding.UTF8.GetBytes(json));
+            return Task.FromResult(JsonSerializer.SerializeToUtf8Bytes(backup));
         }
 
         public Task<Backup> DecryptAsync(byte[] data, string password)
         {
-            var json = Encoding.UTF8.GetString(data);
-            return Task.FromResult(JsonConvert.DeserializeObject<Backup>(json));
+            return Task.FromResult(JsonSerializer.Deserialize<Backup>(data));
         }
 
         public bool CanBeDecrypted(byte[] data)
@@ -28,8 +25,7 @@ namespace Stratum.Core.Backup.Encryption
 
             try
             {
-                var json = Encoding.UTF8.GetString(data);
-                backup = JsonConvert.DeserializeObject<Backup>(json);
+                backup = JsonSerializer.Deserialize<Backup>(data);
             }
             catch (Exception)
             {

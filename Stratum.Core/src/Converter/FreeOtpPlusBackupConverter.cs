@@ -3,10 +3,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Stratum.Core.Util;
-using Newtonsoft.Json;
 using SimpleBase;
 using Stratum.Core.Backup;
 using Stratum.Core.Entity;
@@ -24,8 +24,7 @@ namespace Stratum.Core.Converter
 
         public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            var json = Encoding.UTF8.GetString(data);
-            var sourceTokens = JsonConvert.DeserializeObject<FreeOtpPlusBackup>(json).Tokens;
+            var sourceTokens = JsonSerializer.Deserialize<FreeOtpPlusBackup>(data).Tokens;
             var authenticators = new List<Authenticator>();
             var failures = new List<ConversionFailure>();
 
@@ -55,34 +54,34 @@ namespace Stratum.Core.Converter
 
         private sealed class FreeOtpPlusBackup
         {
-            [JsonProperty(PropertyName = "tokens")]
+            [JsonPropertyName("tokens")]
             public List<Token> Tokens { get; set; }
         }
 
         private sealed class Token
         {
-            [JsonProperty(PropertyName = "algo")]
+            [JsonPropertyName("algo")]
             public string Algorithm { get; set; }
 
-            [JsonProperty(PropertyName = "counter")]
+            [JsonPropertyName("counter")]
             public int Counter { get; set; }
 
-            [JsonProperty(PropertyName = "digits")]
+            [JsonPropertyName("digits")]
             public int Digits { get; set; }
 
-            [JsonProperty(PropertyName = "issuerExt")]
+            [JsonPropertyName("issuerExt")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "label")]
+            [JsonPropertyName("label")]
             public string Label { get; set; }
 
-            [JsonProperty(PropertyName = "period")]
+            [JsonPropertyName("period")]
             public int Period { get; set; }
 
-            [JsonProperty(PropertyName = "type")]
+            [JsonPropertyName("type")]
             public string Type { get; set; }
 
-            [JsonProperty(PropertyName = "secret")]
+            [JsonPropertyName("secret")]
             public sbyte[] Secret { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)

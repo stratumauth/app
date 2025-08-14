@@ -5,8 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
@@ -37,8 +38,7 @@ namespace Stratum.Core.Converter
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            var json = Encoding.UTF8.GetString(data);
-            var backup = JsonConvert.DeserializeObject<TwoFasBackup>(json);
+            var backup = JsonSerializer.Deserialize<TwoFasBackup>(data);
 
             if (backup.ServicesEncrypted != null)
             {
@@ -125,7 +125,7 @@ namespace Stratum.Core.Converter
             }
 
             var decryptedJson = Encoding.UTF8.GetString(decryptedBytes);
-            return JsonConvert.DeserializeObject<List<Service>>(decryptedJson);
+            return JsonSerializer.Deserialize<List<Service>>(decryptedJson);
         }
 
         private static KeyParameter DeriveKey(string password, byte[] salt)
@@ -138,28 +138,28 @@ namespace Stratum.Core.Converter
 
         private sealed class TwoFasBackup
         {
-            [JsonProperty(PropertyName = "services")]
+            [JsonPropertyName("services")]
             public List<Service> Services { get; set; }
 
-            [JsonProperty(PropertyName = "groups")]
+            [JsonPropertyName("groups")]
             public List<Group> Groups { get; set; }
 
-            [JsonProperty(PropertyName = "servicesEncrypted")]
+            [JsonPropertyName("servicesEncrypted")]
             public string ServicesEncrypted { get; set; }
         }
 
         private sealed class Service
         {
-            [JsonProperty(PropertyName = "name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; }
 
-            [JsonProperty(PropertyName = "secret")]
+            [JsonPropertyName("secret")]
             public string Secret { get; set; }
 
-            [JsonProperty(PropertyName = "otp")]
+            [JsonPropertyName("otp")]
             public Otp Otp { get; set; }
 
-            [JsonProperty(PropertyName = "groupId")]
+            [JsonPropertyName("groupId")]
             public string GroupId { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)
@@ -219,34 +219,34 @@ namespace Stratum.Core.Converter
 
         private sealed class Otp
         {
-            [JsonProperty(PropertyName = "account")]
+            [JsonPropertyName("account")]
             public string Account { get; set; }
 
-            [JsonProperty(PropertyName = "issuer")]
+            [JsonPropertyName("issuer")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "digits")]
+            [JsonPropertyName("digits")]
             public int Digits { get; set; }
 
-            [JsonProperty(PropertyName = "period")]
+            [JsonPropertyName("period")]
             public int Period { get; set; }
 
-            [JsonProperty(PropertyName = "algorithm")]
+            [JsonPropertyName("algorithm")]
             public string Algorithm { get; set; }
 
-            [JsonProperty(PropertyName = "counter")]
+            [JsonPropertyName("counter")]
             public int Counter { get; set; }
 
-            [JsonProperty(PropertyName = "tokenType")]
+            [JsonPropertyName("tokenType")]
             public string TokenType { get; set; }
         }
 
         private sealed class Group
         {
-            [JsonProperty(PropertyName = "id")]
+            [JsonPropertyName("id")]
             public string Id { get; set; }
 
-            [JsonProperty(PropertyName = "name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; }
 
             public Category Convert()

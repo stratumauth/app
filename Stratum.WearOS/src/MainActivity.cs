@@ -3,7 +3,7 @@
 
 using System;
 using System.Linq;
-using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
@@ -18,7 +18,6 @@ using AndroidX.Fragment.App;
 using AndroidX.Wear.Widget;
 using AndroidX.Wear.Widget.Drawer;
 using Java.IO;
-using Newtonsoft.Json;
 using Stratum.Droid.Shared.Util;
 using Stratum.Droid.Shared.Wear;
 using Stratum.WearOS.Cache;
@@ -359,9 +358,7 @@ namespace Stratum.WearOS
                 await client.CloseAsync(channel);
             }
 
-            var json = Encoding.UTF8.GetString(data);
-            var bundle = JsonConvert.DeserializeObject<WearSyncBundle>(json);
-
+            var bundle = JsonSerializer.Deserialize<WearSyncBundle>(data);
             await OnSyncBundleReceived(bundle);
         }
 

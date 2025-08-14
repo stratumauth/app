@@ -5,11 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Stratum.Core.Backup;
 using Stratum.Core.Backup.Encryption;
 using Stratum.Core.Entity;
-using Newtonsoft.Json;
 using Stratum.Test.Backup.Comparer;
 using Stratum.Test.Backup.Fixture;
 using Xunit;
@@ -133,9 +133,7 @@ namespace Stratum.Test.Backup
         public void NoEncrypt_valid()
         {
             var backup = new Stratum.Core.Backup.Backup { Authenticators = new List<Authenticator>() };
-            var json = JsonConvert.SerializeObject(backup);
-            var data = Encoding.UTF8.GetBytes(json);
-
+            var data = JsonSerializer.SerializeToUtf8Bytes(backup);
             var encryption = new NoBackupEncryption();
             Assert.True(encryption.CanBeDecrypted(data));
         }
@@ -144,9 +142,7 @@ namespace Stratum.Test.Backup
         public void NoEncrypt_invalid_nullAuthenticators()
         {
             var backup = new Stratum.Core.Backup.Backup();
-            var json = JsonConvert.SerializeObject(backup);
-            var data = Encoding.UTF8.GetBytes(json);
-
+            var data = JsonSerializer.SerializeToUtf8Bytes(backup);
             var encryption = new NoBackupEncryption();
             Assert.False(encryption.CanBeDecrypted(data));
         }

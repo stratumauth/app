@@ -4,9 +4,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Stratum.Core.Backup;
 using Stratum.Core.Entity;
 using Stratum.Core.Generator;
@@ -24,8 +24,7 @@ namespace Stratum.Core.Converter
 
         public override Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            var json = Encoding.UTF8.GetString(data);
-            var export = JsonConvert.DeserializeObject<Export>(json);
+            var export = JsonSerializer.Deserialize<Export>(data);
 
             if (export.Version != 3)
             {
@@ -85,37 +84,37 @@ namespace Stratum.Core.Converter
 
         private sealed class Export
         {
-            [JsonProperty(PropertyName = "version")]
+            [JsonPropertyName("version")]
             public int Version { get; set; }
 
-            [JsonProperty(PropertyName = "accounts")]
+            [JsonPropertyName("accounts")]
             public List<Account> Accounts { get; set; }
 
-            [JsonProperty(PropertyName = "folders")]
+            [JsonPropertyName("folders")]
             public List<Folder> Folders { get; set; }
         }
 
         private sealed class Account
         {
-            [JsonProperty(PropertyName = "issuerName")]
+            [JsonPropertyName("issuerName")]
             public string IssuerName { get; set; }
 
-            [JsonProperty(PropertyName = "userName")]
+            [JsonPropertyName("userName")]
             public string UserName { get; set; }
 
-            [JsonProperty(PropertyName = "secret")]
+            [JsonPropertyName("secret")]
             public string Secret { get; set; }
 
-            [JsonProperty(PropertyName = "timeStep")]
+            [JsonPropertyName("timeStep")]
             public int TimeStep { get; set; }
 
-            [JsonProperty(PropertyName = "digits")]
+            [JsonPropertyName("digits")]
             public int Digits { get; set; }
 
-            [JsonProperty(PropertyName = "algorithm")]
+            [JsonPropertyName("algorithm")]
             public string Algorithm { get; set; }
 
-            [JsonProperty(PropertyName = "folderData")]
+            [JsonPropertyName("folderData")]
             public FolderData FolderData { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)
@@ -158,19 +157,19 @@ namespace Stratum.Core.Converter
 
         private sealed class FolderData
         {
-            [JsonProperty(PropertyName = "folderId")]
+            [JsonPropertyName("folderId")]
             public int FolderId { get; set; }
 
-            [JsonProperty(PropertyName = "position")]
+            [JsonPropertyName("position")]
             public int Position { get; set; }
         }
 
         private sealed class Folder
         {
-            [JsonProperty(PropertyName = "id")]
+            [JsonPropertyName("id")]
             public int Id { get; set; }
 
-            [JsonProperty(PropertyName = "name")]
+            [JsonPropertyName("name")]
             public string Name { get; set; }
         }
     }

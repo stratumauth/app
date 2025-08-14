@@ -2,23 +2,23 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace Stratum.Droid.Interface
 {
     public class CategorySelector : IEquatable<CategorySelector>
     {
-        [JsonProperty]
+        [JsonInclude]
         private readonly string _categoryId;
         
-        [JsonProperty]
+        [JsonInclude]
         private readonly MetaCategory _metaCategory;
       
         [JsonConstructor]
-        private CategorySelector(string categoryId, MetaCategory metaCategory)
+        private CategorySelector(string _categoryId, MetaCategory _metaCategory)
         {
-            _categoryId = categoryId;
-            _metaCategory = metaCategory;
+            this._categoryId = _categoryId;
+            this._metaCategory = _metaCategory;
         }
         
         private CategorySelector(string id)

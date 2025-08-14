@@ -5,9 +5,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Konscious.Security.Cryptography;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
@@ -51,8 +51,7 @@ namespace Stratum.Core.Backup.Encryption
             var cipher = CipherUtilities.GetCipher(AlgorithmDescription);
             cipher.Init(true, parameters);
 
-            var json = JsonConvert.SerializeObject(backup);
-            var unencryptedData = Encoding.UTF8.GetBytes(json);
+            var unencryptedData = JsonSerializer.SerializeToUtf8Bytes(backup);
             var encryptedData = await Task.Run(() => cipher.DoFinal(unencryptedData));
 
             var headerBytes = Encoding.UTF8.GetBytes(Header);
@@ -105,8 +104,7 @@ namespace Stratum.Core.Backup.Encryption
                 throw new BackupPasswordException("Invalid password", e);
             }
 
-            var json = Encoding.UTF8.GetString(unencryptedData);
-            return JsonConvert.DeserializeObject<Backup>(json);
+            return JsonSerializer.Deserialize<Backup>(unencryptedData);
         }
 
         public bool CanBeDecrypted(byte[] data)

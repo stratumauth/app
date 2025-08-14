@@ -6,8 +6,9 @@ using System.Buffers.Binary;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Digests;
 using Org.BouncyCastle.Crypto.Generators;
@@ -41,18 +42,11 @@ namespace Stratum.Core.Converter
 
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            string json;
-
-            if (string.IsNullOrEmpty(password))
-            {
-                json = Encoding.UTF8.GetString(data);
-            }
-            else
-            {
-                json = await Task.Run(() => Decrypt(data, password));
-            }
-
-            var sourceAccounts = JsonConvert.DeserializeObject<List<Account>>(json);
+            var decryptedData = !string.IsNullOrEmpty(password)
+                ? await Task.Run(() => Decrypt(data, password))
+                : data;
+            
+            var sourceAccounts = JsonSerializer.Deserialize<List<Account>>(decryptedData);
 
             var authenticators = new List<Authenticator>();
             var categories = new List<Category>();
@@ -108,7 +102,7 @@ namespace Stratum.Core.Converter
             return (KeyParameter) generator.GenerateDerivedParameters(BaseAlgorithm, KeyLength * 8);
         }
 
-        private static string Decrypt(byte[] data, string password)
+        private static byte[] Decrypt(byte[] data, string password)
         {
             var iterations = BinaryPrimitives.ReadUInt32BigEndian(data.Take(IterationsLength).ToArray());
             var salt = data.Skip(IterationsLength).Take(SaltLength).ToArray();
@@ -121,50 +115,46 @@ namespace Stratum.Core.Converter
             var cipher = CipherUtilities.GetCipher(AlgorithmDescription);
             cipher.Init(false, keyParameter);
 
-            byte[] decrypted;
-
             try
             {
-                decrypted = cipher.DoFinal(payload);
+                return cipher.DoFinal(payload);
             }
             catch (InvalidCipherTextException e)
             {
                 throw new BackupPasswordException("The password is incorrect", e);
             }
-
-            return Encoding.UTF8.GetString(decrypted);
         }
 
         private sealed class Account
         {
-            [JsonProperty(PropertyName = "secret")]
+            [JsonPropertyName("secret")]
             public string Secret { get; set; }
 
-            [JsonProperty(PropertyName = "issuer")]
+            [JsonPropertyName("issuer")]
             public string Issuer { get; set; }
 
-            [JsonProperty(PropertyName = "label")]
+            [JsonPropertyName("label")]
             public string Label { get; set; }
 
-            [JsonProperty(PropertyName = "digits")]
+            [JsonPropertyName("digits")]
             public int Digits { get; set; }
 
-            [JsonProperty(PropertyName = "type")]
+            [JsonPropertyName("type")]
             public string Type { get; set; }
 
-            [JsonProperty(PropertyName = "algorithm")]
+            [JsonPropertyName("algorithm")]
             public string Algorithm { get; set; }
 
-            [JsonProperty(PropertyName = "thumbnail")]
+            [JsonPropertyName("thumbnail")]
             public string Thumbnail { get; set; }
 
-            [JsonProperty(PropertyName = "period")]
+            [JsonPropertyName("period")]
             public int? Period { get; set; }
 
-            [JsonProperty(PropertyName = "counter")]
+            [JsonPropertyName("counter")]
             public int Counter { get; set; }
 
-            [JsonProperty(PropertyName = "tags")]
+            [JsonPropertyName("tags")]
             public List<string> Tags { get; set; }
 
             public Authenticator Convert(IIconResolver iconResolver)

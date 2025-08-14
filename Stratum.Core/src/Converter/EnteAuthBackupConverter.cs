@@ -3,8 +3,9 @@
 
 using System;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using Org.BouncyCastle.Crypto;
 using Stratum.Core.Backup;
 using Stratum.Core.Converter.Crypto;
@@ -25,14 +26,12 @@ namespace Stratum.Core.Converter
         
         public override async Task<ConversionResult> ConvertAsync(byte[] data, string password = null)
         {
-            var jsonOrText = Encoding.UTF8.GetString(data);
-            
             if (password == null)
             {
                 return await base.ConvertAsync(data);
             }
             
-            var backup = JsonConvert.DeserializeObject<EnteBackup>(jsonOrText);
+            var backup = JsonSerializer.Deserialize<EnteBackup>(data);
 
             if (backup.Version != 1)
             {
@@ -82,28 +81,28 @@ namespace Stratum.Core.Converter
         
         private sealed class EnteBackup
         {
-            [JsonProperty(PropertyName = "version")]
+            [JsonPropertyName("version")]
             public int Version { get; set; }
             
-            [JsonProperty(PropertyName = "kdfParams")]
+            [JsonPropertyName("kdfParams")]
             public KdfParams DerivationParams { get; set; }
             
-            [JsonProperty(PropertyName = "encryptedData")]
+            [JsonPropertyName("encryptedData")]
             public string EncryptedData { get; set; }
             
-            [JsonProperty(PropertyName = "encryptionNonce")]
+            [JsonPropertyName("encryptionNonce")]
             public string EncryptionNonce { get; set; }
         }
 
         private sealed class KdfParams
         {
-            [JsonProperty(PropertyName = "memLimit")]
+            [JsonPropertyName("memLimit")]
             public long MemoryLimit { get; set; } 
             
-            [JsonProperty(PropertyName = "opsLimit")]
+            [JsonPropertyName("opsLimit")]
             public int OperationsLimit { get; set; } 
             
-            [JsonProperty(PropertyName = "salt")]
+            [JsonPropertyName("salt")]
             public string Salt { get; set; } 
         }
     }
