@@ -179,7 +179,7 @@ namespace Stratum.Droid.Activity
             {
                 _pauseTime = new DateTime(savedInstanceState.GetLong("pauseTime"));
                 _lastBackupReminderTime = new DateTime(savedInstanceState.GetLong("lastBackupReminderTime"));
-                var lastCategorySelector = savedInstanceState.GetObject<CategorySelector>("categorySelect");
+                var lastCategorySelector = savedInstanceState.GetObject<CategorySelector>("categorySelector");
                 
                 if (Preferences.DefaultCategory != null)
                 {
