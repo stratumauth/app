@@ -17,7 +17,6 @@ using AndroidX.AppCompat.App;
 using AndroidX.Fragment.App;
 using AndroidX.Wear.Widget;
 using AndroidX.Wear.Widget.Drawer;
-using Java.IO;
 using Stratum.Droid.Shared.Util;
 using Stratum.Droid.Shared.Wear;
 using Stratum.WearOS.Cache;
@@ -343,22 +342,19 @@ namespace Stratum.WearOS
 
             var client = WearableClass.GetChannelClient(this);
             var channel = await client.OpenChannelAsync(_serverNode.Id, GetSyncBundlePath);
-
-            InputStream stream = null;
-            byte[] data;
-
+            
+            WearSyncBundle bundle;
+            
             try
             {
-                stream = await client.GetInputStreamAsync(channel);
-                data = await StreamUtil.ReadAllBytesAsync(stream);
+                using var stream = await client.GetInputStreamAsync(channel);
+                bundle = await JsonSerializer.DeserializeAsync<WearSyncBundle>(new InputStreamAdapter(stream));
             }
             finally
             {
-                stream.Close();
                 await client.CloseAsync(channel);
             }
-
-            var bundle = JsonSerializer.Deserialize<WearSyncBundle>(data);
+            
             await OnSyncBundleReceived(bundle);
         }
 
