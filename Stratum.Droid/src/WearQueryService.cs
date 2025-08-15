@@ -16,6 +16,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
+using Stratum.Droid.Interface;
 using Stratum.Droid.Persistence.View;
 
 namespace Stratum.Droid
@@ -49,6 +50,8 @@ namespace Stratum.Droid
             _authenticatorView = _container.Resolve<IAuthenticatorView>();
             _categoryService = _container.Resolve<ICategoryService>();
             _customIconService = _container.Resolve<ICustomIconService>();
+            
+            _authenticatorView.CategorySelector = CategorySelector.Of(MetaCategory.All);
         }
 
         public override void OnCreate()
