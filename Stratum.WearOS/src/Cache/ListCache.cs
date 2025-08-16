@@ -105,7 +105,7 @@ namespace Stratum.WearOS.Cache
 
             try
             {
-                await using var stream = File.OpenWrite(GetFilePath());
+                await using var stream = File.Open(GetFilePath(), FileMode.Create);
                 await JsonSerializer.SerializeAsync(stream, _items);
             }
             finally
