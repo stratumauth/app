@@ -51,20 +51,20 @@ def build_map(files: list):
     file.write("    // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY\n")
     file.write("    public static class IconMap\n")
     file.write("    {\n")
-    file.write("        public static readonly Dictionary<string, int> Service = new Dictionary<string, int>\n")
+    file.write("        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>\n")
     file.write("        {\n")
 
     for icon in standard:
         file.write("            { " + f'"{icon}", Resource.Drawable.' + RES_PREFIX + icon + " },\n")
 
-    file.write("        };\n\n")
-    file.write("        public static readonly Dictionary<string, int> ServiceDark = new Dictionary<string, int>\n")
+    file.write("        }.AsReadOnly();\n\n")
+    file.write("        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>\n")
     file.write("        {\n")
 
     for icon in dark:
         file.write("            { " + '"' + icon[:-len(DARK_SUFFIX)] + '", Resource.Drawable.' + RES_PREFIX + icon + " },\n")
 
-    file.write("        };\n")
+    file.write("        }.AsReadOnly();\n")
     file.write("    }\n")
     file.write("}")
     # fmt: on
