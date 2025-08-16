@@ -1838,16 +1838,12 @@ namespace Stratum.Droid.Activity
 
             try
             {
+                await _authenticatorService.AddAsync(args.Authenticator);
+                
                 if (_authenticatorView.CategorySelector.IsCategory(out var categoryId))
                 {
-                    await _authenticatorService.AddAsync(args.Authenticator);
-
                     var category = await _categoryService.GetCategoryByIdAsync(categoryId);
                     await _categoryService.AddBindingAsync(args.Authenticator, category);
-                }
-                else
-                {
-                    await _authenticatorService.AddAsync(args.Authenticator);
                 }
             }
             catch (EntityDuplicateException)
