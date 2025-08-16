@@ -43,7 +43,7 @@ def build_map(files: list):
     file = open(map_path, "w")
 
     # fmt: off
-    file.write("// Copyright (C) 2024 jmh\n")
+    file.write("// Copyright (C) 2025 jmh\n")
     file.write("// SPDX-License-Identifier: GPL-3.0-only\n\n")
     file.write("using System.Collections.Generic;\n\n")
     file.write("namespace Stratum.Droid.Shared\n")
@@ -51,18 +51,18 @@ def build_map(files: list):
     file.write("    // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY\n")
     file.write("    public static class IconMap\n")
     file.write("    {\n")
-    file.write("        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>\n")
+    file.write(f"        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>({len(standard)})\n")
     file.write("        {\n")
 
     for icon in standard:
-        file.write("            { " + f'"{icon}", Resource.Drawable.' + RES_PREFIX + icon + " },\n")
+        file.write("            [" + f'"{icon}"] = Resource.Drawable.' + RES_PREFIX + icon + ",\n")
 
     file.write("        }.AsReadOnly();\n\n")
-    file.write("        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>\n")
+    file.write(f"        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>({len(dark)})\n")
     file.write("        {\n")
 
     for icon in dark:
-        file.write("            { " + '"' + icon[:-len(DARK_SUFFIX)] + '", Resource.Drawable.' + RES_PREFIX + icon + " },\n")
+        file.write("            [" + '"' + icon[:-len(DARK_SUFFIX)] + '"] = Resource.Drawable.' + RES_PREFIX + icon + ",\n")
 
     file.write("        }.AsReadOnly();\n")
     file.write("    }\n")
