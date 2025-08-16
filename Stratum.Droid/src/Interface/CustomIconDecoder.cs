@@ -86,9 +86,8 @@ namespace Stratum.Droid.Interface
             var width = bitmap.Width;
             var height = bitmap.Height;
 
-            using var alphaMap = bitmap.ExtractAlpha();
             var pixels = new int[width * height];
-            alphaMap.GetPixels(pixels, 0, width, 0, 0, width, height);
+            bitmap.GetPixels(pixels, 0, width, 0, 0, width, height);
 
             bool IsTransparent(int x, int y)
             {
