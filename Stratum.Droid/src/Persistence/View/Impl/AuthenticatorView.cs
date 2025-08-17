@@ -32,6 +32,7 @@ namespace Stratum.Droid.Persistence.View.Impl
         {
             _authenticatorRepository = authenticatorRepository;
             _authenticatorCategoryRepository = authenticatorCategoryRepository;
+            _categorySelector = CategorySelector.Of(MetaCategory.All);
             _view = new List<Authenticator>();
         }
 
