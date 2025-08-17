@@ -7,7 +7,7 @@ namespace Stratum.Core
 {
     public interface IAssetProvider
     {
-        public Task<byte[]> ReadBytesAsync(string path);
-        public Task<string> ReadStringAsync(string path);
+        Task<byte[]> ReadBytesAsync(string path);
+        Task<string> ReadStringAsync(string path);
     }
 }

@@ -8,7 +8,7 @@ namespace Stratum.Droid.Persistence.View
 {
     public interface IIconPackView : IView<IconPack>
     {
-        public Task LoadFromPersistenceAsync();
-        public int IndexOf(string name);
+        Task LoadFromPersistenceAsync();
+        int IndexOf(string name);
     }
 }

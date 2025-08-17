@@ -7,8 +7,8 @@ namespace Stratum.Core.Backup.Encryption
 {
     public interface IBackupEncryption
     {
-        public Task<byte[]> EncryptAsync(Backup backup, string password);
-        public Task<Backup> DecryptAsync(byte[] data, string password);
-        public bool CanBeDecrypted(byte[] data);
+        Task<byte[]> EncryptAsync(Backup backup, string password);
+        Task<Backup> DecryptAsync(byte[] data, string password);
+        bool CanBeDecrypted(byte[] data);
     }
 }

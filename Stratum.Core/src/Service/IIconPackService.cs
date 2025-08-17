@@ -8,7 +8,7 @@ namespace Stratum.Core.Service
 {
     public interface IIconPackService
     {
-        public Task ImportPackAsync(IconPack pack);
-        public Task DeletePackAsync(IconPack pack);
+        Task ImportPackAsync(IconPack pack);
+        Task DeletePackAsync(IconPack pack);
     }
 }

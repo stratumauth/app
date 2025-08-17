@@ -5,6 +5,6 @@ namespace Stratum.Core
 {
     public interface IIconResolver
     {
-        public string FindServiceKeyByName(string name);
+        string FindServiceKeyByName(string name);
     }
 }

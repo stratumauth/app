@@ -9,7 +9,7 @@ namespace Stratum.Droid.Persistence.View
 {
     public interface ICustomIconView : IView<KeyValuePair<string, Bitmap>>
     {
-        public Task LoadFromPersistenceAsync();
-        public Bitmap GetOrDefault(string id);
+        Task LoadFromPersistenceAsync();
+        Bitmap GetOrDefault(string id);
     }
 }

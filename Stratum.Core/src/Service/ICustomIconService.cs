@@ -9,9 +9,9 @@ namespace Stratum.Core.Service
 {
     public interface ICustomIconService
     {
-        public Task AddIfNotExistsAsync(CustomIcon icon);
-        public Task<int> AddManyAsync(IEnumerable<CustomIcon> icons);
-        public Task<List<CustomIcon>> GetAllAsync();
-        public Task CullUnusedAsync();
+        Task AddIfNotExistsAsync(CustomIcon icon);
+        Task<int> AddManyAsync(IEnumerable<CustomIcon> icons);
+        Task<List<CustomIcon>> GetAllAsync();
+        Task CullUnusedAsync();
     }
 }

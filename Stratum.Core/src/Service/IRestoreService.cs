@@ -8,7 +8,7 @@ namespace Stratum.Core.Service
 {
     public interface IRestoreService
     {
-        public Task<RestoreResult> RestoreAsync(Backup.Backup backup);
-        public Task<RestoreResult> RestoreAndUpdateAsync(Backup.Backup backup);
+        Task<RestoreResult> RestoreAsync(Backup.Backup backup);
+        Task<RestoreResult> RestoreAndUpdateAsync(Backup.Backup backup);
     }
 }

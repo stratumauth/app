@@ -11,13 +11,13 @@ namespace Stratum.Droid.Persistence.View
 {
     public interface IAuthenticatorView : IReorderableView<Authenticator>
     {
-        public string Search { get; set; }
-        public CategorySelector CategorySelector { get; set; }
-        public SortMode SortMode { get; set; }
-        public Task LoadFromPersistenceAsync();
-        public bool AnyWithoutFilter();
-        public int IndexOf(Authenticator auth);
-        public IEnumerable<AuthenticatorCategory> GetCurrentBindings();
-        public void CommitRanking();
+        string Search { get; set; }
+        CategorySelector CategorySelector { get; set; }
+        SortMode SortMode { get; set; }
+        Task LoadFromPersistenceAsync();
+        bool AnyWithoutFilter();
+        int IndexOf(Authenticator auth);
+        IEnumerable<AuthenticatorCategory> GetCurrentBindings();
+        void CommitRanking();
     }
 }

@@ -8,6 +8,6 @@ namespace Stratum.Core
 {
     public interface ICustomIconDecoder
     {
-        public Task<CustomIcon> DecodeAsync(byte[] data, bool shouldPreProcess);
+        Task<CustomIcon> DecodeAsync(byte[] data, bool shouldPreProcess);
     }
 }

@@ -7,7 +7,7 @@ namespace Stratum.Droid.Persistence.View
 {
     public interface IDefaultIconView : IView<KeyValuePair<string, int>>
     {
-        public string Search { get; set; }
-        public bool UseDarkTheme { get; set; }
+        string Search { get; set; }
+        bool UseDarkTheme { get; set; }
     }
 }

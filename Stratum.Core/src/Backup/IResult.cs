@@ -5,6 +5,6 @@ namespace Stratum.Core.Backup
 {
     public interface IResult
     {
-        public bool IsVoid();
+        bool IsVoid();
     }
 }

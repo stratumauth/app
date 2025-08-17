@@ -7,6 +7,6 @@ namespace Stratum.Droid.Persistence.View
 {
     public interface IView<out T> : IReadOnlyList<T>
     {
-        public void Update();
+        void Update();
     }
 }

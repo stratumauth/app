@@ -10,7 +10,7 @@ namespace Stratum.Core.Service
 {
     public interface IImportService
     {
-        public Task<ValueTuple<ConversionResult, RestoreResult>> ImportAsync(BackupConverter converter, byte[] data,
+        Task<ValueTuple<ConversionResult, RestoreResult>> ImportAsync(BackupConverter converter, byte[] data,
             string password);
     }
 }

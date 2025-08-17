@@ -8,7 +8,7 @@ namespace Stratum.Droid.Persistence.View
 {
     public interface ICategoryView : IReorderableView<Category>
     {
-        public Task LoadFromPersistenceAsync();
-        public int IndexOf(string id);
+        Task LoadFromPersistenceAsync();
+        int IndexOf(string id);
     }
 }

@@ -5,6 +5,6 @@ namespace Stratum.Droid.Persistence.View
 {
     public interface IReorderableView<out T> : IView<T>
     {
-        public void Swap(int oldPosition, int newPosition);
+        void Swap(int oldPosition, int newPosition);
     }
 }

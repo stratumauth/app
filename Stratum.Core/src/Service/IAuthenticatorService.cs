@@ -10,17 +10,17 @@ namespace Stratum.Core.Service
 {
     public interface IAuthenticatorService
     {
-        public Task AddAsync(Authenticator auth);
-        public Task UpdateAsync(Authenticator auth);
-        public Task<int> UpdateManyAsync(IEnumerable<Authenticator> auths);
-        public Task ChangeSecretAsync(Authenticator auth, string newSecret);
-        public Task SetIconAsync(Authenticator auth, string icon);
-        public Task SetCustomIconAsync(Authenticator auth, CustomIcon icon);
-        public Task<int> AddManyAsync(IEnumerable<Authenticator> auths);
-        public Task<ValueTuple<int, int>> AddOrUpdateManyAsync(IEnumerable<Authenticator> auths);
-        public Task DeleteWithCategoryBindingsAsync(Authenticator auth);
-        public Task IncrementCounterAsync(Authenticator auth);
-        public Task IncrementCopyCountAsync(Authenticator auth);
-        public Task ResetCopyCountsAsync();
+        Task AddAsync(Authenticator auth);
+        Task UpdateAsync(Authenticator auth);
+        Task<int> UpdateManyAsync(IEnumerable<Authenticator> auths);
+        Task ChangeSecretAsync(Authenticator auth, string newSecret);
+        Task SetIconAsync(Authenticator auth, string icon);
+        Task SetCustomIconAsync(Authenticator auth, CustomIcon icon);
+        Task<int> AddManyAsync(IEnumerable<Authenticator> auths);
+        Task<ValueTuple<int, int>> AddOrUpdateManyAsync(IEnumerable<Authenticator> auths);
+        Task DeleteWithCategoryBindingsAsync(Authenticator auth);
+        Task IncrementCounterAsync(Authenticator auth);
+        Task IncrementCopyCountAsync(Authenticator auth);
+        Task ResetCopyCountsAsync();
     }
 }

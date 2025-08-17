@@ -10,8 +10,8 @@ namespace Stratum.Core.Persistence
 {
     public interface IIconPackEntryRepository : IAsyncRepository<IconPackEntry, ValueTuple<string, string>>
     {
-        public Task CreateManyAsync(List<IconPackEntry> items);
-        public Task<List<IconPackEntry>> GetAllForPackAsync(IconPack pack);
-        public Task DeleteAllForPackAsync(IconPack pack);
+        Task CreateManyAsync(List<IconPackEntry> items);
+        Task<List<IconPackEntry>> GetAllForPackAsync(IconPack pack);
+        Task DeleteAllForPackAsync(IconPack pack);
     }
 }

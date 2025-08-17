@@ -8,10 +8,10 @@ namespace Stratum.Core.Persistence
 {
     public interface IAsyncRepository<T, in TU> where T : new()
     {
-        public Task CreateAsync(T item);
-        public Task<T> GetAsync(TU id);
-        public Task<List<T>> GetAllAsync();
-        public Task UpdateAsync(T item);
-        public Task DeleteAsync(T item);
+        Task CreateAsync(T item);
+        Task<T> GetAsync(TU id);
+        Task<List<T>> GetAllAsync();
+        Task UpdateAsync(T item);
+        Task DeleteAsync(T item);
     }
 }

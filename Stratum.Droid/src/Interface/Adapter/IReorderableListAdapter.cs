@@ -5,8 +5,8 @@ namespace Stratum.Droid.Interface.Adapter
 {
     public interface IReorderableListAdapter
     {
-        public void MoveItemView(int oldPosition, int newPosition);
-        public void OnMovementStarted();
-        public void OnMovementFinished(bool orderChanged);
+        void MoveItemView(int oldPosition, int newPosition);
+        void OnMovementStarted();
+        void OnMovementFinished(bool orderChanged);
     }
 }

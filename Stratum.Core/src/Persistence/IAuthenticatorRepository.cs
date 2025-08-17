@@ -8,6 +8,6 @@ namespace Stratum.Core.Persistence
 {
     public interface IAuthenticatorRepository : IAsyncRepository<Authenticator, string>
     {
-        public Task ChangeSecretAsync(string oldSecret, string newSecret);
+        Task ChangeSecretAsync(string oldSecret, string newSecret);
     }
 }

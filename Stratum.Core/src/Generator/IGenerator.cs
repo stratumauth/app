@@ -5,6 +5,6 @@ namespace Stratum.Core.Generator
 {
     public interface IGenerator
     {
-        public string Compute(long counter);
+        string Compute(long counter);
     }
 }

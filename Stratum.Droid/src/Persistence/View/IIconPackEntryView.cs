@@ -10,7 +10,7 @@ namespace Stratum.Droid.Persistence.View
 {
     public interface IIconPackEntryView : IView<KeyValuePair<string, Bitmap>>
     {
-        public string Search { get; set; }
-        public Task LoadFromPersistenceAsync(IconPack pack);
+        string Search { get; set; }
+        Task LoadFromPersistenceAsync(IconPack pack);
     }
 }
