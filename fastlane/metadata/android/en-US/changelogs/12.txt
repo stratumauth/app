@@ -1,0 +1,6 @@
+- New feature: Show uncategorized entries
+- New feature: Import from Proton Authenticator
+- New feature: Ability to lock custom sorting
+- General: 38 new and updated icons
+- General: Improved unlock speed
+- General: Translation updates
