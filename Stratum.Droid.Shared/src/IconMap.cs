@@ -8,7 +8,7 @@ namespace Stratum.Droid.Shared
     // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY
     public static class IconMap
     {
-        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(789)
+        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(792)
         {
             ["123formbuilder"] = Resource.Drawable.auth_123formbuilder,
             ["15five"] = Resource.Drawable.auth_15five,
@@ -30,6 +30,7 @@ namespace Stratum.Droid.Shared
             ["admitad"] = Resource.Drawable.auth_admitad,
             ["adobe"] = Resource.Drawable.auth_adobe,
             ["adyen"] = Resource.Drawable.auth_adyen,
+            ["aerlingus"] = Resource.Drawable.auth_aerlingus,
             ["affinity"] = Resource.Drawable.auth_affinity,
             ["aikq"] = Resource.Drawable.auth_aikq,
             ["airbrake"] = Resource.Drawable.auth_airbrake,
@@ -535,6 +536,7 @@ namespace Stratum.Droid.Shared
             ["pcloud"] = Resource.Drawable.auth_pcloud,
             ["peertube"] = Resource.Drawable.auth_peertube,
             ["phrase"] = Resource.Drawable.auth_phrase,
+            ["pihole"] = Resource.Drawable.auth_pihole,
             ["pinterest"] = Resource.Drawable.auth_pinterest,
             ["pixelfed"] = Resource.Drawable.auth_pixelfed,
             ["pixieset"] = Resource.Drawable.auth_pixieset,
@@ -749,6 +751,7 @@ namespace Stratum.Droid.Shared
             ["wasabi"] = Resource.Drawable.auth_wasabi,
             ["wax"] = Resource.Drawable.auth_wax,
             ["wazirx"] = Resource.Drawable.auth_wazirx,
+            ["wbgames"] = Resource.Drawable.auth_wbgames,
             ["wealthfront"] = Resource.Drawable.auth_wealthfront,
             ["webde"] = Resource.Drawable.auth_webde,
             ["webflow"] = Resource.Drawable.auth_webflow,
