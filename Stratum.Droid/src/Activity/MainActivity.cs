@@ -1730,8 +1730,15 @@ namespace Stratum.Droid.Activity
 
             fragment.CancelClicked += (sender, _) =>
             {
-                // TODO: Delete empty file only if we just created it
-                // DocumentsContract.DeleteDocument(ContentResolver, uri);
+                try
+                {
+                    DocumentsContract.DeleteDocument(ContentResolver, destination);
+                }
+                catch (Exception e)
+                {
+                    _log.Warning(e, "Failed to delete document after backup cancel");
+                }
+
                 ((BackupPasswordBottomSheet) sender).Dismiss();
             };
 
