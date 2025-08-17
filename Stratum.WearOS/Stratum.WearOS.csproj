@@ -27,18 +27,18 @@
         <RuntimeIdentifiers>android-arm;android-arm64;android-x86;android-x64</RuntimeIdentifiers>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Autofac" Version="8.3.0" />
+        <PackageReference Include="Autofac" Version="8.4.0" />
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Mono.AotProfiler.Android" Version="9.0.0" />
-        <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.16" />
-        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.8.7.4" />
-        <PackageReference Include="Xamarin.AndroidX.Wear" Version="1.3.0.14" />
-        <PackageReference Include="Xamarin.AndroidX.Wear.Tiles" Version="1.5.0" />
-        <PackageReference Include="Xamarin.AndroidX.Wear.Tiles.Material" Version="1.5.0" />
-        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.12.0.4" />
-        <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="119.0.0.3" />
+        <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.17" />
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.9.2.1" />
+        <PackageReference Include="Xamarin.AndroidX.Wear" Version="1.3.0.15" />
+        <PackageReference Include="Xamarin.AndroidX.Wear.Tiles" Version="1.5.0.1" />
+        <PackageReference Include="Xamarin.AndroidX.Wear.Tiles.Material" Version="1.5.0.1" />
+        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.12.0.5" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="119.0.0.4" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Stratum.Droid.Shared\Stratum.Droid.Shared.csproj" />

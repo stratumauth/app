@@ -10,7 +10,7 @@
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.14" />
+        <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.15" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Stratum.Core\Stratum.Core.csproj" />
