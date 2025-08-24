@@ -1,3 +1,0 @@
-- General: Bug fixes
-- General: Set Wear OS default on long press
-- General: Translation updates

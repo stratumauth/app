@@ -1,2 +1,0 @@
-Fixed crash with invalid QR codes.
-Added 2 new icons.

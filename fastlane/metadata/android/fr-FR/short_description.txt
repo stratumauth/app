@@ -1,1 +1,0 @@
-Application 2FA open-source avec sauvegardes chiffrées

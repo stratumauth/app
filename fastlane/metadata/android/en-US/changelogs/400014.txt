@@ -1,1 +1,0 @@
-Make application more reponsive.

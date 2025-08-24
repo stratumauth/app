@@ -1,6 +1,0 @@
-- New feature: Custom icons
-- New feature: Backup reminders
-- New feature: Tiled view mode
-- Many new icons included
-- Further design improvements and bug fixes
-- Wear OS: Improved performance and tweaks

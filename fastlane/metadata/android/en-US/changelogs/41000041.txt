@@ -1,3 +1,0 @@
-- Icons: New icon for Mastodon + fixes.
-- General: Bug fix + slight performance improvements.
-- Wear OS: Potential bug fix.

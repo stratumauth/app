@@ -1,1 +1,0 @@
-Şifreli yedeklemelere sahip açık kaynaklı 2FA uygulaması

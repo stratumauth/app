@@ -1,3 +1,0 @@
-- General: Fixed bug with app closing on first launch
-- General: 3 new icons
-- General: Translation updates

@@ -1,1 +1,0 @@
-- Prevent crash when generating too many digits.

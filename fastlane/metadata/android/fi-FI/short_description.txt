@@ -1,1 +1,0 @@
-Avoimen lähdekoodin 2FA-sovellus salatuilla varmuuskopioilla

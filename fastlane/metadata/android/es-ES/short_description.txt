@@ -1,1 +1,0 @@
-Aplicación 2FA de código abierto con copias de seguridad encriptadas

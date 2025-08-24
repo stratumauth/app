@@ -1,3 +1,0 @@
-- General: Added adaptive app icon
-- General: 1 new icon
-- General: Translation updates

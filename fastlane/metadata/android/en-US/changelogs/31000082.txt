@@ -1,3 +1,0 @@
-- New feature: Import from 2FAS
-- General: New icon
-- General: Translation updates

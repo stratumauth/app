@@ -1,1 +1,0 @@
-Slobodná 2FA aplikácia so šifrovanými zálohami

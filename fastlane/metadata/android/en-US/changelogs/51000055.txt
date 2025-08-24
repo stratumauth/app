@@ -1,3 +1,0 @@
-- New Feature: Ability to set default category
-- General: UI tweaks
-- General: Translation updates

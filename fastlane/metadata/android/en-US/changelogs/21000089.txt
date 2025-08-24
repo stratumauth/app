@@ -1,3 +1,0 @@
-- New feature: Change tap to reveal duration
-- General: 7 new icons
-- General: Translation updates

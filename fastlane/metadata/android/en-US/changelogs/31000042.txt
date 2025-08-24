@@ -1,2 +1,0 @@
-- General: Added option to toggle password visibility on backup.
-- General: Fixed issue when scanning some QR codes.

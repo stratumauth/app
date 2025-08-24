@@ -1,3 +1,0 @@
-- New feature: Mobile-OTP (mOTP) support
-- General: New icon for Porkbun
-- General: Slight performance improvements.

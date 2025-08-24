@@ -1,1 +1,0 @@
-Aplikace 2FA s šifrovanými zálohami a otevřeným kódem

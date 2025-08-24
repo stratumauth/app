@@ -1,1 +1,0 @@
-Atvērtā pirmkoda divpakāpju autorizācijas (2FA) lietotne ar šifrētiem dublējumiem

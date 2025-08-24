@@ -1,5 +1,0 @@
-- General: Added support for predictive back animations
-- General: Last category is remembered when there is no default
-- General: 2 new icons + 16 updated icons
-- General: UI improvements
-- Wear OS: Progress now spins counter clockwise

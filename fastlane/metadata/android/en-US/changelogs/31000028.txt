@@ -1,3 +1,0 @@
-- Prevent crashing when changing encryption mode.
-- Further design tweaks.
-- Improvements to German translation.

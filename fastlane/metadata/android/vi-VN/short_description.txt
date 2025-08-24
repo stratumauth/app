@@ -1,1 +1,0 @@
-Ứng dụng 2FA nguồn mở với khả năng sao lưu được mã hóa

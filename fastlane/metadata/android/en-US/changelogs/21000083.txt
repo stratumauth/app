@@ -1,3 +1,0 @@
-- General: Bug fix
-- General: 2 new icons
-- General: Translation updates

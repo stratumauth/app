@@ -1,7 +1,0 @@
-- New feature: Import from KeePass (KDBX 4. databases)
-- New feature: Import HTML backups directly
-- Wear OS: Fixed issue when swiping back from code
-- Wear OS: General performance and usability improvements
-- General: 6 new icons
-- General: Updated Material You theme
-- General: Translation updates
