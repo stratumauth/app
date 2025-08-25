@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="sk">
     <string name="noAuthenticators">Žiadne autentifikátory</string>
     <string name="noAuthenticatorsMessage">Nie je tu nič. Pridajte autentifikátory z mobilnej aplikácie. </string>
     <string name="hotpNotSupported">HOTP nie je podporované</string>
