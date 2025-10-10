@@ -976,7 +976,9 @@ namespace Stratum.Droid.Activity
                 categoryName = category.Name;
             }
 
-            var isCategorySwitched = !_authenticatorView.CategorySelector.Equals(selector);
+            var shouldAnimateTransition = _authenticatorView.CategorySelector != null &&
+                                          !_authenticatorView.CategorySelector.Equals(selector);
+            
             _authenticatorView.CategorySelector = selector;
 
             UpdateBackpressIntercept();
@@ -987,7 +989,7 @@ namespace Stratum.Droid.Activity
                 SupportActionBar.Title = categoryName;
                 SupportActionBar.SetDisplayShowTitleEnabled(true);
 
-                if (isCategorySwitched)
+                if (shouldAnimateTransition)
                 {
                     _authenticatorListAdapter.NotifyDataSetChanged();
                     _authenticatorList.ScheduleLayoutAnimation();
