@@ -8,7 +8,7 @@ namespace Stratum.Droid.Shared
     // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY
     public static class IconMap
     {
-        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(792)
+        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(794)
         {
             ["123formbuilder"] = Resource.Drawable.auth_123formbuilder,
             ["15five"] = Resource.Drawable.auth_15five,
@@ -413,6 +413,7 @@ namespace Stratum.Droid.Shared
             ["lnkbio"] = Resource.Drawable.auth_lnkbio,
             ["logingov"] = Resource.Drawable.auth_logingov,
             ["logmein"] = Resource.Drawable.auth_logmein,
+            ["lufthansa"] = Resource.Drawable.auth_lufthansa,
             ["luno"] = Resource.Drawable.auth_luno,
             ["macstadium"] = Resource.Drawable.auth_macstadium,
             ["maicoin"] = Resource.Drawable.auth_maicoin,
@@ -474,6 +475,7 @@ namespace Stratum.Droid.Shared
             ["namecom"] = Resource.Drawable.auth_namecom,
             ["namesilo"] = Resource.Drawable.auth_namesilo,
             ["nationsglory"] = Resource.Drawable.auth_nationsglory,
+            ["netbird"] = Resource.Drawable.auth_netbird,
             ["netcup"] = Resource.Drawable.auth_netcup,
             ["netlify"] = Resource.Drawable.auth_netlify,
             ["newegg"] = Resource.Drawable.auth_newegg,
@@ -804,7 +806,7 @@ namespace Stratum.Droid.Shared
             ["zyxel"] = Resource.Drawable.auth_zyxel,
         }.AsReadOnly();
 
-        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(236)
+        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(237)
         {
             ["1password"] = Resource.Drawable.auth_1password_dark,
             ["3cx"] = Resource.Drawable.auth_3cx_dark,
@@ -931,6 +933,7 @@ namespace Stratum.Droid.Shared
             ["lednio"] = Resource.Drawable.auth_lednio_dark,
             ["lemmy"] = Resource.Drawable.auth_lemmy_dark,
             ["lichess"] = Resource.Drawable.auth_lichess_dark,
+            ["lufthansa"] = Resource.Drawable.auth_lufthansa_dark,
             ["luno"] = Resource.Drawable.auth_luno_dark,
             ["macstadium"] = Resource.Drawable.auth_macstadium_dark,
             ["mailchimp"] = Resource.Drawable.auth_mailchimp_dark,
