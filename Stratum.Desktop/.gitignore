@@ -1,0 +1,39 @@
+# Build outputs
+bin/
+obj/
+releases/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Publish outputs
+publish/
+*.exe
+*.dll
+*.pdb
+
+# User-specific files
+*.rsuser
+*.userprefs
+
+# Test results
+TestResults/
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
