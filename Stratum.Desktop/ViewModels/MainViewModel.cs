@@ -118,6 +118,12 @@ namespace Stratum.Desktop.ViewModels
 
         private void ApplyFilter()
         {
+            // Run filter asynchronously to avoid UI thread blocking
+            _ = ApplyFilterAsync();
+        }
+
+        private async Task ApplyFilterAsync()
+        {
             var filtered = _authenticators.AsEnumerable();
 
             if (!string.IsNullOrWhiteSpace(_searchText))
@@ -130,19 +136,23 @@ namespace Stratum.Desktop.ViewModels
 
             if (_selectedCategory != null && !string.IsNullOrEmpty(_selectedCategory.Id))
             {
-                var bindings = _authenticatorCategoryRepository.GetAllForCategoryAsync(_selectedCategory).GetAwaiter().GetResult();
+                var bindings = await _authenticatorCategoryRepository.GetAllForCategoryAsync(_selectedCategory).ConfigureAwait(false);
                 var secrets = new HashSet<string>(bindings.Select(b => b.AuthenticatorSecret));
                 filtered = filtered.Where(a => secrets.Contains(a.Auth.Secret));
             }
 
-            _filteredAuthenticators.Clear();
-            foreach (var auth in filtered)
+            // Update UI on UI thread
+            await Application.Current.Dispatcher.InvokeAsync(() =>
             {
-                _filteredAuthenticators.Add(auth);
-            }
+                _filteredAuthenticators.Clear();
+                foreach (var auth in filtered)
+                {
+                    _filteredAuthenticators.Add(auth);
+                }
 
-            OnPropertyChanged(nameof(FilteredAuthenticators));
-            OnPropertyChanged(nameof(IsEmpty));
+                OnPropertyChanged(nameof(FilteredAuthenticators));
+                OnPropertyChanged(nameof(IsEmpty));
+            });
         }
 
         private void UpdateTimer_Elapsed(object sender, ElapsedEventArgs e)

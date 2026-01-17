@@ -97,6 +97,24 @@
     <system:String x:Key="SelectSource">Select a source to import from:</system:String>
     <system:String x:Key="SelectFile">Select File</system:String>
     <system:String x:Key="SelectImportSource">Please select an import source.</system:String>
+    <system:String x:Key="ImportFromOtherApp">Import from Other App</system:String>
+
+    <!-- Import Sources -->
+    <system:String x:Key="ImportSource_GoogleAuth">Google Authenticator (QR code scan or migration)</system:String>
+    <system:String x:Key="ImportSource_Aegis">Aegis Authenticator (JSON/encrypted)</system:String>
+    <system:String x:Key="ImportSource_2FAS">2FAS Authenticator (JSON)</system:String>
+    <system:String x:Key="ImportSource_Bitwarden">Bitwarden (JSON)</system:String>
+    <system:String x:Key="ImportSource_andOTP">andOTP (JSON/encrypted)</system:String>
+    <system:String x:Key="ImportSource_FreeOTP">FreeOTP (JSON)</system:String>
+    <system:String x:Key="ImportSource_FreeOTPPlus">FreeOTP+ (JSON)</system:String>
+    <system:String x:Key="ImportSource_AuthenticatorPlus">Authenticator Plus (SQLite)</system:String>
+    <system:String x:Key="ImportSource_WinAuth">WinAuth (text file)</system:String>
+    <system:String x:Key="ImportSource_TOTPAuth">TOTP Authenticator (JSON)</system:String>
+    <system:String x:Key="ImportSource_Ente">Ente Auth (encrypted/plain)</system:String>
+    <system:String x:Key="ImportSource_LastPass">LastPass Authenticator (JSON)</system:String>
+    <system:String x:Key="ImportSource_ProtonPass">Proton Pass (JSON)</system:String>
+    <system:String x:Key="ImportSource_KeePass">KeePass (KDBX)</system:String>
+    <system:String x:Key="ImportSource_URIList">URI List (text file)</system:String>
 
     <!-- Backup/Restore -->
     <system:String x:Key="BackupCreated">Backup created successfully</system:String>
@@ -109,5 +127,36 @@
     <system:String x:Key="CreateBackupPassword">Create a backup password:</system:String>
     <system:String x:Key="EnterSourcePassword">Enter the {0} backup password:</system:String>
     <system:String x:Key="HasPassword">Does this {0} backup have a password?</system:String>
+
+    <!-- Navigation -->
+    <system:String x:Key="Home">Home</system:String>
+    <system:String x:Key="About">About</system:String>
+    <system:String x:Key="Backup">Backup</system:String>
+    <system:String x:Key="Import">Import</system:String>
+
+    <!-- About Panel -->
+    <system:String x:Key="Version">Version</system:String>
+    <system:String x:Key="License">License</system:String>
+    <system:String x:Key="Links">Links</system:String>
+    <system:String x:Key="GitHubRepository">GitHub Repository</system:String>
+    <system:String x:Key="ReportIssue">Report an Issue</system:String>
+    <system:String x:Key="AboutDescription">A modern two-factor authentication app</system:String>
+
+    <!-- Backup Panel -->
+    <system:String x:Key="CreateBackupSection">Create Backup</system:String>
+    <system:String x:Key="RestoreBackupSection">Restore Backup</system:String>
+    <system:String x:Key="BackupDescription">Export your authenticators to a secure backup file.</system:String>
+    <system:String x:Key="RestoreDescription">Import authenticators from a Stratum backup file.</system:String>
+    <system:String x:Key="BackupFormats">Backup Formats:</system:String>
+    <system:String x:Key="BackupFormatEncrypted">• Encrypted (.stratum) - Recommended, password protected</system:String>
+    <system:String x:Key="BackupFormatHTML">• HTML (.html) - Unencrypted, human-readable</system:String>
+    <system:String x:Key="BackupFormatURI">• URI List (.txt) - Unencrypted, plain text</system:String>
+    <system:String x:Key="BackupWarningTitle">⚠️ Warning</system:String>
+    <system:String x:Key="BackupWarning">Restoring will either add to or replace your existing authenticators. Make sure you have a current backup before proceeding.</system:String>
+    <system:String x:Key="Tips">Tips</system:String>
+    <system:String x:Key="TipRegularBackups">• Create regular backups to prevent data loss</system:String>
+    <system:String x:Key="TipSecureStorage">• Store backups in a secure location</system:String>
+    <system:String x:Key="TipStrongPassword">• Use strong passwords for encrypted backups</system:String>
+    <system:String x:Key="TipTestBackups">• Test your backups by restoring to a test device</system:String>
 
 </ResourceDictionary>

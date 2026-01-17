@@ -1,0 +1,77 @@
+<UserControl x:Class="Stratum.Desktop.Panels.BackupPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Background="{StaticResource BackgroundBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24" MaxWidth="600">
+            <TextBlock Text="{DynamicResource BackupAndRestore}" Style="{StaticResource HeadlineStyle}" Margin="0,0,0,24"/>
+
+            <!-- Create Backup Section -->
+            <TextBlock Text="{DynamicResource CreateBackupSection}" Style="{StaticResource TitleStyle}" Margin="0,0,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource BackupDescription}"
+                               Style="{StaticResource SubtitleStyle}"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,12"/>
+
+                    <TextBlock Text="{DynamicResource BackupFormats}" FontWeight="Medium" Margin="0,0,0,8"/>
+                    <StackPanel Margin="16,0,0,12">
+                        <TextBlock Text="{DynamicResource BackupFormatEncrypted}"
+                                   Style="{StaticResource SubtitleStyle}" Margin="0,2"/>
+                        <TextBlock Text="{DynamicResource BackupFormatHTML}"
+                                   Style="{StaticResource SubtitleStyle}" Margin="0,2"/>
+                        <TextBlock Text="{DynamicResource BackupFormatURI}"
+                                   Style="{StaticResource SubtitleStyle}" Margin="0,2"/>
+                    </StackPanel>
+
+                    <Button Content="{DynamicResource CreateBackup}"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Stretch"
+                            Click="CreateBackupButton_Click"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Restore Backup Section -->
+            <TextBlock Text="{DynamicResource RestoreBackupSection}" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource RestoreDescription}"
+                               Style="{StaticResource SubtitleStyle}"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,12"/>
+
+                    <TextBlock Text="{DynamicResource BackupWarningTitle}" FontWeight="Medium" Foreground="Orange" Margin="0,0,0,4"/>
+                    <TextBlock Text="{DynamicResource BackupWarning}"
+                               Style="{StaticResource SubtitleStyle}"
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,12"/>
+
+                    <Button Content="{DynamicResource RestoreBackup}"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Stretch"
+                            Click="RestoreBackupButton_Click"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Tips Section -->
+            <TextBlock Text="{DynamicResource Tips}" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="{DynamicResource TipRegularBackups}"
+                               Style="{StaticResource SubtitleStyle}" Margin="0,2"/>
+                    <TextBlock Text="{DynamicResource TipSecureStorage}"
+                               Style="{StaticResource SubtitleStyle}" Margin="0,2"/>
+                    <TextBlock Text="{DynamicResource TipStrongPassword}"
+                               Style="{StaticResource SubtitleStyle}" Margin="0,2"/>
+                    <TextBlock Text="{DynamicResource TipTestBackups}"
+                               Style="{StaticResource SubtitleStyle}" Margin="0,2"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

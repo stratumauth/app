@@ -1,0 +1,195 @@
+<UserControl x:Class="Stratum.Desktop.Panels.HomePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Background="{StaticResource BackgroundBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="{StaticResource SurfaceBrush}"
+                BorderBrush="{StaticResource DividerBrush}" BorderThickness="0,0,0,1"
+                Padding="16,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Search Box -->
+                <TextBox x:Name="SearchBox" Grid.Column="0"
+                         Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource SearchTextBoxStyle}"
+                         Margin="0,0,12,0">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Escape" Command="{Binding ClearSearchCommand}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+
+                <!-- Category Filter -->
+                <ComboBox Grid.Column="1"
+                          ItemsSource="{Binding Categories}"
+                          SelectedItem="{Binding SelectedCategory}"
+                          DisplayMemberPath="Name"
+                          Style="{StaticResource CategoryComboBoxStyle}"/>
+            </Grid>
+        </Border>
+
+        <!-- Authenticator List -->
+        <ListBox Grid.Row="1"
+                 ItemsSource="{Binding FilteredAuthenticators}"
+                 SelectedItem="{Binding SelectedAuthenticator}"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 VirtualizingPanel.IsVirtualizing="True"
+                 VirtualizingPanel.VirtualizationMode="Recycling"
+                 ItemContainerStyle="{StaticResource AuthenticatorListItemStyle}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource CardStyle}"
+                            Margin="16,8,16,0"
+                            Cursor="Hand"
+                            MouseLeftButtonUp="AuthenticatorCard_Click">
+                        <Border.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="{DynamicResource CopyCode}" Command="{Binding DataContext.CopyCodeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                          CommandParameter="{Binding}"/>
+                                <MenuItem Header="{DynamicResource Edit}" Command="{Binding DataContext.EditAuthenticatorCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                          CommandParameter="{Binding}"/>
+                                <Separator/>
+                                <MenuItem Header="{DynamicResource ShowQRCode}" Command="{Binding DataContext.ShowQrCodeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                          CommandParameter="{Binding}"/>
+                                <Separator/>
+                                <MenuItem Header="{DynamicResource Delete}" Command="{Binding DataContext.DeleteAuthenticatorCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                          CommandParameter="{Binding}" Foreground="Red"/>
+                            </ContextMenu>
+                        </Border.ContextMenu>
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="48"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="8"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <!-- Icon -->
+                            <Border Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                    Width="40" Height="40" CornerRadius="20"
+                                    Background="{StaticResource PrimaryBrush}"
+                                    VerticalAlignment="Center" Margin="0,0,12,0">
+                                <TextBlock Text="{Binding IssuerInitial}"
+                                           FontSize="18" FontWeight="Medium"
+                                           Foreground="White"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+
+                            <!-- Issuer -->
+                            <TextBlock Grid.Column="1" Grid.Row="0"
+                                       Text="{Binding Issuer}"
+                                       Style="{StaticResource TitleStyle}"/>
+
+                            <!-- Username -->
+                            <TextBlock Grid.Column="1" Grid.Row="1"
+                                       Text="{Binding Username}"
+                                       Style="{StaticResource SubtitleStyle}"
+                                       Visibility="{Binding HasUsername, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                            <!-- OTP Code -->
+                            <TextBlock Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                                       Text="{Binding FormattedCode}"
+                                       Style="{StaticResource CodeStyle}"
+                                       Margin="0,8,0,0"/>
+
+                            <!-- Timer Progress -->
+                            <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ProgressBar Grid.Column="0"
+                                             Value="{Binding TimeRemaining, Mode=OneWay}"
+                                             Maximum="{Binding Period, Mode=OneWay}"
+                                             Style="{StaticResource TimerProgressStyle}"
+                                             Visibility="{Binding IsTimeBased, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding TimeRemaining, StringFormat={}{0}s}"
+                                           Style="{StaticResource SubtitleStyle}"
+                                           Margin="8,0,0,0"
+                                           Visibility="{Binding IsTimeBased, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+                                <!-- HOTP Refresh Button -->
+                                <Button Grid.Column="1"
+                                        Content="Refresh"
+                                        Command="{Binding DataContext.IncrementCounterCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                        CommandParameter="{Binding}"
+                                        Visibility="{Binding IsCounterBased, Converter={StaticResource BoolToVisibilityConverter}}"
+                                        Style="{StaticResource PrimaryButtonStyle}"
+                                        Padding="8,4"/>
+                            </Grid>
+
+                            <!-- Copy Indicator -->
+                            <Border Grid.Column="2" Grid.Row="0"
+                                    Visibility="{Binding JustCopied, Converter={StaticResource BoolToVisibilityConverter}}"
+                                    Background="{StaticResource SuccessBrush}"
+                                    CornerRadius="4" Padding="8,4">
+                                <TextBlock Text="{DynamicResource Copied}" Foreground="White" FontSize="11"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Empty State -->
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Visibility="{Binding IsEmpty, Converter={StaticResource BoolToVisibilityConverter}}">
+            <TextBlock Text="{DynamicResource NoAuthenticators}"
+                       Style="{StaticResource HeadlineStyle}"
+                       HorizontalAlignment="Center" Opacity="0.5"/>
+            <TextBlock Text="{DynamicResource AddYourFirst}"
+                       Style="{StaticResource SubtitleStyle}"
+                       HorizontalAlignment="Center" Margin="0,8,0,0"/>
+        </StackPanel>
+
+        <!-- Footer / Add Button -->
+        <Border Grid.Row="2"
+                Background="{StaticResource SurfaceBrush}"
+                BorderBrush="{StaticResource DividerBrush}" BorderThickness="0,1,0,0"
+                Padding="16,12">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0"
+                           Text="{Binding AuthenticatorCount, StringFormat={}{0} authenticators}"
+                           Style="{StaticResource SubtitleStyle}"
+                           VerticalAlignment="Center"/>
+
+                <Button Grid.Column="1"
+                        Content="{DynamicResource Add}"
+                        Style="{StaticResource PrimaryButtonStyle}"
+                        Command="{Binding AddAuthenticatorCommand}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

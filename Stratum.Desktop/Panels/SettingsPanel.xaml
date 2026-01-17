@@ -1,0 +1,125 @@
+<UserControl x:Class="Stratum.Desktop.Panels.SettingsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Background="{StaticResource BackgroundBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24" MaxWidth="600">
+            <TextBlock Text="{DynamicResource Settings}" Style="{StaticResource HeadlineStyle}" Margin="0,0,0,24"/>
+
+            <!-- Appearance Section -->
+            <TextBlock Text="{DynamicResource Appearance}" Style="{StaticResource TitleStyle}" Margin="0,0,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Theme" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="ThemeComboBox" Grid.Column="1" Width="150"
+                                  SelectionChanged="ThemeComboBox_SelectionChanged">
+                            <ComboBoxItem Content="Light"/>
+                            <ComboBoxItem Content="Dark"/>
+                            <ComboBoxItem Content="System"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Language / 语言" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="LanguageComboBox" Grid.Column="1" Width="150"
+                                  SelectionChanged="LanguageComboBox_SelectionChanged">
+                            <ComboBoxItem Content="English" Tag="en"/>
+                            <ComboBoxItem Content="中文" Tag="zh"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{DynamicResource ShowUsernames}" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="ShowUsernamesCheckBox" Grid.Column="1" VerticalAlignment="Center"
+                                  Checked="ShowUsernamesCheckBox_Changed" Unchecked="ShowUsernamesCheckBox_Changed"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Behavior Section -->
+            <TextBlock Text="{DynamicResource Behavior}" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{DynamicResource TapToCopy}" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="TapToCopyCheckBox" Grid.Column="1" VerticalAlignment="Center"
+                                  Checked="TapToCopyCheckBox_Changed" Unchecked="TapToCopyCheckBox_Changed"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{DynamicResource MinimizeToTray}" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="MinimizeToTrayCheckBox" Grid.Column="1" VerticalAlignment="Center"
+                                  Checked="MinimizeToTrayCheckBox_Changed" Unchecked="MinimizeToTrayCheckBox_Changed"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Sorting Section -->
+            <TextBlock Text="{DynamicResource Sorting}" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="{DynamicResource SortMode}" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="SortModeComboBox" Grid.Column="1" Width="180"
+                              SelectionChanged="SortModeComboBox_SelectionChanged">
+                        <ComboBoxItem Content="{DynamicResource SortAlphaAsc}"/>
+                        <ComboBoxItem Content="{DynamicResource SortAlphaDesc}"/>
+                        <ComboBoxItem Content="{DynamicResource SortCustom}"/>
+                    </ComboBox>
+                </Grid>
+            </Border>
+
+            <!-- Backup Section -->
+            <TextBlock Text="{DynamicResource BackupAndRestore}" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <Button Content="{DynamicResource CreateBackup}" Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Stretch" Margin="0,0,0,8"
+                            Click="CreateBackupButton_Click"/>
+                    <Button Content="{DynamicResource RestoreBackup}" Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Stretch" Margin="0,0,0,8"
+                            Click="RestoreBackupButton_Click"/>
+                    <Button Content="{DynamicResource ImportData}" Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Stretch"
+                            Click="ImportButton_Click"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Categories Section -->
+            <TextBlock Text="{DynamicResource Categories}" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <Button Content="{DynamicResource ManageCategories}" Style="{StaticResource PrimaryButtonStyle}"
+                        HorizontalAlignment="Stretch"
+                        Click="ManageCategoriesButton_Click"/>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

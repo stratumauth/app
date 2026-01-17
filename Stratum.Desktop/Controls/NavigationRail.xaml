@@ -1,0 +1,112 @@
+<UserControl x:Class="Stratum.Desktop.Controls.NavigationRail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Width="80"
+             Background="{StaticResource SurfaceBrush}">
+
+    <Border BorderBrush="{StaticResource DividerBrush}" BorderThickness="0,0,1,0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Logo/Brand Area -->
+            <Border Grid.Row="0" Padding="0,16,0,24">
+                <TextBlock Text="S"
+                           FontSize="32"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource PrimaryBrush}"
+                           HorizontalAlignment="Center"/>
+            </Border>
+
+            <!-- Navigation Items -->
+            <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                <!-- Home -->
+                <RadioButton x:Name="HomeButton"
+                             Style="{StaticResource NavigationButtonStyle}"
+                             GroupName="Navigation"
+                             IsChecked="True"
+                             Click="NavigationButton_Click"
+                             Tag="Home"
+                             ToolTip="{DynamicResource Home}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="&#x1F3E0;" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource Home}" FontSize="10" Margin="0,4,0,0" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" MaxWidth="70"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <!-- Settings -->
+                <RadioButton x:Name="SettingsButton"
+                             Style="{StaticResource NavigationButtonStyle}"
+                             GroupName="Navigation"
+                             Click="NavigationButton_Click"
+                             Tag="Settings"
+                             ToolTip="{DynamicResource Settings}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="&#x2699;" FontSize="24" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource Settings}" FontSize="10" Margin="0,4,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <!-- Categories -->
+                <RadioButton x:Name="CategoriesButton"
+                             Style="{StaticResource NavigationButtonStyle}"
+                             GroupName="Navigation"
+                             Click="NavigationButton_Click"
+                             Tag="Categories"
+                             ToolTip="{DynamicResource Categories}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="&#x1F4C1;" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource Categories}" FontSize="10" Margin="0,4,0,0" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <!-- Import -->
+                <RadioButton x:Name="ImportButton"
+                             Style="{StaticResource NavigationButtonStyle}"
+                             GroupName="Navigation"
+                             Click="NavigationButton_Click"
+                             Tag="Import"
+                             ToolTip="{DynamicResource Import}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="&#x1F4E5;" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource Import}" FontSize="10" Margin="0,4,0,0" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" MaxWidth="70"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <!-- Backup -->
+                <RadioButton x:Name="BackupButton"
+                             Style="{StaticResource NavigationButtonStyle}"
+                             GroupName="Navigation"
+                             Click="NavigationButton_Click"
+                             Tag="Backup"
+                             ToolTip="{DynamicResource Backup}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="&#x1F4BE;" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource Backup}" FontSize="10" Margin="0,4,0,0" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" MaxWidth="70"/>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+
+            <!-- About (Bottom) -->
+            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                <RadioButton x:Name="AboutButton"
+                             Style="{StaticResource NavigationButtonStyle}"
+                             GroupName="Navigation"
+                             Click="NavigationButton_Click"
+                             Tag="About"
+                             ToolTip="{DynamicResource About}">
+                    <StackPanel HorizontalAlignment="Center">
+                        <TextBlock Text="&#x2139;" FontSize="24" FontFamily="Segoe UI Symbol" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource About}" FontSize="10" Margin="0,4,0,0" HorizontalAlignment="Center" TextTrimming="CharacterEllipsis" MaxWidth="70"/>
+                    </StackPanel>
+                </RadioButton>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

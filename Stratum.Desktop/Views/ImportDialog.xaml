@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Import from Other App"
+        Title="{DynamicResource ImportFromOtherApp}"
         Height="450" Width="400"
         WindowStartupLocation="CenterOwner"
         Background="{StaticResource BackgroundBrush}">
@@ -17,8 +17,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="0,0,0,16">
-            <TextBlock Text="Import from" Style="{StaticResource HeadlineStyle}" Margin="0,0,0,8"/>
-            <TextBlock Text="Select the app you want to import from:"
+            <TextBlock Text="{DynamicResource ImportFrom}" Style="{StaticResource HeadlineStyle}" Margin="0,0,0,8"/>
+            <TextBlock Text="{DynamicResource SelectSource}"
                        Style="{StaticResource SubtitleStyle}"/>
         </StackPanel>
 
@@ -26,29 +26,29 @@
                  SelectionMode="Single"
                  BorderThickness="1"
                  BorderBrush="{StaticResource DividerBrush}">
-            <ListBoxItem Content="Google Authenticator (QR code scan or migration)"/>
-            <ListBoxItem Content="Aegis Authenticator (JSON/encrypted)"/>
-            <ListBoxItem Content="2FAS Authenticator (JSON)"/>
-            <ListBoxItem Content="Bitwarden (JSON)"/>
-            <ListBoxItem Content="andOTP (JSON/encrypted)"/>
-            <ListBoxItem Content="FreeOTP (JSON)"/>
-            <ListBoxItem Content="FreeOTP+ (JSON)"/>
-            <ListBoxItem Content="Authenticator Plus (SQLite)"/>
-            <ListBoxItem Content="WinAuth (text file)"/>
-            <ListBoxItem Content="TOTP Authenticator (JSON)"/>
-            <ListBoxItem Content="Ente Auth (encrypted/plain)"/>
-            <ListBoxItem Content="LastPass Authenticator (JSON)"/>
-            <ListBoxItem Content="Proton Pass (JSON)"/>
-            <ListBoxItem Content="KeePass (KDBX)"/>
-            <ListBoxItem Content="URI List (text file)"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_GoogleAuth}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_Aegis}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_2FAS}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_Bitwarden}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_andOTP}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_FreeOTP}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_FreeOTPPlus}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_AuthenticatorPlus}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_WinAuth}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_TOTPAuth}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_Ente}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_LastPass}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_ProtonPass}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_KeePass}"/>
+            <ListBoxItem Content="{DynamicResource ImportSource_URIList}"/>
         </ListBox>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
-            <Button Content="Cancel"
+            <Button Content="{DynamicResource Cancel}"
                     Style="{StaticResource IconButtonStyle}"
                     Width="Auto" Height="Auto" Padding="16,8"
                     Click="CancelButton_Click" Margin="0,0,8,0"/>
-            <Button Content="Select File"
+            <Button Content="{DynamicResource SelectFile}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Click="SelectFileButton_Click"/>
         </StackPanel>

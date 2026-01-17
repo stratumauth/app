@@ -197,4 +197,45 @@
         </Setter>
     </Style>
 
+    <!-- Navigation Button Style -->
+    <Style x:Key="NavigationButtonStyle" TargetType="RadioButton">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondaryBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Height" Value="72"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Margin" Value="0,4"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RadioButton">
+                    <Border x:Name="Border" Background="{TemplateBinding Background}"
+                            CornerRadius="12" Margin="8,0">
+                        <Grid>
+                            <Border x:Name="Indicator"
+                                    Width="3" Height="32"
+                                    Background="{StaticResource PrimaryBrush}"
+                                    CornerRadius="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Opacity="0"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"
+                                              Margin="8,0,0,0"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#20000000"/>
+                            <Setter TargetName="Indicator" Property="Opacity" Value="1"/>
+                            <Setter Property="Foreground" Value="{StaticResource PrimaryBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#10000000"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
