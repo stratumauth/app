@@ -28,16 +28,24 @@ namespace Stratum.Desktop.Services
         {
             try
             {
+                _log.Information("Loading preferences from {Path}", _filePath);
+
                 if (File.Exists(_filePath))
                 {
                     var json = File.ReadAllText(_filePath);
-                    _preferences = JsonSerializer.Deserialize<Preferences>(json) ?? new Preferences();
-                    _log.Information("Preferences loaded from {Path}", _filePath);
+                    var options = new JsonSerializerOptions
+                    {
+                        Converters = { new JsonStringEnumConverter() }
+                    };
+                    _preferences = JsonSerializer.Deserialize<Preferences>(json, options) ?? new Preferences();
+                    _log.Information("Preferences loaded successfully. Language: {Language}, Theme: {Theme}",
+                        _preferences.Language, _preferences.Theme);
                 }
                 else
                 {
                     _preferences = new Preferences();
-                    _log.Information("Using default preferences");
+                    _log.Information("Settings file not found, using default preferences. Language: {Language}",
+                        _preferences.Language);
                 }
             }
             catch (Exception ex)
@@ -57,12 +65,22 @@ namespace Stratum.Desktop.Services
                     Converters = { new JsonStringEnumConverter() }
                 };
                 var json = JsonSerializer.Serialize(_preferences, options);
+
+                // Ensure directory exists
+                var directory = Path.GetDirectoryName(_filePath);
+                if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                    _log.Information("Created settings directory: {Directory}", directory);
+                }
+
                 File.WriteAllText(_filePath, json);
-                _log.Information("Preferences saved to {Path}", _filePath);
+                _log.Information("Preferences saved to {Path}. Language: {Language}, Theme: {Theme}",
+                    _filePath, _preferences.Language, _preferences.Theme);
             }
             catch (Exception ex)
             {
-                _log.Error(ex, "Failed to save preferences");
+                _log.Error(ex, "Failed to save preferences to {Path}", _filePath);
             }
         }
     }

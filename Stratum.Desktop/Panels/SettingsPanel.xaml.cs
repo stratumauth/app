@@ -71,9 +71,11 @@ namespace Stratum.Desktop.Panels
         {
             if (_isInitializing) return;
             var language = (AppLanguage)LanguageComboBox.SelectedIndex;
+            _log.Information("Language changed to {Language} by user", language);
             _preferenceManager.Preferences.Language = language;
             _localizationManager.SetLanguage(language);
             SaveSettings();
+            _log.Information("Language change saved");
         }
 
         private void ShowUsernamesCheckBox_Changed(object sender, RoutedEventArgs e)

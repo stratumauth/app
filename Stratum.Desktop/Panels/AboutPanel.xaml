@@ -15,7 +15,7 @@
                     <TextBlock Text="{DynamicResource AppName}" FontSize="20" FontWeight="Medium"/>
                     <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
                         <TextBlock x:Name="VersionLabel" Text="Version" Style="{StaticResource SubtitleStyle}"/>
-                        <TextBlock Text=" 1.0.0" Style="{StaticResource SubtitleStyle}"/>
+                        <TextBlock x:Name="VersionNumber" Text=" 1.0.0" Style="{StaticResource SubtitleStyle}"/>
                     </StackPanel>
                     <TextBlock Text="{DynamicResource AboutDescription}"
                                Style="{StaticResource SubtitleStyle}"
@@ -33,12 +33,12 @@
             <Border Style="{StaticResource CardStyle}">
                 <StackPanel>
                     <TextBlock>
-                        <Hyperlink NavigateUri="https://github.com/jamie-mh/AuthenticatorPro" RequestNavigate="Hyperlink_RequestNavigate">
+                        <Hyperlink NavigateUri="https://github.com/banlanzs/app" RequestNavigate="Hyperlink_RequestNavigate">
                             <Run x:Name="GitHubRepositoryRun" Text="GitHub Repository"/>
                         </Hyperlink>
                     </TextBlock>
                     <TextBlock Margin="0,8,0,0">
-                        <Hyperlink NavigateUri="https://github.com/jamie-mh/AuthenticatorPro/issues" RequestNavigate="Hyperlink_RequestNavigate">
+                        <Hyperlink NavigateUri="https://github.com/banlanzs/app/issues" RequestNavigate="Hyperlink_RequestNavigate">
                             <Run x:Name="ReportIssueRun" Text="Report an Issue"/>
                         </Hyperlink>
                     </TextBlock>

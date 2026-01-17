@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-only
 
 using System.Diagnostics;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -19,6 +20,7 @@ namespace Stratum.Desktop.Panels
         private void AboutPanel_Loaded(object sender, RoutedEventArgs e)
         {
             UpdateLocalizedText();
+            UpdateVersionInfo();
         }
 
         private void UpdateLocalizedText()
@@ -32,6 +34,17 @@ namespace Stratum.Desktop.Panels
 
             if (Application.Current.Resources["ReportIssue"] is string reportIssue)
                 ReportIssueRun.Text = reportIssue;
+        }
+
+        private void UpdateVersionInfo()
+        {
+            // Get version from assembly
+            var assembly = Assembly.GetExecutingAssembly();
+            var version = assembly.GetName().Version;
+            var versionString = version != null ? $"{version.Major}.{version.Minor}.{version.Build}" : "1.0.0";
+
+            // Update version display
+            VersionNumber.Text = versionString;
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)

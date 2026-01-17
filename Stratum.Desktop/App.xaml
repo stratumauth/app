@@ -8,7 +8,7 @@
                 <ResourceDictionary Source="Resources/Colors.Light.xaml" />
                 <ResourceDictionary Source="Resources/Animations.xaml" />
                 <ResourceDictionary Source="Resources/Styles.xaml" />
-                <ResourceDictionary Source="Resources/Strings.en.xaml" />
+                <!-- Language dictionary loaded dynamically in App.xaml.cs based on user preferences -->
             </ResourceDictionary.MergedDictionaries>
             <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
             <converters:InverseBoolToVisibilityConverter x:Key="InverseBoolToVisibilityConverter"/>

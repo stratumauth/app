@@ -259,6 +259,6 @@ jobs:
 
 ## 联系方式
 
-- **GitHub Issues**: https://github.com/jamie-mh/AuthenticatorPro/issues
+- **GitHub Issues**: https://github.com/banlanzs/app/issues
 - **文档**: 查看 `IMPLEMENTATION_SUMMARY.md`
 - **快速参考**: 查看 `QUICK_REFERENCE.txt`
