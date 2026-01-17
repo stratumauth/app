@@ -19,6 +19,10 @@ namespace Stratum.Desktop
         private readonly MainViewModel _viewModel;
         private readonly PreferenceManager _preferenceManager;
         private HomePanel _homePanel;
+        private SettingsPanel _settingsPanel;
+        private CategoriesPanel _categoriesPanel;
+        private BackupPanel _backupPanel;
+        private AboutPanel _aboutPanel;
         private Forms.NotifyIcon _trayIcon;
         private bool _isExitRequested;
 
@@ -84,14 +88,20 @@ namespace Stratum.Desktop
 
         private void NavigateToSettings()
         {
-            var settingsPanel = new SettingsPanel();
-            ContentFrame.Navigate(settingsPanel);
+            if (_settingsPanel == null)
+            {
+                _settingsPanel = new SettingsPanel();
+            }
+            ContentFrame.Navigate(_settingsPanel);
         }
 
         private void NavigateToCategories()
         {
-            var categoriesPanel = new CategoriesPanel();
-            ContentFrame.Navigate(categoriesPanel);
+            if (_categoriesPanel == null)
+            {
+                _categoriesPanel = new CategoriesPanel();
+            }
+            ContentFrame.Navigate(_categoriesPanel);
         }
 
         private void NavigateToImport()
@@ -109,14 +119,20 @@ namespace Stratum.Desktop
 
         private void NavigateToBackup()
         {
-            var backupPanel = new BackupPanel();
-            ContentFrame.Navigate(backupPanel);
+            if (_backupPanel == null)
+            {
+                _backupPanel = new BackupPanel();
+            }
+            ContentFrame.Navigate(_backupPanel);
         }
 
         private void NavigateToAbout()
         {
-            var aboutPanel = new AboutPanel();
-            ContentFrame.Navigate(aboutPanel);
+            if (_aboutPanel == null)
+            {
+                _aboutPanel = new AboutPanel();
+            }
+            ContentFrame.Navigate(_aboutPanel);
         }
 
         public void FocusSearchBox()
@@ -157,17 +173,17 @@ namespace Stratum.Desktop
                 return;
             }
 
-            var icon = Drawing.SystemIcons.Application;
-
+            Drawing.Icon icon;
             try
             {
                 var iconStream = Application.GetResourceStream(new Uri("pack://application:,,,/Assets/AppIcon.ico"))?.Stream;
                 if (iconStream != null)
                 {
-                    using (iconStream)
-                    {
-                        icon = new Drawing.Icon(iconStream);
-                    }
+                    icon = new Drawing.Icon(iconStream);
+                }
+                else
+                {
+                    icon = Drawing.SystemIcons.Application;
                 }
             }
             catch

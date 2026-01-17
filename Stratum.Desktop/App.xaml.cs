@@ -26,9 +26,6 @@ namespace Stratum.Desktop
             try
             {
                 InitializeLogging();
-                Log.Information("=== Stratum Desktop Starting ===");
-                Log.Information("Data directory: {DataDir}", GetDataDirectory());
-
                 EnsureDataDirectory();
 
                 SQLitePCL.Batteries_V2.Init();
@@ -37,20 +34,14 @@ namespace Stratum.Desktop
                 Container = Dependencies.Build(Database);
 
                 // Initialize localization
-                Log.Information("Initializing localization...");
                 var prefManager = Container.Resolve<PreferenceManager>();
                 var locManager = Container.Resolve<LocalizationManager>();
-
-                Log.Information("Loaded language preference: {Language}", prefManager.Preferences.Language);
                 locManager.SetLanguage(prefManager.Preferences.Language);
-                Log.Information("Language set to: {Language}", locManager.CurrentLanguage);
 
                 await Database.OpenAsync(null, Database.Origin.Application);
 
-                Log.Information("Creating main window...");
                 var mainWindow = new MainWindow();
                 mainWindow.Show();
-                Log.Information("Main window shown");
             }
             catch (Exception ex)
             {
@@ -99,15 +90,21 @@ namespace Stratum.Desktop
 
         private static void InitializeLogging()
         {
+#if DEBUG
             var logPath = Path.Combine(GetDataDirectory(), "logs", "stratum-.log");
-
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .WriteTo.File(logPath, rollingInterval: RollingInterval.Day, retainedFileCountLimit: 7)
-#if DEBUG
                 .WriteTo.Console()
-#endif
                 .CreateLogger();
+#else
+            // Release: minimal logging, only errors
+            var logPath = Path.Combine(GetDataDirectory(), "logs", "stratum-.log");
+            Log.Logger = new LoggerConfiguration()
+                .MinimumLevel.Error()
+                .WriteTo.File(logPath, rollingInterval: RollingInterval.Day, retainedFileCountLimit: 3)
+                .CreateLogger();
+#endif
 
             Log.Information("Stratum Desktop starting");
         }
