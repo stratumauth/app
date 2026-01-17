@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.Test", "Stratum.Test\Stratum.Test.csproj", "{EB144D03-FB60-4CA2-B862-BF9D892BC82E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.WearOS", "Stratum.WearOS\Stratum.WearOS.csproj", "{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stratum.Desktop", "Stratum.Desktop\Stratum.Desktop.csproj", "{7F8E3D4C-A1B2-4C5D-9E8F-0A1B2C3D4E5F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9487C83A-D2A1-4DA4-86F8-D07DF4B4B25E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7F8E3D4C-A1B2-4C5D-9E8F-0A1B2C3D4E5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F8E3D4C-A1B2-4C5D-9E8F-0A1B2C3D4E5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F8E3D4C-A1B2-4C5D-9E8F-0A1B2C3D4E5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F8E3D4C-A1B2-4C5D-9E8F-0A1B2C3D4E5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

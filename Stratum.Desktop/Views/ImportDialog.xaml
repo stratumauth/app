@@ -1,0 +1,56 @@
+<Window x:Class="Stratum.Desktop.Views.ImportDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Import from Other App"
+        Height="450" Width="400"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource BackgroundBrush}">
+
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="0,0,0,16">
+            <TextBlock Text="Import from" Style="{StaticResource HeadlineStyle}" Margin="0,0,0,8"/>
+            <TextBlock Text="Select the app you want to import from:"
+                       Style="{StaticResource SubtitleStyle}"/>
+        </StackPanel>
+
+        <ListBox x:Name="SourceListBox" Grid.Row="1"
+                 SelectionMode="Single"
+                 BorderThickness="1"
+                 BorderBrush="{StaticResource DividerBrush}">
+            <ListBoxItem Content="Google Authenticator (QR code scan or migration)"/>
+            <ListBoxItem Content="Aegis Authenticator (JSON/encrypted)"/>
+            <ListBoxItem Content="2FAS Authenticator (JSON)"/>
+            <ListBoxItem Content="Bitwarden (JSON)"/>
+            <ListBoxItem Content="andOTP (JSON/encrypted)"/>
+            <ListBoxItem Content="FreeOTP (JSON)"/>
+            <ListBoxItem Content="FreeOTP+ (JSON)"/>
+            <ListBoxItem Content="Authenticator Plus (SQLite)"/>
+            <ListBoxItem Content="WinAuth (text file)"/>
+            <ListBoxItem Content="TOTP Authenticator (JSON)"/>
+            <ListBoxItem Content="Ente Auth (encrypted/plain)"/>
+            <ListBoxItem Content="LastPass Authenticator (JSON)"/>
+            <ListBoxItem Content="Proton Pass (JSON)"/>
+            <ListBoxItem Content="KeePass (KDBX)"/>
+            <ListBoxItem Content="URI List (text file)"/>
+        </ListBox>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,16,0,0">
+            <Button Content="Cancel"
+                    Style="{StaticResource IconButtonStyle}"
+                    Width="Auto" Height="Auto" Padding="16,8"
+                    Click="CancelButton_Click" Margin="0,0,8,0"/>
+            <Button Content="Select File"
+                    Style="{StaticResource PrimaryButtonStyle}"
+                    Click="SelectFileButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

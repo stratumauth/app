@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <UseWPF>true</UseWPF>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <LangVersion>13</LangVersion>
+        <AssemblyName>Stratum</AssemblyName>
+        <Version>1.0.0</Version>
+        <Authors>Stratum Contributors</Authors>
+        <Product>Stratum Authenticator</Product>
+        <Description>Two-factor authentication client for Windows</Description>
+        <Copyright>Copyright (C) 2024 Stratum Contributors</Copyright>
+
+        <!-- Publishing Configuration -->
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Stratum.Core\Stratum.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="sqlite-net-base" Version="1.9.172" />
+        <PackageReference Include="SQLitePCLRaw.bundle_e_sqlcipher" Version="2.1.11" />
+        <PackageReference Include="Autofac" Version="8.0.0" />
+        <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+        <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Resource Include="Assets\**\*" />
+    </ItemGroup>
+</Project>

@@ -1,0 +1,139 @@
+<Window x:Class="Stratum.Desktop.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Settings"
+        Height="500" Width="450"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource BackgroundBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24">
+            <TextBlock Text="Settings" Style="{StaticResource HeadlineStyle}" Margin="0,0,0,24"/>
+
+            <!-- Appearance Section -->
+            <TextBlock Text="Appearance" Style="{StaticResource TitleStyle}" Margin="0,0,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="Theme" VerticalAlignment="Center"/>
+                        <ComboBox x:Name="ThemeComboBox" Grid.Column="1" Width="150"
+                                  SelectionChanged="ThemeComboBox_SelectionChanged">
+                            <ComboBoxItem Content="Light"/>
+                            <ComboBoxItem Content="Dark"/>
+                            <ComboBoxItem Content="System"/>
+                        </ComboBox>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Show usernames"/>
+                            <TextBlock Text="Display account usernames under issuer names"
+                                       Style="{StaticResource SubtitleStyle}"/>
+                        </StackPanel>
+                        <CheckBox x:Name="ShowUsernamesCheckBox" Grid.Column="1" VerticalAlignment="Center"
+                                  Checked="ShowUsernamesCheckBox_Changed" Unchecked="ShowUsernamesCheckBox_Changed"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Behavior Section -->
+            <TextBlock Text="Behavior" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <Grid Margin="0,0,0,12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Tap to copy"/>
+                            <TextBlock Text="Copy code when clicking on an authenticator"
+                                       Style="{StaticResource SubtitleStyle}"/>
+                        </StackPanel>
+                        <CheckBox x:Name="TapToCopyCheckBox" Grid.Column="1" VerticalAlignment="Center"
+                                  Checked="TapToCopyCheckBox_Changed" Unchecked="TapToCopyCheckBox_Changed"/>
+                    </Grid>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock Text="Minimize to tray"/>
+                            <TextBlock Text="Keep running in system tray when closed"
+                                       Style="{StaticResource SubtitleStyle}"/>
+                        </StackPanel>
+                        <CheckBox x:Name="MinimizeToTrayCheckBox" Grid.Column="1" VerticalAlignment="Center"
+                                  Checked="MinimizeToTrayCheckBox_Changed" Unchecked="MinimizeToTrayCheckBox_Changed"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Sorting Section -->
+            <TextBlock Text="Sorting" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Sort mode" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="SortModeComboBox" Grid.Column="1" Width="180"
+                              SelectionChanged="SortModeComboBox_SelectionChanged">
+                        <ComboBoxItem Content="Alphabetical (A-Z)"/>
+                        <ComboBoxItem Content="Alphabetical (Z-A)"/>
+                        <ComboBoxItem Content="Most copied"/>
+                        <ComboBoxItem Content="Custom"/>
+                    </ComboBox>
+                </Grid>
+            </Border>
+
+            <!-- Backup Section -->
+            <TextBlock Text="Backup" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <Button Content="Create Backup" Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Stretch" Margin="0,0,0,8"
+                            Click="CreateBackupButton_Click"/>
+                    <Button Content="Restore from Backup" Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Stretch" Margin="0,0,0,8"
+                            Click="RestoreBackupButton_Click"/>
+                    <Button Content="Import from Other App" Style="{StaticResource PrimaryButtonStyle}"
+                            HorizontalAlignment="Stretch"
+                            Click="ImportButton_Click"/>
+                </StackPanel>
+            </Border>
+
+            <!-- Categories Section -->
+            <TextBlock Text="Categories" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <Button Content="Manage Categories" Style="{StaticResource PrimaryButtonStyle}"
+                        HorizontalAlignment="Stretch"
+                        Click="ManageCategoriesButton_Click"/>
+            </Border>
+
+            <!-- About Section -->
+            <TextBlock Text="About" Style="{StaticResource TitleStyle}" Margin="0,24,0,12"/>
+            <Border Style="{StaticResource CardStyle}">
+                <StackPanel>
+                    <TextBlock Text="Stratum Authenticator" FontWeight="Medium"/>
+                    <TextBlock Text="Version 1.0.0" Style="{StaticResource SubtitleStyle}"/>
+                    <TextBlock Text="A two-factor authentication client for Windows"
+                               Style="{StaticResource SubtitleStyle}" Margin="0,8,0,0"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Window>
