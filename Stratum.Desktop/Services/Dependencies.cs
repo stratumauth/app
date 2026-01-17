@@ -58,6 +58,7 @@ namespace Stratum.Desktop.Services
             // Desktop-specific services
             builder.RegisterType<PreferenceManager>().AsSelf().SingleInstance();
             builder.RegisterType<IconResolver>().AsSelf().SingleInstance();
+            builder.RegisterType<LocalizationManager>().AsSelf().SingleInstance();
 
             // ViewModels
             builder.RegisterType<MainViewModel>().AsSelf();

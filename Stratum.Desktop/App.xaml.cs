@@ -33,6 +33,11 @@ namespace Stratum.Desktop
                 Database = new Database();
                 Container = Dependencies.Build(Database);
 
+                // Initialize localization
+                var prefManager = Container.Resolve<PreferenceManager>();
+                var locManager = Container.Resolve<LocalizationManager>();
+                locManager.SetLanguage(prefManager.Preferences.Language);
+
                 await Database.OpenAsync(null, Database.Origin.Application);
 
                 var mainWindow = new MainWindow();

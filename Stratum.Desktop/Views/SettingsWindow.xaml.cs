@@ -20,6 +20,7 @@ namespace Stratum.Desktop.Views
     {
         private readonly ILogger _log = Log.ForContext<SettingsWindow>();
         private readonly PreferenceManager _preferenceManager;
+        private readonly LocalizationManager _localizationManager;
         private readonly IBackupService _backupService;
         private readonly IRestoreService _restoreService;
         private bool _isInitializing = true;
@@ -28,6 +29,7 @@ namespace Stratum.Desktop.Views
         {
             InitializeComponent();
             _preferenceManager = App.Container.Resolve<PreferenceManager>();
+            _localizationManager = App.Container.Resolve<LocalizationManager>();
             _backupService = App.Container.Resolve<IBackupService>();
             _restoreService = App.Container.Resolve<IRestoreService>();
             LoadSettings();
@@ -39,6 +41,7 @@ namespace Stratum.Desktop.Views
             var prefs = _preferenceManager.Preferences;
 
             ThemeComboBox.SelectedIndex = (int)prefs.Theme;
+            LanguageComboBox.SelectedIndex = (int)prefs.Language;
             ShowUsernamesCheckBox.IsChecked = prefs.ShowUsernames;
             TapToCopyCheckBox.IsChecked = prefs.TapToCopy;
             MinimizeToTrayCheckBox.IsChecked = prefs.MinimizeToTray;
@@ -55,6 +58,15 @@ namespace Stratum.Desktop.Views
         {
             if (_isInitializing) return;
             _preferenceManager.Preferences.Theme = (Theme)ThemeComboBox.SelectedIndex;
+            SaveSettings();
+        }
+
+        private void LanguageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (_isInitializing) return;
+            var language = (AppLanguage)LanguageComboBox.SelectedIndex;
+            _preferenceManager.Preferences.Language = language;
+            _localizationManager.SetLanguage(language);
             SaveSettings();
         }
 
@@ -100,27 +112,31 @@ namespace Stratum.Desktop.Views
             try
             {
                 var extension = Path.GetExtension(dialog.FileName).ToLowerInvariant();
+                bool success;
 
                 switch (extension)
                 {
                     case ".stratum":
-                        await CreateEncryptedBackupAsync(dialog.FileName);
+                        success = await CreateEncryptedBackupAsync(dialog.FileName);
                         break;
 
                     case ".html":
-                        await CreateHtmlBackupAsync(dialog.FileName);
+                        success = await CreateHtmlBackupAsync(dialog.FileName);
                         break;
 
                     case ".txt":
-                        await CreateUriListBackupAsync(dialog.FileName);
+                        success = await CreateUriListBackupAsync(dialog.FileName);
                         break;
 
                     default:
-                        await CreateEncryptedBackupAsync(dialog.FileName);
+                        success = await CreateEncryptedBackupAsync(dialog.FileName);
                         break;
                 }
 
-                MessageBox.Show($"Backup saved to {dialog.FileName}", "Backup Created", MessageBoxButton.OK, MessageBoxImage.Information);
+                if (success)
+                {
+                    MessageBox.Show($"Backup saved to {dialog.FileName}", "Backup Created", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
             catch (Exception ex)
             {
@@ -129,19 +145,20 @@ namespace Stratum.Desktop.Views
             }
         }
 
-        private async Task CreateEncryptedBackupAsync(string path)
+        private async Task<bool> CreateEncryptedBackupAsync(string path)
         {
             var passwordDialog = new PasswordDialog("Enter a password to encrypt the backup:", true);
-            if (passwordDialog.ShowDialog() != true) return;
+            if (passwordDialog.ShowDialog() != true) return false;
 
             var backup = await _backupService.CreateBackupAsync();
             var encryption = new StrongBackupEncryption();
             var data = await encryption.EncryptAsync(backup, passwordDialog.Password);
             await File.WriteAllBytesAsync(path, data);
             _log.Information("Created encrypted backup at {Path}", path);
+            return true;
         }
 
-        private async Task CreateHtmlBackupAsync(string path)
+        private async Task<bool> CreateHtmlBackupAsync(string path)
         {
             var result = MessageBox.Show(
                 "HTML backup will contain unencrypted secret keys.\nContinue?",
@@ -149,14 +166,15 @@ namespace Stratum.Desktop.Views
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
-            if (result != MessageBoxResult.Yes) return;
+            if (result != MessageBoxResult.Yes) return false;
 
             var htmlBackup = await _backupService.CreateHtmlBackupAsync();
             await File.WriteAllTextAsync(path, htmlBackup.ToString());
             _log.Information("Created HTML backup at {Path}", path);
+            return true;
         }
 
-        private async Task CreateUriListBackupAsync(string path)
+        private async Task<bool> CreateUriListBackupAsync(string path)
         {
             var result = MessageBox.Show(
                 "URI list backup will contain unencrypted secret keys.\nContinue?",
@@ -164,11 +182,12 @@ namespace Stratum.Desktop.Views
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
-            if (result != MessageBoxResult.Yes) return;
+            if (result != MessageBoxResult.Yes) return false;
 
             var uriBackup = await _backupService.CreateUriListBackupAsync();
             await File.WriteAllTextAsync(path, uriBackup.ToString());
             _log.Information("Created URI list backup at {Path}", path);
+            return true;
         }
 
         private async void RestoreBackupButton_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,113 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Common -->
+    <system:String x:Key="AppName">Stratum 身份验证器</system:String>
+    <system:String x:Key="Add">添加</system:String>
+    <system:String x:Key="Edit">编辑</system:String>
+    <system:String x:Key="Delete">删除</system:String>
+    <system:String x:Key="Cancel">取消</system:String>
+    <system:String x:Key="Save">保存</system:String>
+    <system:String x:Key="OK">确定</system:String>
+    <system:String x:Key="Yes">是</system:String>
+    <system:String x:Key="No">否</system:String>
+    <system:String x:Key="Search">搜索</system:String>
+    <system:String x:Key="Settings">设置</system:String>
+    <system:String x:Key="Close">关闭</system:String>
+    <system:String x:Key="Copy">复制</system:String>
+    <system:String x:Key="Error">错误</system:String>
+    <system:String x:Key="Warning">警告</system:String>
+    <system:String x:Key="Information">信息</system:String>
+    <system:String x:Key="Copied">已复制！</system:String>
+
+    <!-- Main Window -->
+    <system:String x:Key="AllCategories">所有分类</system:String>
+    <system:String x:Key="NoAuthenticators">暂无验证器</system:String>
+    <system:String x:Key="AddYourFirst">添加您的第一个验证器以开始使用</system:String>
+    <system:String x:Key="AddAuthenticator">添加验证器</system:String>
+
+    <!-- Context Menu -->
+    <system:String x:Key="CopyCode">复制验证码</system:String>
+    <system:String x:Key="EditAuthenticator">编辑</system:String>
+    <system:String x:Key="ShowQRCode">显示二维码</system:String>
+    <system:String x:Key="DeleteAuthenticator">删除</system:String>
+    <system:String x:Key="ConfirmDelete">确定要删除此验证器吗？</system:String>
+
+    <!-- Add/Edit Authenticator Dialog -->
+    <system:String x:Key="Type">类型</system:String>
+    <system:String x:Key="Issuer">发行者（服务名称）</system:String>
+    <system:String x:Key="Username">用户名（可选）</system:String>
+    <system:String x:Key="SecretKey">密钥</system:String>
+    <system:String x:Key="PIN">PIN 码</system:String>
+    <system:String x:Key="AdvancedOptions">高级选项</system:String>
+    <system:String x:Key="Algorithm">算法</system:String>
+    <system:String x:Key="Digits">位数</system:String>
+    <system:String x:Key="Period">周期（秒）</system:String>
+    <system:String x:Key="InitialCounter">初始计数器</system:String>
+    <system:String x:Key="ValidationIssuer">请输入发行者</system:String>
+    <system:String x:Key="ValidationSecret">请输入密钥</system:String>
+    <system:String x:Key="ValidationPIN">请输入 PIN 码</system:String>
+    <system:String x:Key="ValidationPeriod">请输入有效的周期</system:String>
+    <system:String x:Key="ValidationCounter">请输入有效的计数器</system:String>
+    <system:String x:Key="Validation">验证</system:String>
+
+    <!-- Settings Window -->
+    <system:String x:Key="Appearance">外观</system:String>
+    <system:String x:Key="Theme">主题</system:String>
+    <system:String x:Key="ThemeLight">浅色</system:String>
+    <system:String x:Key="ThemeDark">深色</system:String>
+    <system:String x:Key="ThemeSystem">跟随系统</system:String>
+    <system:String x:Key="Language">语言</system:String>
+    <system:String x:Key="ShowUsernames">显示用户名</system:String>
+    <system:String x:Key="Behavior">行为</system:String>
+    <system:String x:Key="TapToCopy">点击复制验证码</system:String>
+    <system:String x:Key="MinimizeToTray">最小化到托盘</system:String>
+    <system:String x:Key="Sorting">排序</system:String>
+    <system:String x:Key="SortMode">排序方式</system:String>
+    <system:String x:Key="SortAlphaAsc">按字母升序 (A-Z)</system:String>
+    <system:String x:Key="SortAlphaDesc">按字母降序 (Z-A)</system:String>
+    <system:String x:Key="SortCustom">自定义</system:String>
+    <system:String x:Key="BackupAndRestore">备份与恢复</system:String>
+    <system:String x:Key="CreateBackup">创建备份</system:String>
+    <system:String x:Key="RestoreBackup">恢复备份</system:String>
+    <system:String x:Key="ImportData">导入</system:String>
+    <system:String x:Key="Categories">分类</system:String>
+    <system:String x:Key="ManageCategories">管理分类</system:String>
+
+    <!-- Categories Window -->
+    <system:String x:Key="CategoryName">分类名称</system:String>
+    <system:String x:Key="AddCategory">添加分类</system:String>
+    <system:String x:Key="Rename">重命名</system:String>
+    <system:String x:Key="EnterCategoryName">请输入分类名称：</system:String>
+    <system:String x:Key="EnterNewName">请输入新名称：</system:String>
+    <system:String x:Key="ConfirmDeleteCategory">确定要删除此分类吗？</system:String>
+
+    <!-- QR Code Dialog -->
+    <system:String x:Key="QRCodeTitle">二维码</system:String>
+    <system:String x:Key="CopyURI">复制 URI</system:String>
+
+    <!-- Password Dialog -->
+    <system:String x:Key="Password">密码</system:String>
+    <system:String x:Key="ConfirmPassword">确认密码</system:String>
+    <system:String x:Key="PasswordsDoNotMatch">两次输入的密码不一致</system:String>
+
+    <!-- Import Dialog -->
+    <system:String x:Key="ImportFrom">导入来源</system:String>
+    <system:String x:Key="SelectSource">选择要导入的来源：</system:String>
+    <system:String x:Key="SelectFile">选择文件</system:String>
+    <system:String x:Key="SelectImportSource">请选择导入来源。</system:String>
+
+    <!-- Backup/Restore -->
+    <system:String x:Key="BackupCreated">备份创建成功</system:String>
+    <system:String x:Key="BackupRestored">备份恢复成功，请重新启动应用程序。</system:String>
+    <system:String x:Key="ImportComplete">导入完成</system:String>
+    <system:String x:Key="ImportedCount">已导入 {0} 个验证器。\n请重新启动应用程序。</system:String>
+    <system:String x:Key="PartialImport">部分导入</system:String>
+    <system:String x:Key="PartialImportMessage">已解析 {0} 个验证器，{1} 个失败。</system:String>
+    <system:String x:Key="EnterBackupPassword">请输入备份密码：</system:String>
+    <system:String x:Key="CreateBackupPassword">请创建备份密码：</system:String>
+    <system:String x:Key="EnterSourcePassword">请输入 {0} 备份密码：</system:String>
+    <system:String x:Key="HasPassword">此 {0} 备份是否有密码？</system:String>
+
+</ResourceDictionary>

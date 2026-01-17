@@ -333,3 +333,11 @@ ASALocalRun/
 fastlane/report.xml
 
 extra/.venv/
+
+# Stratum Desktop - prevent accidental data file commits
+*.db3
+*.stratum
+settings.json
+
+# Publish output
+publish/

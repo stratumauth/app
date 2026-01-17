@@ -70,6 +70,7 @@ namespace Stratum.Desktop.Services
     public class Preferences
     {
         public Theme Theme { get; set; } = Theme.System;
+        public AppLanguage Language { get; set; } = AppLanguage.English;
         public SortMode SortMode { get; set; } = SortMode.AlphabeticalAscending;
         public bool TapToCopy { get; set; } = true;
         public bool ShowUsernames { get; set; } = true;

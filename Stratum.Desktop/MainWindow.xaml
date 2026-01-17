@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:Stratum.Desktop.ViewModels"
         mc:Ignorable="d"
-        Title="Stratum Authenticator"
+        Title="{DynamicResource AppName}"
         Height="600" Width="450"
         MinHeight="400" MinWidth="350"
         WindowStartupLocation="CenterScreen"
@@ -57,7 +57,7 @@
                 <Button Grid.Column="2"
                         Style="{StaticResource IconButtonStyle}"
                         Command="{Binding OpenSettingsCommand}"
-                        ToolTip="Settings">
+                        ToolTip="{DynamicResource Settings}">
                     <TextBlock Text="&#x2699;" FontSize="20" FontFamily="Segoe UI Symbol"/>
                 </Button>
             </Grid>
@@ -81,15 +81,15 @@
                             MouseLeftButtonUp="AuthenticatorCard_Click">
                         <Border.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Copy Code" Command="{Binding DataContext.CopyCodeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                <MenuItem Header="{DynamicResource CopyCode}" Command="{Binding DataContext.CopyCodeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
                                           CommandParameter="{Binding}"/>
-                                <MenuItem Header="Edit" Command="{Binding DataContext.EditAuthenticatorCommand, RelativeSource={RelativeSource AncestorType=Window}}"
-                                          CommandParameter="{Binding}"/>
-                                <Separator/>
-                                <MenuItem Header="Show QR Code" Command="{Binding DataContext.ShowQrCodeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                <MenuItem Header="{DynamicResource Edit}" Command="{Binding DataContext.EditAuthenticatorCommand, RelativeSource={RelativeSource AncestorType=Window}}"
                                           CommandParameter="{Binding}"/>
                                 <Separator/>
-                                <MenuItem Header="Delete" Command="{Binding DataContext.DeleteAuthenticatorCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                <MenuItem Header="{DynamicResource ShowQRCode}" Command="{Binding DataContext.ShowQrCodeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                          CommandParameter="{Binding}"/>
+                                <Separator/>
+                                <MenuItem Header="{DynamicResource Delete}" Command="{Binding DataContext.DeleteAuthenticatorCommand, RelativeSource={RelativeSource AncestorType=Window}}"
                                           CommandParameter="{Binding}" Foreground="Red"/>
                             </ContextMenu>
                         </Border.ContextMenu>
@@ -144,8 +144,8 @@
                                 </Grid.ColumnDefinitions>
 
                                 <ProgressBar Grid.Column="0"
-                                             Value="{Binding TimeRemaining}"
-                                             Maximum="{Binding Period}"
+                                             Value="{Binding TimeRemaining, Mode=OneWay}"
+                                             Maximum="{Binding Period, Mode=OneWay}"
                                              Style="{StaticResource TimerProgressStyle}"
                                              Visibility="{Binding IsTimeBased, Converter={StaticResource BoolToVisibilityConverter}}"/>
 
@@ -170,7 +170,7 @@
                                     Visibility="{Binding JustCopied, Converter={StaticResource BoolToVisibilityConverter}}"
                                     Background="{StaticResource SuccessBrush}"
                                     CornerRadius="4" Padding="8,4">
-                                <TextBlock Text="Copied!" Foreground="White" FontSize="11"/>
+                                <TextBlock Text="{DynamicResource Copied}" Foreground="White" FontSize="11"/>
                             </Border>
                         </Grid>
                     </Border>
@@ -182,10 +182,10 @@
         <StackPanel Grid.Row="1"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Visibility="{Binding IsEmpty, Converter={StaticResource BoolToVisibilityConverter}}">
-            <TextBlock Text="No authenticators yet"
+            <TextBlock Text="{DynamicResource NoAuthenticators}"
                        Style="{StaticResource HeadlineStyle}"
                        HorizontalAlignment="Center" Opacity="0.5"/>
-            <TextBlock Text="Click the + button to add one"
+            <TextBlock Text="{DynamicResource AddYourFirst}"
                        Style="{StaticResource SubtitleStyle}"
                        HorizontalAlignment="Center" Margin="0,8,0,0"/>
         </StackPanel>
@@ -207,7 +207,7 @@
                            VerticalAlignment="Center"/>
 
                 <Button Grid.Column="1"
-                        Content="+ Add"
+                        Content="{DynamicResource Add}"
                         Style="{StaticResource PrimaryButtonStyle}"
                         Command="{Binding AddAuthenticatorCommand}"/>
             </Grid>
