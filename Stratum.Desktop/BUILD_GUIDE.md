@@ -57,7 +57,6 @@ dotnet publish -c Release -r win-x64 --self-contained true \
 
 **包含文件**：
 - `Stratum-Windows-x64-v{VERSION}.exe` - 独立可执行文件
-- `Stratum-Windows-x64-v{VERSION}.zip` - 压缩包
 
 **用途**：创建正式发布版本
 

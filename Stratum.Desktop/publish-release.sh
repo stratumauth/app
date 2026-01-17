@@ -17,19 +17,19 @@ echo "版本号: v$VERSION"
 echo ""
 
 # 清理旧的发布文件
-echo "[1/5] 清理旧的发布文件..."
+echo "[1/4] 清理旧的发布文件..."
 rm -rf "releases/v$VERSION"
 mkdir -p "releases/v$VERSION"
 
 # 发布 Windows x64 版本
 echo ""
-echo "[2/5] 发布 Windows x64 版本..."
+echo "[2/4] 发布 Windows x64 版本..."
+echo "构建版本: $VERSION"
 dotnet publish -c Release -r win-x64 --self-contained true \
     -p:PublishSingleFile=true \
     -p:IncludeNativeLibrariesForSelfExtract=true \
-    -p:PublishTrimmed=true \
-    -p:TrimMode=partial \
-    -p:EnableCompressionInSingleFile=true
+    -p:EnableCompressionInSingleFile=true \
+    -p:Version=$VERSION
 
 if [ $? -ne 0 ]; then
     echo "错误: 发布失败！"
@@ -38,20 +38,13 @@ fi
 
 # 复制可执行文件
 echo ""
-echo "[3/5] 复制可执行文件..."
+echo "[3/4] 复制可执行文件..."
 cp "bin/Release/net9.0-windows/win-x64/publish/Stratum.exe" \
    "releases/v$VERSION/Stratum-Windows-x64-v$VERSION.exe"
 
-# 创建 ZIP 压缩包
-echo ""
-echo "[4/5] 创建 ZIP 压缩包..."
-cd "releases/v$VERSION"
-zip "Stratum-Windows-x64-v$VERSION.zip" "Stratum-Windows-x64-v$VERSION.exe"
-cd ../..
-
 # 显示文件信息
 echo ""
-echo "[5/5] 发布完成！"
+echo "[4/4] 发布完成！"
 echo ""
 echo "========================================"
 echo "发布文件位置:"
@@ -62,10 +55,8 @@ echo ""
 
 # 计算文件大小
 SIZE_EXE=$(du -h "releases/v$VERSION/Stratum-Windows-x64-v$VERSION.exe" | cut -f1)
-SIZE_ZIP=$(du -h "releases/v$VERSION/Stratum-Windows-x64-v$VERSION.zip" | cut -f1)
 
 echo "EXE 文件大小: $SIZE_EXE"
-echo "ZIP 文件大小: $SIZE_ZIP"
 
 echo ""
 echo "========================================"

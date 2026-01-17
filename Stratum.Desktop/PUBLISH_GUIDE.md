@@ -31,10 +31,13 @@
 **优点**：
 - 自动化流程
 - 自动创建版本目录
-- 自动生成 ZIP 压缩包
+- 自动设置版本号
 - 显示文件大小
 
 **输出位置**：`releases\v{VERSION}\`
+
+**输出文件**：
+- `Stratum-Windows-x64-v{VERSION}.exe` - 独立可执行文件（约 64 MB）
 
 ---
 
@@ -148,7 +151,6 @@ dotnet publish -c Release -r win-x64 --self-contained false
 # 使用 GitHub CLI
 gh release create v1.0.0 ^
     releases\v1.0.0\Stratum-Windows-x64-v1.0.0.exe ^
-    releases\v1.0.0\Stratum-Windows-x64-v1.0.0.zip ^
     --title "Stratum Desktop v1.0.0" ^
     --notes "Release notes here"
 ```
@@ -171,8 +173,7 @@ gh release create v1.0.0 ^
 - 修复 AboutPanel 绑定错误
 
 ### 📦 下载
-- **Stratum-Windows-x64-v1.0.0.exe** (80 MB) - 独立运行，无需安装 .NET
-- **Stratum-Windows-x64-v1.0.0.zip** - 压缩包版本
+- **Stratum-Windows-x64-v1.0.0.exe** (64 MB) - 独立运行，无需安装 .NET
 
 ### 📋 系统要求
 - Windows 10 1809+ / Windows 11
