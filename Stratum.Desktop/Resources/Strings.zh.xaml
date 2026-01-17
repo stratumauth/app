@@ -26,13 +26,15 @@
     <system:String x:Key="NoAuthenticators">暂无验证器</system:String>
     <system:String x:Key="AddYourFirst">添加您的第一个验证器以开始使用</system:String>
     <system:String x:Key="AddAuthenticator">添加验证器</system:String>
+    <system:String x:Key="EditAuthenticatorTitle">编辑验证器</system:String>
 
     <!-- Context Menu -->
     <system:String x:Key="CopyCode">复制验证码</system:String>
     <system:String x:Key="EditAuthenticator">编辑</system:String>
     <system:String x:Key="ShowQRCode">显示二维码</system:String>
     <system:String x:Key="DeleteAuthenticator">删除</system:String>
-    <system:String x:Key="ConfirmDelete">确定要删除此验证器吗？</system:String>
+    <system:String x:Key="ConfirmDeleteAuthenticator">删除 {0} 的验证器？</system:String>
+    <system:String x:Key="ConfirmDeleteTitle">确认删除</system:String>
 
     <!-- Add/Edit Authenticator Dialog -->
     <system:String x:Key="Type">类型</system:String>
@@ -51,6 +53,15 @@
     <system:String x:Key="ValidationPeriod">请输入有效的周期</system:String>
     <system:String x:Key="ValidationCounter">请输入有效的计数器</system:String>
     <system:String x:Key="Validation">验证</system:String>
+    <system:String x:Key="LoadFailed">加载数据失败：{0}</system:String>
+    <system:String x:Key="AddFailed">添加验证器失败：{0}</system:String>
+    <system:String x:Key="UpdateFailed">更新失败：{0}</system:String>
+    <system:String x:Key="DeleteFailed">删除失败：{0}</system:String>
+    <system:String x:Key="IncrementFailed">递增计数器失败：{0}</system:String>
+    <system:String x:Key="QrCodeGenerateFailed">生成二维码失败：{0}</system:String>
+    <system:String x:Key="UriCopied">URI 已复制到剪贴板</system:String>
+    <system:String x:Key="CopyFailed">复制失败：{0}</system:String>
+    <system:String x:Key="InvalidAuthenticator">无效的验证器：{0}</system:String>
 
     <!-- Settings Window -->
     <system:String x:Key="Appearance">外观</system:String>

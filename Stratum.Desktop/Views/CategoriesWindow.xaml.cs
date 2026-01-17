@@ -1,6 +1,3 @@
-// Copyright (C) 2024 Stratum Contributors
-// SPDX-License-Identifier: GPL-3.0-only
-
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,6 +7,7 @@ using Autofac;
 using Serilog;
 using Stratum.Core.Entity;
 using Stratum.Core.Persistence;
+using Stratum.Desktop.Services;
 
 namespace Stratum.Desktop.Views
 {
@@ -44,7 +42,10 @@ namespace Stratum.Desktop.Views
             catch (Exception ex)
             {
                 _log.Error(ex, "Failed to load categories");
-                MessageBox.Show($"Failed to load categories: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{LocalizationManager.GetString("Error")}: {ex.Message}",
+                    LocalizationManager.GetString("Error"),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
 
@@ -53,7 +54,10 @@ namespace Stratum.Desktop.Views
             var name = NewCategoryTextBox.Text.Trim();
             if (string.IsNullOrEmpty(name))
             {
-                MessageBox.Show("Please enter a category name.", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(LocalizationManager.GetString("EnterCategoryName"),
+                    LocalizationManager.GetString("Validation"),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Warning);
                 return;
             }
 
@@ -68,7 +72,10 @@ namespace Stratum.Desktop.Views
             catch (Exception ex)
             {
                 _log.Error(ex, "Failed to create category");
-                MessageBox.Show($"Failed to create category: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{LocalizationManager.GetString("Error")}: {ex.Message}",
+                    LocalizationManager.GetString("Error"),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
 
@@ -76,7 +83,10 @@ namespace Stratum.Desktop.Views
         {
             if (sender is Button button && button.DataContext is Category category)
             {
-                var newName = Microsoft.VisualBasic.Interaction.InputBox("Enter new name:", "Rename Category", category.Name);
+                var newName = Microsoft.VisualBasic.Interaction.InputBox(
+                    LocalizationManager.GetString("EnterNewName"),
+                    LocalizationManager.GetString("Rename"),
+                    category.Name);
                 if (!string.IsNullOrEmpty(newName) && newName != category.Name)
                 {
                     RenameCategory(category, newName);
@@ -103,7 +113,10 @@ namespace Stratum.Desktop.Views
             catch (Exception ex)
             {
                 _log.Error(ex, "Failed to rename category");
-                MessageBox.Show($"Failed to rename category: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"{LocalizationManager.GetString("Error")}: {ex.Message}",
+                    LocalizationManager.GetString("Error"),
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Error);
             }
         }
 
@@ -112,8 +125,8 @@ namespace Stratum.Desktop.Views
             if (sender is Button button && button.DataContext is Category category)
             {
                 var result = MessageBox.Show(
-                    $"Delete category '{category.Name}'?\nAuthenticators in this category will not be deleted.",
-                    "Confirm Delete",
+                    LocalizationManager.GetString("ConfirmDeleteCategory"),
+                    LocalizationManager.GetString("Delete"),
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Warning);
 
@@ -129,7 +142,10 @@ namespace Stratum.Desktop.Views
                     catch (Exception ex)
                     {
                         _log.Error(ex, "Failed to delete category");
-                        MessageBox.Show($"Failed to delete category: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show($"{LocalizationManager.GetString("Error")}: {ex.Message}",
+                            LocalizationManager.GetString("Error"),
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Error);
                     }
                 }
             }

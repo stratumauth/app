@@ -26,13 +26,13 @@
     <system:String x:Key="NoAuthenticators">No authenticators yet</system:String>
     <system:String x:Key="AddYourFirst">Add your first authenticator to get started</system:String>
     <system:String x:Key="AddAuthenticator">Add Authenticator</system:String>
+    <system:String x:Key="EditAuthenticatorTitle">Edit Authenticator</system:String>
 
     <!-- Context Menu -->
     <system:String x:Key="CopyCode">Copy Code</system:String>
     <system:String x:Key="EditAuthenticator">Edit</system:String>
     <system:String x:Key="ShowQRCode">Show QR Code</system:String>
     <system:String x:Key="DeleteAuthenticator">Delete</system:String>
-    <system:String x:Key="ConfirmDelete">Are you sure you want to delete this authenticator?</system:String>
 
     <!-- Add/Edit Authenticator Dialog -->
     <system:String x:Key="Type">Type</system:String>
@@ -51,6 +51,17 @@
     <system:String x:Key="ValidationPeriod">Please enter a valid period</system:String>
     <system:String x:Key="ValidationCounter">Please enter a valid counter</system:String>
     <system:String x:Key="Validation">Validation</system:String>
+    <system:String x:Key="CopyFailed">Failed to copy: {0}</system:String>
+    <system:String x:Key="UriCopied">URI copied to clipboard</system:String>
+    <system:String x:Key="QrCodeGenerateFailed">Failed to generate QR code: {0}</system:String>
+    <system:String x:Key="IncrementFailed">Failed to increment counter: {0}</system:String>
+    <system:String x:Key="DeleteFailed">Failed to delete: {0}</system:String>
+    <system:String x:Key="UpdateFailed">Failed to update: {0}</system:String>
+    <system:String x:Key="AddFailed">Failed to add authenticator: {0}</system:String>
+    <system:String x:Key="LoadFailed">Failed to load data: {0}</system:String>
+    <system:String x:Key="ConfirmDeleteAuthenticator">Delete authenticator for {0}?</system:String>
+    <system:String x:Key="ConfirmDeleteTitle">Confirm Delete</system:String>
+    <system:String x:Key="InvalidAuthenticator">Invalid authenticator: {0}</system:String>
 
     <!-- Settings Window -->
     <system:String x:Key="Appearance">Appearance</system:String>
@@ -81,7 +92,7 @@
     <system:String x:Key="Rename">Rename</system:String>
     <system:String x:Key="EnterCategoryName">Enter category name:</system:String>
     <system:String x:Key="EnterNewName">Enter new name:</system:String>
-    <system:String x:Key="ConfirmDeleteCategory">Are you sure you want to delete this category?</system:String>
+    <system:String x:Key="ConfirmDeleteCategory">Are you sure you want to delete this category?&#x0a;&#x0a;Note: Deleting a category will not delete the authenticators in it. They will remain in "All Categories".</system:String>
 
     <!-- QR Code Dialog -->
     <system:String x:Key="QRCodeTitle">QR Code</system:String>

@@ -4,12 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="QR Code"
-        Height="400" Width="350"
+        Title="{DynamicResource QRCodeTitle}"
+        Height="480" Width="360" MinHeight="360" MinWidth="320"
         WindowStartupLocation="CenterOwner"
-        ResizeMode="NoResize"
+        ResizeMode="CanResize"
         Background="{StaticResource BackgroundBrush}">
 
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
     <Grid Margin="24">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -28,16 +29,17 @@
         </StackPanel>
 
         <!-- QR Code Image -->
-        <Border Grid.Row="1" Background="White" Padding="16" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image x:Name="QrCodeImage" Width="200" Height="200"
+        <Border Grid.Row="1" Background="White" Padding="16" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="280" MaxHeight="280">
+            <Image x:Name="QrCodeImage" Width="240" Height="240" Stretch="Uniform"
                    RenderOptions.BitmapScalingMode="NearestNeighbor"/>
         </Border>
 
         <!-- Copy URI Button -->
-        <Button Grid.Row="2" Content="Copy URI"
+        <Button Grid.Row="2" Content="{DynamicResource CopyURI}"
                 Style="{StaticResource PrimaryButtonStyle}"
                 HorizontalAlignment="Center"
                 Margin="0,16,0,0"
                 Click="CopyUriButton_Click"/>
     </Grid>
+</ScrollViewer>
 </Window>

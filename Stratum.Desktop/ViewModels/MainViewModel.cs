@@ -83,7 +83,7 @@ namespace Stratum.Desktop.ViewModels
             catch (Exception ex)
             {
                 _log.Error(ex, "Failed to initialize MainViewModel");
-                MessageBox.Show($"Failed to load data: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(LocalizationManager.GetString("LoadFailed"), ex.Message), LocalizationManager.GetString("Error"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -187,15 +187,59 @@ namespace Stratum.Desktop.ViewModels
                 catch (Exception ex)
                 {
                     _log.Error(ex, "Failed to add authenticator");
-                    MessageBox.Show($"Failed to add authenticator: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(string.Format(LocalizationManager.GetString("AddFailed"), ex.Message), LocalizationManager.GetString("Error"), MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
 
-        private void EditAuthenticator(AuthenticatorViewModel auth)
+        private async void EditAuthenticator(AuthenticatorViewModel auth)
         {
             if (auth == null) return;
-            MessageBox.Show($"Edit {auth.Issuer} - not implemented yet", "Info");
+
+            var dialog = new Views.AddAuthenticatorDialog
+            {
+                Owner = Application.Current.MainWindow
+            };
+            dialog.LoadAuthenticator(auth.Auth);
+
+            if (dialog.ShowDialog() == true && dialog.Result != null)
+            {
+                try
+                {
+                    var oldSecret = auth.Auth.Secret;
+                    var updated = dialog.Result;
+
+                    if (!string.Equals(oldSecret, updated.Secret, StringComparison.OrdinalIgnoreCase))
+                    {
+                        await _authenticatorRepository.ChangeSecretAsync(oldSecret, updated.Secret);
+                    }
+
+                    updated.Icon = auth.Auth.Icon;
+                    updated.CopyCount = auth.Auth.CopyCount;
+                    updated.Ranking = auth.Auth.Ranking;
+
+                    await _authenticatorRepository.UpdateAsync(updated);
+
+                    auth.Auth.Type = updated.Type;
+                    auth.Auth.Issuer = updated.Issuer;
+                    auth.Auth.Username = updated.Username;
+                    auth.Auth.Secret = updated.Secret;
+                    auth.Auth.Pin = updated.Pin;
+                    auth.Auth.Algorithm = updated.Algorithm;
+                    auth.Auth.Digits = updated.Digits;
+                    auth.Auth.Period = updated.Period;
+                    auth.Auth.Counter = updated.Counter;
+                    auth.RefreshFromAuth();
+
+                    ApplyFilter();
+                    _log.Information("Updated authenticator for {Issuer}", updated.Issuer);
+                }
+                catch (Exception ex)
+                {
+                    _log.Error(ex, "Failed to update authenticator");
+                    MessageBox.Show(string.Format(LocalizationManager.GetString("UpdateFailed"), ex.Message), LocalizationManager.GetString("Error"), MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private async void DeleteAuthenticator(AuthenticatorViewModel auth)
@@ -204,7 +248,7 @@ namespace Stratum.Desktop.ViewModels
 
             var result = MessageBox.Show(
                 $"Delete authenticator for {auth.Issuer}?",
-                "Confirm Delete",
+                LocalizationManager.GetString("ConfirmDeleteTitle"),
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Warning);
 
@@ -221,7 +265,7 @@ namespace Stratum.Desktop.ViewModels
                 catch (Exception ex)
                 {
                     _log.Error(ex, "Failed to delete authenticator");
-                    MessageBox.Show($"Failed to delete: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(string.Format(LocalizationManager.GetString("DeleteFailed"), ex.Message), LocalizationManager.GetString("Error"), MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -265,7 +309,7 @@ namespace Stratum.Desktop.ViewModels
             catch (Exception ex)
             {
                 _log.Error(ex, "Failed to increment counter");
-                MessageBox.Show($"Failed to increment counter: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(LocalizationManager.GetString("IncrementFailed"), ex.Message), LocalizationManager.GetString("Error"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

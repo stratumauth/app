@@ -7,30 +7,82 @@ using System.Windows.Controls;
 using Stratum.Core;
 using Stratum.Core.Entity;
 using Stratum.Core.Generator;
+using Stratum.Desktop.Services;
 
 namespace Stratum.Desktop.Views
 {
     public partial class AddAuthenticatorDialog : Window
     {
+        private Authenticator _originalAuthenticator;
+
         public Authenticator Result { get; private set; }
+        public bool IsEditMode { get; private set; }
 
         public AddAuthenticatorDialog()
         {
             InitializeComponent();
         }
 
+        public void LoadAuthenticator(Authenticator authenticator)
+        {
+            if (authenticator == null) return;
+
+            IsEditMode = true;
+            _originalAuthenticator = authenticator;
+
+            Title = LocalizationManager.GetString("EditAuthenticatorTitle");
+            SaveButton.Content = LocalizationManager.GetString("Save");
+
+            IssuerTextBox.Text = authenticator.Issuer ?? string.Empty;
+            UsernameTextBox.Text = authenticator.Username ?? string.Empty;
+            SecretTextBox.Text = authenticator.Secret ?? string.Empty;
+
+            TypeComboBox.SelectedIndex = authenticator.Type switch
+            {
+                AuthenticatorType.Totp => 0,
+                AuthenticatorType.Hotp => 1,
+                AuthenticatorType.SteamOtp => 2,
+                AuthenticatorType.MobileOtp => 3,
+                AuthenticatorType.YandexOtp => 4,
+                _ => 0
+            };
+
+            AlgorithmComboBox.SelectedIndex = authenticator.Algorithm switch
+            {
+                HashAlgorithm.Sha1 => 0,
+                HashAlgorithm.Sha256 => 1,
+                HashAlgorithm.Sha512 => 2,
+                _ => 0
+            };
+
+            DigitsComboBox.SelectedIndex = authenticator.Digits switch
+            {
+                6 => 0,
+                7 => 1,
+                8 => 2,
+                _ => 0
+            };
+
+            PeriodTextBox.Text = authenticator.Period.ToString();
+            CounterTextBox.Text = authenticator.Counter.ToString();
+            PinPasswordBox.Password = authenticator.Pin ?? string.Empty;
+
+            UpdatePanels(TypeComboBox.SelectedIndex);
+        }
+
         private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (!IsLoaded) return;
 
-            var selectedIndex = TypeComboBox.SelectedIndex;
+            UpdatePanels(TypeComboBox.SelectedIndex);
+        }
 
-            // Show/hide PIN panel for mOTP and Yandex
+        private void UpdatePanels(int selectedIndex)
+        {
             PinPanel.Visibility = (selectedIndex == 3 || selectedIndex == 4)
                 ? Visibility.Visible
                 : Visibility.Collapsed;
 
-            // Show/hide advanced options based on type
             AlgorithmPanel.Visibility = (selectedIndex <= 1)
                 ? Visibility.Visible
                 : Visibility.Collapsed;
@@ -61,17 +113,18 @@ namespace Stratum.Desktop.Views
                 var issuer = IssuerTextBox.Text.Trim();
                 var username = UsernameTextBox.Text.Trim();
                 var secret = SecretTextBox.Text.Trim().ToUpperInvariant().Replace(" ", "");
+                var validationTitle = LocalizationManager.GetString("Validation");
 
                 if (string.IsNullOrEmpty(issuer))
                 {
-                    MessageBox.Show("Issuer is required.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show(LocalizationManager.GetString("ValidationIssuer"), validationTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
                     IssuerTextBox.Focus();
                     return;
                 }
 
                 if (string.IsNullOrEmpty(secret))
                 {
-                    MessageBox.Show("Secret is required.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show(LocalizationManager.GetString("ValidationSecret"), validationTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
                     SecretTextBox.Focus();
                     return;
                 }
@@ -85,20 +138,25 @@ namespace Stratum.Desktop.Views
                     Secret = secret
                 };
 
-                // Set PIN for mOTP and Yandex
+                if (_originalAuthenticator != null)
+                {
+                    auth.Icon = _originalAuthenticator.Icon;
+                    auth.CopyCount = _originalAuthenticator.CopyCount;
+                    auth.Ranking = _originalAuthenticator.Ranking;
+                }
+
                 if (type == AuthenticatorType.MobileOtp || type == AuthenticatorType.YandexOtp)
                 {
                     var pin = PinPasswordBox.Password;
                     if (string.IsNullOrEmpty(pin))
                     {
-                        MessageBox.Show("PIN is required for this type.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show(LocalizationManager.GetString("ValidationPIN"), validationTitle, MessageBoxButton.OK, MessageBoxImage.Warning);
                         PinPasswordBox.Focus();
                         return;
                     }
                     auth.Pin = pin;
                 }
 
-                // Set algorithm
                 if (type == AuthenticatorType.Totp || type == AuthenticatorType.Hotp)
                 {
                     auth.Algorithm = AlgorithmComboBox.SelectedIndex switch
@@ -118,7 +176,6 @@ namespace Stratum.Desktop.Views
                     };
                 }
 
-                // Set period for TOTP
                 if (type == AuthenticatorType.Totp)
                 {
                     if (int.TryParse(PeriodTextBox.Text, out var period) && period > 0)
@@ -131,7 +188,6 @@ namespace Stratum.Desktop.Views
                     }
                 }
 
-                // Set counter for HOTP
                 if (type == AuthenticatorType.Hotp)
                 {
                     if (long.TryParse(CounterTextBox.Text, out var counter) && counter >= 0)
@@ -144,7 +200,6 @@ namespace Stratum.Desktop.Views
                     }
                 }
 
-                // Validate the authenticator
                 auth.Validate();
 
                 Result = auth;
@@ -153,7 +208,7 @@ namespace Stratum.Desktop.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Invalid authenticator: {ex.Message}", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(LocalizationManager.GetString("InvalidAuthenticator"), ex.Message), LocalizationManager.GetString("Validation"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

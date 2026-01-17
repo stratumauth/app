@@ -1,31 +1,36 @@
-<Window x:Class="Stratum.Desktop.Views.AddAuthenticatorDialog"
+﻿<Window x:Class="Stratum.Desktop.Views.AddAuthenticatorDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Add Authenticator"
+        Title="{DynamicResource AddAuthenticator}"
         Height="500" Width="400"
         WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize"
         Background="{StaticResource BackgroundBrush}">
 
-    <Grid Margin="24">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
+        <!-- Scrollable Content -->
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" Margin="24,24,24,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
         <!-- Type Selection -->
         <StackPanel Grid.Row="0" Margin="0,0,0,16">
-            <TextBlock Text="Type" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
+            <TextBlock Text="{DynamicResource Type}" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
             <ComboBox x:Name="TypeComboBox"
                       SelectedIndex="0"
                       SelectionChanged="TypeComboBox_SelectionChanged">
@@ -39,7 +44,7 @@
 
         <!-- Issuer -->
         <StackPanel Grid.Row="1" Margin="0,0,0,16">
-            <TextBlock Text="Issuer (Service Name)" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
+            <TextBlock Text="{DynamicResource Issuer}" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
             <TextBox x:Name="IssuerTextBox"
                      Style="{StaticResource SearchTextBoxStyle}"
                      MaxLength="32"/>
@@ -47,7 +52,7 @@
 
         <!-- Username -->
         <StackPanel Grid.Row="2" Margin="0,0,0,16">
-            <TextBlock Text="Username (Optional)" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
+            <TextBlock Text="{DynamicResource Username}" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
             <TextBox x:Name="UsernameTextBox"
                      Style="{StaticResource SearchTextBoxStyle}"
                      MaxLength="40"/>
@@ -55,7 +60,7 @@
 
         <!-- Secret -->
         <StackPanel Grid.Row="3" Margin="0,0,0,16">
-            <TextBlock Text="Secret Key" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
+            <TextBlock Text="{DynamicResource SecretKey}" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
             <TextBox x:Name="SecretTextBox"
                      Style="{StaticResource SearchTextBoxStyle}"
                      FontFamily="Consolas"/>
@@ -63,18 +68,18 @@
 
         <!-- PIN (for mOTP/Yandex) -->
         <StackPanel x:Name="PinPanel" Grid.Row="4" Margin="0,0,0,16" Visibility="Collapsed">
-            <TextBlock Text="PIN" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
+            <TextBlock Text="{DynamicResource PIN}" Style="{StaticResource TitleStyle}" Margin="0,0,0,8"/>
             <PasswordBox x:Name="PinPasswordBox"
                          Padding="12,8"
                          FontSize="14"/>
         </StackPanel>
 
         <!-- Advanced Options -->
-        <Expander Grid.Row="5" Header="Advanced Options" Margin="0,0,0,16">
+        <Expander Grid.Row="5" Header="{DynamicResource AdvancedOptions}" Margin="0,0,0,16">
             <StackPanel Margin="0,12,0,0">
                 <!-- Algorithm -->
                 <StackPanel x:Name="AlgorithmPanel" Margin="0,0,0,12">
-                    <TextBlock Text="Algorithm" Style="{StaticResource SubtitleStyle}" Margin="0,0,0,4"/>
+                    <TextBlock Text="{DynamicResource Algorithm}" Style="{StaticResource SubtitleStyle}" Margin="0,0,0,4"/>
                     <ComboBox x:Name="AlgorithmComboBox" SelectedIndex="0">
                         <ComboBoxItem Content="SHA1"/>
                         <ComboBoxItem Content="SHA256"/>
@@ -84,7 +89,7 @@
 
                 <!-- Digits -->
                 <StackPanel x:Name="DigitsPanel" Margin="0,0,0,12">
-                    <TextBlock Text="Digits" Style="{StaticResource SubtitleStyle}" Margin="0,0,0,4"/>
+                    <TextBlock Text="{DynamicResource Digits}" Style="{StaticResource SubtitleStyle}" Margin="0,0,0,4"/>
                     <ComboBox x:Name="DigitsComboBox" SelectedIndex="0">
                         <ComboBoxItem Content="6"/>
                         <ComboBoxItem Content="7"/>
@@ -94,7 +99,7 @@
 
                 <!-- Period (TOTP only) -->
                 <StackPanel x:Name="PeriodPanel" Margin="0,0,0,12">
-                    <TextBlock Text="Period (seconds)" Style="{StaticResource SubtitleStyle}" Margin="0,0,0,4"/>
+                    <TextBlock Text="{DynamicResource Period}" Style="{StaticResource SubtitleStyle}" Margin="0,0,0,4"/>
                     <TextBox x:Name="PeriodTextBox"
                              Style="{StaticResource SearchTextBoxStyle}"
                              Text="30"/>
@@ -102,25 +107,29 @@
 
                 <!-- Counter (HOTP only) -->
                 <StackPanel x:Name="CounterPanel" Margin="0,0,0,12" Visibility="Collapsed">
-                    <TextBlock Text="Initial Counter" Style="{StaticResource SubtitleStyle}" Margin="0,0,0,4"/>
+                    <TextBlock Text="{DynamicResource InitialCounter}" Style="{StaticResource SubtitleStyle}" Margin="0,0,0,4"/>
                     <TextBox x:Name="CounterTextBox"
                              Style="{StaticResource SearchTextBoxStyle}"
                              Text="0"/>
                 </StackPanel>
             </StackPanel>
         </Expander>
+            </Grid>
+        </ScrollViewer>
 
         <!-- Buttons -->
-        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Content="Cancel"
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="24,16,24,24">
+            <Button Content="{DynamicResource Cancel}"
                     Style="{StaticResource IconButtonStyle}"
                     Width="Auto" Height="Auto"
                     Padding="16,8"
                     Click="CancelButton_Click"
                     Margin="0,0,8,0"/>
-            <Button Content="Add"
+            <Button x:Name="SaveButton" Content="{DynamicResource Add}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Click="AddButton_Click"/>
         </StackPanel>
     </Grid>
 </Window>
+
+

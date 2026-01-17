@@ -1,4 +1,4 @@
-<UserControl x:Class="Stratum.Desktop.Panels.HomePanel"
+﻿<UserControl x:Class="Stratum.Desktop.Panels.HomePanel"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -59,19 +59,20 @@
                     <Border Style="{StaticResource CardStyle}"
                             Margin="16,8,16,0"
                             Cursor="Hand"
-                            MouseLeftButtonUp="AuthenticatorCard_Click">
+                            MouseLeftButtonUp="AuthenticatorCard_Click"
+                            Tag="{Binding DataContext, RelativeSource={RelativeSource AncestorType=UserControl}}">
                         <Border.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem Header="{DynamicResource CopyCode}" Command="{Binding DataContext.CopyCodeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                          CommandParameter="{Binding}"/>
-                                <MenuItem Header="{DynamicResource Edit}" Command="{Binding DataContext.EditAuthenticatorCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                          CommandParameter="{Binding}"/>
+                            <ContextMenu DataContext="{Binding PlacementTarget.Tag, RelativeSource={RelativeSource Self}}">
+                                <MenuItem Header="{DynamicResource CopyCode}" Command="{Binding CopyCodeCommand}"
+                                          CommandParameter="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
+                                <MenuItem Header="{DynamicResource Edit}" Command="{Binding EditAuthenticatorCommand}"
+                                          CommandParameter="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
                                 <Separator/>
-                                <MenuItem Header="{DynamicResource ShowQRCode}" Command="{Binding DataContext.ShowQrCodeCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                          CommandParameter="{Binding}"/>
+                                <MenuItem Header="{DynamicResource ShowQRCode}" Command="{Binding ShowQrCodeCommand}"
+                                          CommandParameter="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
                                 <Separator/>
-                                <MenuItem Header="{DynamicResource Delete}" Command="{Binding DataContext.DeleteAuthenticatorCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                                          CommandParameter="{Binding}" Foreground="Red"/>
+                                <MenuItem Header="{DynamicResource Delete}" Command="{Binding DeleteAuthenticatorCommand}"
+                                          CommandParameter="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource AncestorType=ContextMenu}}" Foreground="Red"/>
                             </ContextMenu>
                         </Border.ContextMenu>
 
@@ -201,3 +202,5 @@
         </Border>
     </Grid>
 </UserControl>
+
+

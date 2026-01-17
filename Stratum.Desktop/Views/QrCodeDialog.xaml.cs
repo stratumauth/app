@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using QRCoder;
 using Stratum.Core.Entity;
+using Stratum.Desktop.Services;
 
 namespace Stratum.Desktop.Views
 {
@@ -51,7 +52,7 @@ namespace Stratum.Desktop.Views
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to generate QR code: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(LocalizationManager.GetString("QrCodeGenerateFailed"), ex.Message), LocalizationManager.GetString("Error"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -60,11 +61,11 @@ namespace Stratum.Desktop.Views
             try
             {
                 Clipboard.SetText(_uri);
-                MessageBox.Show("URI copied to clipboard", "Copied", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(LocalizationManager.GetString("UriCopied"), LocalizationManager.GetString("Information"), MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to copy: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(string.Format(LocalizationManager.GetString("CopyFailed"), ex.Message), LocalizationManager.GetString("Error"), MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

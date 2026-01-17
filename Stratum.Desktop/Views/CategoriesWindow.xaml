@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Manage Categories"
+        Title="{DynamicResource ManageCategories}"
         Height="400" Width="350"
         WindowStartupLocation="CenterOwner"
         Background="{StaticResource BackgroundBrush}">
@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Categories" Style="{StaticResource HeadlineStyle}" Margin="0,0,0,16"/>
+        <TextBlock Grid.Row="0" Text="{DynamicResource Categories}" Style="{StaticResource HeadlineStyle}" Margin="0,0,0,16"/>
 
         <!-- Category List -->
         <ListBox x:Name="CategoriesListBox" Grid.Row="1"
@@ -32,11 +32,11 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding Name}" VerticalAlignment="Center"/>
-                        <Button Grid.Column="1" Content="Edit" Margin="8,0"
+                        <Button Grid.Column="1" Content="{DynamicResource Edit}" Margin="8,0"
                                 Style="{StaticResource IconButtonStyle}"
                                 Width="Auto" Height="Auto" Padding="8,4"
                                 Click="EditCategoryButton_Click"/>
-                        <Button Grid.Column="2" Content="Delete"
+                        <Button Grid.Column="2" Content="{DynamicResource Delete}"
                                 Style="{StaticResource IconButtonStyle}"
                                 Width="Auto" Height="Auto" Padding="8,4"
                                 Foreground="Red"
@@ -56,7 +56,7 @@
                      Style="{StaticResource SearchTextBoxStyle}"
                      MaxLength="32"
                      Margin="0,0,8,0"/>
-            <Button Grid.Column="1" Content="Add"
+            <Button Grid.Column="1" Content="{DynamicResource Add}"
                     Style="{StaticResource PrimaryButtonStyle}"
                     Click="AddCategoryButton_Click"/>
         </Grid>
