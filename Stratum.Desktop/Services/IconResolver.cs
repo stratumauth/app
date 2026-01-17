@@ -4,11 +4,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Serilog;
 using Stratum.Core.Entity;
 using Stratum.Core.Persistence;
-using Serilog;
 
 namespace Stratum.Desktop.Services
 {
@@ -25,33 +26,18 @@ namespace Stratum.Desktop.Services
 
         public ImageSource GetIcon(Authenticator authenticator)
         {
-            if (string.IsNullOrEmpty(authenticator.Icon))
-            {
-                return GetDefaultIcon();
-            }
-
-            if (authenticator.Icon.StartsWith(CustomIcon.Prefix.ToString()))
-            {
-                return GetCustomIcon(authenticator.Icon.Substring(1));
-            }
-
-            return GetBuiltInIcon(authenticator.Icon);
-        }
-
-        private ImageSource GetCustomIcon(string iconId)
-        {
-            if (_cache.TryGetValue(iconId, out var cached))
+            if (_cache.TryGetValue("default", out var cached))
             {
                 return cached;
             }
 
-            try
+            var iconData = TryGetBuiltInIconBytes("default");
+            if (iconData != null)
             {
-                var customIcon = _customIconRepository.GetAsync(iconId).GetAwaiter().GetResult();
-                if (customIcon?.Data != null)
+                try
                 {
                     var image = new BitmapImage();
-                    using (var ms = new MemoryStream(customIcon.Data))
+                    using (var ms = new MemoryStream(iconData))
                     {
                         image.BeginInit();
                         image.CacheOption = BitmapCacheOption.OnLoad;
@@ -59,60 +45,36 @@ namespace Stratum.Desktop.Services
                         image.EndInit();
                         image.Freeze();
                     }
-                    _cache[iconId] = image;
+
+                    _cache["default"] = image;
                     return image;
                 }
-            }
-            catch (Exception ex)
-            {
-                _log.Warning(ex, "Failed to load custom icon {IconId}", iconId);
+                catch (Exception ex)
+                {
+                    _log.Debug("Failed to decode default icon: {Error}", ex.Message);
+                }
             }
 
-            return GetDefaultIcon();
+            return null;
         }
 
-        private ImageSource GetBuiltInIcon(string iconName)
+        private byte[] TryGetBuiltInIconBytes(string iconName)
         {
-            if (_cache.TryGetValue(iconName, out var cached))
-            {
-                return cached;
-            }
-
             try
             {
                 var uri = new Uri($"pack://application:,,,/Assets/Icons/{iconName}.png", UriKind.Absolute);
-                var image = new BitmapImage(uri);
-                image.Freeze();
-                _cache[iconName] = image;
-                return image;
-            }
-            catch (Exception ex)
-            {
-                _log.Debug("Built-in icon not found: {IconName}, {Error}", iconName, ex.Message);
-            }
+                var info = System.Windows.Application.GetResourceStream(uri);
+                if (info == null)
+                {
+                    return null;
+                }
 
-            return GetDefaultIcon();
-        }
-
-        private ImageSource GetDefaultIcon()
-        {
-            const string key = "__default__";
-            if (_cache.TryGetValue(key, out var cached))
-            {
-                return cached;
-            }
-
-            try
-            {
-                var uri = new Uri("pack://application:,,,/Assets/Icons/default.png", UriKind.Absolute);
-                var image = new BitmapImage(uri);
-                image.Freeze();
-                _cache[key] = image;
-                return image;
+                using var ms = new MemoryStream();
+                info.Stream.CopyTo(ms);
+                return ms.ToArray();
             }
             catch
             {
-                // Return null if default icon doesn't exist
                 return null;
             }
         }

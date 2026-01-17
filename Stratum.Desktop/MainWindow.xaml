@@ -10,7 +10,8 @@
         Height="600" Width="850"
         MinHeight="400" MinWidth="600"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource BackgroundBrush}">
+        Background="{StaticResource BackgroundBrush}"
+        Icon="pack://application:,,,/Assets/AppIcon.ico">
 
     <Window.InputBindings>
         <KeyBinding Key="F" Modifiers="Ctrl" Command="{Binding FocusSearchCommand}"/>

@@ -5,15 +5,19 @@ using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Timers;
+using System.Windows.Media;
+using Autofac;
 using Stratum.Core;
 using Stratum.Core.Entity;
 using Stratum.Core.Generator;
+using Stratum.Desktop.Services;
 
 namespace Stratum.Desktop.ViewModels
 {
     public class AuthenticatorViewModel : INotifyPropertyChanged
     {
         private readonly Timer _copiedFeedbackTimer;
+        private readonly IconResolver _iconResolver;
         private string _code;
         private int _timeRemaining;
         private bool _justCopied;
@@ -23,6 +27,7 @@ namespace Stratum.Desktop.ViewModels
         public AuthenticatorViewModel(Authenticator auth)
         {
             Auth = auth ?? throw new ArgumentNullException(nameof(auth));
+            _iconResolver = App.Container.Resolve<IconResolver>();
             _copiedFeedbackTimer = new Timer(2000);
             _copiedFeedbackTimer.Elapsed += CopiedFeedbackTimer_Elapsed;
             _copiedFeedbackTimer.AutoReset = false;
@@ -36,6 +41,7 @@ namespace Stratum.Desktop.ViewModels
         public bool HasUsername => !string.IsNullOrEmpty(Auth.Username);
         public string IssuerInitial => !string.IsNullOrEmpty(Auth.Issuer) ? Auth.Issuer[0].ToString().ToUpper() : "?";
         public string Icon => Auth.Icon;
+        public ImageSource IconImage => _iconResolver.GetIcon(Auth);
         public int Period => Auth.Period;
         public bool IsTimeBased => Auth.Type.GetGenerationMethod() == GenerationMethod.Time;
         public bool IsCounterBased => Auth.Type.GetGenerationMethod() == GenerationMethod.Counter;
@@ -101,6 +107,16 @@ namespace Stratum.Desktop.ViewModels
                     OnPropertyChanged();
                 }
             }
+        }
+
+        public void RefreshFromAuth()
+        {
+            OnPropertyChanged(nameof(Issuer));
+            OnPropertyChanged(nameof(Username));
+            OnPropertyChanged(nameof(HasUsername));
+            OnPropertyChanged(nameof(IssuerInitial));
+            OnPropertyChanged(nameof(Icon));
+            OnPropertyChanged(nameof(IconImage));
         }
 
         public void UpdateCode()

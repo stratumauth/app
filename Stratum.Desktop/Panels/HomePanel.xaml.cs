@@ -15,6 +15,12 @@ namespace Stratum.Desktop.Panels
             InitializeComponent();
         }
 
+        public void FocusSearchBox()
+        {
+            SearchBox?.Focus();
+            SearchBox?.SelectAll();
+        }
+
         private void AuthenticatorCard_Click(object sender, MouseButtonEventArgs e)
         {
             if (DataContext is MainViewModel viewModel && sender is Border border)

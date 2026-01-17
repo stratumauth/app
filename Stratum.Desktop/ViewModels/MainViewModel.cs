@@ -260,11 +260,12 @@ namespace Stratum.Desktop.ViewModels
             {
                 auth.Auth.Counter++;
                 await _authenticatorRepository.UpdateAsync(auth.Auth);
-                auth.UpdateCode();
+                _log.Information("Incremented counter for {Issuer}", auth.Issuer);
             }
             catch (Exception ex)
             {
                 _log.Error(ex, "Failed to increment counter");
+                MessageBox.Show($"Failed to increment counter: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -279,26 +280,32 @@ namespace Stratum.Desktop.ViewModels
 
         private void FocusSearch()
         {
-            // This would focus the search box in the view
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.FocusSearchBox();
         }
 
         private void ClearSearch()
         {
-            SearchText = "";
+            SearchText = string.Empty;
         }
 
-        public void Dispose()
-        {
-            _updateTimer?.Stop();
-            _updateTimer?.Dispose();
-        }
+        public ICommand AddAuthenticatorCommand { get; private set; }
+        public ICommand EditAuthenticatorCommand { get; private set; }
+        public ICommand DeleteAuthenticatorCommand { get; private set; }
+        public ICommand CopyCodeCommand { get; private set; }
+        public ICommand ShowQrCodeCommand { get; private set; }
+        public ICommand IncrementCounterCommand { get; private set; }
+        public ICommand OpenSettingsCommand { get; private set; }
+        public ICommand FocusSearchCommand { get; private set; }
+        public ICommand ClearSearchCommand { get; private set; }
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public ObservableCollection<AuthenticatorViewModel> Authenticators => _authenticators;
+        public ObservableCollection<AuthenticatorViewModel> FilteredAuthenticators => _filteredAuthenticators;
+        public ObservableCollection<Category> Categories => _categories;
 
-        // Properties
+        public int AuthenticatorCount => _authenticators.Count;
+        public bool IsEmpty => _authenticators.Count == 0;
+
         public string SearchText
         {
             get => _searchText;
@@ -340,20 +347,15 @@ namespace Stratum.Desktop.ViewModels
             }
         }
 
-        public ObservableCollection<AuthenticatorViewModel> FilteredAuthenticators => _filteredAuthenticators;
-        public ObservableCollection<Category> Categories => _categories;
-        public int AuthenticatorCount => _authenticators.Count;
-        public bool IsEmpty => _filteredAuthenticators.Count == 0;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-        // Commands
-        public ICommand AddAuthenticatorCommand { get; private set; }
-        public ICommand EditAuthenticatorCommand { get; private set; }
-        public ICommand DeleteAuthenticatorCommand { get; private set; }
-        public ICommand CopyCodeCommand { get; private set; }
-        public ICommand ShowQrCodeCommand { get; private set; }
-        public ICommand IncrementCounterCommand { get; private set; }
-        public ICommand OpenSettingsCommand { get; private set; }
-        public ICommand FocusSearchCommand { get; private set; }
-        public ICommand ClearSearchCommand { get; private set; }
+        public void Dispose()
+        {
+            _updateTimer?.Stop();
+            _updateTimer?.Dispose();
+        }
     }
 }

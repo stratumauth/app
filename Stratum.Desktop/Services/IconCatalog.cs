@@ -5,15 +5,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Stratum.Core;
+using System.Windows;
 
 namespace Stratum.Desktop.Services
 {
-    public class DesktopIconResolver : IIconResolver
+    public static class IconCatalog
     {
-        public string FindServiceKeyByName(string name)
+        public static List<string> GetIconNames()
         {
-            return null;
+            return new List<string>();
         }
     }
 }
