@@ -1,7 +1,7 @@
 # Build outputs
 bin/
 obj/
-releases/
+test-build/
 
 # Visual Studio
 .vs/
@@ -13,11 +13,8 @@ releases/
 # Rider
 .idea/
 
-# Publish outputs
+# Publish outputs (intermediate files)
 publish/
-*.exe
-*.dll
-*.pdb
 
 # User-specific files
 *.rsuser
