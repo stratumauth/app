@@ -52,6 +52,8 @@
         <PackageReference Include="Xamarin.Google.Android.Material" Version="1.13.0.1" />
         <PackageReference Include="StratumAuth.ZXing" Version="1.3.0" />
         <PackageReference Include="StratumAuth.SQLCipher" Version="1.3.0" />
+        <!-- TEMP: exclude classes causing R8 error on build -->
+        <PackageReference Include="Xamarin.AndroidX.Compose.Runtime.Annotation.Jvm" Version="1.10.0.1" ExcludeAssets="all" />
     </ItemGroup>
     <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="119.0.0.5" />

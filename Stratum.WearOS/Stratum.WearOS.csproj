@@ -40,6 +40,8 @@
         <PackageReference Include="Xamarin.AndroidX.Wear.Tiles.Material" Version="1.5.0.2" />
         <PackageReference Include="Xamarin.Google.Android.Material" Version="1.13.0.1" />
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="119.0.0.5" />
+        <!-- TEMP: exclude classes causing R8 error on build -->
+        <PackageReference Include="Xamarin.AndroidX.Compose.Runtime.Annotation.Jvm" Version="1.10.0.1" ExcludeAssets="all" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Stratum.Droid.Shared\Stratum.Droid.Shared.csproj" />
