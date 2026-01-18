@@ -10,8 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  ANDROID_FRAMEWORK: net9.0-android36.0
-  WEAROS_FRAMEWORK: net9.0-android
+  ANDROID_FRAMEWORK: net10.0-android
+  WEAROS_FRAMEWORK: net10.0-android
   CONFIGURATION: Release
   DOTNET_CLI_TELEMETRY_OPTOUT: true
 
@@ -26,7 +26,7 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9'
+          dotnet-version: '10'
 
       - name: Install Android workload
         run: dotnet workload install android

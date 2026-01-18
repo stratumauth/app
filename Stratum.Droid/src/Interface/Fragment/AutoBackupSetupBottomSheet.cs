@@ -292,11 +292,6 @@ namespace Stratum.Droid.Interface.Fragment
 
         private void ShowBatteryOptimisationDialog()
         {
-            if (Build.VERSION.SdkInt < BuildVersionCodes.M)
-            {
-                return;
-            }
-
             var powerManager = (PowerManager) Context.GetSystemService(Context.PowerService);
 
 #pragma warning disable CA1416

@@ -9,7 +9,6 @@ using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using AndroidX.Lifecycle;
-using Java.Interop;
 using Serilog;
 using Serilog.Exceptions;
 using System.IO;
@@ -24,7 +23,7 @@ namespace Stratum.Droid
 #else
     [Application(Debuggable = false, TaskAffinity = "")]
 #endif
-    public class BaseApplication : Application, ILifecycleObserver
+    public class BaseApplication : Application, IDefaultLifecycleObserver
     {
         public bool AutoLockEnabled { get; set; }
         public bool PreventNextAutoLock { get; set; }
@@ -37,7 +36,7 @@ namespace Stratum.Droid
         {
             InitLogger();
 
-            Provider.Init();
+            SqliteProvider.Init();
             
             _database = new Database();
             Dependencies.Init(this, _database);
@@ -115,9 +114,7 @@ namespace Stratum.Droid
             StartActivity(intent);
         }
 
-        [Lifecycle.Event.OnStop]
-        [Export]
-        public async void OnStopped()
+        public async void OnStop(ILifecycleOwner owner)
         {
             if (!AutoLockEnabled)
             {
@@ -142,19 +139,26 @@ namespace Stratum.Droid
             }
         }
 
-        [Lifecycle.Event.OnStart]
-        [Export]
-        public void OnStarted()
+        public void OnResume(ILifecycleOwner owner)
         {
-            _timeoutTimer?.Stop();
         }
 
-        [Lifecycle.Event.OnDestroy]
-        [Export]
-        public async void OnDestroyed()
+        public void OnStart(ILifecycleOwner owner)
+        {
+        }
+
+        public void OnCreate(ILifecycleOwner owner)
+        {
+        }
+
+        public async void OnDestroy(ILifecycleOwner owner)
         {
             await _database.CloseAsync(Database.Origin.Application);
             await Log.CloseAndFlushAsync();
+        }
+
+        public void OnPause(ILifecycleOwner owner)
+        {
         }
     }
 }

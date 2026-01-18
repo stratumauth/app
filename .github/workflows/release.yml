@@ -19,7 +19,7 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9'
+          dotnet-version: '10'
 
       - name: Install Android workload
         run: dotnet workload install android

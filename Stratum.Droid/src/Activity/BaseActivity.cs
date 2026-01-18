@@ -198,11 +198,6 @@ namespace Stratum.Droid.Activity
         {
             if (Build.VERSION.SdkInt < BuildVersionCodes.R)
             {
-                if (Build.VERSION.SdkInt < BuildVersionCodes.M)
-                {
-                    Window.SetStatusBarColor(Color.Black);
-                }
-
                 return;
             }
 
