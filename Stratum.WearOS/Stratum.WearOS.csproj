@@ -28,6 +28,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Autofac" Version="9.0.0" />
+        <PackageReference Include="DotNext.Threading" Version="5.26.3" />
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.102">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>

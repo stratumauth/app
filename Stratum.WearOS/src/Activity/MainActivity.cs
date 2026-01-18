@@ -4,7 +4,6 @@
 using System;
 using System.Linq;
 using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content.PM;
@@ -13,7 +12,6 @@ using Android.Gms.Wearable;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using AndroidX.AppCompat.App;
 using AndroidX.Fragment.App;
 using AndroidX.Wear.Widget;
 using AndroidX.Wear.Widget.Drawer;
@@ -26,10 +24,10 @@ using Stratum.WearOS.Fragment;
 using Stratum.WearOS.Interface;
 using Stratum.WearOS.Util;
 
-namespace Stratum.WearOS
+namespace Stratum.WearOS.Activity
 {
     [Activity(Label = "@string/displayName", MainLauncher = true, Icon = "@mipmap/ic_launcher", LaunchMode = LaunchMode.SingleInstance)]
-    public class MainActivity : AppCompatActivity, IFragmentResultListener
+    public class MainActivity : AsyncActivity, IFragmentResultListener
     {
         // Query Paths
         private const string ProtocolVersion = "protocol_v4.0";
@@ -37,9 +35,6 @@ namespace Stratum.WearOS
         
         // Result Keys
         public const string ResultItemClicked = "clicked"; 
-
-        // Lifecycle Synchronisation
-        private readonly SemaphoreSlim _onCreateLock;
         
         // Data
         private AuthenticatorView _authView;
@@ -63,38 +58,9 @@ namespace Stratum.WearOS
         // Connection Status
         private INode _serverNode;
         private bool _isFastStartup;
-        private bool _isDisposed;
 
-        public MainActivity()
+        protected override async Task OnCreateAsync()
         {
-            _onCreateLock = new SemaphoreSlim(1, 1);
-        }
-
-        ~MainActivity()
-        {
-            Dispose(false);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (!_isDisposed)
-            {
-                if (disposing)
-                {
-                    _onCreateLock.Dispose();
-                }
-
-                _isDisposed = true;
-            }
-
-            base.Dispose(disposing);
-        }
-
-        protected override async void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
-            await _onCreateLock.WaitAsync();
-
             SetTheme(Resource.Style.AppTheme);
             SetContentView(Resource.Layout.activityMain);
 
@@ -119,32 +85,25 @@ namespace Stratum.WearOS
             
             SupportFragmentManager.SetFragmentResultListener(ResultItemClicked, this, this);
 
-            RunOnUiThread(delegate
+            RunOnUiThreadForLaunch(delegate
             {
                 InitViews();
                 
                 SupportFragmentManager.BeginTransaction()
                     .SetReorderingAllowed(true)
                     .Replace(Resource.Id.viewFragment, new AuthListFragment())
-                    .CommitNow();
+                    .CommitNowAllowingStateLoss();
 
                 if (_isFastStartup)
                 {
                     AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort);
                     AnimUtil.FadeInView(_fragmentView, AnimUtil.LengthShort);
                 }
-
-                ReleaseOnCreateLock();
             });
         }
 
-        protected override async void OnResume()
+        protected override async Task OnResumeAsync()
         {
-            base.OnResume();
-
-            await _onCreateLock.WaitAsync();
-            _onCreateLock.Release();
-
             try
             {
                 await FindServerNode();
@@ -152,7 +111,7 @@ namespace Stratum.WearOS
             catch (ApiException e)
             {
                 Logger.Error(e);
-                RunOnUiThread(CheckOfflineState);
+                RunOnUiThreadForLaunch(CheckOfflineState);
                 return;
             }
 
@@ -163,23 +122,17 @@ namespace Stratum.WearOS
             catch (Exception e)
             {
                 Logger.Error(e);
-                RunOnUiThread(delegate { Toast.MakeText(this, Resource.String.syncFailed, ToastLength.Short).Show(); });
+                RunOnUiThreadForLaunch(delegate { Toast.MakeText(this, Resource.String.syncFailed, ToastLength.Short).Show(); });
             }
 
             if (!_isFastStartup)
             {
-                RunOnUiThread(delegate
+                RunOnUiThreadForLaunch(delegate
                 {
                     AnimUtil.FadeOutView(_circularProgressLayout, AnimUtil.LengthShort, false, CheckOfflineState);
                     AnimUtil.FadeInView(_fragmentView, AnimUtil.LengthShort);
                 });
             }
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-            ReleaseOnCreateLock();
         }
         
         public void OnFragmentResult(string requestKey, Bundle bundle)
@@ -191,14 +144,6 @@ namespace Stratum.WearOS
 
             var position = bundle.GetInt("position");
             OnItemClicked(position);
-        }
-
-        private void ReleaseOnCreateLock()
-        {
-            if (_onCreateLock.CurrentCount == 0)
-            {
-                _onCreateLock.Release();
-            }
         }
 
         private void InitViews()

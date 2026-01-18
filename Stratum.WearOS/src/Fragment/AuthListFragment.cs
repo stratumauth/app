@@ -11,6 +11,7 @@ using Java.Lang;
 using Stratum.Core;
 using Stratum.Core.Generator;
 using Stratum.Core.Util;
+using Stratum.WearOS.Activity;
 using Stratum.WearOS.Cache;
 using Stratum.WearOS.Cache.View;
 using Stratum.WearOS.Interface;
