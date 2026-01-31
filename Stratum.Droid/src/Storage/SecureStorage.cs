@@ -8,11 +8,16 @@ using System;
 using System.Text;
 using System.Threading;
 using Android.Content;
+using Android.OS;
 using Android.Runtime;
+using Android.Security;
 using Android.Security.Keystore;
+using Java.Math;
 using Java.Security;
+using Java.Util;
 using Javax.Crypto;
 using Javax.Crypto.Spec;
+using Javax.Security.Auth.X500;
 using Serilog;
 
 namespace Stratum.Droid.Storage
@@ -20,16 +25,24 @@ namespace Stratum.Droid.Storage
     public class SecureStorage
     {
         private const string KeyStoreName = "AndroidKeyStore";
-        private const string CipherDescription = "AES/GCM/NoPadding";
+        private const string AsymmetricCipher = "RSA/ECB/PKCS1Padding";
+        private const string SymmetricCipher = "AES/GCM/NoPadding";
+        private const string AsymmetricAlgorithm = "RSA";
+        private const string SymmetricAlgorithm = "AES";
         private const int IvLength = 12; // Android supports an IV of 12 for AES/GCM
 
+        private const string MasterKeyPreferenceKey = "SecureStorageKey";
+        private const string UseSymmetricPreferenceKey = "use_symmetric";
+
         private readonly ILogger _log = Log.ForContext<SecureStorage>();
+        private readonly Context _context;
         private readonly string _preferenceAlias;
         private readonly ISharedPreferences _preferences;
         private readonly Lock _lock = new();
 
         public SecureStorage(Context context)
         {
+            _context = context;
             _preferenceAlias = $"{context.PackageName}_securestorage";
             _preferences = context.GetSharedPreferences(_preferenceAlias, FileCreationMode.Private);
         }
@@ -81,6 +94,66 @@ namespace Stratum.Droid.Storage
 
         private ISecretKey GetKey()
         {
+            // check to see if we need to get our key from past-versions or newer versions.
+            // we want to use symmetric if we didn't set it previously.
+
+            var useSymmetric = _preferences.GetBoolean(UseSymmetricPreferenceKey, true);
+
+            // If >= API 23 we can use the KeyStore's symmetric key
+            if (useSymmetric)
+            {
+                return GetSymmetricKey();
+            }
+
+            // NOTE: KeyStore in < API 23 can only store asymmetric keys
+            // specifically, only RSA/ECB/PKCS1Padding
+            // So we will wrap our symmetric AES key we just generated
+            // with this and save the encrypted/wrapped key out to
+            // preferences for future use.
+            // ECB should be fine in this case as the AES key should be
+            // contained in one block.
+
+            var keyPair = GetAsymmetricKeyPair();
+            var existingKeyString = _preferences.GetString(MasterKeyPreferenceKey, null);
+
+            if (!string.IsNullOrEmpty(existingKeyString))
+            {
+                try
+                {
+                    var wrappedKey = Convert.FromBase64String(existingKeyString);
+                    var unwrappedKey = UnwrapKey(wrappedKey, keyPair.Private);
+
+                    return unwrappedKey.JavaCast<ISecretKey>();
+                }
+                catch (InvalidKeyException ikEx)
+                {
+                    _log.Error(ikEx, "Unable to unwrap key: Invalid Key");
+                }
+                catch (IllegalBlockSizeException ibsEx)
+                {
+                    _log.Error(ibsEx, "Unable to unwrap key: Illegal Block Size");
+                }
+                catch (BadPaddingException paddingEx)
+                {
+                    _log.Error(paddingEx, "Unable to unwrap key: Bad Padding");
+                }
+
+                _preferences.Edit().Remove(MasterKeyPreferenceKey).Commit();
+            }
+
+            var keyGenerator = KeyGenerator.GetInstance(SymmetricAlgorithm);
+            var symmetricKey = keyGenerator.GenerateKey();
+
+            var newWrappedKey = WrapKey(symmetricKey, keyPair.Public);
+            _preferences.Edit().PutString(MasterKeyPreferenceKey, Convert.ToBase64String(newWrappedKey)).Commit();
+
+            return symmetricKey;
+        }
+
+        // API 23+ Only
+        private ISecretKey GetSymmetricKey()
+        {
+            _preferences.Edit().PutBoolean(UseSymmetricPreferenceKey, true).Commit();
             IKey existingKey;
 
             lock (_lock)
@@ -113,6 +186,123 @@ namespace Stratum.Droid.Storage
             }
         }
 
+        private KeyPair GetAsymmetricKeyPair()
+        {
+            // set that we generated keys on pre-m device.
+            _preferences.Edit().PutBoolean(UseSymmetricPreferenceKey, false).Commit();
+
+            var asymmetricAlias = $"{_preferenceAlias}.asymmetric";
+
+            IPrivateKey privateKey;
+            IPublicKey publicKey;
+
+            lock (_lock)
+            {
+                var keyStore = GetKeyStore();
+                privateKey = keyStore.GetKey(asymmetricAlias, null)?.JavaCast<IPrivateKey>();
+                publicKey = keyStore.GetCertificate(asymmetricAlias)?.PublicKey;
+            }
+
+            // Return the existing key if found
+            if (privateKey != null && publicKey != null)
+            {
+                return new KeyPair(publicKey, privateKey);
+            }
+
+            var originalLocale = GetLocale();
+
+            try
+            {
+                // Force to english for known bug in date parsing:
+                // https://issuetracker.google.com/issues/37095309
+                SetLocale(Locale.English);
+
+                var end = DateTime.UtcNow.AddYears(20);
+                var startDate = new Date();
+#pragma warning disable CS0618 // Type or member is obsolete
+                var endDate = new Date(end.Year, end.Month, end.Day);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+                lock (_lock)
+                {
+                    // Otherwise we create a new key
+                    var generator = KeyPairGenerator.GetInstance(AsymmetricAlgorithm, KeyStoreName);
+
+#pragma warning disable CA1422
+                    var soec = new KeyPairGeneratorSpec.Builder(_context)
+                        .SetAlias(asymmetricAlias)
+                        .SetSerialNumber(BigInteger.One)
+                        .SetSubject(new X500Principal($"CN={asymmetricAlias} CA Certificate"))
+                        .SetStartDate(startDate)
+                        .SetEndDate(endDate)
+                        .Build();
+
+                    generator.Initialize(soec);
+#pragma warning restore CA1422
+
+                    return generator.GenerateKeyPair();
+                }
+            }
+            finally
+            {
+                SetLocale(originalLocale);
+            }
+        }
+
+        private Locale GetLocale()
+        {
+            var resources = _context.Resources;
+            var configuration = resources.Configuration;
+
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.N)
+            {
+#pragma warning disable CA1416
+                return configuration.Locales.Get(0);
+#pragma warning restore CA1416
+            }
+
+#pragma warning disable CA1422
+            return configuration.Locale;
+#pragma warning restore CA1422
+        }
+
+        private void SetLocale(Locale locale)
+        {
+            Locale.Default = locale;
+
+            var resources = _context.Resources;
+            var configuration = resources.Configuration;
+
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.N)
+            {
+                configuration.SetLocale(locale);
+            }
+            else
+            {
+#pragma warning disable CA1422
+                configuration.Locale = locale;
+                _context.Resources.UpdateConfiguration(configuration, _context.Resources.DisplayMetrics);
+#pragma warning restore CA1422
+            }
+        }
+
+        private static byte[] WrapKey(IKey keyToWrap, IKey withKey)
+        {
+            var cipher = Cipher.GetInstance(AsymmetricCipher);
+            cipher.Init(CipherMode.WrapMode, withKey);
+            return cipher.Wrap(keyToWrap);
+        }
+
+        private static IKey UnwrapKey(byte[] wrappedData, IKey withKey)
+        {
+            var cipher = Cipher.GetInstance(AsymmetricCipher);
+            cipher.Init(CipherMode.UnwrapMode, withKey);
+#pragma warning disable CA1416
+            var unwrapped = cipher.Unwrap(wrappedData, KeyProperties.KeyAlgorithmAes, KeyType.SecretKey);
+#pragma warning restore CA1416
+            return unwrapped;
+        }
+
         private byte[] Encrypt(string data)
         {
             var key = GetKey();
@@ -128,7 +318,7 @@ namespace Stratum.Droid.Storage
             // Attempt to use GCMParameterSpec by default
             try
             {
-                cipher = Cipher.GetInstance(CipherDescription);
+                cipher = Cipher.GetInstance(SymmetricCipher);
                 cipher.Init(CipherMode.EncryptMode, key, new GCMParameterSpec(128, iv));
             }
             catch (InvalidAlgorithmParameterException)
@@ -138,7 +328,7 @@ namespace Stratum.Droid.Storage
                 // with IvParameterSpec, however we only do this as a last effort since other
                 // implementations will error if you use IvParameterSpec when GCMParameterSpec
                 // is recognized and expected.
-                cipher = Cipher.GetInstance(CipherDescription);
+                cipher = Cipher.GetInstance(SymmetricCipher);
                 cipher.Init(CipherMode.EncryptMode, key, new IvParameterSpec(iv));
             }
 
@@ -171,7 +361,7 @@ namespace Stratum.Droid.Storage
             // Attempt to use GCMParameterSpec by default
             try
             {
-                cipher = Cipher.GetInstance(CipherDescription);
+                cipher = Cipher.GetInstance(SymmetricCipher);
                 cipher.Init(CipherMode.DecryptMode, key, new GCMParameterSpec(128, iv));
             }
             catch (InvalidAlgorithmParameterException)
@@ -181,7 +371,7 @@ namespace Stratum.Droid.Storage
                 // with IvParameterSpec, however we only do this as a last effort since other
                 // implementations will error if you use IvParameterSpec when GCMParameterSpec
                 // is recognized and expected.
-                cipher = Cipher.GetInstance(CipherDescription);
+                cipher = Cipher.GetInstance(SymmetricCipher);
                 cipher.Init(CipherMode.DecryptMode, key, new IvParameterSpec(iv));
             }
 
