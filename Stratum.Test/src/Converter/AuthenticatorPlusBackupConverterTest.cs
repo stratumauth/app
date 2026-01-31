@@ -20,7 +20,7 @@ namespace Stratum.Test.Converter
 
         public AuthenticatorPlusBackupConverterTest(AuthenticatorPlusBackupFixture authenticatorPlusBackupFixture)
         {
-            Provider.Init();
+            SqliteProvider.Init();
             
             _authenticatorPlusBackupFixture = authenticatorPlusBackupFixture;
 
