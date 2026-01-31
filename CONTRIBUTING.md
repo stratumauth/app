@@ -7,7 +7,7 @@ Translations are now managed on Crowdin. Go to the [Stratum Crowdin project](htt
 
 ## Icons ⏺️
 
-If you'd like to contribute some icons, first check if there's [any open issues from user requests](https://github.com/stratumauth/app/issues?q=is%3Aopen+is%3Aissue+label%3Aenhancement).
+If you'd like to contribute some icons, first check if there's [any open issues from user requests](https://github.com/stratumauth/app/issues?q=is%3Aopen+is%3Aissue+label%3Aicon).
 
 ### Icon criteria:
 Not every service needs an icon. To prevent the app having hundreds of icons from obscure and rarely used platforms, we limit what icons can be added. If a service doesn't meet the criteria we encourage the use of custom icons from within the app.
