@@ -8,7 +8,7 @@ namespace Stratum.Droid.Shared
     // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY
     public static class IconMap
     {
-        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(794)
+        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(806)
         {
             ["123formbuilder"] = Resource.Drawable.auth_123formbuilder,
             ["15five"] = Resource.Drawable.auth_15five,
@@ -187,6 +187,7 @@ namespace Stratum.Droid.Shared
             ["contabo"] = Resource.Drawable.auth_contabo,
             ["contentful"] = Resource.Drawable.auth_contentful,
             ["controld"] = Resource.Drawable.auth_controld,
+            ["coolify"] = Resource.Drawable.auth_coolify,
             ["coursera"] = Resource.Drawable.auth_coursera,
             ["cpanel"] = Resource.Drawable.auth_cpanel,
             ["crashplan"] = Resource.Drawable.auth_crashplan,
@@ -196,6 +197,7 @@ namespace Stratum.Droid.Shared
             ["crowdstrike"] = Resource.Drawable.auth_crowdstrike,
             ["crowdsupply"] = Resource.Drawable.auth_crowdsupply,
             ["cryptocom"] = Resource.Drawable.auth_cryptocom,
+            ["csfloat"] = Resource.Drawable.auth_csfloat,
             ["ctemplar"] = Resource.Drawable.auth_ctemplar,
             ["currencyfair"] = Resource.Drawable.auth_currencyfair,
             ["current"] = Resource.Drawable.auth_current,
@@ -207,6 +209,7 @@ namespace Stratum.Droid.Shared
             ["datev"] = Resource.Drawable.auth_datev,
             ["datto"] = Resource.Drawable.auth_datto,
             ["debian"] = Resource.Drawable.auth_debian,
+            ["deepl"] = Resource.Drawable.auth_deepl,
             ["default"] = Resource.Drawable.auth_default,
             ["degiro"] = Resource.Drawable.auth_degiro,
             ["delinea"] = Resource.Drawable.auth_delinea,
@@ -453,6 +456,7 @@ namespace Stratum.Droid.Shared
             ["misskey"] = Resource.Drawable.auth_misskey,
             ["mistral"] = Resource.Drawable.auth_mistral,
             ["mlab"] = Resource.Drawable.auth_mlab,
+            ["mlogin"] = Resource.Drawable.auth_mlogin,
             ["modrinth"] = Resource.Drawable.auth_modrinth,
             ["mondaycom"] = Resource.Drawable.auth_mondaycom,
             ["moneyforward"] = Resource.Drawable.auth_moneyforward,
@@ -584,6 +588,7 @@ namespace Stratum.Droid.Shared
             ["realvnc"] = Resource.Drawable.auth_realvnc,
             ["recruit"] = Resource.Drawable.auth_recruit,
             ["reddit"] = Resource.Drawable.auth_reddit,
+            ["reddotpay"] = Resource.Drawable.auth_reddotpay,
             ["redhat"] = Resource.Drawable.auth_redhat,
             ["redis"] = Resource.Drawable.auth_redis,
             ["redshelf"] = Resource.Drawable.auth_redshelf,
@@ -595,8 +600,10 @@ namespace Stratum.Droid.Shared
             ["retrospring"] = Resource.Drawable.auth_retrospring,
             ["rewe"] = Resource.Drawable.auth_rewe,
             ["rewind"] = Resource.Drawable.auth_rewind,
+            ["ricardo"] = Resource.Drawable.auth_ricardo,
             ["ring"] = Resource.Drawable.auth_ring,
             ["ripencc"] = Resource.Drawable.auth_ripencc,
+            ["ripio"] = Resource.Drawable.auth_ripio,
             ["robertsspaceindustries"] = Resource.Drawable.auth_robertsspaceindustries,
             ["roblox"] = Resource.Drawable.auth_roblox,
             ["roboform"] = Resource.Drawable.auth_roboform,
@@ -605,6 +612,7 @@ namespace Stratum.Droid.Shared
             ["roundcube"] = Resource.Drawable.auth_roundcube,
             ["runcloud"] = Resource.Drawable.auth_runcloud,
             ["runescape"] = Resource.Drawable.auth_runescape,
+            ["runpod"] = Resource.Drawable.auth_runpod,
             ["runsignup"] = Resource.Drawable.auth_runsignup,
             ["rustdesk"] = Resource.Drawable.auth_rustdesk,
             ["salesforce"] = Resource.Drawable.auth_salesforce,
@@ -730,6 +738,7 @@ namespace Stratum.Droid.Shared
             ["upb"] = Resource.Drawable.auth_upb,
             ["updraft"] = Resource.Drawable.auth_updraft,
             ["uphold"] = Resource.Drawable.auth_uphold,
+            ["uptimekuma"] = Resource.Drawable.auth_uptimekuma,
             ["uptimerobot"] = Resource.Drawable.auth_uptimerobot,
             ["upwork"] = Resource.Drawable.auth_upwork,
             ["vancity"] = Resource.Drawable.auth_vancity,
@@ -744,6 +753,7 @@ namespace Stratum.Droid.Shared
             ["vk"] = Resource.Drawable.auth_vk,
             ["vmware"] = Resource.Drawable.auth_vmware,
             ["vodafone"] = Resource.Drawable.auth_vodafone,
+            ["voipms"] = Resource.Drawable.auth_voipms,
             ["volcanoengine"] = Resource.Drawable.auth_volcanoengine,
             ["volet"] = Resource.Drawable.auth_volet,
             ["vrchat"] = Resource.Drawable.auth_vrchat,
@@ -755,6 +765,7 @@ namespace Stratum.Droid.Shared
             ["wazirx"] = Resource.Drawable.auth_wazirx,
             ["wbgames"] = Resource.Drawable.auth_wbgames,
             ["wealthfront"] = Resource.Drawable.auth_wealthfront,
+            ["wealthsimple"] = Resource.Drawable.auth_wealthsimple,
             ["webde"] = Resource.Drawable.auth_webde,
             ["webflow"] = Resource.Drawable.auth_webflow,
             ["webhostmanager"] = Resource.Drawable.auth_webhostmanager,
@@ -770,6 +781,7 @@ namespace Stratum.Droid.Shared
             ["wiggle"] = Resource.Drawable.auth_wiggle,
             ["wikipedia"] = Resource.Drawable.auth_wikipedia,
             ["windscribe"] = Resource.Drawable.auth_windscribe,
+            ["wireguard"] = Resource.Drawable.auth_wireguard,
             ["wise"] = Resource.Drawable.auth_wise,
             ["withings"] = Resource.Drawable.auth_withings,
             ["wix"] = Resource.Drawable.auth_wix,
@@ -806,7 +818,7 @@ namespace Stratum.Droid.Shared
             ["zyxel"] = Resource.Drawable.auth_zyxel,
         }.AsReadOnly();
 
-        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(237)
+        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(238)
         {
             ["1password"] = Resource.Drawable.auth_1password_dark,
             ["3cx"] = Resource.Drawable.auth_3cx_dark,
@@ -873,6 +885,7 @@ namespace Stratum.Droid.Shared
             ["cryptocom"] = Resource.Drawable.auth_cryptocom_dark,
             ["d4sign"] = Resource.Drawable.auth_d4sign_dark,
             ["dashlane"] = Resource.Drawable.auth_dashlane_dark,
+            ["deepl"] = Resource.Drawable.auth_deepl_dark,
             ["default"] = Resource.Drawable.auth_default_dark,
             ["discogs"] = Resource.Drawable.auth_discogs_dark,
             ["disroot"] = Resource.Drawable.auth_disroot_dark,
