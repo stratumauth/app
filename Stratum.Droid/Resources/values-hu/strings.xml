@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="hu">
     <!-- 
         Non-specific strings
     -->
@@ -41,7 +41,7 @@
     <string name="sortMostCopied">Legtöbbször másolt</string>
     <string name="sortLeastCopied">Legkevesebbszer másolt</string>
     <string name="sortCustom">Egyedi</string>
-    <string name="sortLock">Lock</string>
+    <string name="sortLock">Zárolás</string>
     <string name="sortUnlock">Feloldás</string>
     <string name="aboutSummary">Információk és licencinformációk megtekintése</string>
     <string name="supportDevelopment">Támogassa a fejlesztést</string>
@@ -137,7 +137,7 @@
     <string name="assignEntries">Bejegyzések hozzárendelése</string>
     <string name="more">Továbbiak</string>
     <string name="categoryAll">Összes</string>
-    <string name="categoryUncategorised">Uncategorised</string>
+    <string name="categoryUncategorised">Kategória nélküli</string>
     <string name="editCategories">Kategóriák szerkesztése</string>
     <string name="noCategoryName">Kategórianév megadása kötelező</string>
     <string name="duplicateCategory">Már létezik ilyen nevű kategória</string>
@@ -211,8 +211,8 @@
     <!--
         Password setup
     -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
-    <string name="passwordSetupWarning">Use a password you can remember, the database is unrecoverable without it!</string>
+    <string name="passwordSetupHelp">Titkosítsd az adatbázist egy jelszóval. Az alkalmazás megnyitásakor a rendszer kéri a jelszó megadását. A jelszó törléséhez hagyd üresen a mezőt.</string>
+    <string name="passwordSetupWarning">Használj olyan jelszót, amelyet könnyen megjegyezhetsz, mert nélküle az adatbázis helyreállíthatatlan!</string>
     <string name="clearPassword">Jelszó törlése</string>
     <string name="confirmPassword">Jelszó megerősítése</string>
     <string name="setupBiometricUnlock">Biometrikus adatokkal való feloldás beállítása</string>
@@ -222,54 +222,54 @@
         Unlock
     -->
     <string name="unlock">Feloldás</string>
-    <string name="useBiometrics">Use biometrics</string>
-    <string name="unlockMessage">Enter your password or use biometrics to unlock the database</string>
-    <string name="unlockBiometricsMessage">Use biometrics to access your authenticators</string>
+    <string name="useBiometrics">Biometrikus feloldás használata</string>
+    <string name="unlockMessage">Írd be a jelszavadat vagy használd a biometrikus azonosítódat az adatbázis feloldásához</string>
+    <string name="unlockBiometricsMessage">Használj biometrikus adatokat a hitelesítőkhöz való hozzáféréshez</string>
     <string name="passwordIncorrect">Jelszó helytelen</string>
     <string name="tooManyAttempts">Túl sok próbálkozás</string>
     <!--
         Import
     -->
-    <string name="importFromOtherApps">Import from other apps</string>
-    <string name="importError">The file could not be imported</string>
-    <string name="importIncomplete">Import incomplete</string>
-    <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
+    <string name="importFromOtherApps">Importálás más alkalmazásokból</string>
+    <string name="importError">A fájl nem importálható</string>
+    <string name="importIncomplete">Importálás hiányos</string>
+    <string name="importConversionError">A(z) \"{0}\" elem importálása a következő hiba miatt nem sikerült: {1}</string>
     <string name="authenticatorPlusImportHint">authplus.db fájl importálása</string>
     <string name="andOtpImportHint">otp_accounts.json fájl importálása</string>
-    <string name="freeOtpImportHint">Import externalBackup.xml file</string>
-    <string name="freeOtpPlusImportHint">Import freeotp-backup.json file</string>
-    <string name="aegisImportHint">Import aegis-export.json file</string>
-    <string name="bitwardenImportHint">Import bitwarden_export.json file</string>
-    <string name="enteAuthImportHint">Import ente-auth-codes.txt file</string>
-    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
-    <string name="winAuthImportHint">Import winauth.txt or winauth.zip file</string>
-    <string name="twoFasImportHint">Import 2fas-backup.2fas file</string>
-    <string name="keePassImportHint">Import keepass.kdbx (KDBX 4.) file</string>
-    <string name="lastPassAuthenticatorImportHint">Import LastPassAuthenticator.json file</string>
-    <string name="totpAuthenticatorImportHint">Import TOTP_Backup.encrypt file</string>
+    <string name="freeOtpImportHint">Importálja az externalBackup.xml fájlt</string>
+    <string name="freeOtpPlusImportHint">Importálja a freeotp-backup.json fájlt</string>
+    <string name="aegisImportHint">Importálja az aegis-export.json fájlt</string>
+    <string name="bitwardenImportHint">Importálja az aegis-export.json fájlt</string>
+    <string name="enteAuthImportHint">Importálja az ente-auth-codes.txt fájlt</string>
+    <string name="protonAuthenticatorImportHint">Importálja a proton_authenticator_backup.json fájlt</string>
+    <string name="winAuthImportHint">Importálja a winauth.txt vagy winauth.zip fájlt</string>
+    <string name="twoFasImportHint">Importálja a 2fas-backup.2fas fájlt</string>
+    <string name="keePassImportHint">Importálja a keepass.kdbx (KDBX 4.) fájlt</string>
+    <string name="lastPassAuthenticatorImportHint">Importálja a LastPassAuthenticator.json fájlt</string>
+    <string name="totpAuthenticatorImportHint">TOTP_Backup.encrypt fájl importálása</string>
     <string name="uriList">URI lista</string>
-    <string name="uriListHint">Plain text list of otpauth URIs</string>
-    <string name="viewGuideImportHint">View guide on project wiki</string>
+    <string name="uriListHint">Az otpauth URI-k egyszerű szöveges listája</string>
+    <string name="viewGuideImportHint">Nézd meg az útmutatót a projekt wiki oldalán</string>
     <!--
         Getting Started Guide
     -->
     <string name="guideScanQRCodeTitle">QR kód beolvasása</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
-    <string name="guideUseCodeTitle">Use the code when logging in</string>
-    <string name="guideUseCodeSummary">When logging in, use the unique code provided by Stratum. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
-    <string name="guideCustomiseTitle">Customise and edit</string>
-    <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
-    <string name="guideArrangeTitle">Arrange and sort</string>
-    <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
-    <string name="guideBackupTitle">Create a backup</string>
-    <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
-    <string name="guideWearOSTitle">Download the Wear OS companion</string>
-    <string name="guideWearOSSummary">If you have a Wear OS watch, you can download the companion app. You can view codes directly on your watch.</string>
+    <string name="guideScanQRCodeSummary">Hitelesítő hozzáadásához olvasd be az alkalmazás vagy szolgáltatás által megadott QR-kódot. Ez felkerül a listára, és automatikusan új kódokat generál. A részleteket manuálisan is megadhatod.</string>
+    <string name="guideUseCodeTitle">A bejelentkezéskor használja a kódot</string>
+    <string name="guideUseCodeSummary">Bejelentkezéskor használd a Stratum által megadott kódot. Ez csak rövid ideig érvényes. Érintsd meg a hitelesítőt a listában, hogy a kódot a vágólapra másold.</string>
+    <string name="guideCustomiseTitle">Testreszabás és szerkesztés</string>
+    <string name="guideCustomiseSummary">Nevezd át és szabd testre hitelesítőidet, hogy könnyebben megtaláld őket. Egyszerűen koppints a menü ikonra egy elemnél, és kövesd a lépéseket.</string>
+    <string name="guideArrangeTitle">Rendezés és válogatás</string>
+    <string name="guideArrangeSummary">Az hitelesítőket kategóriákba rendezheted, hogy könnyebben megtaláld őket. Ezenkívül az elemek megfogásával és húzásával tetszőleges sorrendbe rendezheted őket.</string>
+    <string name="guideBackupTitle">Biztonsági mentés készítése</string>
+    <string name="guideBackupSummary">Ne zárd ki magad a fiókjaidból, ha eszközt váltasz. Készíts biztonsági mentést, és tárold azt biztonságos helyen. A biztonsági másolatot bármikor visszaállíthatod, és jelszóval védheted.</string>
+    <string name="guideWearOSTitle">Töltsd le a Wear OS kiegészítő alkalmazást</string>
+    <string name="guideWearOSSummary">Ha Wear OS órával rendelkezel, letöltheted a kísérőalkalmazást. A kódokat közvetlenül az órádon tekintheted meg.</string>
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
-    <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
+    <string name="scanHelpPrimary">Igazítsd a QR-kódot a szkennerhez. Koppints a képernyőre a fókuszáláshoz.</string>
+    <string name="scanHelpSecondary">Kerüld az árnyékokat és a tükröződéseket. Tartsd a készüléket körülbelül 15 cm-re (6 hüvelyk) a kódtól.</string>
     <string name="toggleFlash">Vaku ki-be</string>
     <!--
         Preferences
@@ -282,59 +282,59 @@
     <string name="prefLanguageTitle">Nyelv</string>
     <string name="prefLanguageSummary">Válasszon megjelenítési nyelvet az alkalmazáshoz</string>
     <string name="prefTapToCopyTitle">Koppintson a másoláshoz</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
-    <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
-    <string name="prefSkipToNextTitle">Skip to Next</string>
-    <string name="prefSkipToNextSummary">Allow skipping to the next code when it\'s close to expiring</string>
-    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
-    <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
-    <string name="prefSecurity">Security</string>
+    <string name="prefTapToCopySummary">Koppintáskor másolja a kódot a vágólapra</string>
+    <string name="prefResetCopyCountTitle">Másolási szám visszaállítása</string>
+    <string name="prefResetCopyCountSummary">Törölje az egyes hitelesítők másolásának számát</string>
+    <string name="prefSkipToNextTitle">Ugrás a következőre</string>
+    <string name="prefSkipToNextSummary">Lehetővé teszi a következő kódra való átugrást, ha az hamarosan lejár</string>
+    <string name="prefShowUncategorisedTitle">Kategória nélküli mutatása</string>
+    <string name="prefShowUncategorisedSummary">Azokhoz a hitelesítőkhöz tartozó kategóriák megjelenítése, amelyek nem tartoznak egyetlen kategóriához sem</string>
+    <string name="prefSecurity">Biztonság</string>
     <string name="prefPasswordTitle">Jelszó</string>
-    <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
-    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
-    <string name="prefAllowBiometricsTitle">Biometric Unlock</string>
-    <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
-    <string name="prefTimeoutTitle">Timeout</string>
-    <string name="prefTimeoutSummary">Set the time after which the database will lock once the app leaves the screen</string>
-    <string name="prefTapToRevealTitle">Tap to Reveal</string>
-    <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
-    <string name="prefAllowScreenshotsTitle">Allow Screenshots</string>
-    <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
-    <string name="prefAppearance">Appearance</string>
-    <string name="prefThemeTitle">Theme</string>
-    <string name="prefThemeSummary">Choose an application theme</string>
-    <string name="prefViewModeTitle">View Mode</string>
-    <string name="prefViewModeSummary">Choose a view mode for the authenticator list</string>
-    <string name="prefCodeGroupSizeTitle">Code Group Size</string>
-    <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
-    <string name="prefShowUsernamesTitle">Show Usernames</string>
-    <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
-    <string name="prefAccentColourTitle">Accent Colour</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
-    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
-    <string name="prefSystemFontTitle">System Font</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefPasswordSummary">Jelszó megadása szükséges a hitelesítők eléréséhez. Az adatbázis a jelszavaddal lesz titkosítva.</string>
+    <string name="prefDatabasePasswordBackupTitle">Biztonsági mentés adatbázis jelszóval</string>
+    <string name="prefDatabasePasswordBackupSummary">Titkosítsa az összes biztonsági mentést az adatbázis jelszavával, így nem kell minden alkalommal beírnod azt</string>
+    <string name="prefAllowBiometricsTitle">Biometrikus feloldás</string>
+    <string name="prefAllowBiometricsSummary">Lehetővé teszi az adatbázis biometrikus azonosítással történő feloldását</string>
+    <string name="prefTimeoutTitle">Időtúllépés</string>
+    <string name="prefTimeoutSummary">Állítsd be azt az időt, amely után az adatbázis zárolódik, miután az alkalmazás elhagyja a képernyőt</string>
+    <string name="prefTapToRevealTitle">Koppintás a felfedéshez</string>
+    <string name="prefTapToRevealSummary">Rejtse el a kódokat, amíg rájuk nem koppintasz. Néhány másodperc múlva eltűnnek.</string>
+    <string name="prefTapToRevealDurationTitle">Koppints az időtartam felfedéséhez</string>
+    <string name="prefTapToRevealDurationSummary">Állítsd be azt az időt, amely után a feltárt kódok el lesznek rejtve</string>
+    <string name="prefAllowScreenshotsTitle">Képernyőképek engedélyezése</string>
+    <string name="prefAllowScreenshotsSummary">A képernyő biztonsági funkciójának letiltása és az képernyőképek készítésének engedélyezése</string>
+    <string name="prefAppearance">Megjelenés</string>
+    <string name="prefThemeTitle">Téma</string>
+    <string name="prefThemeSummary">Válassz egy alkalmazás témát</string>
+    <string name="prefViewModeTitle">Megtekintési mód</string>
+    <string name="prefViewModeSummary">Válassz nézetmódot a hitelesítő lista számára</string>
+    <string name="prefCodeGroupSizeTitle">Kódcsoport mérete</string>
+    <string name="prefCodeGroupSizeSummary">A kódban szereplő számjegyek csoportosításának módosítása</string>
+    <string name="prefShowUsernamesTitle">Felhasználónevek megjelenítése</string>
+    <string name="prefShowUsernamesSummary">A felhasználónév megjelenítése a kibocsátó alatt</string>
+    <string name="prefDynamicColourTitle">Dinamikus szín</string>
+    <string name="prefDynamicColourSummary">A háttérkép alapján dinamikusan állítsa be az kiemelő színt</string>
+    <string name="prefAccentColourTitle">Kiemelés színe</string>
+    <string name="prefAccentColourSummary">Válassz egy kiemelő színt, amelyet az alkalmazás egészében használni szeretnél</string>
+    <string name="prefTransparentStatusBarTitle">Átlátszó állapotsor</string>
+    <string name="prefTransparentStatusBarSummary">A lista láthatóvá tétele a státuszsáv mögött görgetéskor</string>
+    <string name="prefSystemFontTitle">Rendszer-betűtípus</string>
+    <string name="prefSystemFontSummary">A rendszer alapértelmezett betűtípusát használja az egyéni betűtípus helyett</string>
     <!-- Message shown when the copy count has been reset successfully -->
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">Másolások számai visszaállítva</string>
     <!--
         About
     -->
-    <string name="viewLog">View Log</string>
-    <string name="noLogFile">No log file available</string>
-    <string name="debugLog">Debug log</string>
+    <string name="viewLog">Napló megtekintése</string>
+    <string name="noLogFile">Nincs elérhető naplófájl</string>
+    <string name="debugLog">Hibakeresési napló</string>
     <!--
         Arrays
     -->
-    <string name="authTypeTime">Time based (TOTP)</string>
-    <string name="authTypeCounter">Counter based (HOTP)</string>
-    <string name="authAlgorithmSHA1">SHA1 (default)</string>
+    <string name="authTypeTime">Idő alapú (TOTP)</string>
+    <string name="authTypeCounter">Számláló alapú (HOTP)</string>
+    <string name="authAlgorithmSHA1">SHA1 (alapértelmezett)</string>
     <!-- Lock the app immediately when closed -->
     <string name="immediately">Azonnal</string>
     <string name="timeout5Sec">5 másodperc</string>
@@ -385,12 +385,12 @@
     -->
     <string name="introWelcomeTitle">Üdvözli az Stratum</string>
     <string name="introCompatibilityTitle">Kétfaktoros hitelesítés</string>
-    <string name="introBackupTitle">Back up and Restore</string>
+    <string name="introBackupTitle">Biztonsági mentés és visszaállítás</string>
     <string name="introCategoriesTitle">Kategóriák</string>
     <string name="introThemesTitle">Sötét téma</string>
-    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
+    <string name="introWelcomeSummary">Köszönjük, hogy letöltötte a Stratum alkalmazást!\nVéd online fiókjaid a legjobb nyílt forráskódú hitelesítő alkalmazással.</string>
     <string name="introCompatibilitySummary">Az Stratum a legtöbb szolgáltatóval és fiókkal kompatibilis. 100%-ban kompatibilis a Google Authenticator szolgáltatással.</string>
-    <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
-    <string name="introThemesSummary">If you prefer, you can enable a dark theme in the settings. All icons will adapt to match their new background.</string>
+    <string name="introBackupSummary">Készítsen biztonsági mentést a hitelesítőkről erős titkosítással. Ha elveszítené a készülékét, így mindig hozzáférhetsz a fiókjaidhoz. Mentsd el a felhőalapú tárhelyre vagy a készülékedre.</string>
+    <string name="introCategoriesSummary">Rendezd hitelesítőid kategóriákba, és egyszerűen tartsd lenyomva és húzzad, hogy megváltoztasd a sorrendet.</string>
+    <string name="introThemesSummary">Ha szeretnéd, a beállításokban engedélyezheted a sötét témát. Minden ikon az új háttérhez igazodik.</string>
 </resources>

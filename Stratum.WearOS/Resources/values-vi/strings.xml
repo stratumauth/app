@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="vi">
     <string name="noAuthenticators">Không có xác thực</string>
     <string name="noAuthenticatorsMessage">Không có gì ở đây. Thêm một số trình xác thực từ ứng dụng trên điện thoại.</string>
     <string name="hotpNotSupported">HOTP không hỗ trợ</string>
