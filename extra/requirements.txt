@@ -3,7 +3,7 @@ argon2-cffi-bindings==21.2.0
 black==25.1.0
 cffi==1.17.1
 click==8.2.1
-cryptography==45.0.5
+cryptography==46.0.5
 joblib==1.5.1
 mypy_extensions==1.1.0
 packaging==25.0
