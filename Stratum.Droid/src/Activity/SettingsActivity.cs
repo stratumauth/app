@@ -177,6 +177,13 @@ namespace Stratum.Droid.Activity
                 fragment.Show(SupportFragmentManager, fragment.Tag);
             };
 
+            var webDavBackup = _fragment.FindPreference("pref_webDavBackup");
+            webDavBackup.PreferenceClick += delegate
+            {
+                var fragment = new WebDavSetupBottomSheet();
+                fragment.Show(SupportFragmentManager, fragment.Tag);
+            };
+
             resetCopyCount.PreferenceClick += async delegate
             {
                 try

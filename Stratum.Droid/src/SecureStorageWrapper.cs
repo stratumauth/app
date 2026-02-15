@@ -37,5 +37,28 @@ namespace Stratum.Droid
         {
             _secureStorage.Set(DatabasePasswordKey, value);
         }
+
+        private const string WebDavUsernameKey = "webDavUsername";
+        private const string WebDavPasswordKey = "webDavPassword";
+
+        public string GetWebDavUsername()
+        {
+            return _secureStorage.Get(WebDavUsernameKey);
+        }
+
+        public void SetWebDavUsername(string value)
+        {
+            _secureStorage.Set(WebDavUsernameKey, value);
+        }
+
+        public string GetWebDavPassword()
+        {
+            return _secureStorage.Get(WebDavPasswordKey);
+        }
+
+        public void SetWebDavPassword(string value)
+        {
+            _secureStorage.Set(WebDavPasswordKey, value);
+        }
     }
 }

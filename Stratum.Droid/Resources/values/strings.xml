@@ -229,7 +229,7 @@
         Auto backup
     -->
     
-    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
+    <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. For cloud storage, configure WebDAV Backup from settings.</string>
 
     <string name="selectLocation">Select location</string>
     <string name="noLocationSelected">No location selected</string>
@@ -252,6 +252,35 @@
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
     <string name="autoBackupSuccessTitle">Auto Backup completed</string>
     <string name="backupScheduled">Backup scheduled</string>
+
+    <!--
+        WebDAV
+    -->
+
+    <string name="webDavBackupTitle">WebDAV Backup</string>
+    <string name="webDavBackupHelp">Configure a WebDAV server as an additional backup destination. Backups are uploaded when Auto Backup runs. No data is sent unless you configure and enable this.</string>
+    <string name="prefWebDavBackupTitle">WebDAV Backup</string>
+    <string name="prefWebDavBackupSummary">Back up to and restore from a WebDAV server</string>
+    <string name="webDavServerUrl">Server URL</string>
+    <string name="webDavServerUrlHint" translatable="false">https://cloud.example.com/remote.php/dav/files/user/</string>
+    <string name="webDavNotConfigured">Not configured</string>
+    <string name="webDavServerUrlSetTo">URL set to \'{0}\'</string>
+    <string name="webDavCredentials">Credentials</string>
+    <string name="webDavCredentialsNotSet">Credentials not set</string>
+    <string name="webDavCredentialsSet">Credentials set</string>
+    <string name="webDavRemotePath">Remote path</string>
+    <string name="webDavRemotePathHint" translatable="false">/stratum-backups/</string>
+    <string name="webDavRemotePathSetTo">Path set to \'{0}\'</string>
+    <string name="webDavEnableBackup">Enable WebDAV Backup</string>
+    <string name="webDavEnableRestore">Enable auto restore</string>
+    <string name="webDavRestoreHelp">When enabled, the latest backup from the server will be merged into your database if it is newer than your last upload.</string>
+    <string name="webDavTestConnection">Test connection</string>
+    <string name="webDavTestSuccess">Connection successful</string>
+    <string name="webDavTestFailure">Connection failed: {0}</string>
+    <string name="webDavUsername">Username</string>
+    <string name="webDavPassword">Password</string>
+    <string name="webDavUrlRequired">A server URL is required</string>
+    <string name="webDavCredentialsRequired">Username and password are required</string>
 
     <!--
         Password setup

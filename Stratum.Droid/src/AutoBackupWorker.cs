@@ -15,6 +15,7 @@ using Autofac;
 using Stratum.Core.Backup;
 using Stratum.Core.Backup.Encryption;
 using Stratum.Core.Service;
+using Stratum.Core.WebDav;
 using Stratum.Droid.Extension;
 using Serilog;
 using Stratum.Droid.Activity;
@@ -34,6 +35,7 @@ namespace Stratum.Droid
         private readonly Database _database = new();
         private readonly IContainer _container;
         private readonly IBackupService _backupService;
+        private readonly IRestoreService _restoreService;
 
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
         {
@@ -43,6 +45,7 @@ namespace Stratum.Droid
 
             _container = Dependencies.CreateContainer(context, _database);
             _backupService = _container.Resolve<IBackupService>();
+            _restoreService = _container.Resolve<IRestoreService>();
         }
 
         private Task OpenDatabase()
@@ -83,18 +86,13 @@ namespace Stratum.Droid
                 : _secureStorageWrapper.GetAutoBackupPassword();
         }
 
-        private async Task<BackupResult> BackupToDir(Uri destUri)
+        private async Task<(byte[] Data, string FileName)> CreateEncryptedBackup()
         {
             var backup = await _backupService.CreateBackupAsync();
 
             if (!backup.Authenticators.Any())
             {
-                return new BackupResult();
-            }
-
-            if (!HasPersistentPermissionsAtUri(destUri))
-            {
-                throw new InvalidOperationException("No permission at URI");
+                return (null, null);
             }
 
             var password = GetBackupPassword();
@@ -108,19 +106,111 @@ namespace Stratum.Droid
                 ? new StrongBackupEncryption()
                 : new NoBackupEncryption();
 
-            var dataToWrite = await encryption.EncryptAsync(backup, password);
+            var data = await encryption.EncryptAsync(backup, password);
+            var fileName = FormattableString.Invariant(
+                $"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}");
+
+            return (data, fileName);
+        }
+
+        private async Task<BackupResult> WriteToDir(Uri destUri, byte[] data, string fileName)
+        {
+            if (!HasPersistentPermissionsAtUri(destUri))
+            {
+                throw new InvalidOperationException("No permission at URI");
+            }
 
             var directory = DocumentFile.FromTreeUri(_context, destUri);
-            var file = directory.CreateFile(Backup.MimeType,
-                FormattableString.Invariant($"backup-{DateTime.Now:yyyy-MM-dd_HHmmss}.{Backup.FileExtension}"));
+            var file = directory.CreateFile(Backup.MimeType, fileName);
 
             if (file == null)
             {
                 throw new InvalidOperationException("File creation failed, got null");
             }
 
-            await FileUtil.WriteFileAsync(_context, file.Uri, dataToWrite);
+            await FileUtil.WriteFileAsync(_context, file.Uri, data);
             return new BackupResult(file.Name);
+        }
+
+        private async Task<BackupResult> BackupToWebDav(byte[] data, string fileName)
+        {
+            var url = _preferences.WebDavUrl;
+            var username = _secureStorageWrapper.GetWebDavUsername();
+            var password = _secureStorageWrapper.GetWebDavPassword();
+            var remotePath = _preferences.WebDavRemotePath;
+
+            if (string.IsNullOrEmpty(url) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                throw new InvalidOperationException("WebDAV not configured");
+            }
+
+            using var client = new WebDavClient(url, username, password);
+            await client.EnsureDirectoryAsync(remotePath);
+
+            var fullPath = remotePath.TrimEnd('/') + "/" + fileName;
+            await client.UploadFileAsync(fullPath, data);
+
+            _preferences.WebDavLastBackupTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+
+            return new BackupResult(fileName);
+        }
+
+        private async Task RestoreFromWebDav()
+        {
+            var url = _preferences.WebDavUrl;
+            var username = _secureStorageWrapper.GetWebDavUsername();
+            var password = _secureStorageWrapper.GetWebDavPassword();
+            var remotePath = _preferences.WebDavRemotePath;
+
+            if (string.IsNullOrEmpty(url) || string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            {
+                _log.Warning("WebDAV restore skipped: not configured");
+                return;
+            }
+
+            using var client = new WebDavClient(url, username, password);
+            var entries = await client.ListDirectoryAsync(remotePath);
+
+            var latestBackup = entries
+                .Where(e => !e.IsDirectory &&
+                            e.Name.EndsWith("." + Backup.FileExtension, StringComparison.OrdinalIgnoreCase))
+                .OrderByDescending(e => e.LastModified)
+                .FirstOrDefault();
+
+            if (latestBackup == null)
+            {
+                _log.Information("No backup files found on WebDAV server");
+                return;
+            }
+
+            var lastUploadTimestamp = _preferences.WebDavLastBackupTimestamp;
+            var remoteTimestamp = new DateTimeOffset(latestBackup.LastModified).ToUnixTimeSeconds();
+
+            if (remoteTimestamp <= lastUploadTimestamp)
+            {
+                _log.Information("Remote backup is not newer than last upload, skipping restore");
+                return;
+            }
+
+            var fullPath = remotePath.TrimEnd('/') + "/" + latestBackup.Name;
+            var data = await client.DownloadFileAsync(fullPath);
+
+            var backupPassword = GetBackupPassword();
+            IBackupEncryption encryption = !string.IsNullOrEmpty(backupPassword)
+                ? new StrongBackupEncryption()
+                : new NoBackupEncryption();
+
+            var backup = await encryption.DecryptAsync(data, backupPassword);
+
+            if (backup == null)
+            {
+                _log.Warning("Decrypted backup was null, skipping restore");
+                return;
+            }
+
+            await _restoreService.RestoreAndUpdateAsync(backup);
+
+            _log.Information("Auto-restored from WebDAV backup {FileName}", latestBackup.Name);
         }
 
         private void CreateNotificationChannel(NotificationContext context)
@@ -196,14 +286,52 @@ namespace Stratum.Droid
             var backupTriggered = _preferences.AutoBackupTrigger;
             _preferences.AutoBackupTrigger = false;
 
-            if (backupTriggered ||
-                (_preferences.AutoBackupEnabled && _preferences.BackupRequired != BackupRequirement.NotRequired))
+            var shouldBackup = backupTriggered ||
+                               (_preferences.AutoBackupEnabled &&
+                                _preferences.BackupRequired != BackupRequirement.NotRequired) ||
+                               (_preferences.WebDavBackupEnabled &&
+                                _preferences.BackupRequired != BackupRequirement.NotRequired);
+
+            if (shouldBackup)
             {
                 try
                 {
                     await OpenDatabase();
-                    var result = await BackupToDir(destination);
-                    ShowNotification(NotificationContext.BackupSuccess, false, result);
+
+                    var (encryptedData, fileName) = await CreateEncryptedBackup();
+
+                    if (encryptedData != null)
+                    {
+                        BackupResult localResult = null;
+                        BackupResult webDavResult = null;
+
+                        // Local backup
+                        if (_preferences.AutoBackupEnabled && destination != null)
+                        {
+                            localResult = await WriteToDir(destination, encryptedData, fileName);
+                        }
+
+                        // WebDAV backup
+                        if (_preferences.WebDavBackupEnabled)
+                        {
+                            try
+                            {
+                                webDavResult = await BackupToWebDav(encryptedData, fileName);
+                            }
+                            catch (Exception e)
+                            {
+                                _log.Error(e, "WebDAV backup failed");
+                            }
+                        }
+
+                        var result = localResult ?? webDavResult ?? new BackupResult();
+                        ShowNotification(NotificationContext.BackupSuccess, false, result);
+                    }
+                    else
+                    {
+                        ShowNotification(NotificationContext.BackupSuccess, false, new BackupResult());
+                    }
+
                     _preferences.BackupRequired = BackupRequirement.NotRequired;
                 }
                 catch (Exception e)
@@ -211,6 +339,24 @@ namespace Stratum.Droid
                     ShowNotification(NotificationContext.BackupFailure, true);
                     _log.Error(e, "Error performing backup");
                     return Result.InvokeFailure();
+                }
+                finally
+                {
+                    await CloseDatabase();
+                }
+            }
+
+            // Auto-restore from WebDAV (independent of backup)
+            if (_preferences.WebDavRestoreEnabled)
+            {
+                try
+                {
+                    await OpenDatabase();
+                    await RestoreFromWebDav();
+                }
+                catch (Exception e)
+                {
+                    _log.Error(e, "WebDAV auto-restore failed");
                 }
                 finally
                 {
@@ -231,14 +377,14 @@ namespace Stratum.Droid
             BackupFailure,
             BackupSuccess
         }
-        
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
                 _container?.Dispose();
             }
-            
+
             base.Dispose(disposing);
         }
     }

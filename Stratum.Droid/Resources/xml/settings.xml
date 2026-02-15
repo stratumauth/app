@@ -19,6 +19,11 @@
             android:title="@string/prefAutoBackupTitle"
             app:iconSpaceReserved="false"
             android:defaultValue="true"/>
+        <androidx.preference.Preference
+            android:key="pref_webDavBackup"
+            android:summary="@string/prefWebDavBackupSummary"
+            android:title="@string/prefWebDavBackupTitle"
+            app:iconSpaceReserved="false"/>
         <androidx.preference.ListPreference
             android:key="pref_language"
             android:summary="@string/prefLanguageSummary"

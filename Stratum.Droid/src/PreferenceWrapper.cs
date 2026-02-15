@@ -309,6 +309,51 @@ namespace Stratum.Droid
             set => SetPreference(AutoBackupTriggerKey, value);
         }
 
+        private const string WebDavBackupEnabledKey = "pref_webDavBackupEnabled";
+        private const bool WebDavBackupEnabledDefault = false;
+
+        public bool WebDavBackupEnabled
+        {
+            get => Preferences.GetBoolean(WebDavBackupEnabledKey, WebDavBackupEnabledDefault);
+            set => SetPreference(WebDavBackupEnabledKey, value);
+        }
+
+        private const string WebDavUrlKey = "pref_webDavUrl";
+        private const string WebDavUrlDefault = null;
+
+        public string WebDavUrl
+        {
+            get => Preferences.GetString(WebDavUrlKey, WebDavUrlDefault);
+            set => SetPreference(WebDavUrlKey, value);
+        }
+
+        private const string WebDavRemotePathKey = "pref_webDavRemotePath";
+        private const string WebDavRemotePathDefault = "/stratum-backups/";
+
+        public string WebDavRemotePath
+        {
+            get => Preferences.GetString(WebDavRemotePathKey, WebDavRemotePathDefault);
+            set => SetPreference(WebDavRemotePathKey, value);
+        }
+
+        private const string WebDavRestoreEnabledKey = "pref_webDavRestoreEnabled";
+        private const bool WebDavRestoreEnabledDefault = false;
+
+        public bool WebDavRestoreEnabled
+        {
+            get => Preferences.GetBoolean(WebDavRestoreEnabledKey, WebDavRestoreEnabledDefault);
+            set => SetPreference(WebDavRestoreEnabledKey, value);
+        }
+
+        private const string WebDavLastBackupTimestampKey = "webDavLastBackupTimestamp";
+        private const long WebDavLastBackupTimestampDefault = 0;
+
+        public long WebDavLastBackupTimestamp
+        {
+            get => Preferences.GetLong(WebDavLastBackupTimestampKey, WebDavLastBackupTimestampDefault);
+            set => SetPreference(WebDavLastBackupTimestampKey, value);
+        }
+
         #endregion
     }
 }

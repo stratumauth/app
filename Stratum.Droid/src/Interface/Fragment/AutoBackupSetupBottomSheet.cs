@@ -116,11 +116,22 @@ namespace Stratum.Droid.Interface.Fragment
             _preferences.AutoBackupEnabled = _backupEnabledSwitch.Checked;
             var workManager = WorkManager.GetInstance(RequireContext());
 
-            if (_backupEnabledSwitch.Checked)
+            var webDavEnabled = _preferences.WebDavBackupEnabled || _preferences.WebDavRestoreEnabled;
+
+            if (_backupEnabledSwitch.Checked || webDavEnabled)
             {
+                var constraintsBuilder = new Constraints.Builder();
+
+                if (webDavEnabled)
+                {
+                    constraintsBuilder.SetRequiredNetworkType(AndroidX.Work.NetworkType.Connected!);
+                }
+
                 var workRequest =
-                    new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 15, TimeUnit.Minutes!).Build();
-                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Keep!,
+                    new PeriodicWorkRequest.Builder(typeof(AutoBackupWorker), 15, TimeUnit.Minutes!)
+                        .SetConstraints(constraintsBuilder.Build())
+                        .Build();
+                workManager.EnqueueUniquePeriodicWork(AutoBackupWorker.Name, ExistingPeriodicWorkPolicy.Replace!,
                     workRequest);
             }
             else
