@@ -26,8 +26,8 @@ In addition to your username and password, you will need a code provided by Stra
 
 <hr>
 
-<b>Disclaimer</b>
+<b>Atsakomýbės ribójimas/neprisiėmi̇̀mas</b>
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-Ši programėlė yra praskirstyta su tikėjimu, kad ji bus naudinga, tačiau NESUTEIKIAMA JOKIA GARANTIJA; be jokios garantinės PAKLAUSOS, PARDAVIMO ar TIKIMUMO DĖL KAŽKO/TAM TIKRO TIKSLO. See the GNU General Public License for more details.
+Ši programėlė yra praskirstyta su tikėjimu, kad ji bus naudinga, tačiau NESUTEIKIAMA JOKIA GARANTIJA; be jokios garantinės PAKLAUSOS, PARDAVIMO ar TIKIMUMO DĖL KAŽKO/TAM TIKRO TIKSLO. Peržiūrėkite „GNU“ viešai bendrąją licenciją, norint sužinoti išsamiau.
