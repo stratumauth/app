@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="ja">
     <string name="noAuthenticators">認証コードがありません</string>
     <string name="noAuthenticatorsMessage">データがありません。電話上のアプリから認証コードを追加してください。</string>
     <string name="hotpNotSupported">HOTPはサポートされていません</string>
