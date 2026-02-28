@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="lt-rLT">
     <!-- 
         Non-specific strings
     -->
@@ -13,8 +13,8 @@
     <string name="no">Ne</string>
     <string name="close">Uždaryti/Užverti</string>
     <string name="error">Klaida</string>
-    <string name="retry">Retry</string>
-    <string name="ignore">Ignore</string>
+    <string name="retry">Bandyti dar kartą</string>
+    <string name="ignore">Nepaisyti</string>
     <string name="disable">Išjungti/Išgalinti</string>
     <string name="name">Pavadinimas</string>
     <!-- 
@@ -22,31 +22,31 @@
     -->
     <string name="settings">Nustatymai</string>
     <string name="restore">Restore</string>
-    <string name="backup">Back up</string>
+    <string name="backup">Sukurti atsarginę kopiją</string>
     <string name="about">Apie</string>
     <string name="scanQrCode">Skenuokite „QR“ kodą</string>
     <string name="showQrCode">Rodyti „QR“ kodą</string>
     <string name="editDetails">Redaguoti išsamumą</string>
     <string name="scanQrCodeFromCamera">Skenuoti iš fotoaparato kameros</string>
     <string name="scanQrCodeFromGallery">Skenuoti iš galerijos</string>
-    <string name="rename">Rename</string>
+    <string name="rename">Pervadinti</string>
     <string name="changeIcon">Pakeisti piktogramą</string>
     <string name="search">Ieška/-oti</string>
     <string name="mainMenu">Pagrindinis meniu</string>
     <string name="enterKey">Įveskite pateiktą raktą</string>
-    <string name="restoreBackup">Restore a backup</string>
-    <string name="sort">Sort</string>
-    <string name="sortAZ">Alphabetical (a to z)</string>
-    <string name="sortZA">Alphabetical (z to a)</string>
+    <string name="restoreBackup">Atkurti iš atsarginės kopijos</string>
+    <string name="sort">Rikiuoti/Rūšiuoti pagal</string>
+    <string name="sortAZ">Abėcėlės tvarka (nuo a iki ž)</string>
+    <string name="sortZA">Abėcėlės tvarka (nuo ž iki a)</string>
     <string name="sortMostCopied">Daugiausiai nukopijuoti</string>
     <string name="sortLeastCopied">Mažiausiai nukopijuoti</string>
-    <string name="sortCustom">Custom</string>
-    <string name="sortLock">Lock</string>
+    <string name="sortCustom">Pasirinktinis/-ė</string>
+    <string name="sortLock">Užrakinti</string>
     <string name="sortUnlock">Atrakinti</string>
     <string name="aboutSummary">Peržiūrėti programėlės ir licencijos informaciją</string>
-    <string name="supportDevelopment">Support development</string>
-    <string name="supportDevelopmentSummary">Support continued development and updates with Buy Me a Coffee</string>
-    <string name="rate">Rate</string>
+    <string name="supportDevelopment">Paremti programėlės kūrimą</string>
+    <string name="supportDevelopmentSummary">Paremkite tolimesnę programėlės kūrimą ir naujinimus su „Buy Me a Coffee“ platforma</string>
+    <string name="rate">Įvertinti</string>
     <string name="rateSummary">Įvertinkite „Stratum“ „Google Play“ parduotuvėje</string>
     <string name="viewGitHub">Žiūrėti per „GitHub“</string>
     <string name="viewGitHubSummary">Žiūrėti „Stratum“ saugyklą „GitHub\'e“. Jūs galite pranešti apie problemas, užklausti, kad būtų pridėtos papildomos piktogramos ir funkcijas.</string>
@@ -56,10 +56,10 @@
     <string name="issuer">Išdavėja/-s</string>
     <string name="username">Naudotojo/Vartotojo vardas (t.y. Slapyvardis)</string>
     <string name="secretKey">Slaptas raktas</string>
-    <string name="pin">Pin</string>
+    <string name="pin">Prisegti</string>
     <string name="showAdvancedOptions">Rodyti pažangiąsias parinktis</string>
-    <string name="advancedOptionsWarning">Only change these options if you know what you are doing, you could be locked out of your account.\n\nContinue?</string>
-    <string name="confirmAuthenticatorDelete">Removing this authenticator will prevent you from generating codes for this account. This does not mean that two-factor authentication is disabled.\n\nDeleting this authenticator may prevent you from accessing your account.\nPlease make sure that either two-factor authentication is disabled or that you have the recovery codes.\n\nContinue?</string>
+    <string name="advancedOptionsWarning">Keiskite šiuos/šias nustatymus/parinktis, tik tada, kai žinote tiksliai jų veiksmus, šie pakeitimai gali užrakinti Jus iš paskyros.\n\nTęsti?</string>
+    <string name="confirmAuthenticatorDelete">Pašalinus šį atpažintuvą, nebebus generuojami kodai šiai paskyrai, šis veiksmas nepašalina dviejų veiksnių tapatybės nustatymą, pašalinimas tik ištrina Jūsų vietinį kodų generavimą, ne paskyros saugumo nustatymo lygį.\n\nAtkreipkite dėmesį, kad pašalinus šį atpažintuvą neatjungus ir neturint atsarginės jų kodų kopijas gali nebeleisti Jums pasiekti ar pakeisti paskyros.\nĮsitikinkite, kad šie veikmai jau yra atlikti.\n\nAr norite tęsti?</string>
     <string name="useCustomIcon">Naudoti pasirinktinę piktogramą</string>
     <string name="copiedToClipboard">Kodas nukopijuotas į iškarpinę</string>
     <string name="issuerHint">Išdavėja/-s (pvz.: „Google“ ar pan.)</string>
@@ -72,20 +72,20 @@
     <string name="counterHint">Counter</string>
     <string name="refresh">Refresh</string>
     <string name="noIssuer">An issuer is required</string>
-    <string name="noSecret">A secret key is required</string>
-    <string name="noPin">A pin is required</string>
+    <string name="noSecret">Reikalingas slaptasis raktas</string>
+    <string name="noPin">Reikalingas „PIN“ kodas</string>
     <string name="noFileName">Reikalingas failo pavadinimas</string>
-    <string name="secretInvalid">The secret is invalid</string>
+    <string name="secretInvalid">Ši „paslaptis“ yra negaliojanti</string>
     <string name="pinTooShort">The pin must contain at least {0} digits</string>
     <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
     <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">„QR“ kodas yra neteisingo formato arba negali būti nuskaitytas</string>
-    <string name="qrCodePhoneFactorError">This QR code is specifically for Microsoft Authenticator and is not compatible.\n\nSelect \"Set up a different Authenticator app\" or \"Configure app without notifications\" to obtain a compatible QR code.</string>
-    <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
+    <string name="qrCodePhoneFactorError">Šis „QR“ kodas specialiai sukurtas „Microsoft Authenticator“ ir nėra palaikomas.\n\nPasirinkite – „Nustatykite su kitokia atpažintuvo programėle“ arba „Konfigūruokite programėle be pranešimų“, kad gautumėte palaikoma „QR“ kodą.</string>
+    <string name="duplicateAuthenticator">Atpažintuvas su šiuo slaptu raktu, jau yra</string>
     <string name="scanSuccessful">„QR“ kodas nuskaitytas sėkmingai!</string>
-    <string name="pinMessage">Enter the pin associated with this QR code</string>
+    <string name="pinMessage">Prašome įvesti „PIN“ kodą, susijusį, su šiuo „QR“ kodu</string>
     <!--
         Icon packs
     -->
@@ -96,24 +96,24 @@
     <string name="invalidIconPackError">The selected file is not a Stratum icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- View the source (website) of the icon pack -->
-    <string name="viewSource">View source</string>
+    <string name="viewSource">Peržiūrėti šaltinį</string>
     <!--
         QR code dialog
     -->
     <string name="qrCode">„QR-kodas“</string>
     <string name="qrCodeHelp">Copy this authenticator to another device or app by scanning the QR code</string>
     <string name="qrCodeNotSupported">„QR-kodai“ nėra palaikomi šiam tipui</string>
-    <string name="copyUri">Copy URI</string>
-    <string name="copyUriWarning">This URI contains a secret key in plain-text. Be careful where you paste this information.\n\nContinue?</string>
-    <string name="uriCopiedToClipboard">URI copied to clipboard</string>
+    <string name="copyUri">Kopijuoti „URI“ – universalųjį ištekliaus identifikatorių</string>
+    <string name="copyUriWarning">Šis „URI“ – universalusis ištekliaus identifikatorius turi įterptą slaptąjį raktą tiesioginiu tekstu. Būkite atsargūs, kur įklijuojate šią informaciją.\n\nVis tiek tęsti?</string>
+    <string name="uriCopiedToClipboard">„URI“ – Universalusis ištekliaus identifikatorius nukopijuotas į iškarpinę</string>
     <!--
         Backup menu
     -->
-    <string name="backupToFile">Back up to encrypted file (recommended)</string>
+    <string name="backupToFile">Sukurti atsarginę kopiją į užšifruotą failą (rekomenduotina)</string>
     <string name="backupToFileMessage">Save all your authenticators, categories and icons to an encrypted backup file. This file can be restored within the app.</string>
-    <string name="backupHtml">Back up to HTML file</string>
+    <string name="backupHtml">Sukurti atsarginę kopiją į „HTML“ failą</string>
     <string name="backupHtmlMessage">Save your authenticators to an unencrypted HTML document with QR codes. Categories and icons are not saved.</string>
-    <string name="backupHtmlWarning">HTML backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file cannot be restored within the app and does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
+    <string name="backupHtmlWarning">„HTML“ atsarginės kopijos nėra šifruojamos ir gali palikti Jūsų slaptuosius raktus pažeidžiamus.\n\nŠis failas negali būti atkurtas programėlėje ir, jis neturi jokių kategorijų ar piktogramų. Jeigu esate netikra/-s, pasirinkite užšifruoto failo atsarginę kopiją vietoj to.\n\nTęsti?</string>
     <string name="backupUriList">Back up to URI list file</string>
     <string name="backupUriListMessage">Save your authenticators to an unencrypted plain-text URI list file. This file is compatible with many alternative applications and services. Categories and icons are not saved.</string>
     <string name="backupUriListWarning">Plain-text backups are unencrypted and may leave your secret keys vulnerable.\n\nThis file does not contain categories and icons. If unsure, opt for encrypted file backup instead.\n\nContinue?</string>
@@ -122,12 +122,12 @@
     -->
     <string name="noAuthenticatorsTitle">Čia nieko nėr!</string>
     <string name="noAuthenticatorsMessage">Jūs neturite jokių atpažintuvų čia</string>
-    <string name="gettingStartedGuide">Getting started guide</string>
-    <string name="noAuthenticatorsHelp">If you\'re new to Stratum, view the getting started guide by clicking below.</string>
+    <string name="gettingStartedGuide">Darbo pradžios vadovas/gidas</string>
+    <string name="noAuthenticatorsHelp">Jeigu pirmą kartą naudojatės „Stratum“, peržvelkite darbo pradžios vadovą/gidą, spustelėjant apačioje.</string>
     <string name="noCategoriesTitle">No categories</string>
-    <string name="noCategoriesMessage">You don\'t have any categories set up yet</string>
+    <string name="noCategoriesMessage">Jūs neturite nustatytų/sukurtų kategorijų</string>
     <string name="noIconPacksTitle">No icon packs</string>
-    <string name="noIconPacksMessage">You don\'t have any icon packs set up yet</string>
+    <string name="noIconPacksMessage">Jūs neturite nustatytų/įkeltų piktogramų paketų</string>
     <!--
         Categories
     -->
@@ -145,33 +145,33 @@
     <!-- Set as default category -->
     <string name="setAsDefault">Nustatyti kaip numatytąjį/-ą</string>
     <!-- Clear the selected category as the default -->
-    <string name="clearDefault">Clear default</string>
+    <string name="clearDefault">Išvalyti numatytuosius</string>
     <!--
         Backups
     -->
-    <string name="backupNow">Back up now</string>
+    <string name="backupNow">Sukurti atsarginę kopiją dabar</string>
     <string name="backupReminder">There have been changes since your last backup</string>
     <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
     <string name="password">Slaptažodis</string>
     <string name="passwordConfirm">Patvirtinti/-kite slaptažodį</string>
     <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
-    <string name="passwordHint">Backup password</string>
-    <string name="fileNameHint">Backup file name</string>
-    <string name="noAuthenticators">You don\'t have any authenticators to back up</string>
+    <string name="passwordHint">Atsarginės kopijos slaptažodis</string>
+    <string name="fileNameHint">Atsarginės kopijos failo pavadinimas</string>
+    <string name="noAuthenticators">Jūs neturite jokių atpažintuvų, kuriuos būtų galima atlikti atsarginės kopijos kopiją</string>
     <string name="saveSuccess">Sėkmingai išsaugota</string>
-    <string name="backupSuccess">Saved backup as \'{0}\'</string>
+    <string name="backupSuccess">Atsarginė kopija išsaugota kaip: „{0}“</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
     <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
     <string name="restoredNothing">Nothing to restore</string>
     <!--
         Errors
     -->
-    <string name="restoreFormatError">The backup could not be restored</string>
+    <string name="restoreFormatError">Atsarginė kopija negalėjo būti atkurta</string>
     <string name="cameraPermissionError">Fotoaparato kameros leidimas turi būti suteiktas, norint nuskenuoti „QR“ kodą</string>
     <string name="googlePlayNotInstalledError">„Google Play“ nėra įdiegta/-s Jūsų įrenginyje</string>
     <string name="filePickerMissing">Negalima atidaryti failo parinktuvo/-ės. Prašome įdiegti failų naršyklę.</string>
     <string name="filePickError">Klaida renkant failą</string>
-    <string name="invalidFileError">The selected file is not a Stratum backup</string>
+    <string name="invalidFileError">Pasirinktas failas nėra „Stratum“ atsarginė kopija</string>
     <string name="webBrowserMissing">Nėra įdiegtos interneto naršyklės</string>
     <string name="emailClientMissing">Nėra įdiegtos el. pašto programėlės</string>
     <string name="genericError">Įvyko klaida</string>
@@ -186,13 +186,13 @@
     <string name="email">El. paštas</string>
     <!-- Report via Email, GitHub, etc. -->
     <string name="reportVia">Pranešti per</string>
-    <string name="errorCopiedToClipboard">Error copied to clipboard</string>
+    <string name="errorCopiedToClipboard">Klaida nukopijuota į iškarpinę/mainų sritį</string>
     <!--
         Auto backup
     -->
     <string name="autoBackupHelp">Select a location and password for auto backups. Backups are scheduled when changes are made. Cloud storage is not supported, use the \'back up\' menu instead.</string>
     <string name="selectLocation">Pasirinkti vietovę</string>
-    <string name="noLocationSelected">No location selected</string>
+    <string name="noLocationSelected">Nėra pasirinktos vietovės</string>
     <!-- Shown when auto backup location has been selected -->
     <string name="locationSetTo">Vietovė nustatyta į – {0}</string>
     <string name="setPassword">Nustatyti/-kite slaptažodį</string>
@@ -200,22 +200,22 @@
     <!-- Shown when auto backup password has been selected -->
     <string name="passwordSet">Slaptažodis nustatytas!</string>
     <string name="notPasswordProtected">Neapsaugota/-s slaptažodžiu</string>
-    <string name="enableAutoBackup">Enable Auto Backup</string>
-    <string name="enableAutoBackupMessage">Automatically back up to the selected storage location</string>
+    <string name="enableAutoBackup">Įjungti/Įgalinti automatinį atsarginių kopijų kūrimą</string>
+    <string name="enableAutoBackupMessage">Automatiškai kurti atsarginę/-es kopiją/-as pasirinktoje saugojimo/disko vietovėje</string>
     <string name="batOptim">Baterijos/Akumuliatoriaus optimizacija</string>
     <string name="disableBatOptimMessage">On some devices, power settings might prevent backups from working correctly. If you are experiencing problems, try disabling battery optimisation for Stratum.</string>
-    <string name="autoBackupFailureTitle">Auto Backup failed</string>
+    <string name="autoBackupFailureTitle">Automatinės atsarginės kopijos kūrimas nepavyko</string>
     <string name="autoBackupFailureText">The most recent auto backup failed to complete. File permissions might have expired, try setting the backup location again in the auto backup settings.</string>
-    <string name="autoBackupSuccessTitle">Auto Backup completed</string>
-    <string name="backupScheduled">Backup scheduled</string>
+    <string name="autoBackupSuccessTitle">Automatinis atsarginės kopijos kūrimas atliktas sėkmingai</string>
+    <string name="backupScheduled">Atsarginės kopijos kūrimas nustatytas</string>
     <!--
         Password setup
     -->
-    <string name="passwordSetupHelp">Encrypt the database with a password. You will be prompted for the password when you open the app. Leave the field blank to clear the password.</string>
+    <string name="passwordSetupHelp">Užšifruokite duomenų bazę slaptažodžiu. Atidarius programėlę, busite paprašyti įvesti šį slaptažodį. Norėdami pašalinti slaptažodį, palikite lauką tuščią.</string>
     <string name="passwordSetupWarning">Naudokite slaptažodį, kurį Jūs atsiminsite, nes duomenų bazė bus neatkuriame be jo!</string>
     <string name="clearPassword">Išvalyti/-kite slaptažodį</string>
     <string name="confirmPassword">Patvirtinti/-kite slaptažodį</string>
-    <string name="setupBiometricUnlock">Setup biometric unlock</string>
+    <string name="setupBiometricUnlock">Nustatykite biometrinį atrakinimą</string>
     <string name="passwordsDoNotMatch">Slaptažodžiai nesutampa</string>
     <string name="biometricsChanged">Įrenginio biometrija buvo pakeista. Naudokite slaptažodį, norint atrakinti.</string>
     <!--
@@ -232,7 +232,7 @@
     -->
     <string name="importFromOtherApps">Importuoti iš kitų programėlių</string>
     <string name="importError">Nebuvo galima importuoti šio failo</string>
-    <string name="importIncomplete">Import incomplete</string>
+    <string name="importIncomplete">Importavimas nepilnai įvykdytas</string>
     <string name="importConversionError">The item \"{0}\" failed to import due to the following error: {1}</string>
     <string name="authenticatorPlusImportHint">Importuoti – „authplus.db“ failą</string>
     <string name="andOtpImportHint">Importuoti – „otp_accounts.json“ failą</string>
@@ -241,27 +241,27 @@
     <string name="aegisImportHint">Importuoti – „aegis-export.json“ failą</string>
     <string name="bitwardenImportHint">Importuoti – „bitwarden_export.json“ failą</string>
     <string name="enteAuthImportHint">Importuoti – „ente-auth-codes.txt“ failą</string>
-    <string name="protonAuthenticatorImportHint">Import proton_authenticator_backup.json file</string>
+    <string name="protonAuthenticatorImportHint">Importuoti – „proton_authenticator_backup.json“ failą</string>
     <string name="winAuthImportHint">Importuoti – „winauth.txt“ arba „winauth.zip“ failą</string>
     <string name="twoFasImportHint">Importuoti – „2fas-backup.2fas“ failą</string>
     <string name="keePassImportHint">Importuoti – „keepass.kdbx“ („KDBX 4.“) failą</string>
     <string name="lastPassAuthenticatorImportHint">Importuoti – „LastPassAuthenticator.json“ failą</string>
     <string name="totpAuthenticatorImportHint">Importuoti – „TOTP_Backup.encrypt“ failą</string>
-    <string name="uriList">URI list</string>
-    <string name="uriListHint">Plain text list of otpauth URIs</string>
-    <string name="viewGuideImportHint">View guide on project wiki</string>
+    <string name="uriList">„URI“ – Universaliojo ištekliaus identifikatoriaus sąrašas</string>
+    <string name="uriListHint">Paprastojo teksto sąrašas „otpauth“ „URI“ (dgs.) – universaliųjų išteklių identifikatorių</string>
+    <string name="viewGuideImportHint">Peržiūrėti gidą/vadovą, projekto aiškinamajame puslapyje</string>
     <!--
         Getting Started Guide
     -->
     <string name="guideScanQRCodeTitle">Skenuokite „QR“ kodą</string>
-    <string name="guideScanQRCodeSummary">To add an authenticator, scan the QR code provided by the app or service. It will be added to the list and will generate new codes automatically. You can also enter the details manually.</string>
-    <string name="guideUseCodeTitle">Use the code when logging in</string>
+    <string name="guideScanQRCodeSummary">Norėdami pridėti atpažintuvą, nuskenuokite „QR“ kodą, kurį Jums pateikė ekrane arba rankiniu būdu įveskite pateiktą kodą. Šis dviejų veiksnių tapatybės nustatymo kodas bus pridėtas į sąrašą ir pradės generuoti kodus atitiktinai automatiškai.</string>
+    <string name="guideUseCodeTitle">Prisijungdami naudokite kodą</string>
     <string name="guideUseCodeSummary">When logging in, use the unique code provided by Stratum. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
     <string name="guideCustomiseTitle">Customise and edit</string>
     <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
     <string name="guideArrangeTitle">Arrange and sort</string>
     <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
-    <string name="guideBackupTitle">Create a backup</string>
+    <string name="guideBackupTitle">Sukurti atsarginę kopiją</string>
     <string name="guideBackupSummary">Don\'t get locked out of your accounts if you change device. Create a backup file and store it in a safe place. A backup can be restored at any time and protected with a password.</string>
     <string name="guideWearOSTitle">Atsisiųsti prijungtinę „Wear OS“ programėlę</string>
     <string name="guideWearOSSummary">Jeigu Jūs turite „Wear OS“ laikrodį, tada galite įdiegti prijungtinę „Stratum“ programėlę. Jūs galite peržiūrėti dviejų veiksnių kodus tiesiai per laikrodį be telefono.</string>
@@ -270,24 +270,24 @@
     -->
     <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
-    <string name="toggleFlash">Toggle flash</string>
+    <string name="toggleFlash">Įjungti/Išjungti žibintuvėlio blykstę/šviesą</string>
     <!--
         Preferences
     -->
-    <string name="prefGeneral">General</string>
-    <string name="prefShowBackupRemindersTitle">Backup Reminders</string>
-    <string name="prefShowBackupRemindersSummary">Reminds you to back up your authenticators if important changes are made</string>
-    <string name="prefAutoBackupTitle">Auto Backup</string>
+    <string name="prefGeneral">Bendrieji</string>
+    <string name="prefShowBackupRemindersTitle">Atsarginių kopijų priminimai</string>
+    <string name="prefShowBackupRemindersSummary">Primena Jums, kad reikėtų sukurti atsarginę atpažintuvų kopiją, esant įvykusiams svarbiems pokyčiams</string>
+    <string name="prefAutoBackupTitle">Automatiškai daryti atsargines kopijas</string>
     <string name="prefAutoBackupSummary">Automatically back up to a specific location when changes are made. Disables backup reminders.</string>
     <string name="prefLanguageTitle">Kalba</string>
     <string name="prefLanguageSummary">Pasirinkite kalbą, kurią norite naudoti/matyti programėlėje</string>
-    <string name="prefTapToCopyTitle">Tap to Copy</string>
-    <string name="prefTapToCopySummary">Copy the code to the clipboard when tapped</string>
-    <string name="prefResetCopyCountTitle">Reset Copy Count</string>
+    <string name="prefTapToCopyTitle">Bakstelėkite, kad nukopijuotumėte</string>
+    <string name="prefTapToCopySummary">Nukopijuoti kodą į iškarpinę, kai spustelėjite</string>
+    <string name="prefResetCopyCountTitle">Atstatyti nukopijuotų kiekių skaičių</string>
     <string name="prefResetCopyCountSummary">Clear the number of times each authenticator has been copied</string>
     <string name="prefSkipToNextTitle">Praleisti/Peršokti ir eiti į kitą</string>
     <string name="prefSkipToNextSummary">Leidžia praleisti/peršokti į kitą esamąjį kodą, kai jo galiojimo laikotarpis yra arti link pabaigos</string>
-    <string name="prefShowUncategorisedTitle">Show Uncategorised</string>
+    <string name="prefShowUncategorisedTitle">Rodyti be kategorijos</string>
     <string name="prefShowUncategorisedSummary">Show a category for authenticators that aren\'t assigned to any category</string>
     <string name="prefSecurity">Saugumas</string>
     <string name="prefPasswordTitle">Slaptažodis</string>
@@ -296,12 +296,12 @@
     <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
     <string name="prefAllowBiometricsTitle">Biometrinis atrakinimas</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
-    <string name="prefTimeoutTitle">Timeout</string>
+    <string name="prefTimeoutTitle">Atskleidžiamas laukimo laikas</string>
     <string name="prefTimeoutSummary">Nustatykite laiką, po kurio, duomenų bazė užsirakins po programėlės nebebūvimo ekrane</string>
-    <string name="prefTapToRevealTitle">Tap to Reveal</string>
+    <string name="prefTapToRevealTitle">Bakstelėkite, kad atskleistumėte</string>
     <string name="prefTapToRevealSummary">Hide codes until they are tapped. They will disappear after a few seconds.</string>
-    <string name="prefTapToRevealDurationTitle">Tap to Reveal Duration</string>
-    <string name="prefTapToRevealDurationSummary">Set the time after which the revealed codes will be hidden</string>
+    <string name="prefTapToRevealDurationTitle">Bakstelėjimo, siekiant atskleisti trukmė</string>
+    <string name="prefTapToRevealDurationSummary">Nustatykite laiką, po kurio atskleisti kodai bus vėl paslėpti</string>
     <string name="prefAllowScreenshotsTitle">Leisti ekrano nuotraukų ar iškarpų fiksavimą</string>
     <string name="prefAllowScreenshotsSummary">Disable screen security and allow screenshots of the app</string>
     <string name="prefAppearance">Išvaizda</string>
@@ -317,7 +317,7 @@
     <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
     <string name="prefAccentColourTitle">Pabrėžimo spalva</string>
     <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
-    <string name="prefTransparentStatusBarTitle">Transparent Status Bar</string>
+    <string name="prefTransparentStatusBarTitle">Skaidri būsenos juosta</string>
     <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
     <string name="prefSystemFontTitle">Sistemos šriftas</string>
     <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
@@ -345,8 +345,8 @@
     <string name="timeout2Min">2 min.</string>
     <string name="timeout5Min">5 min.</string>
     <string name="timeout10Min">10 min.</string>
-    <string name="systemDefault">System default</string>
-    <string name="systemDefaultBlack">System default (black)</string>
+    <string name="systemDefault">Sistemos numatyta</string>
+    <string name="systemDefaultBlack">Sistemos numatyta (juoda/-s)</string>
     <string name="lightTheme">Šviesus apipavidalinimas</string>
     <string name="darkTheme">Tamsus apipavidalinimas</string>
     <string name="blackTheme">Juodas apipavidalinimas</string>
@@ -354,7 +354,7 @@
     <string name="compactViewMode">Glaudus</string>
     <string name="tileViewMode">Išklotinė</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">None</string>
+    <string name="none">Joks/-ia/-ie/-ios</string>
     <string name="two">2</string>
     <string name="three">3</string>
     <string name="four">4</string>
@@ -365,21 +365,21 @@
         Arrays > Accent colours
     -->
     <string name="red">Raudona/-s</string>
-    <string name="pink">Pink</string>
-    <string name="purple">Purple</string>
-    <string name="deepPurple">Deep purple</string>
-    <string name="indigo">Indigo</string>
+    <string name="pink">Rožinė/-is</string>
+    <string name="purple">Purpurinė/-is</string>
+    <string name="deepPurple">Tamsiai purpurinė/-is</string>
+    <string name="indigo">Mėlyna/-s indigo/-as</string>
     <string name="blue">Mėlyna/-s</string>
     <string name="lightBlue">Šviesiai mėlyna/-s (melsva/-s)</string>
     <string name="cyan">Žydra/-s (žalsvai mėlyna/-s)</string>
-    <string name="teal">Teal</string>
+    <string name="teal">Tamsvai mėlyna žydra</string>
     <string name="green">Žalia/-s</string>
-    <string name="lightGreen">Light green</string>
-    <string name="lime">Lime</string>
+    <string name="lightGreen">Šviesiai žalia/-s</string>
+    <string name="lime">Žalsvai citrinė/-is</string>
     <string name="yellow">Geltona/-s</string>
-    <string name="amber">Amber</string>
+    <string name="amber">Gintarinė/-is</string>
     <string name="orange">Oranžinė/-s</string>
-    <string name="deepOrange">Deep orange</string>
+    <string name="deepOrange">Tamsiai oranžinė/-is</string>
     <!--
         Arrays / Intro
     -->
