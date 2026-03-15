@@ -9,7 +9,7 @@ namespace Stratum.Droid.Shared.Wear
     {
         public string DefaultCategory { get; set; }
         public SortMode SortMode { get; set; }
-        public int CodeGroupSize { get; set; }
+        public CodeGrouping CodeGroupSize { get; set; }
         public bool ShowUsernames { get; set; }
     }
 }

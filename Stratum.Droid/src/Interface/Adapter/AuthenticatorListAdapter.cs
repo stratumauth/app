@@ -35,7 +35,7 @@ namespace Stratum.Droid.Interface.Adapter
         private readonly bool _tapToCopy;
         private readonly bool _tapToReveal;
         private readonly int _tapToRevealDuration;
-        private readonly int _codeGroupSize;
+        private readonly CodeGrouping _codeGroupSize;
         private readonly bool _showUsernames;
         private readonly bool _skipToNext;
 

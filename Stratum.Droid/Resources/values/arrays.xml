@@ -155,16 +155,20 @@
     </string-array>
 
     <string-array name="codeGroupSizeNames">
-        <item>@string/none</item>
-        <item>@string/two</item>
-        <item>@string/three</item>
-        <item>@string/four</item>
+        <item>@string/codeGroupNone</item>
+        <item>@string/codeGroupTwo</item>
+        <item>@string/codeGroupThree</item>
+        <item>@string/codeGroupFour</item>
+        <item>@string/codeGroupHalves</item>
+        <item>@string/codeGroupThirds</item>
     </string-array>
     <string-array name="codeGroupSizeValues">
         <item>0</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>-2</item>
+        <item>-3</item>
     </string-array>
 
     <string-array name="accentColourNames">

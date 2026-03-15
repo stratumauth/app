@@ -27,6 +27,17 @@ namespace Stratum.Droid.Shared
             Preferences.Edit().PutInt(key, (int) (object) value).Commit();
         }
 
+        protected T GetStringBackedEnumPreference<T>(string key, T defaultValue) where T : Enum
+        {
+            var defaultString = ((int) (object) defaultValue).ToString();
+            return (T) (object) int.Parse(Preferences.GetString(key, defaultString) ?? defaultString);
+        }
+
+        protected void SetStringBackedEnumPreference<T>(string key, T value) where T : Enum
+        {
+            Preferences.Edit().PutString(key, ((int) (object) value).ToString()).Commit();
+        }
+
         protected bool? GetNullableBooleanPreference(string key, bool? defaultValue)
         {
             var defaultStr = defaultValue switch

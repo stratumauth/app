@@ -21,7 +21,7 @@ namespace Stratum.WearOS.Fragment
     public class CodeFragment() : AndroidX.Fragment.App.Fragment(Resource.Layout.fragmentCode)
     {
         private IGenerator _generator;
-        private int _codeGroupSize;
+        private CodeGrouping _codeGroupSize;
 
         private AuthenticatorType _type;
         private string _issuer;

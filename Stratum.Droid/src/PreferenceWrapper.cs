@@ -144,12 +144,12 @@ namespace Stratum.Droid
         }
 
         private const string CodeGroupSizeKey = "pref_codeGroupSize";
-        private const int CodeGroupSizeDefault = 3;
+        private const CodeGrouping CodeGroupSizeDefault = CodeGrouping.Three;
 
-        public int CodeGroupSize
+        public CodeGrouping CodeGroupSize
         {
-            get => GetStringBackedIntPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
-            set => SetPreference(CodeGroupSizeKey, value.ToString());
+            get => GetStringBackedEnumPreference(CodeGroupSizeKey, CodeGroupSizeDefault);
+            set => SetStringBackedEnumPreference(CodeGroupSizeKey, value);
         }
 
         private const string ShowUsernamesKey = "pref_showUsernames";

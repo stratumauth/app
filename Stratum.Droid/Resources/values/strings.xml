@@ -449,10 +449,12 @@
     <string name="tileViewMode">Tile</string>
 
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">None</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
+    <string name="codeGroupNone">None (000000)</string>
+    <string name="codeGroupTwo">2 (00 00 00)</string>
+    <string name="codeGroupThree">3 (000 000)</string>
+    <string name="codeGroupFour">4 (0000 00)</string>
+    <string name="codeGroupHalves">Halves (000 000)</string>
+    <string name="codeGroupThirds">Thirds (00 00 00)</string>
 
     <!--
         Arrays > Languages
