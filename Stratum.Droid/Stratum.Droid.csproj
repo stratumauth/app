@@ -30,7 +30,7 @@
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.201">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Mono.AotProfiler.Android" Version="9.0.0" />
+        <PackageReference Include="Mono.AotProfiler.Android" Version="10.0.0-preview1" />
         <PackageReference Include="Serilog" Version="4.3.1" />
         <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
         <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
