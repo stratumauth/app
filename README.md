@@ -16,6 +16,16 @@ It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using eith
 
 > Stratum is currently only available on the F-Droid client through the [IzzyOnDroid repo](https://apt.izzysoft.de/fdroid/). You must first add this repository in the F-Droid client.
 
+### Signature
+
+In order to verify the authenticity of the APKs, compare the certificate signatures using `apksigner` with these values:
+
+```
+SHA-256 digest: b975b325e4f39465df1034d6bc2c11a3926f60cc07b820c51fbe1c757555f28a
+SHA-1 digest: b6a100cefaf7f4bc7d0879d71ad36c555a8b850e
+MD5 digest: bb884532b0ee1b3f04dd9917409d5126
+```
+
 ## Support development ❤️
 [<img alt="Buy Me a Coffee" height="100" src="./doc/buymeacoffee.png">](https://www.buymeacoffee.com/jamiemh)
 
