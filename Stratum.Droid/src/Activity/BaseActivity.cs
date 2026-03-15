@@ -20,6 +20,7 @@ using Google.Android.Material.ProgressIndicator;
 using Google.Android.Material.Snackbar;
 using Java.Util;
 using Stratum.Droid.Interface;
+using Stratum.Droid.Interface.Fragment;
 using Insets = AndroidX.Core.Graphics.Insets;
 
 namespace Stratum.Droid.Activity
@@ -268,6 +269,19 @@ namespace Stratum.Droid.Activity
             }
 
             UpdateTheme();
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+
+            foreach (var fragment in SupportFragmentManager.Fragments)
+            {
+                if (fragment is BottomSheet bottomSheet)
+                {
+                    bottomSheet.DismissAllowingStateLoss();
+                }
+            }
         }
 
         public WindowInsetsCompat OnApplyWindowInsets(View view, WindowInsetsCompat insets)
