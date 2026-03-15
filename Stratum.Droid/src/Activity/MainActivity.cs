@@ -1464,32 +1464,29 @@ namespace Stratum.Droid.Activity
 
         private async Task RestoreFromUri(Uri uri)
         {
-            SetLoading(true);
-
-            byte[] data;
-            string displayName;
-
-            try
+            await UseLoadingScopeAsync(async delegate
             {
-                data = await FileUtil.ReadFileAsync(this, uri);
+                byte[] data;
+                string displayName;
 
-                if (data.Length == 0)
+                try
                 {
-                    throw new IOException("The file is empty");
+                    data = await FileUtil.ReadFileAsync(this, uri);
+
+                    if (data.Length == 0)
+                    {
+                        throw new IOException("The file is empty");
+                    }
+
+                    displayName = FileUtil.GetDisplayName(ContentResolver, uri);
+                }
+                catch (Exception e)
+                {
+                    _log.Error(e, "Error picking file to restore");
+                    ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                    return;
                 }
 
-                displayName = FileUtil.GetDisplayName(ContentResolver, uri);
-            }
-            catch (Exception e)
-            {
-                _log.Error(e, "Error picking file to restore");
-                SetLoading(false);
-                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
-                return;
-            }
-
-            try
-            {
                 if (displayName.EndsWith("." + UriListBackup.FileExtension))
                 {
                     await ImportFromData(new UriListBackupConverter(_iconResolver), data);
@@ -1502,11 +1499,7 @@ namespace Stratum.Droid.Activity
                 {
                     await RestoreFromData(data);
                 }
-            }
-            finally
-            {
-                SetLoading(false);
-            }
+            });
         }
 
         private async Task RestoreFromData(byte[] data)
@@ -1583,22 +1576,18 @@ namespace Stratum.Droid.Activity
             switch (converter.PasswordPolicy)
             {
                 case BackupConverter.BackupPasswordPolicy.Never:
-                    SetLoading(true);
-
-                    try
+                    await UseLoadingScopeAsync(async delegate
                     {
-                        await ConvertAndRestore(null);
-                    }
-                    catch (Exception e)
-                    {
-                        _log.Error(e, "Error converting backup for restore");
-                        ShowSnackbar(Resource.String.importError, Snackbar.LengthShort);
-                    }
-                    finally
-                    {
-                        SetLoading(false);
-                    }
-
+                        try
+                        {
+                            await ConvertAndRestore(null);
+                        }
+                        catch (Exception e)
+                        {
+                            _log.Error(e, "Error converting backup for restore");
+                            ShowSnackbar(Resource.String.importError, Snackbar.LengthShort);
+                        }
+                    });
                     break;
 
                 case BackupConverter.BackupPasswordPolicy.Always:
@@ -2027,25 +2016,26 @@ namespace Stratum.Droid.Activity
                 return;
             }
 
-            SetLoading(true);
-            var stream = new MemoryStream();
+            await UseLoadingScopeAsync(async delegate
+            {
+                var stream = new MemoryStream();
 
-            try
-            {
-                await args.Icon.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
-                var icon = await _customIconDecoder.DecodeAsync(stream.ToArray(), false);
-                await SetCustomIcon(auth, icon);
-            }
-            catch (Exception e)
-            {
-                _log.Error(e, "Error loading icon from icon pack");
-                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
-            }
-            finally
-            {
-                stream.Close();
-                SetLoading(false);
-            }
+                try
+                {
+                    await args.Icon.CompressAsync(Bitmap.CompressFormat.Png, 100, stream);
+                    var icon = await _customIconDecoder.DecodeAsync(stream.ToArray(), false);
+                    await SetCustomIcon(auth, icon);
+                }
+                catch (Exception e)
+                {
+                    _log.Error(e, "Error loading icon from icon pack");
+                    ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                }
+                finally
+                {
+                    stream.Close();
+                }
+            });
 
             ((ChangeIconBottomSheet) sender).Dismiss();
         }
@@ -2063,23 +2053,20 @@ namespace Stratum.Droid.Activity
                 return;
             }
 
-            SetLoading(true);
-
-            try
+            await UseLoadingScopeAsync(async delegate
             {
-                var data = await FileUtil.ReadFileAsync(this, source);
-                var icon = await _customIconDecoder.DecodeAsync(data, true);
-                await SetCustomIcon(auth, icon);
-            }
-            catch (Exception e)
-            {
-                _log.Error(e, "Error decoding custom icon");
-                ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
-            }
-            finally
-            {
-                SetLoading(false);
-            }
+                try
+                {
+                    var data = await FileUtil.ReadFileAsync(this, source);
+                    var icon = await _customIconDecoder.DecodeAsync(data, true);
+                    await SetCustomIcon(auth, icon);
+                }
+                catch (Exception e)
+                {
+                    _log.Error(e, "Error decoding custom icon");
+                    ShowSnackbar(Resource.String.filePickError, Snackbar.LengthShort);
+                }
+            });
         }
 
         private async Task SetCustomIcon(Authenticator auth, CustomIcon icon)

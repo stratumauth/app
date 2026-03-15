@@ -105,48 +105,47 @@ namespace Stratum.Droid.Activity
                 return;
             }
 
-            SetLoading(true);
-            MemoryStream stream = null;
-            IconPack pack;
-
-            try
+            await UseLoadingScopeAsync(async delegate
             {
-                var data = await FileUtil.ReadFileAsync(this, intent.Data);
-                stream = new MemoryStream(data);
-                pack = await Task.Run(() => Serializer.Deserialize<IconPack>(stream));
-            }
-            catch (Exception e)
-            {
-                ShowSnackbar(e is ProtoException
-                    ? Resource.String.invalidIconPackError
-                    : Resource.String.filePickError, Snackbar.LengthShort);
+                MemoryStream stream = null;
+                IconPack pack;
 
-                _log.Error(e, "Failed to read icon pack");
-                SetLoading(false);
-                return;
-            }
-            finally
-            {
-                stream?.Close();
-            }
+                try
+                {
+                    var data = await FileUtil.ReadFileAsync(this, intent.Data);
+                    stream = new MemoryStream(data);
+                    pack = await Task.Run(() => Serializer.Deserialize<IconPack>(stream));
+                }
+                catch (Exception e)
+                {
+                    ShowSnackbar(e is ProtoException
+                        ? Resource.String.invalidIconPackError
+                        : Resource.String.filePickError, Snackbar.LengthShort);
 
-            try
-            {
-                await _iconPackService.ImportPackAsync(pack);
-            }
-            catch (Exception e)
-            {
-                _log.Error(e, "Failed to import icon pack");
-                ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
-                SetLoading(false);
-                return;
-            }
+                    _log.Error(e, "Failed to read icon pack");
+                    return;
+                }
+                finally
+                {
+                    stream?.Close();
+                }
 
-            var message = string.Format(GetString(Resource.String.importIconPackSuccess), pack.Icons.Count);
-            ShowSnackbar(message, Snackbar.LengthLong);
+                try
+                {
+                    await _iconPackService.ImportPackAsync(pack);
+                }
+                catch (Exception e)
+                {
+                    _log.Error(e, "Failed to import icon pack");
+                    ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                    return;
+                }
 
-            await _iconPackView.LoadFromPersistenceAsync();
-            SetLoading(false);
+                var message = string.Format(GetString(Resource.String.importIconPackSuccess), pack.Icons.Count);
+                ShowSnackbar(message, Snackbar.LengthLong);
+
+                await _iconPackView.LoadFromPersistenceAsync();
+            });
 
             RunOnUiThread(delegate
             {

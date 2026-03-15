@@ -1,11 +1,12 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.Res;
 using Android.Graphics;
-using Android.Net;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
@@ -22,6 +23,7 @@ using Java.Util;
 using Stratum.Droid.Interface;
 using Stratum.Droid.Interface.Fragment;
 using Insets = AndroidX.Core.Graphics.Insets;
+using Uri = Android.Net.Uri;
 
 namespace Stratum.Droid.Activity
 {
@@ -311,7 +313,7 @@ namespace Stratum.Droid.Activity
 
         #region Common Helpers
 
-        protected void SetLoading(bool loading)
+        private void SetLoading(bool loading)
         {
             RunOnUiThread(delegate
             {
@@ -319,6 +321,20 @@ namespace Stratum.Droid.Activity
             });
         }
 
+        protected async Task UseLoadingScopeAsync(Func<Task> func)
+        {
+            SetLoading(true);
+
+            try
+            {
+                await func();
+            }
+            finally
+            {
+                SetLoading(false);
+            }
+        }
+        
         protected void ShowSnackbar(int textRes, int length)
         {
             var snackbar = Snackbar.Make(RootLayout, textRes, length);
