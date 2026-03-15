@@ -41,10 +41,13 @@ namespace Stratum.WearOS.Activity
 
         protected void RunOnUiThreadForLaunch(Action action)
         {
-            if (!IsLaunchCancelled())
+            RunOnUiThread(delegate
             {
-                action();
-            }
+                if (!IsLaunchCancelled())
+                {
+                    action();
+                }
+            });
         }
 
         private bool IsLaunchCancelled()
