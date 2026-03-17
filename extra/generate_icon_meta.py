@@ -172,7 +172,7 @@ def _get_icon_names() -> list[str]:
     return sorted(
         icon[:-4]
         for icon in os.listdir(icons_dir)
-        if not icon.endswith("_dark.png") and not icon == "default"
+        if not icon.endswith("_dark.png") and icon != "default.png"
     )
 
 
