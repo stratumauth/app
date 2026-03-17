@@ -31,7 +31,7 @@ namespace Stratum.Core.Util
                 _ => 0
             };
 
-            return PadFractionally(filledCode, split);
+            return PadFractionally(filledCode, digits, split);
         }
 
         private static string PadByGroupSize(string code, int digits, int groupSize)
@@ -51,12 +51,12 @@ namespace Stratum.Core.Util
             return padded;
         }
 
-        private static string PadFractionally(string code, int division)
+        private static string PadFractionally(string code, int digits, int division)
         {
             return division switch
             {
-                2 => code.Insert((int) Math.Ceiling(code.Length / 2m), " "),
-                3 => code.Insert((int) Math.Ceiling(code.Length / 3m), " ")
+                2 when digits >= 6 => code.Insert((int) Math.Ceiling(code.Length / 2m), " "),
+                3 when digits >= 6 => code.Insert((int) Math.Ceiling(code.Length / 3m), " ")
                     .Insert((int) Math.Ceiling(code.Length / 3m * 2m) + 1, " "),
                 _ => code
             };

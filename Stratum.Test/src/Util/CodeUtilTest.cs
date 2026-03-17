@@ -23,6 +23,8 @@ namespace Stratum.Test.Util
         [InlineData("12345678", "123 456 78", 8, CodeGrouping.Thirds)]
         [InlineData("123456789", "12345 6789", 9, CodeGrouping.Halves)]
         [InlineData("123456789", "123 456 789", 9, CodeGrouping.Thirds)]
+        [InlineData("12345", "12345", 5, CodeGrouping.Halves)]
+        [InlineData("12345", "12345", 5, CodeGrouping.Thirds)]
         public void PadCode(string input, string expected, int digits, CodeGrouping groupSize)
         {
             var padded = CodeUtil.PadCode(input, digits, groupSize);
