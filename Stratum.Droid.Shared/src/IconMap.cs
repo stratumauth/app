@@ -8,7 +8,7 @@ namespace Stratum.Droid.Shared
     // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY
     public static class IconMap
     {
-        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(768)
+        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(774)
         {
             ["123formbuilder"] = Resource.Drawable.auth_123formbuilder,
             ["15five"] = Resource.Drawable.auth_15five,
@@ -245,6 +245,7 @@ namespace Stratum.Droid.Shared
             ["etsy"] = Resource.Drawable.auth_etsy,
             ["eveonline"] = Resource.Drawable.auth_eveonline,
             ["evernote"] = Resource.Drawable.auth_evernote,
+            ["exaroton"] = Resource.Drawable.auth_exaroton,
             ["expensify"] = Resource.Drawable.auth_expensify,
             ["facebook"] = Resource.Drawable.auth_facebook,
             ["faceit"] = Resource.Drawable.auth_faceit,
@@ -395,6 +396,7 @@ namespace Stratum.Droid.Shared
             ["linustechtips"] = Resource.Drawable.auth_linustechtips,
             ["lnkbio"] = Resource.Drawable.auth_lnkbio,
             ["logingov"] = Resource.Drawable.auth_logingov,
+            ["logitech"] = Resource.Drawable.auth_logitech,
             ["logmein"] = Resource.Drawable.auth_logmein,
             ["lufthansa"] = Resource.Drawable.auth_lufthansa,
             ["luno"] = Resource.Drawable.auth_luno,
@@ -403,6 +405,7 @@ namespace Stratum.Droid.Shared
             ["mailboxorg"] = Resource.Drawable.auth_mailboxorg,
             ["mailchimp"] = Resource.Drawable.auth_mailchimp,
             ["mailcom"] = Resource.Drawable.auth_mailcom,
+            ["mailcow"] = Resource.Drawable.auth_mailcow,
             ["mailde"] = Resource.Drawable.auth_mailde,
             ["mailfence"] = Resource.Drawable.auth_mailfence,
             ["mailgun"] = Resource.Drawable.auth_mailgun,
@@ -467,6 +470,7 @@ namespace Stratum.Droid.Shared
             ["nextcloud"] = Resource.Drawable.auth_nextcloud,
             ["nextdns"] = Resource.Drawable.auth_nextdns,
             ["nexusmods"] = Resource.Drawable.auth_nexusmods,
+            ["nginxproxymanager"] = Resource.Drawable.auth_nginxproxymanager,
             ["ngrok"] = Resource.Drawable.auth_ngrok,
             ["nicehash"] = Resource.Drawable.auth_nicehash,
             ["nifty"] = Resource.Drawable.auth_nifty,
@@ -506,6 +510,7 @@ namespace Stratum.Droid.Shared
             ["otter"] = Resource.Drawable.auth_otter,
             ["ovh"] = Resource.Drawable.auth_ovh,
             ["pachca"] = Resource.Drawable.auth_pachca,
+            ["paperlessngx"] = Resource.Drawable.auth_paperlessngx,
             ["parallels"] = Resource.Drawable.auth_parallels,
             ["parimatch"] = Resource.Drawable.auth_parimatch,
             ["parsec"] = Resource.Drawable.auth_parsec,
@@ -546,6 +551,7 @@ namespace Stratum.Droid.Shared
             ["protolabs"] = Resource.Drawable.auth_protolabs,
             ["proton"] = Resource.Drawable.auth_proton,
             ["proxmox"] = Resource.Drawable.auth_proxmox,
+            ["prusa3d"] = Resource.Drawable.auth_prusa3d,
             ["pusher"] = Resource.Drawable.auth_pusher,
             ["pushover"] = Resource.Drawable.auth_pushover,
             ["put"] = Resource.Drawable.auth_put,
@@ -780,7 +786,7 @@ namespace Stratum.Droid.Shared
             ["zyxel"] = Resource.Drawable.auth_zyxel,
         }.AsReadOnly();
 
-        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(230)
+        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(231)
         {
             ["1password"] = Resource.Drawable.auth_1password_dark,
             ["3cx"] = Resource.Drawable.auth_3cx_dark,
@@ -939,6 +945,7 @@ namespace Stratum.Droid.Shared
             ["openvpn"] = Resource.Drawable.auth_openvpn_dark,
             ["ovh"] = Resource.Drawable.auth_ovh_dark,
             ["pachca"] = Resource.Drawable.auth_pachca_dark,
+            ["paperlessngx"] = Resource.Drawable.auth_paperlessngx_dark,
             ["patreon"] = Resource.Drawable.auth_patreon_dark,
             ["peertube"] = Resource.Drawable.auth_peertube_dark,
             ["phrase"] = Resource.Drawable.auth_phrase_dark,
