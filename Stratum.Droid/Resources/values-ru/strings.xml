@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="ru">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="ru-rRU">
     <!-- 
         Non-specific strings
     -->
@@ -354,10 +354,12 @@
     <string name="compactViewMode">Компактно</string>
     <string name="tileViewMode">Плитка</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">Нет</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
+    <string name="codeGroupNone">Нет (000000)</string>
+    <string name="codeGroupTwo">2 (00 00 00)</string>
+    <string name="codeGroupThree">3 (000 000)</string>
+    <string name="codeGroupFour">4 (0000 00)</string>
+    <string name="codeGroupHalves">Половинки (000 000)</string>
+    <string name="codeGroupThirds">Три части (00 00 00)</string>
     <!--
         Arrays > Languages
     -->

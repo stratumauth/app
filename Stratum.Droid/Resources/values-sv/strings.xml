@@ -354,10 +354,12 @@
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Rutnät</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">Ingen</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
+    <string name="codeGroupNone">Ingen (000000)</string>
+    <string name="codeGroupTwo">2 (00 00 00)</string>
+    <string name="codeGroupThree">3 000 000</string>
+    <string name="codeGroupFour">4 (0000 00)</string>
+    <string name="codeGroupHalves">Halvor (000 000)</string>
+    <string name="codeGroupThirds">Tredjedelar (00 00 00)</string>
     <!--
         Arrays > Languages
     -->

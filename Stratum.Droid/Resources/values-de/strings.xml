@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="de">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="de-rDE">
     <!-- 
         Non-specific strings
     -->
@@ -354,10 +354,12 @@
     <string name="compactViewMode">Kompakt</string>
     <string name="tileViewMode">Kacheln</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">Keine</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
+    <string name="codeGroupNone">Keine (000000)</string>
+    <string name="codeGroupTwo">2 (00 00 00)</string>
+    <string name="codeGroupThree">3 (000 000)</string>
+    <string name="codeGroupFour">4 (0000 00)</string>
+    <string name="codeGroupHalves">Hälften (000 000)</string>
+    <string name="codeGroupThirds">Drittel (00 00 00)</string>
     <!--
         Arrays > Languages
     -->
