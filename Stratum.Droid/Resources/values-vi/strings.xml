@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="vi">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="vi-rVN">
     <!-- 
         Non-specific strings
     -->
@@ -355,10 +355,12 @@ Chọn \"Thiết lập một ứng dụng xác thực khác\" hoặc \"Cấu hì
     <string name="compactViewMode">Thu nhỏ</string>
     <string name="tileViewMode">Ô</string>
     <!-- No code grouping selected (eg: 123 456 becomes 123456) -->
-    <string name="none">Không</string>
-    <string name="two">2</string>
-    <string name="three">3</string>
-    <string name="four">4</string>
+    <string name="codeGroupNone">Không (000000)</string>
+    <string name="codeGroupTwo">2 (00 00 00)</string>
+    <string name="codeGroupThree">3 (000 000)</string>
+    <string name="codeGroupFour">4 (0000 00)</string>
+    <string name="codeGroupHalves">Nửa (000 000)</string>
+    <string name="codeGroupThirds">Ba phần (00 00 00)</string>
     <!--
         Arrays > Languages
     -->

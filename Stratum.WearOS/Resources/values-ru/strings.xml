@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="ru">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="ru-rRU">
     <string name="noAuthenticators">Нет аутентификаторов</string>
     <string name="noAuthenticatorsMessage">Пусто. Добавьте несколько аутентификаторов из телефонного приложения.</string>
     <string name="hotpNotSupported">HOTP не поддерживается</string>

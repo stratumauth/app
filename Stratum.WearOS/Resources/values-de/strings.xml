@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="de">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:locale="de-rDE">
     <string name="noAuthenticators">Keine Schlüssel</string>
     <string name="noAuthenticatorsMessage">Hier ist nichts. Füge in der Handyapp einen Schlüssel hinzu.</string>
     <string name="hotpNotSupported">HOTP wird nicht unterstützt</string>
