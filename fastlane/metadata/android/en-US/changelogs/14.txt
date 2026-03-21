@@ -1,0 +1,4 @@
+- New feature: Added "Halves" and "Thirds" code grouping options
+- General: 8 new icons
+- General: Updates for 40 existing icons, many obsolete icons removed
+- General: Translation updates
