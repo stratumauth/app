@@ -279,7 +279,7 @@ namespace Stratum.Droid.Activity
 
             foreach (var fragment in SupportFragmentManager.Fragments)
             {
-                if (fragment is BottomSheet bottomSheet)
+                if (fragment is BottomSheet bottomSheet and IAutoDismissFragment)
                 {
                     bottomSheet.DismissAllowingStateLoss();
                 }

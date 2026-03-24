@@ -12,7 +12,7 @@ using Stratum.Droid.Persistence.View;
 
 namespace Stratum.Droid.Interface.Fragment
 {
-    public class AssignCategoriesBottomSheet : BottomSheet
+    public class AssignCategoriesBottomSheet : BottomSheet, IAutoDismissFragment
     {
         private readonly ICategoryView _categoryView;
 

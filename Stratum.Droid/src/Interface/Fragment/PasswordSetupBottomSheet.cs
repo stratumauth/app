@@ -15,7 +15,7 @@ using Stratum.Droid.Util;
 
 namespace Stratum.Droid.Interface.Fragment
 {
-    public class PasswordSetupBottomSheet : BottomSheet
+    public class PasswordSetupBottomSheet : BottomSheet, IAutoDismissFragment
     {
         private readonly ILogger _log = Log.ForContext<PasswordSetupBottomSheet>();
         private readonly Database _database;

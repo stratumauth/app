@@ -15,7 +15,7 @@ using Stratum.Droid.Persistence.View;
 
 namespace Stratum.Droid.Interface.Fragment
 {
-    public class AssignCategoryEntriesBottomSheet : BottomSheet
+    public class AssignCategoryEntriesBottomSheet : BottomSheet, IAutoDismissFragment
     {
         private readonly IAuthenticatorView _authenticatorView;
         private readonly ICustomIconView _customIconview;

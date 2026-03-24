@@ -10,7 +10,7 @@ using Stratum.Droid.Persistence.View;
 
 namespace Stratum.Droid.Interface.Fragment
 {
-    public class MainMenuBottomSheet : BottomSheet
+    public class MainMenuBottomSheet : BottomSheet, IAutoDismissFragment
     {
         private readonly ICategoryView _categoryView;
         private CategoryMenuListAdapter _categoryMenuListAdapter;

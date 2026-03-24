@@ -20,7 +20,7 @@ using Stratum.Droid.Persistence.View;
 
 namespace Stratum.Droid.Interface.Fragment
 {
-    public class ChangeIconBottomSheet : BottomSheet
+    public class ChangeIconBottomSheet : BottomSheet, IAutoDismissFragment
     {
         private readonly IDefaultIconView _defaultIconView;
         private readonly IIconPackView _iconPackView;
