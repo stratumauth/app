@@ -16,7 +16,13 @@ namespace Stratum.WearOS.Cache
     public class CustomIconCache : IDisposable
     {
         public const char Prefix = '@';
+        
         private const string IconFileExtension = "bmp";
+
+        private static readonly ParallelOptions DecodeParallelOptions = new()
+        {
+            MaxDegreeOfParallelism = 4
+        };
 
         private readonly Context _context;
         private readonly SemaphoreSlim _decodeLock;
@@ -60,7 +66,7 @@ namespace Stratum.WearOS.Cache
         {
             var decoded = new ConcurrentDictionary<string, Bitmap>();
 
-            await Parallel.ForEachAsync(GetIcons(), async (id, _) =>
+            await Parallel.ForEachAsync(GetIcons(), DecodeParallelOptions, async (id, _) =>
             {
                 var bitmap = await BitmapFactory.DecodeFileAsync(GetIconPath(id));
                 decoded.TryAdd(id, bitmap);
