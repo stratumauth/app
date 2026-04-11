@@ -141,6 +141,7 @@ namespace Stratum.Droid
 
         public void OnResume(ILifecycleOwner owner)
         {
+            _timeoutTimer?.Stop();
         }
 
         public void OnStart(ILifecycleOwner owner)
