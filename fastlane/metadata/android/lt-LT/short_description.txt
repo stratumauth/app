@@ -1,1 +1,1 @@
-Atviro kodo dviejų veiksnių tapatybės nustatymo atpažintuvo programėlė su šifruojamomis atsarginėmis kopijomis
+Atviro kodo dviejų veiksnių tapatybės nustatymo atpažintuvo programėlė
