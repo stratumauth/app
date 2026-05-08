@@ -27,7 +27,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Autofac" Version="9.1.0" />
-        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.201">
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.203">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Mono.AotProfiler.Android" Version="10.0.0-preview1" />
@@ -52,8 +52,6 @@
         <PackageReference Include="Xamarin.Google.Android.Material" Version="1.13.0.2" />
         <PackageReference Include="StratumAuth.ZXing" Version="1.5.0" />
         <PackageReference Include="StratumAuth.SQLCipher" Version="1.5.0" />
-        <!-- TEMP: exclude classes causing R8 error on build -->
-        <PackageReference Include="Xamarin.AndroidX.Compose.Runtime.Annotation.Jvm" Version="1.10.4.1" ExcludeAssets="all" />
     </ItemGroup>
     <ItemGroup Condition="!$(DefineConstants.Contains(FDROID))">
         <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="119.0.0.6" />
