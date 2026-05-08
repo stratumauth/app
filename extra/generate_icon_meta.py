@@ -108,6 +108,18 @@ def _get_favicon_from_soup(base_url: str, soup: bs4.BeautifulSoup) -> Optional[s
     return None
 
 
+def _strip_query_string(url: Optional[str]) -> Optional[str]:
+    if url is None:
+        return None
+
+    query_string_pos = url.rfind("?")
+
+    if query_string_pos == -1:
+        return url
+
+    return url[:query_string_pos]
+
+
 @functools.lru_cache(maxsize=None)
 def _get_image_hash(image_url: str) -> Optional[str]:
     res = requests.get(image_url, timeout=REQUEST_TIMEOUT)
@@ -142,7 +154,9 @@ def _enrich_metadata_entry(entry: MetadataEntry) -> MetadataEntry:
                 )
 
             if entry["image_url"] is None:
-                entry["image_url"] = _get_favicon_from_soup(entry["url"], soup)
+                entry["image_url"] = _strip_query_string(
+                    _get_favicon_from_soup(entry["url"], soup)
+                )
                 entry["image_hash"] = None
 
     if entry["image_url"] is not None and entry["image_hash"] is None:

@@ -786,7 +786,7 @@ namespace Stratum.Droid.Shared
             ["zyxel"] = Resource.Drawable.auth_zyxel,
         }.AsReadOnly();
 
-        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(231)
+        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(232)
         {
             ["1password"] = Resource.Drawable.auth_1password_dark,
             ["3cx"] = Resource.Drawable.auth_3cx_dark,
@@ -798,6 +798,7 @@ namespace Stratum.Droid.Shared
             ["adafruit"] = Resource.Drawable.auth_adafruit_dark,
             ["affinity"] = Resource.Drawable.auth_affinity_dark,
             ["airbus"] = Resource.Drawable.auth_airbus_dark,
+            ["aiven"] = Resource.Drawable.auth_aiven_dark,
             ["ajaxsystems"] = Resource.Drawable.auth_ajaxsystems_dark,
             ["amazon"] = Resource.Drawable.auth_amazon_dark,
             ["aol"] = Resource.Drawable.auth_aol_dark,
