@@ -288,6 +288,13 @@ namespace Stratum.Droid.Activity
             {
                 DismissUnlockSheet();
             }
+            
+            var searchItem = Toolbar?.Menu.FindItem(Resource.Id.actionSearch);
+            
+            if (searchItem is { IsActionViewExpanded: true })
+            {
+                RunOnUiThread(delegate { searchItem.CollapseActionView(); });
+            }
 
             RunOnUiThread(delegate
             {
