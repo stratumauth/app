@@ -16,7 +16,7 @@ REPO = "https://github.com/stratumauth/app.git"
 
 CONFIGURATION = "Release"
 
-PROJECT_FRAMEWORKS = {"android": "net10.0-android", "wearos": "net10.0-android"}
+PROJECT_FRAMEWORKS = {"android": "net11.0-android37.0", "wearos": "net11.0-android37.0"}
 
 PROJECT_NAMES = {
     "android": "Stratum.Droid",

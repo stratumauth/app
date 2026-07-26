@@ -1,21 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
+        <TargetFramework>net11.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>disable</Nullable>
-        <LangVersion>13</LangVersion>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
         <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.3.1" />
-        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.203">
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-preview.6.26359.118">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Portable.BouncyCastle" Version="1.9.0"/>
         <PackageReference Include="protobuf-net" Version="3.2.56" />
         <PackageReference Include="QRCoder" Version="1.8.0" />
         <PackageReference Include="SharpZipLib" Version="1.4.2"/>
-        <PackageReference Include="SimpleBase" Version="5.6.0" />
+        <PackageReference Include="SimpleBase" Version="5.6.3" />
         <PackageReference Include="sqlite-net-base" Version="1.9.172" />
         <PackageReference Include="StratumAuth.SQLCipher" Version="1.5.0" />
     </ItemGroup>

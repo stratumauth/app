@@ -1,25 +1,25 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
+        <TargetFramework>net11.0</TargetFramework>
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <IsPackable>false</IsPackable>
-        <LangVersion>13</LangVersion>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="coverlet.collector" Version="10.0.0">
+        <PackageReference Include="coverlet.collector" Version="10.0.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.203">
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-preview.6.26359.118">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.5.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.8.1" />
         <PackageReference Include="Moq" Version="4.20.72" />
-        <PackageReference Include="SkiaSharp" Version="3.119.2" />
-        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="3.119.2" />
-        <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="3.119.2" />
-        <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="3.119.2" />
+        <PackageReference Include="SkiaSharp" Version="4.150.1" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="4.150.1" />
+        <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="4.150.1" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="4.150.1" />
         <PackageReference Include="xunit" Version="2.9.3" />
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
             <PrivateAssets>all</PrivateAssets>
