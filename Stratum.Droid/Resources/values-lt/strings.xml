@@ -55,7 +55,7 @@
     -->
     <string name="issuer">Išdavėja/-s</string>
     <string name="username">Naudotojo/Vartotojo vardas (t.y. Slapyvardis)</string>
-    <string name="secretKey">Slaptas raktas</string>
+    <string name="secretKey">Secret key</string>
     <string name="pin">Prisegti</string>
     <string name="showAdvancedOptions">Rodyti pažangiąsias parinktis</string>
     <string name="advancedOptionsWarning">Keiskite šiuos/šias nustatymus/parinktis, tik tada, kai žinote tiksliai jų veiksmus, šie pakeitimai gali užrakinti Jus iš paskyros.\n\nTęsti?</string>
@@ -83,7 +83,7 @@
     <string name="counterInvalid">The counter is invalid</string>
     <string name="qrCodeFormatError">„QR“ kodas yra neteisingo formato arba negali būti nuskaitytas</string>
     <string name="qrCodePhoneFactorError">Šis „QR“ kodas specialiai sukurtas „Microsoft Authenticator“ ir nėra palaikomas.\n\nPasirinkite – „Nustatykite su kitokia atpažintuvo programėle“ arba „Konfigūruokite programėle be pranešimų“, kad gautumėte palaikoma „QR“ kodą.</string>
-    <string name="duplicateAuthenticator">Atpažintuvas su šiuo slaptu raktu, jau yra</string>
+    <string name="duplicateAuthenticator">An authenticator with this secret key already exists</string>
     <string name="scanSuccessful">„QR“ kodas nuskaitytas sėkmingai!</string>
     <string name="pinMessage">Prašome įvesti „PIN“ kodą, susijusį, su šiuo „QR“ kodu</string>
     <!--
