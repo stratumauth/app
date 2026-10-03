@@ -61,16 +61,22 @@ namespace Stratum.Core.Converter
                 }
 
                 var info = JsonSerializer.Deserialize<TokenInfo>(value);
+                var keyJson = values.GetValueOrDefault(key.Replace("-token", ""));
 
-                var keyJson = values[key.Replace("-token", "")];
+                if (keyJson == null)
+                {
+                    failures.Add(new ConversionFailure { Description = info.Label, Error = "Cannot find matching key for entry" });
+                    continue;
+                }
+                
                 var keyInfo = JsonSerializer.Deserialize<TokenKeyInfo>(keyJson);
                 var encryptedKey = JsonSerializer.Deserialize<EncryptedKey>(keyInfo.Key);
-                var secret = DecryptEncryptedKey(encryptedKey, masterKey);
-
+                
                 Authenticator auth;
-
+                
                 try
                 {
+                    var secret = DecryptEncryptedKey(encryptedKey, masterKey);
                     auth = info.Convert(IconResolver, secret);
                     auth.Validate();
                 }
