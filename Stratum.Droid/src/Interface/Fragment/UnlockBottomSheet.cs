@@ -167,7 +167,7 @@ namespace Stratum.Droid.Interface.Fragment
                 catch (Exception e)
                 {
                     _log.Error(e, "Failed to fetch biometrics cipher");
-                    Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short);
+                    Toast.MakeText(Context, Resource.String.genericError, ToastLength.Short).Show();
                     return;
                 }
 

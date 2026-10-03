@@ -213,7 +213,7 @@ namespace Stratum.Droid.Interface.Fragment
             catch (ActivityNotFoundException e)
             {
                 _log.Error(e, "Activity not found for intent {Intent}", intent.Action);
-                Toast.MakeText(Context, Resource.String.filePickerMissing, ToastLength.Long);
+                Toast.MakeText(Context, Resource.String.filePickerMissing, ToastLength.Long).Show();
                 baseApplication.PreventNextAutoLock = false;
             }
         }
