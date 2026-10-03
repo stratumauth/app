@@ -9,6 +9,7 @@ using Stratum.Core.Entity;
 using Stratum.Core.Generator;
 using Stratum.Core.Persistence;
 using Stratum.Core.Persistence.Exception;
+using Stratum.Core.Util;
 
 namespace Stratum.Core.Service.Impl
 {
@@ -75,6 +76,7 @@ namespace Stratum.Core.Service.Impl
                 throw new ArgumentException("New secret cannot be null or empty");
             }
 
+            SecretUtil.Validate(newSecret, auth.Type);
             await _authenticatorRepository.ChangeSecretAsync(auth.Secret, newSecret);
 
             var next = new Authenticator { Secret = newSecret };
