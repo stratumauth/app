@@ -29,7 +29,12 @@ namespace Stratum.Droid.Persistence
             }
             catch (SQLiteException e)
             {
-                throw new EntityDuplicateException(e);
+                if (e.Result == SQLite3.Result.Constraint)
+                {
+                    throw new EntityDuplicateException(e);
+                }
+
+                throw;
             }
         }
     }
