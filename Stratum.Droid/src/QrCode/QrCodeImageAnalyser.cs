@@ -32,6 +32,7 @@ namespace Stratum.Droid.QrCode
         {
             if (imageProxy.Image == null)
             {
+                imageProxy.Close();
                 return;
             }
 
