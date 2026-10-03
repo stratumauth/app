@@ -148,8 +148,12 @@ namespace Stratum.WearOS.Fragment
         private void Refresh(object sender = null, ElapsedEventArgs args = null)
         {
             var (code, secondsRemaining) = AuthenticatorUtil.GetCodeAndRemainingSeconds(_generator, _period);
-            _codeTextView.Text = CodeUtil.PadCode(code, _digits, _codeGroupSize);
-            _authProgressLayout.StartTimer((_period - secondsRemaining) * 1000);
+            
+            Activity?.RunOnUiThread(delegate
+            {
+                _codeTextView.Text = CodeUtil.PadCode(code, _digits, _codeGroupSize);
+                _authProgressLayout.StartTimer((_period - secondsRemaining) * 1000);
+            });
         }
     }
 }
