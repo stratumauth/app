@@ -19,6 +19,7 @@ namespace Stratum.Droid.Activity
             if (!await database.IsOpenAsync(Database.Origin.Activity))
             {
                 Finish();
+                return;
             }
 
             var windowFlags = !Preferences.AllowScreenshots ? WindowManagerFlags.Secure : 0;
