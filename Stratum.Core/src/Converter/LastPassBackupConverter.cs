@@ -53,21 +53,25 @@ namespace Stratum.Core.Converter
 
                 if (account.FolderData.FolderId > 0)
                 {
-                    var folder = export.Folders.First(f => f.Id == account.FolderData.FolderId);
-                    var category = categories.FirstOrDefault(c => c.Name == folder.Name);
+                    var folder = export.Folders.FirstOrDefault(f => f.Id == account.FolderData.FolderId);
 
-                    if (category == null)
+                    if (folder != null)
                     {
-                        category = new Category(folder.Name);
-                        categories.Add(category);
+                        var category = categories.FirstOrDefault(c => c.Name == folder.Name);
+
+                        if (category == null)
+                        {
+                            category = new Category(folder.Name);
+                            categories.Add(category);
+                        }
+
+                        bindings.Add(new AuthenticatorCategory
+                        {
+                            CategoryId = category.Id,
+                            AuthenticatorSecret = auth.Secret,
+                            Ranking = account.FolderData.Position
+                        });
                     }
-
-                    bindings.Add(new AuthenticatorCategory
-                    {
-                        CategoryId = category.Id,
-                        AuthenticatorSecret = auth.Secret,
-                        Ranking = account.FolderData.Position
-                    });
                 }
 
                 authenticators.Add(auth);
