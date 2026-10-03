@@ -71,9 +71,7 @@ namespace Stratum.Core.Converter.Crypto
             var tag = (Tag) block[0];
             block[0] = data[0];
             _poly1305.BlockUpdate(block, 0, BlockSize);
-            
-            var cipherText = data[1..];
-            _poly1305.BlockUpdate(cipherText, 0, messageLength);
+            _poly1305.BlockUpdate(data, 1, messageLength);
             
             var padLength = (0x10 - block.Length + messageLength) & 0xF;
             _poly1305.BlockUpdate(new byte[padLength], 0, padLength);
@@ -86,7 +84,7 @@ namespace Stratum.Core.Converter.Crypto
             var computedMac = new byte[MacSize];
             _poly1305.DoFinal(computedMac, 0);
             
-            var givenMac = cipherText[messageLength..];
+            var givenMac = data[(1 + messageLength)..];
             
             if (!Arrays.ConstantTimeAreEqual(computedMac, givenMac))
             {
@@ -94,7 +92,7 @@ namespace Stratum.Core.Converter.Crypto
             }
             
             var messageData = new byte[messageLength];
-            _chaCha.ProcessBytes(cipherText, 0, messageLength, messageData, 0);
+            _chaCha.ProcessBytes(data, 1, messageLength, messageData, 0);
             
             for (var i = 0; i < NonceSize - sizeof(uint); ++i)
             {
