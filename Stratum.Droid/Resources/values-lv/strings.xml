@@ -3,33 +3,33 @@
     <!-- 
         Non-specific strings
     -->
-    <string name="warning">Warning</string>
+    <string name="warning">Brīdinājums</string>
     <string name="delete">Dzēst</string>
     <string name="add">Pievienot</string>
-    <string name="edit">Edit</string>
+    <string name="edit">Labot</string>
     <string name="cancel">Atcelt</string>
     <string name="ok">Labi</string>
     <string name="yes">Jā</string>
     <string name="no">Nē</string>
     <string name="close">Aizvērt</string>
     <string name="error">Kļūda</string>
-    <string name="retry">Retry</string>
-    <string name="ignore">Ignore</string>
-    <string name="disable">Disable</string>
+    <string name="retry">Mēģināt vēlreiz</string>
+    <string name="ignore">Neņemt vērā</string>
+    <string name="disable">Atspējot</string>
     <string name="name">Nosaukums</string>
     <!-- 
         Menu items
     -->
     <string name="settings">Iestatījumi</string>
-    <string name="restore">Restore</string>
-    <string name="backup">Back up</string>
+    <string name="restore">Atjaunot</string>
+    <string name="backup">Veikt rezerves kopēšanu</string>
     <string name="about">Par lietotni</string>
-    <string name="scanQrCode">Scan a QR code</string>
-    <string name="showQrCode">Show QR code</string>
-    <string name="editDetails">Edit details</string>
-    <string name="scanQrCodeFromCamera">Scan from camera</string>
-    <string name="scanQrCodeFromGallery">Scan from gallery</string>
-    <string name="rename">Rename</string>
+    <string name="scanQrCode">Nolasīt kvadrātkodu</string>
+    <string name="showQrCode">Parādīt kvadrātkodu</string>
+    <string name="editDetails">Labot</string>
+    <string name="scanQrCodeFromCamera">Nolasīt ar kameru</string>
+    <string name="scanQrCodeFromGallery">Nolasīt no galerijas</string>
+    <string name="rename">Pārdēvēt</string>
     <string name="changeIcon">Mainīt ikonu</string>
     <string name="search">Meklēt</string>
     <string name="mainMenu">Galvenā izvēlne</string>
@@ -358,39 +358,39 @@
     <string name="codeGroupTwo">2 (00 00 00)</string>
     <string name="codeGroupThree">3 (000 000)</string>
     <string name="codeGroupFour">4 (0000 00)</string>
-    <string name="codeGroupHalves">Halves (000 000)</string>
-    <string name="codeGroupThirds">Thirds (00 00 00)</string>
+    <string name="codeGroupHalves">Uz pusēm (000 000)</string>
+    <string name="codeGroupThirds">Trešdaļās (00 00 00)</string>
     <!--
         Arrays > Languages
     -->
     <!--
         Arrays > Accent colours
     -->
-    <string name="red">Red</string>
-    <string name="pink">Pink</string>
-    <string name="purple">Purple</string>
-    <string name="deepPurple">Deep purple</string>
+    <string name="red">Sarkans</string>
+    <string name="pink">Rozā</string>
+    <string name="purple">Violets</string>
+    <string name="deepPurple">Tumši violets</string>
     <string name="indigo">Indigo</string>
-    <string name="blue">Blue</string>
-    <string name="lightBlue">Light blue</string>
+    <string name="blue">Zils</string>
+    <string name="lightBlue">Gaiši zils</string>
     <string name="cyan">Cyan</string>
     <string name="teal">Teal</string>
-    <string name="green">Green</string>
-    <string name="lightGreen">Light green</string>
+    <string name="green">Zaļš</string>
+    <string name="lightGreen">Gaiši zaļš</string>
     <string name="lime">Lime</string>
-    <string name="yellow">Yellow</string>
-    <string name="amber">Amber</string>
-    <string name="orange">Orange</string>
-    <string name="deepOrange">Deep orange</string>
+    <string name="yellow">Dzeltens</string>
+    <string name="amber">Dzintara</string>
+    <string name="orange">Oranžs</string>
+    <string name="deepOrange">Tumši oranža</string>
     <!--
         Arrays / Intro
     -->
-    <string name="introWelcomeTitle">Welcome to Stratum</string>
-    <string name="introCompatibilityTitle">Two-factor Authentication</string>
-    <string name="introBackupTitle">Back up and Restore</string>
+    <string name="introWelcomeTitle">Laipni lūdzam Stratum</string>
+    <string name="introCompatibilityTitle">Divpakāpju autentificēšana</string>
+    <string name="introBackupTitle">Rezerves kopēšana un atjaunošana</string>
     <string name="introCategoriesTitle">Kategorijas</string>
-    <string name="introThemesTitle">Dark theme</string>
-    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
+    <string name="introThemesTitle">Tumšs izskats</string>
+    <string name="introWelcomeSummary">Paldies par Stratum lejupielādēšanu!\nAizsargā savus tiešsaistes kontus ar labāko atvērtā pirmkoda autenitificēšanas lietotni!</string>
     <string name="introCompatibilitySummary">Stratum is compatible with most providers and accounts. It is 100% compatible with Google Authenticator enabled services.</string>
     <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
     <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
