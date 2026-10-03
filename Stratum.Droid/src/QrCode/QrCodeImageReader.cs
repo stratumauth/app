@@ -42,16 +42,23 @@ namespace Stratum.Droid.QrCode
                 TryHarder = true,
                 TryInvert = true
             });
-            
-            using var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
-            await bitmap.CopyPixelsToBufferAsync(buffer);
-            buffer.Rewind();
-    
-            var bytes = new byte[buffer.Remaining()];
-            buffer.Get(bytes);
-    
-            using var imageView = new ImageView(bytes, bitmap.Width, bitmap.Height, ImageFormat.RGBA);
-            return await Task.Run(() => reader.Read(imageView));
+
+            try
+            {
+                using var buffer = ByteBuffer.Allocate(bitmap.ByteCount);
+                await bitmap.CopyPixelsToBufferAsync(buffer);
+                buffer.Rewind();
+
+                var bytes = new byte[buffer.Remaining()];
+                buffer.Get(bytes);
+
+                using var imageView = new ImageView(bytes, bitmap.Width, bitmap.Height, ImageFormat.RGBA);
+                return await Task.Run(() => reader.Read(imageView));
+            }
+            finally
+            {
+                bitmap.Dispose();
+            }
         }
     }
 }
