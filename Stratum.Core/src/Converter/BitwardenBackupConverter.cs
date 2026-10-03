@@ -212,11 +212,16 @@ namespace Stratum.Core.Converter
 
                 authenticators.Add(auth);
 
-                if (vault.Folders != null && item.FolderId != null)
+                if (vault.Folders == null || item.FolderId == null)
                 {
-                    var folderName = vault.Folders.First(f => f.Id == item.FolderId).Name;
-                    var category = categories.First(c => c.Name == folderName);
+                    continue;
+                }
 
+                var folderName = vault.Folders.FirstOrDefault(f => f.Id == item.FolderId)?.Name;
+                var category = categories.FirstOrDefault(c => c.Name == folderName);
+
+                if (folderName != null && category != null)
+                {
                     bindings.Add(new AuthenticatorCategory(auth.Secret, category.Id));
                 }
             }
