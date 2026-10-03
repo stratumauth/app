@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using QRCoder;
 using Stratum.Core.Entity;
 
@@ -72,8 +73,8 @@ namespace Stratum.Core.Backup
 
                 itemsHtml.Append($"""
                                   <tr>
-                                      <td>{auth.Issuer}</td>
-                                      <td>{auth.Username}</td>
+                                      <td>{HttpUtility.HtmlEncode(auth.Issuer)}</td>
+                                      <td>{HttpUtility.HtmlEncode(auth.Username)}</td>
                                       <td><code>{uri}</code></td>
                                       <td><img src="data:image/png;base64,{qrCode}"></td>
                                   </tr>
