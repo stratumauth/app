@@ -361,7 +361,7 @@ namespace Stratum.Droid.Interface.Fragment
                 isValid = false;
             }
 
-            if (!int.TryParse(_counterText.Text, out var counter) || period <= 0)
+            if (!int.TryParse(_counterText.Text, out var counter) || counter < 0)
             {
                 _counterLayout.Error = GetString(Resource.String.counterInvalid);
                 isValid = false;
