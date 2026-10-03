@@ -5,21 +5,16 @@ namespace Stratum.Droid.Callback
 {
     public class BackPressCallback : OnBackPressedCallback
     {
-        private readonly bool _enabled;
-
         public BackPressCallback(bool enabled) : base(enabled)
         {
-            _enabled = enabled;
+            Enabled = enabled;
         }
 
         public event EventHandler BackPressed;
 
         public override void HandleOnBackPressed()
         {
-            if (_enabled)
-            {
-                BackPressed?.Invoke(this, EventArgs.Empty);
-            }
+            BackPressed?.Invoke(this, EventArgs.Empty);
         }
     }
 }
