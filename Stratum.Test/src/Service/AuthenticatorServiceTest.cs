@@ -146,6 +146,14 @@ namespace Stratum.Test.Service
             await Assert.ThrowsAsync<ArgumentException>(() =>
                 _authenticatorService.ChangeSecretAsync(auth, ""));
         }
+        
+        [Fact]
+        public async Task ChangeSecretAsync_invalidSecret()
+        {
+            var auth = new Authenticator { Type = AuthenticatorType.Totp };
+            await Assert.ThrowsAsync<ArgumentException>(() =>
+                _authenticatorService.ChangeSecretAsync(auth, "1111111111"));
+        }
 
         [Fact]
         public async Task ChangeSecretAsync_ok()
