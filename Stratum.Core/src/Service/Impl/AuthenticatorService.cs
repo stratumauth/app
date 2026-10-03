@@ -72,7 +72,7 @@ namespace Stratum.Core.Service.Impl
 
             if (string.IsNullOrEmpty(newSecret))
             {
-                throw new ArgumentException("Old secret cannot be null or empty");
+                throw new ArgumentException("New secret cannot be null or empty");
             }
 
             await _authenticatorRepository.ChangeSecretAsync(auth.Secret, newSecret);
