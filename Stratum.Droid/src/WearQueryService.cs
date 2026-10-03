@@ -16,7 +16,6 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Autofac;
-using Stratum.Droid.Interface;
 using Stratum.Droid.Persistence.View;
 
 namespace Stratum.Droid
@@ -76,9 +75,15 @@ namespace Stratum.Droid
 
             try
             {
-                await OpenDatabaseAsync();
-                result = await action();
-                await CloseDatabaseAsync();
+                try
+                {
+                    await OpenDatabaseAsync();
+                    result = await action();
+                }
+                finally
+                {
+                    await CloseDatabaseAsync();
+                }
             }
             finally
             {
