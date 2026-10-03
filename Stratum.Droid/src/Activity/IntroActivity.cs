@@ -44,7 +44,16 @@ namespace Stratum.Droid.Activity
             _pager.Adapter = _adapter;
 
             var backPressCallback = new BackPressCallback(true);
-            backPressCallback.BackPressed += delegate { _pager.CurrentItem--; };
+            backPressCallback.BackPressed += delegate { 
+                if (_pager.CurrentItem > 0)
+                {
+                    _pager.CurrentItem--;
+                }
+                else
+                {
+                    FinishAffinity();
+                }
+            };
 
             OnBackPressedDispatcher.AddCallback(backPressCallback);
 
