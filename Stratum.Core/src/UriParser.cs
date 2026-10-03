@@ -76,7 +76,7 @@ namespace Stratum.Core
             }
 
             // Get the issuer and username if possible
-            var issuerUsername = Uri.UnescapeDataString(uriMatch.Groups[2].Value);
+            var issuerUsername = Uri.UnescapeDataString(uriMatch.Groups[2].Value.TrimEnd("/"));
             var issuerUsernameMatch = UsernameIssuerRegex().Match(issuerUsername);
 
             string issuer;
@@ -107,7 +107,7 @@ namespace Stratum.Core
                 }
                 else
                 {
-                    issuer = uriMatch.Groups[2].Value;
+                    issuer = issuerUsername;
                     username = null;
                 }
             }
