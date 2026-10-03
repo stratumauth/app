@@ -57,7 +57,7 @@ namespace Stratum.Core
 
         private static UriParseResult ParseOtpAuthUri(string uri, IIconResolver iconResolver)
         {
-            var uriMatch = OtpAuthUriRegex().Match(Uri.UnescapeDataString(uri));
+            var uriMatch = OtpAuthUriRegex().Match(uri);
 
             if (!uriMatch.Success)
             {
@@ -71,11 +71,11 @@ namespace Stratum.Core
 
             foreach (var groups in argMatches.Select(m => m.Groups))
             {
-                args.TryAdd(groups[1].Value, groups[3].Value);
+                args.TryAdd(groups[1].Value, Uri.UnescapeDataString(groups[3].Value));
             }
 
             // Get the issuer and username if possible
-            var issuerUsername = uriMatch.Groups[2].Value;
+            var issuerUsername = Uri.UnescapeDataString(uriMatch.Groups[2].Value);
             var issuerUsernameMatch = UsernameIssuerRegex().Match(issuerUsername);
 
             string issuer;
@@ -102,7 +102,7 @@ namespace Stratum.Core
                 if (args.TryGetValue("issuer", out var issuerParam))
                 {
                     issuer = issuerParam;
-                    username = issuerUsername;
+                    username = !string.IsNullOrEmpty(issuerUsername) ? issuerUsername : null;
                 }
                 else
                 {
