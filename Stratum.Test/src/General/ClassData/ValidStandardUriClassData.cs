@@ -87,7 +87,7 @@ namespace Stratum.Test.General.ClassData
                     Secret = "ABCDEFG"
                 },
                 0
-            }; // Issuer parameter (encoded 1/2)
+            }; // Issuer parameter (encoded 1/3)
             yield return new object[]
             {
                 "otpauth://totp/?secret=ABCDEFG&issuer=AT%26T",
@@ -99,7 +99,19 @@ namespace Stratum.Test.General.ClassData
                     Secret = "ABCDEFG"
                 },
                 0
-            }; // Issuer parameter (encoded 2/2)
+            }; // Issuer parameter (encoded 2/3)
+            yield return new object[]
+            {
+                "otpauth://totp/AT%26T?secret=ABCDEFG",
+                new Authenticator
+                {
+                    Type = AuthenticatorType.Totp,
+                    Issuer = "AT&T",
+                    Username = null,
+                    Secret = "ABCDEFG"
+                },
+                0
+            }; // Issuer parameter (encoded 3/3)
             yield return new object[]
             {
                 "otpauth://totp/issuer?secret=ABCDEFG",
@@ -109,6 +121,24 @@ namespace Stratum.Test.General.ClassData
                 },
                 0
             }; // No username
+            yield return new object[]
+            {
+                "otpauth://totp/?issuer=issuer&secret=ABCDEFG",
+                new Authenticator
+                {
+                    Type = AuthenticatorType.Totp, Issuer = "issuer", Username = null, Secret = "ABCDEFG"
+                },
+                0
+            }; // Trailing slash (1/2)
+            yield return new object[]
+            {
+                "otpauth://totp/issuer%2F?secret=ABCDEFG",
+                new Authenticator
+                {
+                    Type = AuthenticatorType.Totp, Issuer = "issuer/", Username = null, Secret = "ABCDEFG"
+                },
+                0
+            }; // Trailing slash (2/2)
             yield return new object[]
             {
                 "otpauth://hotp/issuer?secret=ABCDEFG",
