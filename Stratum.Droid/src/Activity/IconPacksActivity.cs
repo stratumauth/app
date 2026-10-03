@@ -206,6 +206,7 @@ namespace Stratum.Droid.Activity
                 {
                     _log.Error(e, "Failed to delete icon pack");
                     ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
+                    return;
                 }
 
                 var position = _iconPackView.IndexOf(pack.Name);
