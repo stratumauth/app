@@ -22,6 +22,7 @@ namespace Stratum.Droid.QrCode
         {
             TryHarder = true,
             TryInvert = true,
+            TryDownscale = true,
             Binarizer = Binarizer.GlobalHistogram
         });
 
