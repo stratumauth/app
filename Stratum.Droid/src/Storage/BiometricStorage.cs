@@ -106,7 +106,17 @@ namespace Stratum.Droid.Storage
         {
             var cipher = Cipher.GetInstance(Transformation);
             var iv = GetByteArrayPreference(IvPrefKey, null);
-            cipher.Init(CipherMode.DecryptMode, GetKeyFromKeyStore(), new IvParameterSpec(iv));
+            
+            try
+            {
+                cipher.Init(CipherMode.DecryptMode, GetKeyFromKeyStore(), new IvParameterSpec(iv));
+            }
+            catch (KeyPermanentlyInvalidatedException)
+            {
+                Clear();
+                throw;
+            }
+            
             return cipher;
         }
 
