@@ -22,6 +22,7 @@ namespace Stratum.Droid.Activity
     public class ScanActivity : BaseActivity
     {
         private PreviewView _previewView;
+        private IExecutorService _executorService;
         private ICamera _camera;
         private bool _isFlashOn;
 
@@ -46,8 +47,8 @@ namespace Stratum.Droid.Activity
                 .RequireLensFacing(CameraSelector.LensFacingBack)
                 .Build();
 
-            var executor = Executors.NewCachedThreadPool();
-            preview.SetSurfaceProvider(executor, _previewView.SurfaceProvider);
+            _executorService = Executors.NewCachedThreadPool();
+            preview.SetSurfaceProvider(_executorService, _previewView.SurfaceProvider);
 
             var resolutionSelector = new ResolutionSelector.Builder()
                 .SetAspectRatioStrategy(AspectRatioStrategy.Ratio169FallbackAutoStrategy)
@@ -62,14 +63,20 @@ namespace Stratum.Droid.Activity
             
             var analyser = new QrCodeImageAnalyser();
             analyser.QrCodeScanned += OnQrCodeScanned;
-            analysis.SetAnalyzer(executor, analyser);
+            analysis.SetAnalyzer(_executorService, analyser);
 
             _camera = provider.BindToLifecycle(this, cameraSelector, analysis, preview);
         }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            _executorService?.Shutdown();
+        }
+
         private void OnPreviewViewTouch(object sender, View.TouchEventArgs args)
         {
-            if (args.Event?.Action != MotionEventActions.Up)
+            if (_camera == null || args.Event?.Action != MotionEventActions.Up)
             {
                 return;
             }
@@ -86,6 +93,11 @@ namespace Stratum.Droid.Activity
 
         private void OnFlashButtonClick(object sender, EventArgs e)
         {
+            if (_camera == null)
+            {
+                return;
+            }
+
             _isFlashOn = !_isFlashOn;
             _camera.CameraControl.EnableTorch(_isFlashOn);
         }
