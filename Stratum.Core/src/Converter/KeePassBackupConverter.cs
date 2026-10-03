@@ -389,7 +389,7 @@ namespace Stratum.Core.Converter
             var signature1 = reader.ReadUInt32();
             var signature2 = reader.ReadUInt32();
 
-            if (signature1 != HeaderSignature1 && signature2 != HeaderSignature2)
+            if (signature1 != HeaderSignature1 || signature2 != HeaderSignature2)
             {
                 throw new ArgumentException("Not a KeePass file");
             }
