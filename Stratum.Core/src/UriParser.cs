@@ -133,7 +133,7 @@ namespace Stratum.Core
 
             if (args.TryGetValue("algorithm", out var algorithmParam) && type.HasVariableAlgorithm())
             {
-                algorithm = algorithmParam.ToUpper() switch
+                algorithm = algorithmParam.ToUpperInvariant() switch
                 {
                     "SHA1" => HashAlgorithm.Sha1,
                     "SHA256" => HashAlgorithm.Sha256,
