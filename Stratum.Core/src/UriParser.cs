@@ -47,11 +47,12 @@ namespace Stratum.Core
                 Issuer = issuer,
                 Icon = icon,
                 Username = match.Groups[2].Value,
-                Secret = match.Groups[3].Value,
+                Secret = SecretUtil.Normalise(match.Groups[3].Value, AuthenticatorType.MobileOtp),
                 Digits = MobileOtp.Digits,
                 Period = AuthenticatorType.MobileOtp.GetDefaultPeriod()
             };
 
+            auth.Validate();
             return new UriParseResult { Authenticator = auth, PinLength = MobileOtp.PinLength };
         }
 
