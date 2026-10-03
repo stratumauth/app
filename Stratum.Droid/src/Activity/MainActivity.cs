@@ -1916,7 +1916,6 @@ namespace Stratum.Droid.Activity
             }
 
             var dialog = (EditAuthenticatorBottomSheet) sender;
-            var position = _authenticatorView.IndexOf(auth);
 
             auth.Type = args.Authenticator.Type;
             auth.Issuer = args.Authenticator.Issuer;
@@ -1949,14 +1948,17 @@ namespace Stratum.Droid.Activity
                 ShowSnackbar(Resource.String.genericError, Snackbar.LengthShort);
                 return;
             }
-
-            await _authenticatorView.LoadFromPersistenceAsync();
+            finally
+            {
+                await _authenticatorView.LoadFromPersistenceAsync();
+            }
 
             if (args.Authenticator.Type.GetGenerationMethod() == GenerationMethod.Time)
             {
                 ShowAutoTimeWarning();
             }
 
+            var position = _authenticatorView.IndexOf(auth);
             RunOnUiThread(delegate { _authenticatorListAdapter.NotifyItemChanged(position); });
             Preferences.BackupRequired = BackupRequirement.Urgent;
 
