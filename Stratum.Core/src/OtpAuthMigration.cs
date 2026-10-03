@@ -31,6 +31,16 @@ namespace Stratum.Core
             [ProtoEnum] Totp = 2
         }
 
+        [ProtoContract]
+        public enum Digits
+        {
+            [ProtoEnum] Unknown = 0,
+
+            [ProtoEnum] Six = 1,
+
+            [ProtoEnum] Eight = 2
+        }
+
         [ProtoMember(1)]
         public List<MigrationAuthenticator> Authenticators { get; set; }
 
@@ -48,6 +58,9 @@ namespace Stratum.Core
 
             [ProtoMember(4)]
             public Algorithm Algorithm { get; set; }
+            
+            [ProtoMember(5)]
+            public Digits Digits { get; set; }
 
             [ProtoMember(6)]
             public Type Type { get; set; }
