@@ -90,6 +90,13 @@ namespace Stratum.Core.Converter
                 _ => throw new ArgumentException($"Unknown algorithm '{auth.Algorithm}")
             };
 
+            var digits = auth.Digits switch
+            {
+                OtpAuthMigration.Digits.Eight => 8,
+                OtpAuthMigration.Digits.Six => 6,
+                _ => type.GetDefaultDigits()
+            };
+
             string secret;
 
             try
@@ -110,7 +117,7 @@ namespace Stratum.Core.Converter
                 Type = type,
                 Secret = secret,
                 Counter = auth.Counter,
-                Digits = type.GetDefaultDigits(),
+                Digits = digits,
                 Period = type.GetDefaultPeriod(),
                 Icon = IconResolver.FindServiceKeyByName(issuer)
             };
