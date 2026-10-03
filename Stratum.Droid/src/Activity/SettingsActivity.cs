@@ -124,6 +124,14 @@ namespace Stratum.Droid.Activity
                 .Commit();
         }
 
+        protected override void OnDestroy()
+        {
+            var prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+            prefs.UnregisterOnSharedPreferenceChangeListener(this);
+            
+            base.OnDestroy();
+        }
+
         public override void Finish()
         {
             if (_shouldRecreateMain)
