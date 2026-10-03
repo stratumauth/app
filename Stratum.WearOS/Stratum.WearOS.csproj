@@ -29,7 +29,7 @@
     <ItemGroup>
         <PackageReference Include="Autofac" Version="9.3.4" />
         <PackageReference Include="DotNext.Threading" Version="6.8.0" />
-        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-preview.6.26359.118">
+        <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.1.26425.128">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
         <PackageReference Include="Mono.AotProfiler.Android" Version="10.0.0-preview1" />
