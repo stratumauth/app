@@ -13,7 +13,7 @@ namespace Stratum.Core.Util
         {
             if (type.HasBase32Secret())
             {
-                input = input.ToUpper();
+                input = input.ToUpperInvariant();
             }
 
             input = input.Replace(" ", "");
