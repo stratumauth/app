@@ -77,9 +77,15 @@ namespace Stratum.Core.Converter
 
                 authenticators.Add(auth);
 
-                if (service.GroupId != null)
+                if (service.GroupId == null)
                 {
-                    var index = twoFasBackup.Groups.FindIndex(g => g.Id == service.GroupId);
+                    continue;
+                }
+
+                var index = twoFasBackup.Groups.FindIndex(g => g.Id == service.GroupId);
+
+                if (index > -1)
+                {
                     var category = categories[index];
 
                     var binding = new AuthenticatorCategory(auth.Secret, category.Id);
