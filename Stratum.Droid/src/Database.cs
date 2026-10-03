@@ -179,19 +179,10 @@ namespace Stratum.Droid
                 File.Move(backupPath, dbPath);
             }
 
+            var conn = await GetConnectionAsync();
+            await conn.ExecuteScalarAsync<string>("PRAGMA wal_checkpoint(TRUNCATE)");
+            
             File.Copy(dbPath, backupPath, true);
-            SQLiteAsyncConnection conn;
-
-            try
-            {
-                conn = await GetConnectionAsync();
-                await conn.ExecuteScalarAsync<string>("PRAGMA wal_checkpoint(TRUNCATE)");
-            }
-            catch
-            {
-                File.Delete(backupPath);
-                throw;
-            }
 
             // Change encryption mode
             if (currentPassword == null || newPassword == null)
