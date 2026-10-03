@@ -47,8 +47,8 @@ namespace Stratum.Droid.Interface.Adapter
             if (item.IsSensitive)
             {
                 var colourValue = MaterialColors.GetColor(viewHolder.ItemView, Resource.Attribute.colorError);
-                var colour = Color.Rgb(Color.GetRedComponent(colourValue), Color.GetBlueComponent(colourValue),
-                    Color.GetGreenComponent(colourValue));
+                var colour = Color.Rgb(Color.GetRedComponent(colourValue), Color.GetGreenComponent(colourValue),
+                    Color.GetBlueComponent(colourValue));
 
                 holder.Icon.SetColorFilter(colour);
                 holder.Title.SetTextColor(colour);
