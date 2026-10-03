@@ -87,7 +87,19 @@ namespace Stratum.Test.General.ClassData
                     Secret = "ABCDEFG"
                 },
                 0
-            }; // Issuer parameter (encoded)
+            }; // Issuer parameter (encoded 1/2)
+            yield return new object[]
+            {
+                "otpauth://totp/?secret=ABCDEFG&issuer=AT%26T",
+                new Authenticator
+                {
+                    Type = AuthenticatorType.Totp,
+                    Issuer = "AT&T",
+                    Username = null,
+                    Secret = "ABCDEFG"
+                },
+                0
+            }; // Issuer parameter (encoded 2/2)
             yield return new object[]
             {
                 "otpauth://totp/issuer?secret=ABCDEFG",
