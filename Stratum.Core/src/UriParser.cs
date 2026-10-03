@@ -44,9 +44,9 @@ namespace Stratum.Core
             var auth = new Authenticator
             {
                 Type = AuthenticatorType.MobileOtp,
-                Issuer = issuer,
+                Issuer = issuer.Trim().Truncate(Authenticator.IssuerMaxLength),
+                Username = match.Groups[2].Value.Trim().Truncate(Authenticator.UsernameMaxLength),
                 Icon = icon,
-                Username = match.Groups[2].Value,
                 Secret = SecretUtil.Normalise(match.Groups[3].Value, AuthenticatorType.MobileOtp),
                 Digits = MobileOtp.Digits,
                 Period = AuthenticatorType.MobileOtp.GetDefaultPeriod()
