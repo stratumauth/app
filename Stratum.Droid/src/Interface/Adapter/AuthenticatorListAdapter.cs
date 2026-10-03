@@ -94,12 +94,17 @@ namespace Stratum.Droid.Interface.Adapter
                 {
                     dictionary[oldPosition] = newValue;
                 }
+                else
+                {
+                    dictionary.Remove(oldPosition);
+                }
                 
                 dictionary[newPosition] = oldValue;
             }
             else if (dictionary.TryGetValue(newPosition, out var newValue))
             {
                 dictionary[oldPosition] = newValue;
+                dictionary.Remove(newPosition);
             }
         }
 
