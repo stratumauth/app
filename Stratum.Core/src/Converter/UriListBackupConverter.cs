@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Stratum.Core.Util;
@@ -31,11 +32,11 @@ namespace Stratum.Core.Converter
             var authenticators = new List<Authenticator>();
             var failures = new List<ConversionFailure>();
 
-            foreach (var line in lines)
+            foreach (var line in lines.Select(l => l.Trim()).Where(l => l != string.Empty))
             {
                 if (!line.StartsWith("otpauth") && !line.StartsWith("motp"))
-                { 
-                    throw new ArgumentException("Invalid file"); 
+                {
+                    throw new ArgumentException("Invalid file");
                 }
                 
                 Authenticator auth;
