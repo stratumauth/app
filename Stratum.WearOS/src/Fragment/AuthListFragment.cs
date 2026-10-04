@@ -14,6 +14,7 @@ using Stratum.Core.Util;
 using Stratum.WearOS.Activity;
 using Stratum.WearOS.Cache;
 using Stratum.WearOS.Cache.View;
+using Stratum.WearOS.Callback;
 using Stratum.WearOS.Interface;
 
 namespace Stratum.WearOS.Fragment
@@ -25,6 +26,7 @@ namespace Stratum.WearOS.Fragment
         
         private PreferenceWrapper _preferences;
         
+        private SwipeDismissFrameLayout _swipeDismissLayout;
         private RelativeLayout _emptyLayout;
         private WearableRecyclerView _authList;
         private AuthenticatorListAdapter _authListAdapter;
@@ -47,7 +49,7 @@ namespace Stratum.WearOS.Fragment
         public override void OnViewCreated(View view, Bundle savedInstanceState)
         {
             base.OnViewCreated(view, savedInstanceState);
-            
+
             _emptyLayout = view.FindViewById<RelativeLayout>(Resource.Id.layoutEmpty);
             
             _authList = view.FindViewById<WearableRecyclerView>(Resource.Id.list);
@@ -60,22 +62,25 @@ namespace Stratum.WearOS.Fragment
             _authList.SetLayoutManager(new WearableLinearLayoutManager(RequireContext(), layoutCallback));
             _authList.SetAdapter(_authListAdapter);
             
+            var dismissCallback = new SwipeDismissCallback();
+            dismissCallback.Dismiss += delegate { OnSwipeBack(); };
+            
+            _swipeDismissLayout = view.FindViewById<SwipeDismissFrameLayout>(Resource.Id.layoutSwipeDismiss);
+            _swipeDismissLayout.AddCallback(dismissCallback);
+            _swipeDismissLayout.Swipeable = false;
+
             CheckEmptyState();
         }
 
         private void CheckEmptyState()
         {
-            if (!_authView.Any())
-            {
-                _emptyLayout.Visibility = ViewStates.Visible;
-                _authList.Visibility = ViewStates.Invisible;
-            }
-            else
-            {
-                _emptyLayout.Visibility = ViewStates.Gone;
-                _authList.Visibility = ViewStates.Visible;
-                _authList.RequestFocus();
-            }
+            _emptyLayout.Visibility = _authView.Any() ? ViewStates.Gone : ViewStates.Visible;
+            _authList.RequestFocus();
+        }
+
+        public void SetSwipeBackEnabled(bool isEnabled)
+        {
+            _swipeDismissLayout?.Swipeable = isEnabled;
         }
 
         public void NotifyChanged()
@@ -149,6 +154,11 @@ namespace Stratum.WearOS.Fragment
 
             var tileClass = Class.FromType(typeof(AuthTileService));
             TileService.GetUpdater(RequireContext()).RequestUpdate(tileClass);
+        }
+
+        private void OnSwipeBack()
+        {
+            RequireActivity().SupportFragmentManager.SetFragmentResult(MainActivity.ResultSwipedBack, Bundle.Empty);
         }
     }
 }
