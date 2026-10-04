@@ -1,15 +1,16 @@
 // Copyright (C) 2022 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Android.Content;
 using Android.Database;
-using Android.Net;
 using Android.Provider;
 using Java.IO;
 using IOException = System.IO.IOException;
+using Uri = Android.Net.Uri;
 
 namespace Stratum.Droid.Util
 {
@@ -57,7 +58,7 @@ namespace Stratum.Droid.Util
 
                 try
                 {
-                    output = context.ContentResolver.OpenOutputStream(uri);
+                    output = OpenOutputStream(context, uri);
                     dataStream = new DataOutputStream(output);
 
                     await dataStream.WriteAsync(data);
@@ -81,7 +82,7 @@ namespace Stratum.Droid.Util
 
                 try
                 {
-                    output = context.ContentResolver.OpenOutputStream(uri);
+                    output = OpenOutputStream(context, uri);
                     outputWriter = new OutputStreamWriter(output);
                     bufferedWriter = new BufferedWriter(outputWriter);
 
@@ -95,6 +96,20 @@ namespace Stratum.Droid.Util
                     output?.Close();
                 }
             });
+        }
+
+        private static Stream OpenOutputStream(Context context, Uri uri)
+        {
+            // The default "w" mode is not guaranteed to truncate, so overwriting a larger file leaves trailing bytes.
+            // Some destinations don't support truncation, so fall back to "w" if necessary.
+            try
+            {
+                return context.ContentResolver.OpenOutputStream(uri, "wt");
+            }
+            catch (Exception)
+            {
+                return context.ContentResolver.OpenOutputStream(uri);
+            }
         }
 
         private static string GetContentUriDisplayName(ContentResolver resolver, Uri uri)
