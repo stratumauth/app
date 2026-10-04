@@ -52,7 +52,6 @@ namespace Stratum.WearOS.Activity
         private WearableNavigationDrawerView _categoryList;
 
         private PreferenceWrapper _preferences;
-        private bool _preventCategorySelectEvent;
 
         private CategoryListAdapter _categoryListAdapter;
 
@@ -76,13 +75,13 @@ namespace Stratum.WearOS.Activity
 
             await Task.WhenAll(_authCache.InitAsync(), _categoryCache.InitAsync(), _customIconCache.InitAsync());
 
+            _categoryView.Update();
+
             _isFastStartup = _authCache.GetItems().Any();
             
             var defaultCategory = _preferences.DefaultCategory;
-            _authView.CategoryId = defaultCategory;
+            _authView.CategoryId = _categoryView.FirstOrDefault(c => c.Id == defaultCategory)?.Id;
             _authView.SortMode = _preferences.SortMode;
-            
-            _categoryView.Update();
             
             SupportFragmentManager.SetFragmentResultListener(ResultItemClicked, this, this);
 
@@ -158,20 +157,8 @@ namespace Stratum.WearOS.Activity
             _categoryList.SetAdapter(_categoryListAdapter);
             _categoryList.ItemSelected += OnCategorySelected;
 
-            if (_authView.CategoryId != null)
-            {
-                var categoryPosition = _categoryView.FindIndex(c => c.Id == _authView.CategoryId);
-
-                if (categoryPosition > -1)
-                {
-                    _preventCategorySelectEvent = true;
-                    _categoryList.SetCurrentItem(categoryPosition + 1, false);
-                }
-            }
-            else
-            {
-                _categoryList.SetCurrentItem(0, false);
-            }
+            var categoryPosition = _categoryView.FindIndex(c => c.Id == _authView.CategoryId);
+            _categoryList.SetCurrentItem(categoryPosition + 1, false);
         }
 
         private void NotifyListChanged()
@@ -182,12 +169,8 @@ namespace Stratum.WearOS.Activity
 
         private void OnCategorySelected(object sender, WearableNavigationDrawerView.ItemSelectedEventArgs e)
         {
-            if (_preventCategorySelectEvent)
-            {
-                _preventCategorySelectEvent = false;
-                return;
-            }
-
+            string newCategoryId = null;
+            
             if (e.Pos > 0)
             {
                 var category = _categoryView.ElementAtOrDefault(e.Pos - 1);
@@ -197,13 +180,15 @@ namespace Stratum.WearOS.Activity
                     return;
                 }
 
-                _authView.CategoryId = category.Id;
-            }
-            else
-            {
-                _authView.CategoryId = null;
+                newCategoryId = category.Id;
             }
 
+            if (newCategoryId == _authView.CategoryId)
+            {
+                return;
+            }
+
+            _authView.CategoryId = newCategoryId;
             NotifyListChanged();
 
             if (SupportFragmentManager.BackStackEntryCount > 0)
