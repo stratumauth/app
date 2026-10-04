@@ -21,7 +21,7 @@
         Menu items
     -->
     <string name="settings">Nustatymai</string>
-    <string name="restore">Restore</string>
+    <string name="restore">Atkurti</string>
     <string name="backup">Sukurti atsarginę kopiją</string>
     <string name="about">Apie</string>
     <string name="scanQrCode">Skenuokite „QR“ kodą</string>
@@ -55,7 +55,7 @@
     -->
     <string name="issuer">Išdavėja/-s</string>
     <string name="username">Naudotojo/Vartotojo vardas (t.y. Slapyvardis)</string>
-    <string name="secretKey">Slaptas raktas</string>
+    <string name="secretKey">Slaptasis raktas</string>
     <string name="pin">Prisegti</string>
     <string name="showAdvancedOptions">Rodyti pažangiąsias parinktis</string>
     <string name="advancedOptionsWarning">Keiskite šiuos/šias nustatymus/parinktis, tik tada, kai žinote tiksliai jų veiksmus, šie pakeitimai gali užrakinti Jus iš paskyros.\n\nTęsti?</string>
@@ -69,8 +69,8 @@
     <string name="algorithmHint">Algoritmas</string>
     <string name="digitsHint">Skaitmenys</string>
     <string name="periodHint">Laikotarpis (sek.)</string>
-    <string name="counterHint">Counter</string>
-    <string name="refresh">Refresh</string>
+    <string name="counterHint">Skaitiklis</string>
+    <string name="refresh">Atnaujinti/Perkrauti</string>
     <string name="noIssuer">An issuer is required</string>
     <string name="noSecret">Reikalingas slaptasis raktas</string>
     <string name="noPin">Reikalingas „PIN“ kodas</string>
@@ -80,10 +80,10 @@
     <string name="pinTooLong">The pin cannot contain more than {0} digits</string>
     <string name="digitsInvalid">The authenticator must generate between {0} and {1} digits</string>
     <string name="periodInvalid">The period is invalid</string>
-    <string name="counterInvalid">The counter is invalid</string>
+    <string name="counterInvalid">Skaitiklis yra negalimas</string>
     <string name="qrCodeFormatError">„QR“ kodas yra neteisingo formato arba negali būti nuskaitytas</string>
     <string name="qrCodePhoneFactorError">Šis „QR“ kodas specialiai sukurtas „Microsoft Authenticator“ ir nėra palaikomas.\n\nPasirinkite – „Nustatykite su kitokia atpažintuvo programėle“ arba „Konfigūruokite programėle be pranešimų“, kad gautumėte palaikoma „QR“ kodą.</string>
-    <string name="duplicateAuthenticator">Atpažintuvas su šiuo slaptu raktu, jau yra</string>
+    <string name="duplicateAuthenticator">Atpažintuvas su šiuo slaptuoju raktu, jau yra</string>
     <string name="scanSuccessful">„QR“ kodas nuskaitytas sėkmingai!</string>
     <string name="pinMessage">Prašome įvesti „PIN“ kodą, susijusį, su šiuo „QR“ kodu</string>
     <!--
@@ -91,8 +91,8 @@
     -->
     <string name="defaultIcons">Numatytos/-ios piktogramos</string>
     <string name="iconPacks">Piktogramų paketai</string>
-    <string name="downloadPacks">Download packs</string>
-    <string name="importIconPackSuccess">Imported {0} icons from pack</string>
+    <string name="downloadPacks">Atsisiųsti paketus</string>
+    <string name="importIconPackSuccess">Iš paketo importuota/-s – {0} piktograma/-os</string>
     <string name="invalidIconPackError">The selected file is not a Stratum icon pack</string>
     <string name="confirmIconPackDelete">Are you sure you want to delete this icon pack? Any used icons will not be deleted.</string>
     <!-- View the source (website) of the icon pack -->
@@ -124,9 +124,9 @@
     <string name="noAuthenticatorsMessage">Jūs neturite jokių atpažintuvų čia</string>
     <string name="gettingStartedGuide">Darbo pradžios vadovas/gidas</string>
     <string name="noAuthenticatorsHelp">Jeigu pirmą kartą naudojatės „Stratum“, peržvelkite darbo pradžios vadovą/gidą, spustelėjant apačioje.</string>
-    <string name="noCategoriesTitle">No categories</string>
+    <string name="noCategoriesTitle">Nėra kategorijų</string>
     <string name="noCategoriesMessage">Jūs neturite nustatytų/sukurtų kategorijų</string>
-    <string name="noIconPacksTitle">No icon packs</string>
+    <string name="noIconPacksTitle">Nėra piktogramų paketų</string>
     <string name="noIconPacksMessage">Jūs neturite nustatytų/įkeltų piktogramų paketų</string>
     <!--
         Categories
@@ -134,10 +134,10 @@
     <string name="category">Kategorija</string>
     <string name="categories">Kategorijos</string>
     <string name="assignCategories">Priskirti kategorijas</string>
-    <string name="assignEntries">Assign entries</string>
+    <string name="assignEntries">Priskirti įvestis</string>
     <string name="more">Daugiau</string>
     <string name="categoryAll">Visi/-os</string>
-    <string name="categoryUncategorised">Uncategorised</string>
+    <string name="categoryUncategorised">Be kategorijos</string>
     <string name="editCategories">Redaguoti kategorijas</string>
     <string name="noCategoryName">Reikalingas kategorijos pavadinimas</string>
     <string name="duplicateCategory">Kategorija su šiuo/tokiu pavadinimu jau egzistuoja</string>
@@ -150,11 +150,11 @@
         Backups
     -->
     <string name="backupNow">Sukurti atsarginę kopiją dabar</string>
-    <string name="backupReminder">There have been changes since your last backup</string>
-    <string name="backupPasswordMessage">Enter a password to securely encrypt your backup file. If you do not wish to password protect the file, leave the password empty.</string>
+    <string name="backupReminder">Nuo paskutinio atsarginės kopijos sukūrimo įvyko pokyčių</string>
+    <string name="backupPasswordMessage">Įveskite slaptažodį, kad saugiai užšifruotumėte atsarginės kopijos failą. Jei nenorite apsaugoti failo slaptažodžiu, palikite slaptažodžio laukelį tuščią.</string>
     <string name="password">Slaptažodis</string>
     <string name="passwordConfirm">Patvirtinti/-kite slaptažodį</string>
-    <string name="confirmEmptyPassword">You have not chosen a password, your backup will not be encrypted and your secret keys may be vulnerable.\n\nContinue?</string>
+    <string name="confirmEmptyPassword">Jūs nepasirinkote slaptažodžio, todėl Jūsų atsarginė kopija nebus šifruojama ir Jūsų slaptieji raktai gali būti pažeidžiami.\n\nTęsti?</string>
     <string name="passwordHint">Atsarginės kopijos slaptažodis</string>
     <string name="fileNameHint">Atsarginės kopijos failo pavadinimas</string>
     <string name="noAuthenticators">Jūs neturite jokių atpažintuvų, kuriuos būtų galima atlikti atsarginės kopijos kopiją</string>
@@ -162,7 +162,7 @@
     <string name="backupSuccess">Atsarginė kopija išsaugota kaip: „{0}“</string>
     <string name="restoredFromBackup">Restored {0} new authenticators and {1} new categories</string>
     <string name="restoredFromBackupUpdated">Restored {0} new authenticators and {1} new categories. Updated {2} existing authenticators.</string>
-    <string name="restoredNothing">Nothing to restore</string>
+    <string name="restoredNothing">Nėra ką atkurti</string>
     <!--
         Errors
     -->
@@ -257,7 +257,7 @@
     <string name="guideScanQRCodeSummary">Norėdami pridėti atpažintuvą, nuskenuokite „QR“ kodą, kurį Jums pateikė ekrane arba rankiniu būdu įveskite pateiktą kodą. Šis dviejų veiksnių tapatybės nustatymo kodas bus pridėtas į sąrašą ir pradės generuoti kodus atitiktinai automatiškai.</string>
     <string name="guideUseCodeTitle">Prisijungdami naudokite kodą</string>
     <string name="guideUseCodeSummary">When logging in, use the unique code provided by Stratum. It is only valid for a short duration. Tap the authenticator in the list to copy the code to the clipboard.</string>
-    <string name="guideCustomiseTitle">Customise and edit</string>
+    <string name="guideCustomiseTitle">Tinkinti ir redaguoti</string>
     <string name="guideCustomiseSummary">Rename and customise your authenticators to find them easily. Simply tap the menu icon on an entry and follow the steps.</string>
     <string name="guideArrangeTitle">Arrange and sort</string>
     <string name="guideArrangeSummary">You can organise your authenticators into categories to find them easily. Furthermore, holding and dragging items will allow you to rearrange them in any order you like.</string>
@@ -268,7 +268,7 @@
     <!--
         QR code scanner
     -->
-    <string name="scanHelpPrimary">Align the QR code within the scanner. Tap the screen to focus.</string>
+    <string name="scanHelpPrimary">Sulyginkite „QR“ kodą su skenavimo aprėptimi. Bakstelėkite ant ekrano, norint sufokusuoti.</string>
     <string name="scanHelpSecondary">Try to avoid shadows and glare. Hold the device approximately 6 inches (15 cm) from the code.</string>
     <string name="toggleFlash">Įjungti/Išjungti žibintuvėlio blykstę/šviesą</string>
     <!--
@@ -292,8 +292,8 @@
     <string name="prefSecurity">Saugumas</string>
     <string name="prefPasswordTitle">Slaptažodis</string>
     <string name="prefPasswordSummary">Require password to access authenticators. The database will be encrypted with your password.</string>
-    <string name="prefDatabasePasswordBackupTitle">Backup with Database Password</string>
-    <string name="prefDatabasePasswordBackupSummary">Encrypt all backups using the database password so you don\'t need to enter it each time</string>
+    <string name="prefDatabasePasswordBackupTitle">Atsarginė kopija su duomenų bazės slaptažodžiu</string>
+    <string name="prefDatabasePasswordBackupSummary">Visas atsargines kopijas užšifruokite naudodami duomenų bazės slaptažodį, kad jo nereikėtų įvesti kiekvieną kartą</string>
     <string name="prefAllowBiometricsTitle">Biometrinis atrakinimas</string>
     <string name="prefAllowBiometricsSummary">Allow unlocking the database with biometric authentication</string>
     <string name="prefTimeoutTitle">Atskleidžiamas laukimo laikas</string>
@@ -313,16 +313,16 @@
     <string name="prefCodeGroupSizeSummary">Change the grouping of digits in a code</string>
     <string name="prefShowUsernamesTitle">Show Usernames</string>
     <string name="prefShowUsernamesSummary">Display the username beneath the issuer</string>
-    <string name="prefDynamicColourTitle">Dynamic Colour</string>
-    <string name="prefDynamicColourSummary">Dynamically set the accent colour based on your wallpaper</string>
+    <string name="prefDynamicColourTitle">Dinamiška/Prisitaikanti spalva</string>
+    <string name="prefDynamicColourSummary">Dinamiškai/Prisitaikančiai nustatyti pabrėžiančiąją spalvą remiantis Jūsų darbalaukio fonu</string>
     <string name="prefAccentColourTitle">Pabrėžimo spalva</string>
-    <string name="prefAccentColourSummary">Choose an accent colour to use throughout the app</string>
+    <string name="prefAccentColourSummary">Pasirinkite dinamišką/prisitaikančią spalvą, kuria norite naudoti/matyti programėlėje</string>
     <string name="prefTransparentStatusBarTitle">Skaidri būsenos juosta</string>
-    <string name="prefTransparentStatusBarSummary">Make the list visible behind the status bar when scrolling</string>
+    <string name="prefTransparentStatusBarSummary">Slinkdami, rodyti sąrašą už būsenos juostos</string>
     <string name="prefSystemFontTitle">Sistemos šriftas</string>
-    <string name="prefSystemFontSummary">Use the system default font instead of a custom font</string>
+    <string name="prefSystemFontSummary">Vietoj pasirinktinio šrifto naudotu sistemos numatytąjį šriftą</string>
     <!-- Message shown when the copy count has been reset successfully -->
-    <string name="copyCountReset">Copy count reset</string>
+    <string name="copyCountReset">Nukopijuotų skaičių skaitiklis atstatytas</string>
     <!--
         About
     -->
@@ -333,7 +333,7 @@
         Arrays
     -->
     <string name="authTypeTime">Pagrįstas laiku („TOTP“)</string>
-    <string name="authTypeCounter">Counter based (HOTP)</string>
+    <string name="authTypeCounter">Skaitikliu pagrįsta/-s („HOTP“)</string>
     <string name="authAlgorithmSHA1">„SHA1“ (numatyta/-s/-i)</string>
     <!-- Lock the app immediately when closed -->
     <string name="immediately">Iškart/Nedelsiant</string>
@@ -358,8 +358,8 @@
     <string name="codeGroupTwo">2 (00 00 00)</string>
     <string name="codeGroupThree">3 (000 000)</string>
     <string name="codeGroupFour">4 (0000 00)</string>
-    <string name="codeGroupHalves">Halves (000 000)</string>
-    <string name="codeGroupThirds">Thirds (00 00 00)</string>
+    <string name="codeGroupHalves">Perpus (000 000)</string>
+    <string name="codeGroupThirds">Trečdaliu (00 00 00)</string>
     <!--
         Arrays > Languages
     -->
@@ -387,12 +387,12 @@
     -->
     <string name="introWelcomeTitle">Sveiki atvykę į „Stratum“</string>
     <string name="introCompatibilityTitle">Dviejų veiksnių tapatybės nustatymas</string>
-    <string name="introBackupTitle">Back up and Restore</string>
+    <string name="introBackupTitle">Sukurti atsarginę kopiją ir iš jos atkurti</string>
     <string name="introCategoriesTitle">Kategorijos</string>
     <string name="introThemesTitle">Tamsus apipavidalinimas</string>
-    <string name="introWelcomeSummary">Thanks for downloading Stratum!\nProtect your online accounts with the best open-source authentication app.</string>
+    <string name="introWelcomeSummary">Ačiū, kad atsisiuntėte „Stratum“.\nApsaugokite savo internetines paskyras su geriausia atviro kodo tapatybės nustatymo programėle.</string>
     <string name="introCompatibilitySummary">„Stratum“ yra palaikomas su daugiausiai teikėjų ir paskyrų registravimų sistemų. Jis yra 100% proc. palaikomas su „Google Authenticator“ įgalintomis tarnybomis.</string>
     <string name="introBackupSummary">Back up your authenticators with strong encryption. In case you lose your device, you can always gain access to your accounts. Save to cloud storage or to your device.</string>
-    <string name="introCategoriesSummary">Organise your authenticators into categories and even change the order with a simple hold and drag.</string>
+    <string name="introCategoriesSummary">Suskirstykite savo atpažintuvus į kategorijas ir netgi pakeiskite jų tvarką palaikydami ir vilkdami juos aplink.</string>
     <string name="introThemesSummary">Jeigu Jūs to pageidaujate, galite įjungti/įgalinti tamsųjį apipavidalinimą nustatymuose. Visos piktogramos prisitaikys prie naujojo, tamsesnio fono.</string>
 </resources>

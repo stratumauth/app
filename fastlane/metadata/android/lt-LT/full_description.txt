@@ -1,6 +1,6 @@
-„Stratum“ yra atviro kodo dviejų veiksnių tapatybės nustatymo atpažintuvo programėlė, skirta „Android“. It features encrypted backups, icons, categories and a high level of customisation. Jis tai pat turi „Wear OS“ prijungtinę programėlę.
+„Stratum“ yra atviro kodo dviejų veiksnių tapatybės nustatymo atpažintuvo programėlė, skirta „Android“. Palaiko šifruotas atsargines kopijas, piktogramas, kategorijas ir aukšto lygio tinkinimą. Jis tai pat turi „Wear OS“ prijungtinę programėlę.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+Palaiko „TOTP“ (laiko pagrįstą) ir „HOTP“ (skaitiklio pagrįstą) atpažintuvus naudojant „SHA1“, „SHA256“ ir „SHA512“ maišavimo algoritmus. Mobilus „OTP“ („mOPT“), „Steam“ ir „Yandex“ yra palaikomi.
 
 2 Factor authentication provides an extra layer of security to your accounts by requiring the use of a one time code to log in.
 In addition to your username and password, you will need a code provided by Stratum. So even if your login details are compromised, your account remains safe.
@@ -11,13 +11,13 @@ In addition to your username and password, you will need a code provided by Stra
 
 - ⚙️ <b>Suderinamumas</b>: „Stratum“ palaiko didžiąją dalį paslaugų/svetainių/paskyrų ir t.t. dviejų veiksnių tapatybės nustatymų atpažintuvų protokolus.
 - 📲 <b>Importuokite</b>: Lengvai perkelkite savo paskyras į „Stratum“ iš palaikomų pakaitalinių programėlių.
-- 💾 <b>Backup / Restore</b>: Backup your authenticators with strong encryption. In case you lose or change your phone, you can always gain access to your accounts. You can save backups to cloud storage or to your device.
-- 🌙 <b>Dark Mode</b>: Stratum has a beautiful material design inspired look in either light or dark themes.
+- 💾 <b>Atsarginės kopijos ir jų atkūrimas</b>: Sukurkite atsargines kopijas savo atpažintuvų su saugia ir stipria šifruote. Praradus ar pasikeitus telefoną, visados galėsite pasiekti savo paskyras. Jūs galite išsaugoti atsargines kopijas į debesijos saugyklą arba į savo įrenginį.
+- 🌙 <b>Tamsus apipavidalinimas</b>: „Stratum“ turi gražų „material“ paremtą išvaizdą, kuri suderinta atrodyti šviesiame ar tamsiame apipavidalinime.
 - ⏺️ <b>Piktogramos</b>: Lengvai raskite atpažintuvus su atpažįstamais logotipais ir programų piktogramom prie kiekvieno kodo.
 - 📂 <b>Kategorijos</b>: Sudėliokite savo atpažintuvas į kategorijas.
-- 🔒 <b>Offline with few permissions</b>: Stratum only requires a single permission¹ and does not require Internet access to function.
+- 🔒 <b>Veikimas be interneto su mažai reikiamų leidimų</b>: „Stratum“ reikalauja tik vieno leidimo ir jo veikimui nereikia interneto prieigos.
 - 🔑 <b>Saugumas</b>: Nustatykite slaptažodį ir naudokite biometrinį autentifikavimą, siekiant apsaugoti savo kodus.
-- 🎨 <b>Customisation</b>: Set icons and rename. You can also arrange your authenticators in any order you like so you can find them easily.
+- 🎨 <b>Tinkinimas</b>: Nustatykite piktogramas ir jas pervadinkite. Jūs galite susiskirstyti savo atpažintuvus pagal savo norimą tvarką.
 - ⌚ <b>„Wear OS“</b>: Greitai peržiūrėkite savo atpažintuvus tiesiai iš savo laikrodžio. Jūs tai pat galite nusistatyti mėgstamiausią ir jį įterpti į ciferblatinę plytelę. Atkreipkite dėmesį, kad susiejimas su „Android“ telefonu yra reikalingas. Svarbu atkreipti dėmesį; „F-Droid“ šios programėlės leidiniai nėra palaikomi su „Wear OS“, kadangi nėra nemokamų priklausomybių, kurios yra reikalaujamos.
 
 (¹) *Kad būtų nuskenuoti „QR“ kodai, programėlė reikalauja kameros/fotoaparato leidimo.*
