@@ -34,7 +34,7 @@ namespace Stratum.WearOS.Activity
         // Query Paths
         private const string ProtocolVersion = "protocol_v4.0";
         private const string GetSyncBundlePath = "get_sync_bundle";
-        private static readonly TimeSpan SyncTimeout = TimeSpan.FromSeconds(10);
+        private static readonly TimeSpan SyncTimeout = TimeSpan.FromSeconds(20);
         
         // Result Keys
         public const string ResultItemClicked = "clicked";
@@ -319,24 +319,28 @@ namespace Stratum.WearOS.Activity
             }
 
             var client = WearableClass.GetChannelClient(this);
+            
+            ChannelClient.IChannel channel = null;
             WearSyncBundle bundle;
 
             try
             {
-                bundle = await ReadSyncBundleAsync(client).WaitAsync(SyncTimeout);
+                channel = await client.OpenChannelAsync(_serverNode.Id, GetSyncBundlePath);
+                bundle = await ReadSyncBundleAsync(client, channel).WaitAsync(SyncTimeout);
             }
-            catch (TimeoutException e)
+            finally
             {
-                Logger.Error($"Timeout reading sync bundle: {e.Message}");
-                return;
+                if (channel != null)
+                {
+                    await client.CloseAsync(channel);
+                }
             }
             
             await OnSyncBundleReceived(bundle);
         }
 
-        private async Task<WearSyncBundle> ReadSyncBundleAsync(ChannelClient client)
+        private static async Task<WearSyncBundle> ReadSyncBundleAsync(ChannelClient client, ChannelClient.IChannel channel)
         {
-            using var channel = await client.OpenChannelAsync(_serverNode.Id, GetSyncBundlePath);
             using var stream = await client.GetInputStreamAsync(channel);
             return await JsonSerializer.DeserializeAsync<WearSyncBundle>(new InputStreamAdapter(stream));
         }
