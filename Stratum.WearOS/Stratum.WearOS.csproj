@@ -24,7 +24,7 @@
         <TrimMode>full</TrimMode>
         <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
         <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
-        <RuntimeIdentifiers>android-arm64;android-x64</RuntimeIdentifiers>
+        <RuntimeIdentifiers>android-arm;android-arm64;android-x64</RuntimeIdentifiers>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Autofac" Version="9.3.4" />
