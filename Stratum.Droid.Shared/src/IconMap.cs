@@ -8,7 +8,7 @@ namespace Stratum.Droid.Shared
     // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY
     public static class IconMap
     {
-        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(774)
+        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(786)
         {
             ["123formbuilder"] = Resource.Drawable.auth_123formbuilder,
             ["15five"] = Resource.Drawable.auth_15five,
@@ -290,7 +290,9 @@ namespace Stratum.Droid.Shared
             ["gemini"] = Resource.Drawable.auth_gemini,
             ["generalmotors"] = Resource.Drawable.auth_generalmotors,
             ["getscreenme"] = Resource.Drawable.auth_getscreenme,
+            ["gitcode"] = Resource.Drawable.auth_gitcode,
             ["gitea"] = Resource.Drawable.auth_gitea,
+            ["gitee"] = Resource.Drawable.auth_gitee,
             ["github"] = Resource.Drawable.auth_github,
             ["gitlab"] = Resource.Drawable.auth_gitlab,
             ["glassdoor"] = Resource.Drawable.auth_glassdoor,
@@ -337,6 +339,7 @@ namespace Stratum.Droid.Shared
             ["ifirmapl"] = Resource.Drawable.auth_ifirmapl,
             ["ifttt"] = Resource.Drawable.auth_ifttt,
             ["immoscout24"] = Resource.Drawable.auth_immoscout24,
+            ["infinicloud"] = Resource.Drawable.auth_infinicloud,
             ["infinityfree"] = Resource.Drawable.auth_infinityfree,
             ["infomaniak"] = Resource.Drawable.auth_infomaniak,
             ["ing"] = Resource.Drawable.auth_ing,
@@ -448,6 +451,7 @@ namespace Stratum.Droid.Shared
             ["mosru"] = Resource.Drawable.auth_mosru,
             ["mountainamericacreditunion"] = Resource.Drawable.auth_mountainamericacreditunion,
             ["mozilla"] = Resource.Drawable.auth_mozilla,
+            ["mtcgame"] = Resource.Drawable.auth_mtcgame,
             ["mural"] = Resource.Drawable.auth_mural,
             ["mxtoolbox"] = Resource.Drawable.auth_mxtoolbox,
             ["myanimelist"] = Resource.Drawable.auth_myanimelist,
@@ -461,7 +465,9 @@ namespace Stratum.Droid.Shared
             ["namesilo"] = Resource.Drawable.auth_namesilo,
             ["nationsglory"] = Resource.Drawable.auth_nationsglory,
             ["netbird"] = Resource.Drawable.auth_netbird,
+            ["netcraze"] = Resource.Drawable.auth_netcraze,
             ["netcup"] = Resource.Drawable.auth_netcup,
+            ["netease"] = Resource.Drawable.auth_netease,
             ["netlify"] = Resource.Drawable.auth_netlify,
             ["newegg"] = Resource.Drawable.auth_newegg,
             ["newgrounds"] = Resource.Drawable.auth_newgrounds,
@@ -502,6 +508,7 @@ namespace Stratum.Droid.Shared
             ["openai"] = Resource.Drawable.auth_openai,
             ["opencollective"] = Resource.Drawable.auth_opencollective,
             ["opendns"] = Resource.Drawable.auth_opendns,
+            ["openrouter"] = Resource.Drawable.auth_openrouter,
             ["openvpn"] = Resource.Drawable.auth_openvpn,
             ["opera"] = Resource.Drawable.auth_opera,
             ["optimizely"] = Resource.Drawable.auth_optimizely,
@@ -576,6 +583,7 @@ namespace Stratum.Droid.Shared
             ["registrobr"] = Resource.Drawable.auth_registrobr,
             ["render"] = Resource.Drawable.auth_render,
             ["republic"] = Resource.Drawable.auth_republic,
+            ["resend"] = Resource.Drawable.auth_resend,
             ["restorecord"] = Resource.Drawable.auth_restorecord,
             ["restream"] = Resource.Drawable.auth_restream,
             ["rewe"] = Resource.Drawable.auth_rewe,
@@ -618,6 +626,7 @@ namespace Stratum.Droid.Shared
             ["shortcut"] = Resource.Drawable.auth_shortcut,
             ["shortio"] = Resource.Drawable.auth_shortio,
             ["simplelogin"] = Resource.Drawable.auth_simplelogin,
+            ["sinch"] = Resource.Drawable.auth_sinch,
             ["sketch"] = Resource.Drawable.auth_sketch,
             ["skinport"] = Resource.Drawable.auth_skinport,
             ["slack"] = Resource.Drawable.auth_slack,
@@ -654,6 +663,7 @@ namespace Stratum.Droid.Shared
             ["stripe"] = Resource.Drawable.auth_stripe,
             ["studioninja"] = Resource.Drawable.auth_studioninja,
             ["substack"] = Resource.Drawable.auth_substack,
+            ["supabase"] = Resource.Drawable.auth_supabase,
             ["surfshark"] = Resource.Drawable.auth_surfshark,
             ["sync"] = Resource.Drawable.auth_sync,
             ["synology"] = Resource.Drawable.auth_synology,
@@ -692,6 +702,7 @@ namespace Stratum.Droid.Shared
             ["tryhackme"] = Resource.Drawable.auth_tryhackme,
             ["tuberlin"] = Resource.Drawable.auth_tuberlin,
             ["tumblr"] = Resource.Drawable.auth_tumblr,
+            ["turgame"] = Resource.Drawable.auth_turgame,
             ["tuta"] = Resource.Drawable.auth_tuta,
             ["tweakers"] = Resource.Drawable.auth_tweakers,
             ["twilio"] = Resource.Drawable.auth_twilio,
@@ -717,6 +728,7 @@ namespace Stratum.Droid.Shared
             ["vancity"] = Resource.Drawable.auth_vancity,
             ["veeam"] = Resource.Drawable.auth_veeam,
             ["ventraip"] = Resource.Drawable.auth_ventraip,
+            ["vercel"] = Resource.Drawable.auth_vercel,
             ["vicroads"] = Resource.Drawable.auth_vicroads,
             ["vimeo"] = Resource.Drawable.auth_vimeo,
             ["vintagestory"] = Resource.Drawable.auth_vintagestory,
@@ -786,7 +798,7 @@ namespace Stratum.Droid.Shared
             ["zyxel"] = Resource.Drawable.auth_zyxel,
         }.AsReadOnly();
 
-        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(232)
+        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(236)
         {
             ["1password"] = Resource.Drawable.auth_1password_dark,
             ["3cx"] = Resource.Drawable.auth_3cx_dark,
@@ -943,6 +955,7 @@ namespace Stratum.Droid.Shared
             ["onelogin"] = Resource.Drawable.auth_onelogin_dark,
             ["onshape"] = Resource.Drawable.auth_onshape_dark,
             ["openai"] = Resource.Drawable.auth_openai_dark,
+            ["openrouter"] = Resource.Drawable.auth_openrouter_dark,
             ["openvpn"] = Resource.Drawable.auth_openvpn_dark,
             ["ovh"] = Resource.Drawable.auth_ovh_dark,
             ["pachca"] = Resource.Drawable.auth_pachca_dark,
@@ -966,6 +979,7 @@ namespace Stratum.Droid.Shared
             ["pythonanywhere"] = Resource.Drawable.auth_pythonanywhere_dark,
             ["qnap"] = Resource.Drawable.auth_qnap_dark,
             ["render"] = Resource.Drawable.auth_render_dark,
+            ["resend"] = Resource.Drawable.auth_resend_dark,
             ["restorecord"] = Resource.Drawable.auth_restorecord_dark,
             ["restream"] = Resource.Drawable.auth_restream_dark,
             ["ring"] = Resource.Drawable.auth_ring_dark,
@@ -980,6 +994,7 @@ namespace Stratum.Droid.Shared
             ["sentry"] = Resource.Drawable.auth_sentry_dark,
             ["servertown"] = Resource.Drawable.auth_servertown_dark,
             ["shortio"] = Resource.Drawable.auth_shortio_dark,
+            ["sinch"] = Resource.Drawable.auth_sinch_dark,
             ["sketch"] = Resource.Drawable.auth_sketch_dark,
             ["smarkets"] = Resource.Drawable.auth_smarkets_dark,
             ["societegenerale"] = Resource.Drawable.auth_societegenerale_dark,
@@ -1006,6 +1021,7 @@ namespace Stratum.Droid.Shared
             ["ubisoft"] = Resource.Drawable.auth_ubisoft_dark,
             ["uniteddomains"] = Resource.Drawable.auth_uniteddomains_dark,
             ["unity"] = Resource.Drawable.auth_unity_dark,
+            ["vercel"] = Resource.Drawable.auth_vercel_dark,
             ["vultr"] = Resource.Drawable.auth_vultr_dark,
             ["wellfound"] = Resource.Drawable.auth_wellfound_dark,
             ["wetransfer"] = Resource.Drawable.auth_wetransfer_dark,
