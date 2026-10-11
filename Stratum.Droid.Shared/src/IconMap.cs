@@ -8,7 +8,7 @@ namespace Stratum.Droid.Shared
     // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY
     public static class IconMap
     {
-        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(786)
+        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(788)
         {
             ["123formbuilder"] = Resource.Drawable.auth_123formbuilder,
             ["15five"] = Resource.Drawable.auth_15five,
@@ -297,6 +297,7 @@ namespace Stratum.Droid.Shared
             ["gitlab"] = Resource.Drawable.auth_gitlab,
             ["glassdoor"] = Resource.Drawable.auth_glassdoor,
             ["gmx"] = Resource.Drawable.auth_gmx,
+            ["gnome"] = Resource.Drawable.auth_gnome,
             ["godaddy"] = Resource.Drawable.auth_godaddy,
             ["gog"] = Resource.Drawable.auth_gog,
             ["goldsaver"] = Resource.Drawable.auth_goldsaver,
@@ -597,6 +598,7 @@ namespace Stratum.Droid.Shared
             ["roboform"] = Resource.Drawable.auth_roboform,
             ["rocketbeanstv"] = Resource.Drawable.auth_rocketbeanstv,
             ["rockstargames"] = Resource.Drawable.auth_rockstargames,
+            ["roll20"] = Resource.Drawable.auth_roll20,
             ["roundcube"] = Resource.Drawable.auth_roundcube,
             ["runcloud"] = Resource.Drawable.auth_runcloud,
             ["runescape"] = Resource.Drawable.auth_runescape,
@@ -798,7 +800,7 @@ namespace Stratum.Droid.Shared
             ["zyxel"] = Resource.Drawable.auth_zyxel,
         }.AsReadOnly();
 
-        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(236)
+        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(237)
         {
             ["1password"] = Resource.Drawable.auth_1password_dark,
             ["3cx"] = Resource.Drawable.auth_3cx_dark,
@@ -887,6 +889,7 @@ namespace Stratum.Droid.Shared
             ["galaxus"] = Resource.Drawable.auth_galaxus_dark,
             ["gamemaker"] = Resource.Drawable.auth_gamemaker_dark,
             ["github"] = Resource.Drawable.auth_github_dark,
+            ["gnome"] = Resource.Drawable.auth_gnome_dark,
             ["godaddy"] = Resource.Drawable.auth_godaddy_dark,
             ["gog"] = Resource.Drawable.auth_gog_dark,
             ["gosuslugi"] = Resource.Drawable.auth_gosuslugi_dark,
