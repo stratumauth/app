@@ -57,7 +57,7 @@ namespace Stratum.Droid.Util
 
                 try
                 {
-                    output = context.ContentResolver.OpenOutputStream(uri);
+                    output = context.ContentResolver.OpenOutputStream(uri, "wt");
                     dataStream = new DataOutputStream(output);
 
                     await dataStream.WriteAsync(data);
@@ -81,7 +81,7 @@ namespace Stratum.Droid.Util
 
                 try
                 {
-                    output = context.ContentResolver.OpenOutputStream(uri);
+                    output = context.ContentResolver.OpenOutputStream(uri, "wt");
                     outputWriter = new OutputStreamWriter(output);
                     bufferedWriter = new BufferedWriter(outputWriter);
 
