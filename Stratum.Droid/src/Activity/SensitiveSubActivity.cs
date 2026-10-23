@@ -11,12 +11,12 @@ namespace Stratum.Droid.Activity
         {
         }
 
-        protected override async void OnResume()
+        protected override void OnResume()
         {
             base.OnResume();
-            var database = Dependencies.Resolve<Database>();
+            var session = Dependencies.Resolve<DatabaseSession>();
 
-            if (!await database.IsOpenAsync(Database.Origin.Activity))
+            if (!session.IsUnlocked)
             {
                 Finish();
                 return;

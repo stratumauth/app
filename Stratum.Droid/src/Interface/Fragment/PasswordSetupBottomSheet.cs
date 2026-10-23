@@ -18,7 +18,7 @@ namespace Stratum.Droid.Interface.Fragment
     public class PasswordSetupBottomSheet : BottomSheet, IAutoDismissFragment
     {
         private readonly ILogger _log = Log.ForContext<PasswordSetupBottomSheet>();
-        private readonly Database _database;
+        private readonly DatabaseSession _session;
 
         private PreferenceWrapper _preferences;
         private SecureStorageWrapper _secureStorageWrapper;
@@ -34,7 +34,7 @@ namespace Stratum.Droid.Interface.Fragment
 
         public PasswordSetupBottomSheet() : base(Resource.Layout.sheetPasswordSetup, Resource.String.prefPasswordTitle)
         {
-            _database = Dependencies.Resolve<Database>();
+            _session = Dependencies.Resolve<DatabaseSession>();
         }
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -110,7 +110,7 @@ namespace Stratum.Droid.Interface.Fragment
             try
             {
                 var currentPassword = _secureStorageWrapper.GetDatabasePassword();
-                await _database.SetPasswordAsync(currentPassword, newPassword);
+                await _session.SetPasswordAsync(currentPassword, newPassword);
 
                 try
                 {
@@ -119,7 +119,7 @@ namespace Stratum.Droid.Interface.Fragment
                 catch
                 {
                     // Revert changes
-                    await _database.SetPasswordAsync(newPassword, currentPassword);
+                    await _session.SetPasswordAsync(newPassword, currentPassword);
                     throw;
                 }
             }

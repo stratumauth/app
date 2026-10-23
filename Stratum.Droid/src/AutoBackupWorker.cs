@@ -11,7 +11,6 @@ using AndroidX.Core.App;
 using AndroidX.Core.Content;
 using AndroidX.DocumentFile.Provider;
 using AndroidX.Work;
-using Autofac;
 using Stratum.Core.Backup;
 using Stratum.Core.Backup.Encryption;
 using Stratum.Core.Service;
@@ -31,8 +30,7 @@ namespace Stratum.Droid
         private readonly Context _context;
         private readonly PreferenceWrapper _preferences;
         private readonly SecureStorageWrapper _secureStorageWrapper;
-        private readonly Database _database = new();
-        private readonly IContainer _container;
+        private readonly Database _database;
         private readonly IBackupService _backupService;
 
         public AutoBackupWorker(Context context, WorkerParameters workerParams) : base(context, workerParams)
@@ -41,19 +39,8 @@ namespace Stratum.Droid
             _preferences = new PreferenceWrapper(context);
             _secureStorageWrapper = new SecureStorageWrapper(context);
 
-            _container = Dependencies.CreateContainer(context, _database);
-            _backupService = _container.Resolve<IBackupService>();
-        }
-
-        private Task OpenDatabase()
-        {
-            var password = _secureStorageWrapper.GetDatabasePassword();
-            return _database.OpenAsync(password, Database.Origin.AutoBackup);
-        }
-
-        private Task CloseDatabase()
-        {
-            return _database.CloseAsync(Database.Origin.AutoBackup);
+            _database = Dependencies.Resolve<Database>();
+            _backupService = Dependencies.Resolve<IBackupService>();
         }
 
         private bool HasPersistentPermissionsAtUri(Uri uri)
@@ -201,8 +188,9 @@ namespace Stratum.Droid
             {
                 try
                 {
-                    await OpenDatabase();
-                    var result = await BackupToDir(destination);
+                    var databasePassword = _secureStorageWrapper.GetDatabasePassword();
+                    var result = await _database.UseAsync(databasePassword, Database.Origin.AutoBackup, () => BackupToDir(destination));
+
                     ShowNotification(NotificationContext.BackupSuccess, false, result);
                     _preferences.BackupRequired = BackupRequirement.NotRequired;
                 }
@@ -211,10 +199,6 @@ namespace Stratum.Droid
                     ShowNotification(NotificationContext.BackupFailure, true);
                     _log.Error(e, "Error performing backup");
                     return Result.InvokeFailure();
-                }
-                finally
-                {
-                    await CloseDatabase();
                 }
             }
 
@@ -230,16 +214,6 @@ namespace Stratum.Droid
         {
             BackupFailure,
             BackupSuccess
-        }
-        
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _container?.Dispose();
-            }
-            
-            base.Dispose(disposing);
         }
     }
 }

@@ -96,7 +96,7 @@ namespace Stratum.Droid.Activity
 
         // Data
         private readonly ILogger _log = Log.ForContext<MainActivity>();
-        private readonly Database _database;
+        private readonly DatabaseSession _session;
         private readonly IEnumerable<IBackupEncryption> _backupEncryptions;
 
         private readonly IAuthenticatorService _authenticatorService;
@@ -139,7 +139,7 @@ namespace Stratum.Droid.Activity
 
         public MainActivity() : base(Resource.Layout.activityMain)
         {
-            _database = Dependencies.Resolve<Database>();
+            _session = Dependencies.Resolve<DatabaseSession>();
 
             _iconResolver = Dependencies.Resolve<IIconResolver>();
             _customIconDecoder = Dependencies.Resolve<ICustomIconDecoder>();
@@ -229,7 +229,7 @@ namespace Stratum.Droid.Activity
                 _authenticatorList.Visibility = ViewStates.Invisible;
             });
 
-            switch (await _database.IsOpenAsync(Database.Origin.Activity))
+            switch (_session.IsUnlocked)
             {
                 // Unlocked, no need to do anything
                 case true:
@@ -243,11 +243,11 @@ namespace Stratum.Droid.Activity
 
                     var fragment = new UnlockBottomSheet();
                     fragment.UnlockAttempted += OnUnlockAttempted;
-                    fragment.Cancelled += async delegate
+                    fragment.Cancelled += delegate
                     {
                         _unlockFragmentOpen = false;
 
-                        if (!await _database.IsOpenAsync(Database.Origin.Activity))
+                        if (!_session.IsUnlocked)
                         {
                             Finish();
                         }
@@ -262,7 +262,7 @@ namespace Stratum.Droid.Activity
                 // Locked but no password, unlock now
                 case false:
                 {
-                    await _database.OpenAsync(null, Database.Origin.Activity);
+                    await _session.UnlockAsync(null, Database.Origin.Activity);
                     await OnDatabaseOpened();
                     break;
                 }
@@ -654,7 +654,7 @@ namespace Stratum.Droid.Activity
 
             try
             {
-                await _database.OpenAsync(password, Database.Origin.Activity);
+                await _session.UnlockAsync(password, Database.Origin.Activity);
             }
             catch (Exception e)
             {

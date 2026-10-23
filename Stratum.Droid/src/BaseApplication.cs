@@ -28,7 +28,7 @@ namespace Stratum.Droid
         public bool AutoLockEnabled { get; set; }
         public bool PreventNextAutoLock { get; set; }
 
-        private readonly Database _database;
+        private readonly DatabaseSession _session;
         private Timer _timeoutTimer;
         private PreferenceWrapper _preferences;
 
@@ -38,8 +38,8 @@ namespace Stratum.Droid
 
             SqliteProvider.Init();
             
-            _database = new Database();
-            Dependencies.Init(this, _database);
+            Dependencies.Init(this, new Database());
+            _session = Dependencies.Resolve<DatabaseSession>();
 
             AutoLockEnabled = false;
             PreventNextAutoLock = false;
@@ -129,12 +129,12 @@ namespace Stratum.Droid
 
             if (!_preferences.PasswordProtected || _preferences.Timeout == 0)
             {
-                await _database.CloseAsync(Database.Origin.Application);
+                await _session.LockAsync(Database.Origin.Application);
             }
             else
             {
                 _timeoutTimer = new Timer(_preferences.Timeout * 1000) { AutoReset = false };
-                _timeoutTimer.Elapsed += async delegate { await _database.CloseAsync(Database.Origin.Application); };
+                _timeoutTimer.Elapsed += async delegate { await _session.LockAsync(Database.Origin.Application); };
                 _timeoutTimer.Start();
             }
         }
@@ -154,7 +154,7 @@ namespace Stratum.Droid
 
         public async void OnDestroy(ILifecycleOwner owner)
         {
-            await _database.CloseAsync(Database.Origin.Application);
+            await _session.LockAsync(Database.Origin.Application);
             await Log.CloseAndFlushAsync();
         }
 

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Stratum.Core.Entity;
 using Serilog;
 using SQLite;
+using Stratum.Core;
 
 namespace Stratum.Droid
 {
@@ -27,7 +28,7 @@ namespace Stratum.Droid
 
         private readonly ILogger _log = Log.ForContext<Database>();
         private readonly SemaphoreSlim _lock = new(1, 1);
-        private SQLiteAsyncConnection _connection;
+        private readonly ReferenceCounted<SQLiteAsyncConnection> _connection = new(connection => connection.CloseAsync());
 
         public async Task<SQLiteAsyncConnection> GetConnectionAsync()
         {
@@ -35,12 +36,12 @@ namespace Stratum.Droid
 
             try
             {
-                if (_connection == null)
+                if (_connection.Value == null)
                 {
                     throw new InvalidOperationException("Connection not open");
                 }
 
-                return _connection;
+                return _connection.Value;
             }
             finally
             {
@@ -48,15 +49,13 @@ namespace Stratum.Droid
             }
         }
 
-        public async Task<bool> IsOpenAsync(Origin origin)
+        public async Task<bool> IsOpenAsync()
         {
             await _lock.WaitAsync();
 
             try
             {
-                var isOpen = _connection != null;
-                _log.Debug("Is database open from {Origin}? {IsOpen}", origin, isOpen);
-                return isOpen;
+                return _connection.Value != null;
             }
             finally
             {
@@ -64,21 +63,30 @@ namespace Stratum.Droid
             }
         }
 
-        public async Task CloseAsync(Origin origin)
+        public async Task AcquireAsync(string password, Origin origin)
         {
             await _lock.WaitAsync();
 
             try
             {
-                if (_connection == null)
+                if (password == "")
                 {
-                    return;
+                    password = null;
                 }
 
-                _log.Debug("Closing database from {Origin}", origin);
+                var path = GetPath();
+                var firstLaunch = !File.Exists(path);
 
-                await _connection.CloseAsync();
-                _connection = null;
+                if (!firstLaunch)
+                {
+                    await VerifyPasswordAsync(path, password);
+                }
+
+                await _connection.AcquireAsync(() =>
+                {
+                    _log.Debug("Opening database from {Origin}", origin);
+                    return OpenConnectionAsync(path, password, firstLaunch);
+                });
             }
             finally
             {
@@ -86,66 +94,110 @@ namespace Stratum.Droid
             }
         }
 
-        public async Task OpenAsync(string password, Origin origin)
+        public async Task ReleaseAsync(Origin origin)
         {
-            _log.Debug("Opening database from {Origin}", origin);
+            await _lock.WaitAsync();
 
-            var path = GetPath();
-            var firstLaunch = !File.Exists(path);
-
-            if (password == "")
+            try
             {
-                password = null;
+                if (await _connection.ReleaseAsync())
+                {
+                    _log.Debug("Closed database from {Origin}", origin);
+                }
             }
+            finally
+            {
+                _lock.Release();
+            }
+        }
 
+        public async Task<T> UseAsync<T>(string password, Origin origin, Func<Task<T>> action)
+        {
+            await AcquireAsync(password, origin);
+
+            try
+            {
+                return await action();
+            }
+            finally
+            {
+                await ReleaseAsync(origin);
+            }
+        }
+
+        private async Task ReopenAsync(string password, Origin origin)
+        {
+            await _lock.WaitAsync();
+
+            try
+            {
+                _log.Debug("Reopening database from {Origin}", origin);
+
+                if (password == "")
+                {
+                    password = null;
+                }
+
+                await _connection.ReplaceAsync(async () =>
+                {
+                    var path = GetPath();
+                    await VerifyPasswordAsync(path, password);
+                    return await OpenConnectionAsync(path, password, false);
+                });
+            }
+            finally
+            {
+                _lock.Release();
+            }
+        }
+
+        private static Task VerifyPasswordAsync(string path, string password)
+        {
+            return Task.Run(() =>
+            {
+                var connStr = new SQLiteConnectionString(path, SQLiteOpenFlags.ReadWrite, true, password);
+                using var connection = new SQLiteConnection(connStr);
+                connection.ExecuteScalar<int>("SELECT count(*) FROM sqlite_master");
+            });
+        }
+
+        private async Task<SQLiteAsyncConnection> OpenConnectionAsync(string path, string password, bool firstLaunch)
+        {
             var connStr = new SQLiteConnectionString(path, Flags, true, password);
-            await _lock.WaitAsync();
+            var connection = new SQLiteAsyncConnection(connStr);
 
             try
             {
-                if (_connection != null)
-                {
-                    await _connection.CloseAsync();
-                }
-
-                _connection = new SQLiteAsyncConnection(connStr);
-
-                try
-                {
-                    await MigrateAsync(firstLaunch);
-                }
-                catch
-                {
-                    await _connection.CloseAsync();
-                    _connection = null;
-                    throw;
-                }
+                await MigrateAsync(connection, firstLaunch);
+            }
+            catch
+            {
+                await connection.CloseAsync();
+                throw;
+            }
 
 #if DEBUG
-                _connection.Trace = true;
-                _connection.Tracer = _log.Debug;
-                _connection.TimeExecution = true;
+            connection.Trace = true;
+            connection.Tracer = _log.Debug;
+            connection.TimeExecution = true;
 #endif
-            }
-            finally
-            {
-                _lock.Release();
-            }
+
+            return connection;
         }
 
-        private async Task MigrateAsync(bool firstLaunch)
+        private static async Task MigrateAsync(SQLiteAsyncConnection connection, bool firstLaunch)
         {
             if (firstLaunch)
             {
-                await _connection.EnableWriteAheadLoggingAsync();
+                await connection.EnableWriteAheadLoggingAsync();
             }
 
-            await _connection.CreateTableAsync<Authenticator>();
-            await _connection.CreateTableAsync<Category>();
-            await _connection.CreateTableAsync<AuthenticatorCategory>();
-            await _connection.CreateTableAsync<CustomIcon>();
-            await _connection.CreateTableAsync<IconPack>();
-            await _connection.CreateTableAsync<IconPackEntry>();
+            await connection.CreateTableAsync<Authenticator>();
+            await connection.CreateTableAsync<Category>();
+            await connection.CreateTableAsync<AuthenticatorCategory>();
+            await connection.CreateTableAsync<CustomIcon>();
+            await connection.CreateTableAsync<IconPack>();
+            await connection.CreateTableAsync<IconPackEntry>();
         }
 
         private static string GetPath()
@@ -181,7 +233,7 @@ namespace Stratum.Droid
 
             var conn = await GetConnectionAsync();
             await conn.ExecuteScalarAsync<string>("PRAGMA wal_checkpoint(TRUNCATE)");
-            
+
             File.Copy(dbPath, backupPath, true);
 
             // Change encryption mode
@@ -215,17 +267,17 @@ namespace Stratum.Droid
 
                 try
                 {
-                    await CloseAsync(Origin.Other);
+                    await CloseConnectionAsync(Origin.Other);
                     DeleteDatabase();
                     File.Move(tempPath, dbPath);
-                    await OpenAsync(newPassword, Origin.Other);
+                    await ReopenAsync(newPassword, Origin.Other);
                 }
                 catch
                 {
                     // Perhaps it wasn't moved correctly
                     File.Delete(tempPath);
                     RestoreBackup();
-                    await OpenAsync(currentPassword, Origin.Other);
+                    await ReopenAsync(currentPassword, Origin.Other);
                     throw;
                 }
                 finally
@@ -243,19 +295,39 @@ namespace Stratum.Droid
                 {
                     await conn.ExecuteScalarAsync<string>($"PRAGMA rekey = {quoted}");
 
-                    await CloseAsync(Origin.Other);
-                    await OpenAsync(newPassword, Origin.Other);
+                    await CloseConnectionAsync(Origin.Other);
+                    await ReopenAsync(newPassword, Origin.Other);
                 }
                 catch
                 {
                     RestoreBackup();
-                    await OpenAsync(currentPassword, Origin.Other);
+                    await ReopenAsync(currentPassword, Origin.Other);
                     throw;
                 }
                 finally
                 {
                     File.Delete(backupPath);
                 }
+            }
+        }
+
+        private async Task CloseConnectionAsync(Origin origin)
+        {
+            await _lock.WaitAsync();
+
+            try
+            {
+                if (_connection.Value == null)
+                {
+                    return;
+                }
+
+                _log.Debug("Closing database connection from {Origin}", origin);
+                await _connection.DestroyAsync();
+            }
+            finally
+            {
+                _lock.Release();
             }
         }
     }

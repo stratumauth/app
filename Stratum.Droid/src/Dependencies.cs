@@ -25,19 +25,15 @@ namespace Stratum.Droid
 
         public static void Init(Context context, Database database)
         {
-            _container = CreateContainer(context, database);
-        }
-
-        public static IContainer CreateContainer(Context context, Database database)
-        {
             var builder = new ContainerBuilder();
             RegisterAll(builder, context, database);
-            return builder.Build();
+            _container = builder.Build();
         }
 
         private static void RegisterAll(ContainerBuilder builder, Context context, Database database)
         {
             builder.RegisterInstance(database).SingleInstance().ExternallyOwned();
+            builder.RegisterType<DatabaseSession>().SingleInstance();
             builder.RegisterInstance(context).SingleInstance().ExternallyOwned();
             
             builder.RegisterType<StrongBackupEncryption>().As<IBackupEncryption>().SingleInstance();

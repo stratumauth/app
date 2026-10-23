@@ -13,9 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using System.Threading;
 using System.Threading.Tasks;
-using Autofac;
 using Stratum.Droid.Persistence.View;
 
 namespace Stratum.Droid
@@ -32,23 +30,17 @@ namespace Stratum.Droid
 
         private readonly ILogger _log = Log.ForContext<WearQueryService>();
         private readonly Database _database;
-        private readonly SemaphoreSlim _lock;
 
-        private readonly IContainer _container;
-        private readonly IAuthenticatorView _authenticatorView;
         private readonly ICategoryService _categoryService;
         private readonly ICustomIconService _customIconService;
         private SecureStorageWrapper _secureStorageWrapper;
 
         public WearQueryService()
         {
-            _database = new Database();
-            _lock = new SemaphoreSlim(1, 1);
-            
-            _container = Dependencies.CreateContainer(this, _database);
-            _authenticatorView = _container.Resolve<IAuthenticatorView>();
-            _categoryService = _container.Resolve<ICategoryService>();
-            _customIconService = _container.Resolve<ICustomIconService>();
+            _database = Dependencies.Resolve<Database>();
+
+            _categoryService = Dependencies.Resolve<ICategoryService>();
+            _customIconService = Dependencies.Resolve<ICustomIconService>();
         }
 
         public override void OnCreate()
@@ -57,50 +49,21 @@ namespace Stratum.Droid
             _secureStorageWrapper = new SecureStorageWrapper(this);
         }
 
-        private Task OpenDatabaseAsync()
+        private Task<T> UseDatabaseAsync<T>(Func<Task<T>> action)
         {
             var password = _secureStorageWrapper.GetDatabasePassword();
-            return _database.OpenAsync(password, Database.Origin.Wear);
-        }
-
-        private Task CloseDatabaseAsync()
-        {
-            return _database.CloseAsync(Database.Origin.Wear);
-        }
-
-        private async Task<T> UseDatabaseAsync<T>(Func<Task<T>> action)
-        {
-            await _lock.WaitAsync();
-            T result;
-
-            try
-            {
-                try
-                {
-                    await OpenDatabaseAsync();
-                    result = await action();
-                }
-                finally
-                {
-                    await CloseDatabaseAsync();
-                }
-            }
-            finally
-            {
-                _lock.Release();
-            }
-
-            return result;
+            return _database.UseAsync(password, Database.Origin.Wear, action);
         }
 
         private async Task<byte[]> GetSyncBundleAsync()
         {
-            await _authenticatorView.LoadFromPersistenceAsync();
+            var authenticatorView = Dependencies.Resolve<IAuthenticatorView>();
+            await authenticatorView.LoadFromPersistenceAsync();
             var auths = new List<WearAuthenticator>();
 
             var authCategories = await _categoryService.GetAllBindingsAsync();
 
-            foreach (var auth in _authenticatorView)
+            foreach (var auth in authenticatorView)
             {
                 var bindings = authCategories
                     .Where(c => c.AuthenticatorSecret == auth.Secret)
@@ -189,16 +152,6 @@ namespace Stratum.Droid
             {
                 _log.Error(e, "Error sending sync bundle");
             }
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                _container?.Dispose();
-            }
-            
-            base.Dispose(disposing);
         }
     }
 }
