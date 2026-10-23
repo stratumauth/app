@@ -8,7 +8,7 @@ namespace Stratum.Droid.Shared
     // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY
     public static class IconMap
     {
-        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(789)
+        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(788)
         {
             ["123formbuilder"] = Resource.Drawable.auth_123formbuilder,
             ["15five"] = Resource.Drawable.auth_15five,
@@ -764,7 +764,6 @@ namespace Stratum.Droid.Shared
             ["whimsical"] = Resource.Drawable.auth_whimsical,
             ["whitebit"] = Resource.Drawable.auth_whitebit,
             ["whois"] = Resource.Drawable.auth_whois,
-            ["wiggle"] = Resource.Drawable.auth_wiggle,
             ["wikipedia"] = Resource.Drawable.auth_wikipedia,
             ["windscribe"] = Resource.Drawable.auth_windscribe,
             ["wireguard"] = Resource.Drawable.auth_wireguard,
@@ -801,7 +800,7 @@ namespace Stratum.Droid.Shared
             ["zyxel"] = Resource.Drawable.auth_zyxel,
         }.AsReadOnly();
 
-        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(237)
+        public static readonly IReadOnlyDictionary<string, int> ServiceDark = new Dictionary<string, int>(238)
         {
             ["1password"] = Resource.Drawable.auth_1password_dark,
             ["3cx"] = Resource.Drawable.auth_3cx_dark,
@@ -830,6 +829,7 @@ namespace Stratum.Droid.Shared
             ["backerkit"] = Resource.Drawable.auth_backerkit_dark,
             ["bahamut"] = Resource.Drawable.auth_bahamut_dark,
             ["bandbbs"] = Resource.Drawable.auth_bandbbs_dark,
+            ["basecamp"] = Resource.Drawable.auth_basecamp_dark,
             ["beammp"] = Resource.Drawable.auth_beammp_dark,
             ["bethesda"] = Resource.Drawable.auth_bethesda_dark,
             ["betvictor"] = Resource.Drawable.auth_betvictor_dark,
