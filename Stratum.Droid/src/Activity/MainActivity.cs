@@ -223,11 +223,7 @@ namespace Stratum.Droid.Activity
 
         protected override async Task OnResumeAsync()
         {
-            RunOnUiThread(delegate
-            {
-                // Perhaps the animation in onpause was cancelled
-                _authenticatorList.Visibility = ViewStates.Invisible;
-            });
+            HideAuthenticatorList();
 
             switch (_session.IsUnlocked)
             {
@@ -296,12 +292,21 @@ namespace Stratum.Droid.Activity
                 RunOnUiThread(delegate { searchItem.CollapseActionView(); });
             }
 
+            HideAuthenticatorList();
+        }
+
+        private void HideAuthenticatorList()
+        {
             RunOnUiThread(delegate
             {
-                if (_authenticatorList != null)
+                if (_authenticatorList == null)
                 {
-                    AnimUtil.FadeOutView(_authenticatorList, AnimUtil.LengthLong);
+                    return;
                 }
+
+                _authenticatorList.Animation?.Cancel();
+                _authenticatorList.ClearAnimation();
+                _authenticatorList.Visibility = ViewStates.Invisible;
             });
         }
 
