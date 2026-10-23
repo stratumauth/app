@@ -181,10 +181,17 @@ namespace Stratum.Core
 
             var pinLength = 0;
 
-            if (type == AuthenticatorType.YandexOtp && args.TryGetValue("pin_length", out var pinLengthParam) &&
-                !int.TryParse(pinLengthParam, out pinLength))
+            if (type == AuthenticatorType.YandexOtp)
             {
-                throw new ArgumentException("Pin length parameter cannot be parsed");
+                if (!args.TryGetValue("pin_length", out var pinLengthParam))
+                {
+                    throw new ArgumentException("The pin length parameter is required");
+                }
+
+                if (!int.TryParse(pinLengthParam, out pinLength))
+                {
+                    throw new ArgumentException("Pin length parameter cannot be parsed");
+                }
             }
 
             var auth = new Authenticator

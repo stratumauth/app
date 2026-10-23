@@ -36,7 +36,9 @@ namespace Stratum.Test.General
         [InlineData("otpauth://hotp/issuer:username?secret=ABCDEFG&counter=test")] // Invalid counter 1/2
         [InlineData("otpauth://hotp/issuer:username?secret=ABCDEFG&counter=-1")] // Invalid counter 2/2
         [InlineData("motp://fail")] // Invalid mOTP
-        [InlineData("otpauth://yaotp/issuer:username?secret=ABCDEFG&pin_length=test")] // Invalid Yandex pin length
+        [InlineData("otpauth://yaotp/issuer:username?secret=ABCDEFG")] // Missing Yandex pin length
+        [InlineData("otpauth://yaotp/issuer:username?secret=ABCDEFG&pin_length=0")] // Invalid Yandex pin length 1/2
+        [InlineData("otpauth://yaotp/issuer:username?secret=ABCDEFG&pin_length=test")] // Invalid Yandex pin length 2/2
         public void ParseStandardUri_invalid(string uri)
         {
             Assert.Throws<ArgumentException>(delegate { _ = UriParser.ParseStandardUri(uri, _iconResolver.Object); });

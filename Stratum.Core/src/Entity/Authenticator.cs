@@ -222,6 +222,19 @@ namespace Stratum.Core.Entity
                 throw new ArgumentException("Period cannot be negative or zero");
             }
 
+            if (Type.HasPin())
+            {
+                if (Pin?.Length < Type.GetMinPinLength())
+                {
+                    throw new ArgumentException($"Pin cannot be shorter than {Type.GetMinPinLength()} characters");
+                }
+
+                if (Pin?.Length > Type.GetMaxPinLength())
+                {
+                    throw new ArgumentException($"Pin cannot be longer than {Type.GetMaxPinLength()} characters");
+                }
+            }
+
             SecretUtil.Validate(Secret, Type);
         }
     }
