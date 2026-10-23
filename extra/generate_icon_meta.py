@@ -6,14 +6,17 @@
 import csv
 import functools
 import hashlib
+import io
 import os
 
 from typing import TypedDict, get_type_hints, Optional
 
 import bs4
-import requests
+import cairosvg
 
 from bs4 import BeautifulSoup
+from curl_cffi import requests
+from PIL import Image
 
 
 class MetadataEntry(TypedDict):
@@ -27,6 +30,10 @@ class MetadataEntry(TypedDict):
 type MetadataMap = dict[str, MetadataEntry]
 
 REQUEST_TIMEOUT = 10
+
+SVG_RENDER_SIZE = 256
+
+SESSION = requests.Session(impersonate="chrome")
 
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 MAIN_DIR = os.path.realpath(os.path.join(CURRENT_DIR, os.pardir))
@@ -77,7 +84,7 @@ def _write_metadata(metadata: MetadataMap):
 
 
 def _get_soup(url: str) -> bs4.BeautifulSoup:
-    res = requests.get(url, timeout=REQUEST_TIMEOUT)
+    res = SESSION.get(url, timeout=REQUEST_TIMEOUT)
     res.raise_for_status()
     return BeautifulSoup(res.text, "html.parser")
 
@@ -91,7 +98,7 @@ def _get_favicon_from_soup(base_url: str, soup: bs4.BeautifulSoup) -> Optional[s
         ):
             href = tag.get("href")
 
-            if href.startswith("data:image"):
+            if href.startswith("data:"):
                 continue
 
             if href.startswith("http"):
@@ -120,15 +127,35 @@ def _strip_query_string(url: Optional[str]) -> Optional[str]:
     return url[:query_string_pos]
 
 
+def _decode_image(data: bytes, is_svg: bool) -> Image.Image:
+    if is_svg:
+        data = cairosvg.svg2png(bytestring=data, output_width=SVG_RENDER_SIZE)
+
+    return Image.open(io.BytesIO(data)).convert("RGBA")
+
+
 @functools.lru_cache(maxsize=None)
 def _get_image_hash(image_url: str) -> Optional[str]:
-    res = requests.get(image_url, timeout=REQUEST_TIMEOUT)
+    res = SESSION.get(image_url, timeout=REQUEST_TIMEOUT)
 
     if res.status_code == 404:
         return None
 
     res.raise_for_status()
-    return hashlib.md5(res.content).hexdigest()
+
+    content_type = res.headers.get("content-type", "")
+
+    if content_type.startswith("text/"):
+        return None
+
+    is_svg = content_type.startswith("image/svg") or image_url.endswith(".svg")
+
+    try:
+        image = _decode_image(res.content, is_svg)
+    except Exception:
+        return None
+
+    return hashlib.md5(image.tobytes()).hexdigest()
 
 
 def _enrich_metadata_entry(entry: MetadataEntry) -> MetadataEntry:
@@ -165,7 +192,7 @@ def _enrich_metadata_entry(entry: MetadataEntry) -> MetadataEntry:
     return entry
 
 
-def _has_icon_changed(entry: MetadataEntry) -> bool:
+def _has_icon_changed(entry: MetadataEntry) -> Optional[bool]:
     if entry["image_url"] is None or entry["image_hash"] is None:
         return False
 
@@ -195,7 +222,9 @@ def main():
     new_metadata = {}
 
     icons = _get_icon_names()
+
     changed_icons = []
+    not_found_icons = []
 
     for icon in icons:
         if icon not in current_metadata:
@@ -214,7 +243,11 @@ def main():
                 entry = current_metadata[icon]
 
         try:
-            if _has_icon_changed(entry):
+            has_changed = _has_icon_changed(entry)
+
+            if has_changed is None:
+                not_found_icons.append(icon)
+            elif has_changed:
                 changed_icons.append(icon)
         except Exception as e:
             print(f"error: Failed to check for icon changes: {e}")
@@ -225,6 +258,9 @@ def main():
 
     for icon in changed_icons:
         print(f"Icon '{icon}' hash changed since last check")
+
+    for icon in not_found_icons:
+        print(f"Icon '{icon}' not found, file probably moved")
 
 
 if __name__ == "__main__":
