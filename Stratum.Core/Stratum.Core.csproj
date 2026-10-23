@@ -6,12 +6,12 @@
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="BouncyCastle.Cryptography" Version="2.7.0" />
         <PackageReference Include="HtmlAgilityPack" Version="1.13.0" />
         <PackageReference Include="Konscious.Security.Cryptography.Argon2" Version="1.3.1" />
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.1.26425.128">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Portable.BouncyCastle" Version="1.9.0"/>
         <PackageReference Include="protobuf-net" Version="3.4.30" />
         <PackageReference Include="QRCoder" Version="1.8.0" />
         <PackageReference Include="SharpZipLib" Version="1.4.2"/>

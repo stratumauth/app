@@ -86,7 +86,7 @@ namespace Stratum.Core.Converter.Crypto
             
             var givenMac = data[(1 + messageLength)..];
             
-            if (!Arrays.ConstantTimeAreEqual(computedMac, givenMac))
+            if (!Arrays.FixedTimeEquals(computedMac, givenMac))
             {
                 throw new InvalidCipherTextException("MAC does not match");
             }

@@ -117,7 +117,7 @@ namespace Stratum.Core.Converter
             using var hmac = new HMACSHA256(key);
             var hash = hmac.ComputeHash(material);
 
-            return Arrays.ConstantTimeAreEqual(hash, expected);
+            return Arrays.FixedTimeEquals(hash, expected);
         }
 
         private static Task<byte[]> DeriveKeyAsync(Encryption encryption, string password)
