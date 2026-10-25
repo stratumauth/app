@@ -8,7 +8,11 @@
 
 A free open-source two factor authentication app for Android. It features encrypted backups, icons, categories and a high level of customisation. It also has a Wear OS companion app.
 
-It supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
+## iOS app
+
+A native SwiftUI iOS app is being developed alongside the Android app. It supports the Stratum OTP types, categories, custom icons, secure Keychain storage, and compatible backup import/export; see [`ios/README.md`](./ios/README.md) for setup details.
+
+The Android app supports TOTP (Time Based) and HOTP (Counter Based) authenticators using either SHA1, SHA256 or SHA512 hashing algorithms. Mobile-Otp (mOTP), Steam and Yandex are also supported.
 
 ## Download ⬇️
 [<img alt="Get it on Google Play" height="100" src="./doc/googleplay.png">](https://play.google.com/store/apps/details?id=com.stratumauth.app)
