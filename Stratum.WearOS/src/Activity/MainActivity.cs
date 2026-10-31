@@ -34,7 +34,7 @@ namespace Stratum.WearOS.Activity
         // Query Paths
         private const string ProtocolVersion = "protocol_v4.0";
         private const string GetSyncBundlePath = "get_sync_bundle";
-        private static readonly TimeSpan SyncTimeout = TimeSpan.FromSeconds(20);
+        private static readonly TimeSpan SyncTimeout = TimeSpan.FromSeconds(60);
         
         // Result Keys
         public const string ResultItemClicked = "clicked";
