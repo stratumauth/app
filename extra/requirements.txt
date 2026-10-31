@@ -18,7 +18,7 @@ joblib==1.6.0
 mypy_extensions==1.1.0
 packaging==26.3
 pathspec==1.1.1
-pillow==12.3.0
+pillow==13.0.0
 platformdirs==4.13.0
 pycparser==3.11
 pytokens==0.4.1
