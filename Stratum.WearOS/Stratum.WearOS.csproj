@@ -9,7 +9,6 @@
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);XA4218</MSBuildWarningsAsMessages>
-        <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -18,14 +17,13 @@
         <RuntimeIdentifiers>android-x64</RuntimeIdentifiers>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
-        <AndroidStripILAfterAOT>true</AndroidStripILAfterAOT>
         <PublishTrimmed>true</PublishTrimmed>
         <TrimMode>full</TrimMode>
         <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
         <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
         <NoWarn>$(NoWarn);IL2026;IL2104</NoWarn>
         <RuntimeIdentifiers>android-arm;android-arm64;android-x64</RuntimeIdentifiers>
+        <AndroidLinkTool>r8</AndroidLinkTool>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Autofac" Version="9.3.4" />
@@ -33,7 +31,6 @@
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.3.26522.148">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Mono.AotProfiler.Android" Version="10.0.0-preview1" />
         <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0.3" />
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.11.0.1" />
         <PackageReference Include="Xamarin.AndroidX.Wear" Version="1.4.0.2" />
@@ -45,9 +42,6 @@
     <ItemGroup>
         <ProjectReference Include="..\Stratum.Droid.Shared\Stratum.Droid.Shared.csproj" />
         <ProjectReference Include="..\Stratum.Core\Stratum.Core.csproj" />
-    </ItemGroup>
-    <ItemGroup>
-        <AndroidAotProfile Include="custom.aprof" />
     </ItemGroup>
     <ItemGroup>
         <ProguardConfiguration Include="proguard.cfg" />

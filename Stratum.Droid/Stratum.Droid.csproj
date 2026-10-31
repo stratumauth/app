@@ -17,21 +17,19 @@
         <RuntimeIdentifiers>android-x64</RuntimeIdentifiers>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-        <AndroidUseDefaultAotProfile>false</AndroidUseDefaultAotProfile>
-        <AndroidStripILAfterAOT>true</AndroidStripILAfterAOT>
         <PublishTrimmed>true</PublishTrimmed>
         <TrimMode>full</TrimMode>
         <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
         <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
         <NoWarn>$(NoWarn);IL2026;IL2104</NoWarn>
         <RuntimeIdentifiers>android-arm64;android-x64</RuntimeIdentifiers>
+        <AndroidLinkTool>r8</AndroidLinkTool>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Autofac" Version="9.3.4" />
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.3.26522.148">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Mono.AotProfiler.Android" Version="10.0.0-preview1" />
         <PackageReference Include="Serilog" Version="4.4.0" />
         <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
         <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
@@ -64,9 +62,6 @@
     <ItemGroup>
         <ProjectReference Include="..\Stratum.Droid.Shared\Stratum.Droid.Shared.csproj" />
         <ProjectReference Include="..\Stratum.Core\Stratum.Core.csproj" />
-    </ItemGroup>
-    <ItemGroup>
-        <AndroidAotProfile Include="custom.aprof" />
     </ItemGroup>
     <ItemGroup>
         <ProguardConfiguration Include="proguard.cfg" />
