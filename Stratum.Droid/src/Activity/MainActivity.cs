@@ -979,7 +979,8 @@ namespace Stratum.Droid.Activity
                 categoryName = metaCategory switch
                 {
                     MetaCategory.All => GetString(Resource.String.categoryAll),
-                    MetaCategory.Uncategorised => GetString(Resource.String.categoryUncategorised)
+                    MetaCategory.Uncategorised => GetString(Resource.String.categoryUncategorised),
+                    _ => throw new ArgumentOutOfRangeException(nameof(metaCategory))
                 };
             }
             else if (selector.IsCategory(out var categoryId))

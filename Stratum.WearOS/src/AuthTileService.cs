@@ -19,6 +19,8 @@ using Stratum.WearOS.Activity;
 using Stratum.WearOS.Cache;
 using Stratum.WearOS.Util;
 
+#pragma warning disable CS0618, CS0672
+
 namespace Stratum.WearOS
 {
     [Service(Exported = true, Permission = "com.google.android.wearable.permission.BIND_TILE_PROVIDER",

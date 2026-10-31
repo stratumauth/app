@@ -94,6 +94,7 @@ namespace Stratum.Droid.Activity
             var resources = context.Resources;
             var config = resources?.Configuration;
 
+#pragma warning disable CA1422
             Locale locale;
 
             if (language == "system")
@@ -109,6 +110,7 @@ namespace Stratum.Droid.Activity
             {
                 locale = new Locale(language);
             }
+#pragma warning restore CA1422
 
             config?.SetLocale(locale);
 
@@ -204,9 +206,8 @@ namespace Stratum.Droid.Activity
                 return;
             }
 
+#pragma warning disable CA1416, CA1422
             Window.SetStatusBarColor(Color.Transparent);
-
-#pragma warning disable CA1416
             Window.SetDecorFitsSystemWindows(false);
             Window.SetNavigationBarColor(Color.Transparent);
 
@@ -216,7 +217,7 @@ namespace Stratum.Droid.Activity
                     (int) WindowInsetsControllerAppearance.LightStatusBars,
                     (int) WindowInsetsControllerAppearance.LightStatusBars);
             }
-#pragma warning restore CA1416
+#pragma warning restore CA1416, CA1422
         }
 
         protected override void OnResume()
@@ -227,11 +228,11 @@ namespace Stratum.Droid.Activity
             var colourId = AccentColourMap.GetColourId(Preferences.AccentColour);
             var colour = new Color(ContextCompat.GetColor(this, colourId));
 
+#pragma warning disable CA1416, CA1422, CS0618
             switch (Build.VERSION.SdkInt)
             {
                 case >= BuildVersionCodes.Tiramisu:
                 {
-#pragma warning disable CA1416
                     var description = new ActivityManager.TaskDescription.Builder()
                         .SetLabel(label)
                         .SetIcon(Resource.Mipmap.ic_launcher);
@@ -243,26 +244,20 @@ namespace Stratum.Droid.Activity
 
                     SetTaskDescription(description.Build());
                     break;
-#pragma warning restore CA1416
                 }
 
                 case >= BuildVersionCodes.P:
-#pragma warning disable CS0618
-#pragma warning disable CA1416
                     SetTaskDescription(new ActivityManager.TaskDescription(label, Resource.Mipmap.ic_launcher, colour));
-#pragma warning restore CA1416
-#pragma warning restore CS0618
                     break;
 
                 default:
                 {
                     var bitmap = BitmapFactory.DecodeResource(Resources, Resource.Mipmap.ic_launcher);
-#pragma warning disable CS0618
                     SetTaskDescription(new ActivityManager.TaskDescription(label, bitmap, colour));
-#pragma warning restore CS0618
                     break;
                 }
             }
+#pragma warning restore CA1416, CA1422, CS0618
 
             if (_updatedThemeOnCreate)
             {

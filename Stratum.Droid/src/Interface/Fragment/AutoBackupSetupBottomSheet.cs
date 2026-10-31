@@ -156,6 +156,7 @@ namespace Stratum.Droid.Interface.Fragment
                 return;
             }
 
+#pragma warning disable CA1416
             if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) !=
                 Permission.Granted)
             {
@@ -166,10 +167,12 @@ namespace Stratum.Droid.Interface.Fragment
             {
                 ShowBatteryOptimisationDialog();
             }
+#pragma warning restore CA1416
         }
 
         private void OnBackupNowButtonClick(object sender, EventArgs e)
         {
+#pragma warning disable CA1416
             if (ContextCompat.CheckSelfPermission(RequireContext(), Manifest.Permission.PostNotifications) !=
                 Permission.Granted)
             {
@@ -180,6 +183,7 @@ namespace Stratum.Droid.Interface.Fragment
             {
                 BackupNow();
             }
+#pragma warning restore CA1416
         }
 
         private void BackupNow()
@@ -200,7 +204,9 @@ namespace Stratum.Droid.Interface.Fragment
 
             if (_preferences.AutoBackupUri != null)
             {
+#pragma warning disable CA1416
                 intent.PutExtra(DocumentsContract.ExtraInitialUri, _preferences.AutoBackupUri);
+#pragma warning restore CA1416
             }
 
             var baseApplication = ((SettingsActivity) Context).BaseApplication;

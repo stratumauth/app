@@ -84,7 +84,8 @@ namespace Stratum.Droid.Interface.Adapter
                 return metaCategory switch
                 {
                     MetaCategory.All => 0,
-                    MetaCategory.Uncategorised => 1
+                    MetaCategory.Uncategorised => 1,
+                    _ => throw new ArgumentOutOfRangeException(nameof(metaCategory))
                 };
             }
 

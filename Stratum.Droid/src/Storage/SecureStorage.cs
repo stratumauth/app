@@ -228,7 +228,7 @@ namespace Stratum.Droid.Storage
                     // Otherwise we create a new key
                     var generator = KeyPairGenerator.GetInstance(AsymmetricAlgorithm, KeyStoreName);
 
-#pragma warning disable CA1422
+#pragma warning disable CA1422, CS0618
                     var soec = new KeyPairGeneratorSpec.Builder(_context)
                         .SetAlias(asymmetricAlias)
                         .SetSerialNumber(BigInteger.One)
@@ -238,7 +238,7 @@ namespace Stratum.Droid.Storage
                         .Build();
 
                     generator.Initialize(soec);
-#pragma warning restore CA1422
+#pragma warning restore CA1422, CS0618
 
                     return generator.GenerateKeyPair();
                 }
@@ -261,9 +261,9 @@ namespace Stratum.Droid.Storage
 #pragma warning restore CA1416
             }
 
-#pragma warning disable CA1422
+#pragma warning disable CA1422, CS0618
             return configuration.Locale;
-#pragma warning restore CA1422
+#pragma warning restore CA1422, CS0618
         }
 
         private void SetLocale(Locale locale)
@@ -279,10 +279,10 @@ namespace Stratum.Droid.Storage
             }
             else
             {
-#pragma warning disable CA1422
+#pragma warning disable CA1422, CS0618
                 configuration.Locale = locale;
                 _context.Resources.UpdateConfiguration(configuration, _context.Resources.DisplayMetrics);
-#pragma warning restore CA1422
+#pragma warning restore CA1422, CS0618
             }
         }
 

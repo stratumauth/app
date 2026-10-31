@@ -23,6 +23,7 @@
         <TrimMode>full</TrimMode>
         <TrimmerRootDescription>trim.xml</TrimmerRootDescription>
         <JsonSerializerIsReflectionEnabledByDefault>true</JsonSerializerIsReflectionEnabledByDefault>
+        <NoWarn>$(NoWarn);IL2026;IL2104</NoWarn>
         <RuntimeIdentifiers>android-arm64;android-x64</RuntimeIdentifiers>
     </PropertyGroup>
     <ItemGroup>

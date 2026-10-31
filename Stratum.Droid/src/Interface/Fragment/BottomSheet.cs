@@ -47,23 +47,21 @@ namespace Stratum.Droid.Interface.Fragment
                 BottomSheetBehavior.From(bottomSheet).State = BottomSheetBehavior.StateExpanded;
             };
 
+#pragma warning disable CA1416, CA1422
             if (Build.VERSION.SdkInt >= BuildVersionCodes.OMr1)
             {
                 dialog.Window.SetNavigationBarColor(Color.Transparent);
-                
+
                 if (!IsDark && Build.VERSION.SdkInt < BuildVersionCodes.R)
                 {
-#pragma warning disable CA1422
-#pragma warning disable CA1416
                     dialog.Window.DecorView.SystemUiFlags = SystemUiFlags.LightNavigationBar;
-#pragma warning restore CA1422
-#pragma warning restore CA1416
                 }
             }
             else
             {
                 dialog.Window.SetNavigationBarColor(Color.Black);
             }
+#pragma warning restore CA1416, CA1422
 
             dialog.Window.SetSoftInputMode(SoftInput.AdjustResize);
 
