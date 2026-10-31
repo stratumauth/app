@@ -28,7 +28,7 @@
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Autofac" Version="9.3.4" />
-        <PackageReference Include="DotNext.Threading" Version="6.9.0" />
+        <PackageReference Include="DotNext.Threading" Version="6.11.1" />
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.1.26425.128">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
@@ -36,10 +36,10 @@
         <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.2.0.3" />
         <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.11.0.1" />
         <PackageReference Include="Xamarin.AndroidX.Wear" Version="1.4.0.2" />
-        <PackageReference Include="Xamarin.AndroidX.Wear.Tiles" Version="1.6.1" />
-        <PackageReference Include="Xamarin.AndroidX.Wear.Tiles.Material" Version="1.6.1" />
-        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.14.0.5" />
-        <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="120.0.1.1" />
+        <PackageReference Include="Xamarin.AndroidX.Wear.Tiles" Version="1.6.2" />
+        <PackageReference Include="Xamarin.AndroidX.Wear.Tiles.Material" Version="1.6.2" />
+        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.14.0.6" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Wearable" Version="120.0.1.2" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Stratum.Droid.Shared\Stratum.Droid.Shared.csproj" />

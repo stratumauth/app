@@ -10,6 +10,7 @@
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.1.26425.128">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+        <PackageReference Include="Xamarin.AndroidX.Fragment.Ktx" Version="1.9.1" />
         <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.18" />
     </ItemGroup>
     <ItemGroup>

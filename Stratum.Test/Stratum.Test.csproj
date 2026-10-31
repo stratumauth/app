@@ -14,12 +14,12 @@
         <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="11.0.100-rc.1.26425.128">
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.10.1" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.11.0" />
         <PackageReference Include="Moq" Version="4.21.0" />
-        <PackageReference Include="SkiaSharp" Version="4.153.1" />
-        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="4.153.1" />
-        <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="4.153.1" />
-        <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="4.153.1" />
+        <PackageReference Include="SkiaSharp" Version="4.154.0" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="4.154.0" />
+        <PackageReference Include="SkiaSharp.NativeAssets.macOS" Version="4.154.0" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Win32" Version="4.154.0" />
         <PackageReference Include="xunit" Version="2.9.3" />
         <PackageReference Include="xunit.runner.visualstudio" Version="4.0.1">
             <PrivateAssets>all</PrivateAssets>
