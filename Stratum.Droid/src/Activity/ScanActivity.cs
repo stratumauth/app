@@ -19,7 +19,7 @@ using Stratum.Droid.QrCode;
 namespace Stratum.Droid.Activity
 {
     [Activity(EnableOnBackInvokedCallback = true)]
-    public class ScanActivity : BaseActivity
+    public class ScanActivity : SensitiveSubActivity
     {
         private PreviewView _previewView;
         private IExecutorService _executorService;
