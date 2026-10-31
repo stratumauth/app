@@ -80,6 +80,7 @@ namespace Stratum.WearOS.Activity
             await Task.WhenAll(_authCache.InitAsync(), _categoryCache.InitAsync(), _customIconCache.InitAsync());
 
             _categoryView.Update();
+            _authView.CategoryId = GetDefaultCategoryId();
             _authView.SortMode = _preferences.SortMode;
             _isFastStartup = _authCache.GetItems().Any();
 
