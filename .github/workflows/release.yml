@@ -87,7 +87,7 @@ jobs:
           draft: true
 
   fdroid:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     needs: build 
     steps:
       - name: Checkout
@@ -98,9 +98,6 @@ jobs:
           sudo add-apt-repository -y ppa:fdroid/fdroidserver
           sudo apt-get -qq update
           sudo apt-get -yqq install fdroidserver
-
-          # TEMP: fix androguard compatibility
-          sudo pip install androguard==4.1.3 --break-system-packages --ignore-installed
 
       - name: Prepare config
         run: |
