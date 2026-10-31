@@ -8,7 +8,7 @@ namespace Stratum.Droid.Shared
     // GENERATED CLASS, SHOULD NOT BE EDITED DIRECTLY
     public static class IconMap
     {
-        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(788)
+        public static readonly IReadOnlyDictionary<string, int> Service = new Dictionary<string, int>(789)
         {
             ["123formbuilder"] = Resource.Drawable.auth_123formbuilder,
             ["15five"] = Resource.Drawable.auth_15five,
@@ -709,6 +709,7 @@ namespace Stratum.Droid.Shared
             ["tweakers"] = Resource.Drawable.auth_tweakers,
             ["twilio"] = Resource.Drawable.auth_twilio,
             ["twitch"] = Resource.Drawable.auth_twitch,
+            ["typst"] = Resource.Drawable.auth_typst,
             ["uber"] = Resource.Drawable.auth_uber,
             ["ubiquiti"] = Resource.Drawable.auth_ubiquiti,
             ["ubisoft"] = Resource.Drawable.auth_ubisoft,
