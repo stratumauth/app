@@ -4,7 +4,7 @@ beautifulsoup4==4.15.0
 black==26.10.1
 cairocffi==1.7.1
 CairoSVG==2.9.1
-certifi==2026.7.22
+certifi==2026.10.18
 cffi==2.1.1
 charset-normalizer==3.5.2
 click==8.5.0
