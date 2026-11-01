@@ -5,3 +5,8 @@ updates:
   open-pull-requests-limit: 25
   schedule:
     interval: daily
+- package-ecosystem: pip
+  directory: /extra
+  open-pull-requests-limit: 0
+  schedule:
+    interval: daily
