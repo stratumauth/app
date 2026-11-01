@@ -1,0 +1,7 @@
+Android 7.0 (64-bit) or later is now required
+
+- General: Improvements to QR code scanning
+- General: 21 new icons + 5 updated icons
+- General: Translation updates
+- General: Various bug fixes and improvements
+- Wear OS: Swipe back from categories
