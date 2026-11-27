@@ -18,6 +18,7 @@ using Stratum.Droid.Callback;
 using Stratum.Droid.Interface.Fragment;
 using Stratum.Droid.Interface.Preference;
 using Stratum.Droid.Storage;
+using Stratum.Droid.WebDav;
 using BiometricManager = AndroidX.Biometric.BiometricManager;
 using BiometricPrompt = AndroidX.Biometric.BiometricPrompt;
 
@@ -229,6 +230,8 @@ namespace Stratum.Droid.Activity
                     Preferences.AllowBiometrics = false;
                 }
             };
+
+            WebDavSettingsEntry.Install(_fragment, SupportFragmentManager, this);
         }
 
         #region Preference states

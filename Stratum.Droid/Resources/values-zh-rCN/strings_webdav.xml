@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="webdavSettingsTitle">云备份（WebDAV）</string>
+    <string name="webdavEnable">启用云备份</string>
+    <string name="webdavUrl">服务器地址（https://host/dav/...）</string>
+    <string name="webdavDirectory">备份目录</string>
+    <string name="webdavUsername">用户名</string>
+    <string name="webdavPassword">密码</string>
+    <string name="webdavTrustAll">信任所有证书</string>
+    <string name="webdavTest">测试连接</string>
+    <string name="webdavBackupNow">立即备份（本地 + 云端）</string>
+    <string name="webdavSave">保存</string>
+    <string name="webdavTesting">正在测试连接…</string>
+    <string name="webdavTestOk">连接成功</string>
+    <string name="webdavTestFailed">连接失败：%1$s</string>
+    <string name="webdavSaved">已保存</string>
+    <string name="webdavNotConfigured">请先启用 WebDAV 并填写服务器信息</string>
+    <string name="webdavBackupScheduled">已安排备份</string>
+    <string name="webdavNeedAutoBackup">请先设置本地自动备份目录</string>
+    <string name="webdavRestoreTitle">从 WebDAV 恢复</string>
+    <string name="webdavLoading">正在获取云端备份…</string>
+    <string name="webdavNoBackups">服务器上没有备份</string>
+    <string name="webdavLoadFailed">获取备份失败：%1$s</string>
+    <string name="webdavRestoreToApp">在 Stratum 中恢复</string>
+    <string name="webdavDownloadToLocal">下载到本地备份目录</string>
+    <string name="webdavDownloaded">已下载到本地备份目录</string>
+    <string name="webdavRestoreFailed">恢复失败：%1$s</string>
+    <string name="webdavMenuRestore">从 WebDAV 恢复</string>
+    <string name="webdavSummaryDisabled">已停用</string>
+    <string name="webdavSummaryNotConfigured">未配置</string>
+</resources>
+

@@ -49,6 +49,7 @@ using Stratum.Droid.Interface.LayoutManager;
 using Stratum.Droid.Persistence.View;
 using Stratum.Droid.QrCode;
 using Stratum.Droid.Util;
+using Stratum.Droid.WebDav;
 using Configuration = Android.Content.Res.Configuration;
 using Insets = AndroidX.Core.Graphics.Insets;
 using SearchView = AndroidX.AppCompat.Widget.SearchView;
@@ -65,7 +66,7 @@ namespace Stratum.Droid.Activity
         EnableOnBackInvokedCallback = true)]
     [IntentFilter(new[] { Intent.ActionView }, Categories = new[] { Intent.CategoryDefault, Intent.CategoryBrowsable },
         DataSchemes = new[] { "otpauth", "otpauth-migration" })]
-    public class MainActivity : AsyncActivity
+    public partial class MainActivity : AsyncActivity
     {
         private const int PermissionCameraCode = 0;
         private const int BackupReminderThresholdMinutes = 120;
@@ -1180,6 +1181,7 @@ namespace Stratum.Droid.Activity
 
             fragment.EnterKeyClicked += OpenAddDialog;
             fragment.RestoreClicked += delegate { StartFilePickActivity("*/*", RequestRestore); };
+            fragment.WebDavRestoreClicked += async delegate { await WebDavRestoreUi.ShowAsync(this); };
             fragment.ImportClicked += delegate { OpenImportMenu(); };
 
             fragment.Show(SupportFragmentManager, fragment.Tag);
@@ -1703,6 +1705,8 @@ namespace Stratum.Droid.Activity
                 {
                     var data = await encryption.EncryptAsync(backup, password);
                     await FileUtil.WriteFileAsync(this, destination, data);
+                    await WebDavBackupService.TryUploadAsync(this,
+                        FileUtil.GetDisplayName(ContentResolver, destination), data);
                 }
                 catch (Exception e)
                 {

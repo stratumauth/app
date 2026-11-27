@@ -18,6 +18,7 @@ using Stratum.Droid.Extension;
 using Serilog;
 using Stratum.Droid.Activity;
 using Stratum.Droid.Util;
+using Stratum.Droid.WebDav;
 using Uri = Android.Net.Uri;
 
 namespace Stratum.Droid
@@ -107,6 +108,10 @@ namespace Stratum.Droid
             }
 
             await FileUtil.WriteFileAsync(_context, file.Uri, dataToWrite);
+
+            // WebDAV 双备份：失败只记状态，不影响本地备份结果
+            await WebDavBackupService.TryUploadAsync(_context, file.Name, dataToWrite);
+
             return new BackupResult(file.Name);
         }
 

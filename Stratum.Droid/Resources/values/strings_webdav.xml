@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="webdavSettingsTitle">WebDAV cloud backup</string>
+    <string name="webdavEnable">Enable cloud backup</string>
+    <string name="webdavUrl">Server URL (https://host/dav/...)</string>
+    <string name="webdavDirectory">Backup folder</string>
+    <string name="webdavUsername">Username</string>
+    <string name="webdavPassword">Password</string>
+    <string name="webdavTrustAll">Trust all certificates</string>
+    <string name="webdavTest">Test connection</string>
+    <string name="webdavBackupNow">Back up now (local + cloud)</string>
+    <string name="webdavSave">Save</string>
+    <string name="webdavTesting">Testing connection…</string>
+    <string name="webdavTestOk">Connection OK</string>
+    <string name="webdavTestFailed">Connection failed: %1$s</string>
+    <string name="webdavSaved">Saved</string>
+    <string name="webdavNotConfigured">Enable WebDAV and fill in the server first</string>
+    <string name="webdavBackupScheduled">Backup scheduled</string>
+    <string name="webdavNeedAutoBackup">Set up local auto backup first</string>
+    <string name="webdavRestoreTitle">Restore from WebDAV</string>
+    <string name="webdavLoading">Loading cloud backups…</string>
+    <string name="webdavNoBackups">No backups on the server</string>
+    <string name="webdavLoadFailed">Failed to load backups: %1$s</string>
+    <string name="webdavRestoreToApp">Restore in Stratum</string>
+    <string name="webdavDownloadToLocal">Save to local backup folder</string>
+    <string name="webdavDownloaded">Downloaded to local backup folder</string>
+    <string name="webdavRestoreFailed">Restore failed: %1$s</string>
+    <string name="webdavMenuRestore">From WebDAV</string>
+    <string name="webdavSummaryDisabled">Disabled</string>
+    <string name="webdavSummaryNotConfigured">Not configured</string>
+</resources>
+
